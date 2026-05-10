@@ -83,3 +83,32 @@ body {
   margin: 1.5rem 0;
   border-color: #e4e4e7;
 }
+
+/* 暗色模式下的 prose 样式 */
+.dark .prose h1 {
+  border-bottom-color: #3f3f46;
+  color: #f4f4f5;
+}
+
+.dark .prose h2,
+.dark .prose h3 {
+  color: #e4e4e7;
+}
+
+.dark .prose p,
+.dark .prose li {
+  color: #d4d4d8;
+}
+
+.dark .prose code {
+  background-color: #27272a;
+  color: #f4f4f5;
+}
+
+.dark .prose strong {
+  color: #fafafa;
+}
+
+.dark .prose hr {
+  border-color: #3f3f46;
+}
