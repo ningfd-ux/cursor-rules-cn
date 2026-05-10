@@ -14,7 +14,7 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-const gaId = process.env.NEXT_PUBLIC_GA_ID || "";
+const gaId = "G-4ZJT8YPWT8";
 
 export const metadata: Metadata = {
   title: {
@@ -80,4 +80,5 @@ export default function RootLayout({
     </html>
   );
 }
+
 
