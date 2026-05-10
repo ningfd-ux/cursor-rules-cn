@@ -14,6 +14,9 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
+const gaId = process.env.NEXT_PUBLIC_GA_ID || "";
+const verificationId = process.env.NEXT_PUBLIC_GOOGLE_VERIFICATION || "";
+
 export const metadata: Metadata = {
   title: {
     default: "Cursor Rules 中文库 — AI 编程规则与 Prompt 大全",
@@ -38,6 +41,13 @@ export const metadata: Metadata = {
     type: "website",
     locale: "zh_CN",
   },
+  ...(verificationId
+    ? {
+        other: {
+          "google-site-verification": verificationId,
+        },
+      }
+    : {}),
 };
 
 export default function RootLayout({
@@ -50,6 +60,23 @@ export default function RootLayout({
       lang="zh-CN"
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
+      <head>
+        {gaId && (
+          <>
+            <script async src={`https://www.googletagmanager.com/gtag/js?id=${gaId}`} />
+            <script
+              dangerouslySetInnerHTML={{
+                __html: `
+                  window.dataLayer = window.dataLayer || [];
+                  function gtag(){dataLayer.push(arguments);}
+                  gtag('js', new Date());
+                  gtag('config', '${gaId}');
+                `,
+              }}
+            />
+          </>
+        )}
+      </head>
       <body className="flex min-h-full flex-col bg-zinc-50 dark:bg-zinc-950">
         <Header />
         <main className="flex-1">{children}</main>

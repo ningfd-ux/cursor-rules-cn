@@ -6,7 +6,18 @@ interface RuleCardProps {
   rule: Rule;
 }
 
+function contentPreview(content: string, lines = 3): string {
+  return content
+    .split("\n")
+    .filter((l) => l.trim() && !l.startsWith("#") && !l.startsWith("```"))
+    .slice(0, lines)
+    .map((l) => l.replace(/^[-*]\s*/, "").replace(/`([^`]+)`/g, "$1"))
+    .join("  ·  ");
+}
+
 export default function RuleCard({ rule }: RuleCardProps) {
+  const preview = contentPreview(rule.content);
+
   return (
     <Link
       href={`/rules/${rule.slug}`}
@@ -24,6 +35,11 @@ export default function RuleCard({ rule }: RuleCardProps) {
       <p className="text-sm leading-relaxed text-zinc-500 dark:text-zinc-400">
         {rule.description}
       </p>
+      {preview && (
+        <p className="mt-2 line-clamp-2 text-xs leading-relaxed text-zinc-400 dark:text-zinc-500">
+          {preview}
+        </p>
+      )}
       <div className="mt-3 flex flex-wrap gap-1.5">
         {rule.tags.slice(0, 3).map((tag) => (
           <span

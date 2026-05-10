@@ -166,6 +166,19 @@ export default async function RulePage({ params }: RulePageProps) {
           </div>
         </header>
 
+        <div className="mb-6 rounded-lg border border-blue-200 bg-blue-50 p-4 text-sm text-blue-800 dark:border-blue-800 dark:bg-blue-950 dark:text-blue-200">
+          <p className="flex items-center gap-2 font-medium">
+            <svg className="h-4 w-4 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+              <path strokeLinecap="round" strokeLinejoin="round" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+            如何使用？
+          </p>
+          <p className="mt-1">
+            将以下内容复制到项目根目录的 <code className="rounded bg-blue-100 px-1 py-0.5 text-xs dark:bg-blue-900 dark:text-blue-200">.cursorrules</code> 文件，
+            或直接在 Cursor 设置中粘贴即可生效。每条规则按场景分类，可根据需要自由组合。
+          </p>
+        </div>
+
         <div
           className="prose rounded-xl border border-zinc-200 bg-white p-6 dark:border-zinc-800 dark:bg-zinc-900"
           dangerouslySetInnerHTML={{ __html: renderContent(rule.content) }}

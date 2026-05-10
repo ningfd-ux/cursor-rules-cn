@@ -21,15 +21,23 @@ function HomeContent() {
       {/* Hero */}
       <section className="mb-12 text-center">
         <span className="mb-4 inline-block rounded-full bg-blue-100 px-3 py-1 text-xs font-medium text-blue-600 dark:bg-blue-900 dark:text-blue-300">
-          🆕 持续更新中
+          🆕 持续更新中 · 全部免费复制
         </span>
-        <h1 className="mb-3 text-3xl font-bold tracking-tight text-zinc-900 dark:text-zinc-100 sm:text-4xl">
-          Cursor Rules <span className="text-blue-600">中文库</span>
+        <h1 className="mb-4 text-3xl font-bold tracking-tight text-zinc-900 dark:text-zinc-100 sm:text-4xl">
+          复制即用的 <span className="text-blue-600">Cursor Rules</span>
         </h1>
-        <p className="mx-auto max-w-xl text-base leading-relaxed text-zinc-500 dark:text-zinc-400">
-          收录 Cursor、Claude Code、GitHub Copilot、Windsurf 等 AI 编程工具的
-          Rules、Prompt 模板和最佳实践。
+        <p className="mx-auto mb-6 max-w-2xl text-base leading-relaxed text-zinc-500 dark:text-zinc-400">
+          精选 Cursor、Claude Code、GitHub Copilot、Windsurf 等 AI 编程工具的
+          Rules 和 Prompt 模板。<br />
+          找到适合你的规则 → 一键复制 → 粘贴到项目根目录，立即生效。
         </p>
+        <div className="flex items-center justify-center gap-3 text-sm text-zinc-400 dark:text-zinc-500">
+          <span className="flex items-center gap-1">📦 {rules.length} 条规则</span>
+          <span>·</span>
+          <span className="flex items-center gap-1">📂 {categories.length} 个分类</span>
+          <span>·</span>
+          <span className="flex items-center gap-1">⚡ 即搜即用</span>
+        </div>
       </section>
 
       {/* 精选推荐 */}
