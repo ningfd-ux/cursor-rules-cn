@@ -1,5 +1,6 @@
 import Link from "next/link";
 import type { Rule } from "@/data/rules";
+import { getCategoryName } from "@/data/rules";
 
 interface RuleCardProps {
   rule: Rule;
@@ -14,11 +15,7 @@ export default function RuleCard({ rule }: RuleCardProps) {
       <div className="mb-3 flex items-center gap-2">
         <span className="text-xl">{rule.icon}</span>
         <span className="rounded-md bg-zinc-100 px-2 py-0.5 text-xs font-medium text-zinc-500 dark:bg-zinc-800 dark:text-zinc-400">
-          {rule.category === "cursor" && "Cursor"}
-          {rule.category === "claude" && "Claude Code"}
-          {rule.category === "copilot" && "Copilot"}
-          {rule.category === "windsurf" && "Windsurf"}
-          {rule.category === "general" && "通用"}
+          {getCategoryName(rule.category)}
         </span>
       </div>
       <h2 className="mb-1.5 text-base font-semibold text-zinc-900 group-hover:text-blue-600 dark:text-zinc-100 dark:group-hover:text-blue-400">

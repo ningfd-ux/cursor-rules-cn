@@ -1,9 +1,19 @@
+"use client";
+
+import { useSearchParams } from "next/navigation";
 import Link from "next/link";
+import { Suspense } from "react";
 import RuleCard from "@/components/RuleCard";
 import CategoryBadge from "@/components/CategoryBadge";
+import BackToTop from "@/components/BackToTop";
 import { rules, categories } from "@/data/rules";
 
-export default function Home() {
+function HomeContent() {
+  const searchParams = useSearchParams();
+  const activeCategory = searchParams.get("category");
+  const filteredRules = activeCategory
+    ? rules.filter((r) => r.category === activeCategory)
+    : rules;
   const featuredRules = rules.slice(0, 3);
 
   return (
@@ -42,10 +52,16 @@ export default function Home() {
         <div className="flex flex-wrap gap-2">
           <Link
             href="/"
-            className="inline-flex items-center gap-1.5 rounded-full bg-blue-600 px-3.5 py-1.5 text-sm font-medium text-white transition-colors"
+            className={`inline-flex items-center gap-1.5 rounded-full px-3.5 py-1.5 text-sm font-medium transition-colors ${
+              !activeCategory
+                ? "bg-blue-600 text-white"
+                : "bg-zinc-100 text-zinc-700 hover:bg-zinc-200 dark:bg-zinc-800 dark:text-zinc-300 dark:hover:bg-zinc-700"
+            }`}
           >
             全部
-            <span className="text-xs text-blue-200">{rules.length}</span>
+            <span className={`text-xs ${!activeCategory ? "text-blue-200" : "text-zinc-400 dark:text-zinc-500"}`}>
+              {rules.length}
+            </span>
           </Link>
           {categories.map((cat) => (
             <CategoryBadge
@@ -53,6 +69,7 @@ export default function Home() {
               name={cat.name}
               slug={cat.slug}
               count={cat.count}
+              active={activeCategory === cat.slug}
             />
           ))}
         </div>
@@ -62,16 +79,25 @@ export default function Home() {
       <section>
         <div className="mb-4 flex items-center justify-between">
           <h2 className="text-lg font-semibold text-zinc-900 dark:text-zinc-100">
-            📖 全部规则
+            📖 {activeCategory ? `${categories.find((c) => c.slug === activeCategory)?.name} ` : "全部"}规则
           </h2>
-          <span className="text-sm text-zinc-400">{rules.length} 条</span>
+          <span className="text-sm text-zinc-400">{filteredRules.length} 条</span>
         </div>
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          {rules.map((rule) => (
+          {filteredRules.map((rule) => (
             <RuleCard key={rule.slug} rule={rule} />
           ))}
         </div>
       </section>
+      <BackToTop />
     </div>
+  );
+}
+
+export default function Home() {
+  return (
+    <Suspense fallback={<div className="mx-auto max-w-5xl px-4 py-12 text-center text-zinc-400">加载中...</div>}>
+      <HomeContent />
+    </Suspense>
   );
 }

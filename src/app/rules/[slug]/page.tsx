@@ -1,7 +1,9 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import type { Metadata } from "next";
-import { rules } from "@/data/rules";
+import { rules, getCategoryName } from "@/data/rules";
+import CopyButton from "@/components/CopyButton";
+import BackToTop from "@/components/BackToTop";
 
 interface RulePageProps {
   params: Promise<{ slug: string }>;
@@ -31,53 +33,91 @@ export async function generateMetadata({ params }: RulePageProps): Promise<Metad
 
 function renderContent(content: string) {
   const lines = content.split("\n");
-  const html: string[] = [];
+  const result: string[] = [];
+  let i = 0;
 
-  for (const line of lines) {
+  while (i < lines.length) {
+    const line = lines[i];
+
+    // 代码块
     if (line.startsWith("```")) {
+      result.push("<pre><code>");
+      i++;
+      while (i < lines.length && !lines[i].startsWith("```")) {
+        result.push(escapeHtml(lines[i]));
+        result.push("\n");
+        i++;
+      }
+      result.push("</code></pre>");
+      i++; // skip closing ```
+      continue;
+    }
+
+    // 标题
+    if (line.startsWith("### ")) {
+      result.push(`<h3>${inlineMarkdown(line.slice(4))}</h3>`);
+      i++;
+      continue;
+    }
+    if (line.startsWith("## ")) {
+      result.push(`<h2>${inlineMarkdown(line.slice(3))}</h2>`);
+      i++;
       continue;
     }
     if (line.startsWith("# ")) {
-      html.push(`<h1>${line.replace(/^# /, "")}</h1>`);
-    } else if (line.startsWith("## ")) {
-      html.push(`<h2>${line.replace(/^## /, "")}</h2>`);
-    } else if (line.startsWith("### ")) {
-      html.push(`<h3>${line.replace(/^### /, "")}</h3>`);
-    } else if (line.startsWith("- ")) {
-      html.push(`<li>${line.replace(/^- /, "")}</li>`);
-    } else if (/^\d+\. /.test(line)) {
-      html.push(`<li>${line.replace(/^\d+\. /, "")}</li>`);
-    } else if (line.trim() === "") {
-      html.push("</ul><ul>".replace("</ul><ul>", "</ul><ul>"));
-    } else {
-      const escaped = line
-        .replace(/`([^`]+)`/g, "<code>$1</code>")
-        .replace(/\*\*([^*]+)\*\*/g, "<strong>$1</strong>");
-      html.push(`<p>${escaped}</p>`);
+      result.push(`<h1>${inlineMarkdown(line.slice(2))}</h1>`);
+      i++;
+      continue;
     }
-  }
 
-  // Wrap consecutive <li> in <ul>
-  const result: string[] = [];
-  let inList = false;
-  for (const el of html) {
-    if (el === "<li>" || el.startsWith("<li>")) {
-      if (!inList) {
-        result.push("<ul>");
-        inList = true;
+    // 无序列表
+    if (line.startsWith("- ")) {
+      result.push("<ul>");
+      while (i < lines.length && lines[i].startsWith("- ")) {
+        result.push(`<li>${inlineMarkdown(lines[i].slice(2))}</li>`);
+        i++;
       }
-      result.push(el);
-    } else {
-      if (inList) {
-        result.push("</ul>");
-        inList = false;
-      }
-      result.push(el);
+      result.push("</ul>");
+      continue;
     }
+
+    // 有序列表
+    if (/^\d+\.\s/.test(line)) {
+      result.push("<ol>");
+      while (i < lines.length && /^\d+\.\s/.test(lines[i])) {
+        const text = lines[i].replace(/^\d+\.\s/, "");
+        result.push(`<li>${inlineMarkdown(text)}</li>`);
+        i++;
+      }
+      result.push("</ol>");
+      continue;
+    }
+
+    // 空行
+    if (line.trim() === "") {
+      i++;
+      continue;
+    }
+
+    // 普通段落
+    result.push(`<p>${inlineMarkdown(line)}</p>`);
+    i++;
   }
-  if (inList) result.push("</ul>");
 
   return result.join("");
+}
+
+function escapeHtml(text: string): string {
+  return text
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;");
+}
+
+function inlineMarkdown(text: string): string {
+  return text
+    .replace(/`([^`]+)`/g, "<code>$1</code>")
+    .replace(/\*\*([^*]+)\*\*/g, "<strong>$1</strong>");
 }
 
 export default async function RulePage({ params }: RulePageProps) {
@@ -102,11 +142,7 @@ export default async function RulePage({ params }: RulePageProps) {
           <div className="mb-3 flex items-center gap-3">
             <span className="text-2xl">{rule.icon}</span>
             <span className="rounded-md bg-zinc-100 px-2 py-0.5 text-xs font-medium text-zinc-500 dark:bg-zinc-800 dark:text-zinc-400">
-              {rule.category === "cursor" && "Cursor"}
-              {rule.category === "claude" && "Claude Code"}
-              {rule.category === "copilot" && "Copilot"}
-              {rule.category === "windsurf" && "Windsurf"}
-              {rule.category === "general" && "通用"}
+              {getCategoryName(rule.category)}
             </span>
           </div>
           <h1 className="mb-2 text-2xl font-bold text-zinc-900 dark:text-zinc-100">
@@ -115,15 +151,18 @@ export default async function RulePage({ params }: RulePageProps) {
           <p className="text-base text-zinc-500 dark:text-zinc-400">
             {rule.description}
           </p>
-          <div className="mt-4 flex flex-wrap gap-1.5">
-            {rule.tags.map((tag: string) => (
-              <span
-                key={tag}
-                className="rounded bg-zinc-100 px-2 py-0.5 text-xs text-zinc-500 dark:bg-zinc-800 dark:text-zinc-400"
-              >
-                #{tag}
-              </span>
-            ))}
+          <div className="mt-4 flex flex-wrap items-center justify-between gap-4">
+            <div className="flex flex-wrap gap-1.5">
+              {rule.tags.map((tag: string) => (
+                <span
+                  key={tag}
+                  className="rounded bg-zinc-100 px-2 py-0.5 text-xs text-zinc-500 dark:bg-zinc-800 dark:text-zinc-400"
+                >
+                  #{tag}
+                </span>
+              ))}
+            </div>
+            <CopyButton content={rule.content} />
           </div>
         </header>
 
@@ -159,6 +198,7 @@ export default async function RulePage({ params }: RulePageProps) {
             ))}
         </div>
       </section>
+      <BackToTop />
     </div>
   );
 }

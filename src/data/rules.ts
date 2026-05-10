@@ -17,6 +17,17 @@ export const categories = [
   { slug: "general", name: "通用 AI 编程", count: 3 },
 ];
 
+export function getCategoryName(slug: string): string {
+  const map: Record<string, string> = {
+    cursor: "Cursor",
+    claude: "Claude Code",
+    copilot: "Copilot",
+    windsurf: "Windsurf",
+    general: "通用",
+  };
+  return map[slug] ?? slug;
+}
+
 export const rules: Rule[] = [
   {
     slug: "cursor-general-rules",
