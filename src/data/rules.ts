@@ -11,18 +11,13 @@ export interface Rule {
   appliesTo?: string;
 }
 
+
 export const categories = [
   { slug: "cursor", name: "Cursor Rules", count: 12 },
   { slug: "claude", name: "Claude Code", count: 7 },
   { slug: "copilot", name: "GitHub Copilot", count: 5 },
   { slug: "windsurf", name: "Windsurf", count: 4 },
   { slug: "tutorial", name: "教程指南", count: 5 },
-  { slug: "general", name: "通用 AI 编程", count: 5 },
-];
-  { slug: "cursor", name: "Cursor Rules", count: 12 },
-  { slug: "claude", name: "Claude Code", count: 7 },
-  { slug: "copilot", name: "GitHub Copilot", count: 5 },
-  { slug: "windsurf", name: "Windsurf", count: 4 },
   { slug: "general", name: "通用 AI 编程", count: 5 },
 ];
 
@@ -961,7 +956,7 @@ content: `    # AI 编程 Prompt 工程指南
 
 ## 结构化 Prompt 模板
 
-```
+~~~
 技术栈：[Next.js 14 + TypeScript + Tailwind]
 任务：[创建一个用户资料编辑表单]
 要求：
@@ -969,7 +964,7 @@ content: `    # AI 编程 Prompt 工程指南
 - 表单验证使用 Zod
 - 提交后显示 Toast 提示
 - 移动端适配
-```
+~~~
 
 ## COAST 框架
 - **C**ontext：提供项目背景
@@ -1280,7 +1275,7 @@ claude "为 src/utils/ 下的工具函数生成 pytest 测试，覆盖边界情�
 "在 router/index.ts 中添加 /users/:id 路由，使用 UserDetail 组件，支持懒加载。"
 
 ### 状态管理
-"创建一个 useAuth composable，包含登录、登出和 token 管理，支持持久化。",
+"创建一个 useAuth composable，包含登录、登出和 token 管理，支持持久化。`,
   },
 
 ];

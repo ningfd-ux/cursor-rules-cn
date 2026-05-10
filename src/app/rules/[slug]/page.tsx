@@ -41,16 +41,16 @@ function renderContent(content: string) {
     const line = lines[i];
 
     // 代码块
-    if (line.startsWith("```")) {
+    if (line.startsWith("```") || line.startsWith("~~~")) {
       result.push("<pre><code>");
       i++;
-      while (i < lines.length && !lines[i].startsWith("```")) {
+      while (i < lines.length && !lines[i].startsWith("```") && !lines[i].startsWith("~~~")) {
         result.push(escapeHtml(lines[i]));
         result.push("\n");
         i++;
       }
       result.push("</code></pre>");
-      i++; // skip closing ```
+      i++; // skip closing marker
       continue;
     }
 
