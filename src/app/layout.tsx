@@ -15,15 +15,14 @@ const geistMono = Geist_Mono({
 });
 
 const gaId = process.env.NEXT_PUBLIC_GA_ID || "";
-const verificationId = process.env.NEXT_PUBLIC_GOOGLE_VERIFICATION || "";
 
 export const metadata: Metadata = {
   title: {
-    default: "Cursor Rules 中文库 — AI 编程规则与 Prompt 大全",
-    template: "%s | Cursor Rules 中文库",
+    default: "Cursor Rules 中文�?�?AI 编程规则�?Prompt 大全",
+    template: "%s | Cursor Rules 中文�?,
   },
   description:
-    "收录 Cursor、Claude Code、GitHub Copilot、Windsurf 等 AI 编程工具的 Rules、Prompt 和最佳实践。中文 AI 编程资源导航。",
+    "收录 Cursor、Claude Code、GitHub Copilot、Windsurf �?AI 编程工具�?Rules、Prompt 和最佳实践。中�?AI 编程资源导航�?,
   keywords: [
     "Cursor Rules",
     "Cursor 规则",
@@ -35,19 +34,15 @@ export const metadata: Metadata = {
     "中文教程",
   ],
   robots: "index, follow",
+  verification: {
+    google: "googlebfdc59878de2548f.html",
+  },
   openGraph: {
-    title: "Cursor Rules 中文库",
-    description: "AI 编程规则与 Prompt 大全",
+    title: "Cursor Rules 中文�?,
+    description: "AI 编程规则�?Prompt 大全",
     type: "website",
     locale: "zh_CN",
   },
-  ...(verificationId
-    ? {
-        other: {
-          "google-site-verification": verificationId,
-        },
-      }
-    : {}),
 };
 
 export default function RootLayout({
@@ -85,3 +80,4 @@ export default function RootLayout({
     </html>
   );
 }
+
