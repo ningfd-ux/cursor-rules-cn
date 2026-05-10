@@ -18,11 +18,11 @@ const gaId = "G-4ZJT8YPWT8";
 
 export const metadata: Metadata = {
   title: {
-    default: "Cursor Rules 中文�?�?AI 编程规则�?Prompt 大全",
-    template: "%s | Cursor Rules 中文�?,
+    default: "Cursor Rules 中文库 — AI 编程规则与 Prompt 大全",
+    template: "%s | Cursor Rules 中文库",
   },
   description:
-    "收录 Cursor、Claude Code、GitHub Copilot、Windsurf �?AI 编程工具�?Rules、Prompt 和最佳实践。中�?AI 编程资源导航�?,
+    "收录 Cursor、Claude Code、GitHub Copilot、Windsurf 等 AI 编程工具的 Rules、Prompt 和最佳实践。中文 AI 编程资源导航。",
   keywords: [
     "Cursor Rules",
     "Cursor 规则",
@@ -38,8 +38,8 @@ export const metadata: Metadata = {
     google: "googlebfdc59878de2548f.html",
   },
   openGraph: {
-    title: "Cursor Rules 中文�?,
-    description: "AI 编程规则�?Prompt 大全",
+    title: "Cursor Rules 中文库",
+    description: "AI 编程规则与 Prompt 大全",
     type: "website",
     locale: "zh_CN",
   },
@@ -80,5 +80,3 @@ export default function RootLayout({
     </html>
   );
 }
-
-
