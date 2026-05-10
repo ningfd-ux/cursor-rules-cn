@@ -40,7 +40,7 @@ export default function RuleCard({ rule }: RuleCardProps) {
           {preview}
         </p>
       )}
-      <div className="mt-3 flex flex-wrap gap-1.5">
+      <div className="mt-3 flex flex-wrap items-center gap-1.5">
         {rule.tags.slice(0, 3).map((tag) => (
           <span
             key={tag}
@@ -49,6 +49,9 @@ export default function RuleCard({ rule }: RuleCardProps) {
             #{tag}
           </span>
         ))}
+        <span className="ml-auto text-xs text-zinc-300 dark:text-zinc-600">
+          {rule.updatedAt}
+        </span>
       </div>
     </Link>
   );

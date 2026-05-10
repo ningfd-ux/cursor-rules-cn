@@ -7,6 +7,7 @@ export interface Rule {
   content: string;
   tags: string[];
   source?: string;
+  updatedAt: string;
 }
 
 export const categories = [
@@ -36,6 +37,7 @@ export const rules: Rule[] = [
     description: "适用于所有 Cursor 项目的通用规则，规范代码风格、注释和架构。",
     icon: "⚙️",
     tags: ["cursor", "通用", "编码规范"],
+    updatedAt: "2026-04-28",
     content: `# Cursor 通用编码规则
 
 ## 代码风格
@@ -72,6 +74,7 @@ export const rules: Rule[] = [
     description: "React 项目中使用 Cursor 的最佳实践与规则配置。",
     icon: "⚛️",
     tags: ["cursor", "react", "前端"],
+    updatedAt: "2026-05-01",
     content: `# Cursor React 开发规则
 
 ## 组件规范
@@ -102,6 +105,7 @@ export const rules: Rule[] = [
     description: "Next.js App Router 项目中使用 Cursor 的规则和最佳实践。",
     icon: "▲",
     tags: ["cursor", "nextjs", "app-router"],
+    updatedAt: "2026-05-02",
     content: `# Cursor Next.js 项目规则
 
 ## 路由规范
@@ -133,6 +137,7 @@ export const rules: Rule[] = [
     description: "Python 项目中使用 Cursor 的编码规则和最佳实践。",
     icon: "🐍",
     tags: ["cursor", "python", "后端"],
+    updatedAt: "2026-05-03",
     content: `# Cursor Python 开发规则
 
 ## 代码风格
@@ -163,6 +168,7 @@ export const rules: Rule[] = [
     description: "在 Cursor 中使用 Git 的规范工作流和提交规则。",
     icon: "🔀",
     tags: ["cursor", "git", "工作流"],
+    updatedAt: "2026-04-25",
     content: `# Cursor Git 工作流规则
 
 ## 分支策略
@@ -194,6 +200,7 @@ export const rules: Rule[] = [
     description: "TypeScript 项目启用严格模式的编码规则。",
     icon: "📘",
     tags: ["cursor", "typescript", "严格模式"],
+    updatedAt: "2026-05-04",
     content: `# Cursor TypeScript 严格模式规则
 
 ## 配置要求
@@ -223,6 +230,7 @@ export const rules: Rule[] = [
     description: "使用 Claude Code 进行 AI 编程的通用规则和最佳 Prompt。",
     icon: "🤖",
     tags: ["claude-code", "通用", "prompt"],
+    updatedAt: "2026-04-30",
     content: `# Claude Code 通用规则
 
 ## 核心原则
@@ -247,6 +255,7 @@ export const rules: Rule[] = [
     description: "针对 React 项目的 Claude Code 专用 Prompt 模板。",
     icon: "⚛️",
     tags: ["claude-code", "react", "prompt"],
+    updatedAt: "2026-05-05",
     content: `# Claude Code React 开发 Prompt
 
 ## 创建组件 Prompt
@@ -265,6 +274,7 @@ export const rules: Rule[] = [
     description: "Claude Code 在日常开发中的最佳工作流程。",
     icon: "🔄",
     tags: ["claude-code", "工作流", "最佳实践"],
+    updatedAt: "2026-05-06",
     content: `# Claude Code 工作流规则
 
 ## 日常开发流程
@@ -292,6 +302,7 @@ export const rules: Rule[] = [
     description: "收集 Claude Code 最实用的 Prompt 模板和使用技巧。",
     icon: "💡",
     tags: ["claude-code", "prompt", "模板"],
+    updatedAt: "2026-05-01",
     content: `# Claude Code 高效 Prompt 大全
 
 ## 代码生成
@@ -321,6 +332,7 @@ export const rules: Rule[] = [
     description: "GitHub Copilot 的使用规则和最佳实践。",
     icon: "🪁",
     tags: ["copilot", "通用", "最佳实践"],
+    updatedAt: "2026-04-29",
     content: `# GitHub Copilot 通用规则
 
 ## 配置
@@ -345,6 +357,7 @@ export const rules: Rule[] = [
     description: "通过 copilot-instructions.md 配置项目级 Copilot 行为。",
     icon: "📋",
     tags: ["copilot", "配置", "instructions"],
+    updatedAt: "2026-05-03",
     content: `# GitHub Copilot 项目指令配置
 
 ## 创建 copilot-instructions.md
@@ -377,6 +390,7 @@ markdown
     description: "使用 GitHub Copilot 编写测试代码的最佳实践。",
     icon: "🧪",
     tags: ["copilot", "测试", "jest"],
+    updatedAt: "2026-04-27",
     content: `# Copilot 辅助测试编写
 
 ## 测试框架
@@ -401,6 +415,7 @@ markdown
     description: "Windsurf IDE 的 AI 编程规则和最佳实践。",
     icon: "🏄",
     tags: ["windsurf", "通用", "规则"],
+    updatedAt: "2026-05-02",
     content: `# Windsurf AI 编程规则
 
 ## 基础配置
@@ -425,6 +440,7 @@ markdown
     description: "Windsurf Cascade 多文件编辑功能的使用指南。",
     icon: "🌊",
     tags: ["windsurf", "cascade", "多文件"],
+    updatedAt: "2026-04-26",
     content: `# Windsurf Cascade 功能指南
 
 ## Cascade 是什么
@@ -447,6 +463,7 @@ Cascade 是 Windsurf 的多文件编辑功能
     description: "适用于所有 AI 编程工具的 Prompt 编写技巧。",
     icon: "🎯",
     tags: ["prompt", "技巧", "通用"],
+    updatedAt: "2026-05-05",
     content: `# AI 编程 Prompt 终极技巧
 
 ## 黄金法则
@@ -471,6 +488,7 @@ Cascade 是 Windsurf 的多文件编辑功能
     description: "使用 AI 工具进行代码审查的规则和流程。",
     icon: "👁️",
     tags: ["code-review", "AI", "质量"],
+    updatedAt: "2026-04-30",
     content: `# AI 辅助代码审查规则
 
 ## 审查重点
@@ -497,6 +515,7 @@ Cascade 是 Windsurf 的多文件编辑功能
     description: "Cursor Rules 的高级用法和实战经验总结。",
     icon: "⭐",
     tags: ["cursor", "最佳实践", "进阶"],
+    updatedAt: "2026-05-06",
     content: `# Cursor Rules 最佳实践合集
 
 ## 分层规则设计
@@ -523,6 +542,7 @@ Cascade 是 Windsurf 的多文件编辑功能
     description: "Vue 3 + Composition API 项目中使用 Cursor 的编码规则。",
     icon: "🟢",
     tags: ["cursor", "vue", "前端"],
+    updatedAt: "2026-05-10",
     content: `# Cursor Vue.js 开发规则
 
 ## 项目结构
@@ -555,6 +575,7 @@ Cascade 是 Windsurf 的多文件编辑功能
     description: "Go 语言项目中使用 Cursor 的编码规范和最佳实践。",
     icon: "🔷",
     tags: ["cursor", "go", "golang"],
+    updatedAt: "2026-05-10",
     content: `    # Cursor Go 开发规则
 
     ## 代码规范
@@ -587,6 +608,7 @@ Cascade 是 Windsurf 的多文件编辑功能
     description: "在 Cursor 中编写单元测试、集成测试的规则和最佳实践。",
     icon: "🧪",
     tags: ["cursor", "测试", "jest"],
+    updatedAt: "2026-05-10",
     content: `    # Cursor 测试开发规则
 
     ## 测试策略
@@ -618,6 +640,7 @@ Cascade 是 Windsurf 的多文件编辑功能
     description: "RESTful API 和 GraphQL 开发中 Cursor 的编码规范。",
     icon: "🌐",
     tags: ["cursor", "api", "rest"],
+    updatedAt: "2026-05-10",
     content: `    # Cursor API 开发规则
 
     ## 路由设计
@@ -652,6 +675,7 @@ Cascade 是 Windsurf 的多文件编辑功能
     description: "使用 Cursor 开发 Docker 容器化应用的最佳实践和规则。",
     icon: "🐳",
     tags: ["cursor", "docker", "devops"],
+    updatedAt: "2026-05-10",
     content: `    # Cursor Docker 容器化规则
 
     ## Dockerfile 规范
@@ -680,6 +704,7 @@ Cascade 是 Windsurf 的多文件编辑功能
     description: "数据库 Schema 设计、查询优化和数据迁移的 Cursor 编码规则。",
     icon: "🗄️",
     tags: ["cursor", "数据库", "sql"],
+    updatedAt: "2026-05-10",
     content: `    # Cursor 数据库开发规则
 
     ## Schema 设计
@@ -714,6 +739,7 @@ Cascade 是 Windsurf 的多文件编辑功能
     description: "用 Claude Code 进行 Python 开发的高效 Prompt 模板。",
     icon: "🐍",
     tags: ["claude-code", "python", "prompt"],
+    updatedAt: "2026-05-10",
     content: `    # Claude Code Python 开发 Prompt
 
     ## 创建 FastAPI 接口
@@ -736,6 +762,7 @@ Cascade 是 Windsurf 的多文件编辑功能
     description: "使用 Claude Code 自动生成和维护测试代码的最佳 Prompt。",
     icon: "🧪",
     tags: ["claude-code", "测试", "自动化"],
+    updatedAt: "2026-05-10",
     content: `    # Claude Code 测试编写指南
 
     ## 生成单元测试
@@ -758,6 +785,7 @@ Cascade 是 Windsurf 的多文件编辑功能
     description: "使用 Claude Code 安全重构代码的 Prompt 模板和流程。",
     icon: "🔨",
     tags: ["claude-code", "重构", "最佳实践"],
+    updatedAt: "2026-05-10",
     content: `    # Claude Code 代码重构 Prompt
 
     ## 提取组件
@@ -780,6 +808,7 @@ Cascade 是 Windsurf 的多文件编辑功能
     description: "GitHub Copilot 在 Vue 3 项目中的最佳配置和使用规则。",
     icon: "🟢",
     tags: ["copilot", "vue", "前端"],
+    updatedAt: "2026-05-10",
     content: `    # Copilot Vue 3 开发指令
 
     ## 配置 copilot-instructions.md
@@ -809,6 +838,7 @@ Cascade 是 Windsurf 的多文件编辑功能
     description: "GitHub Copilot 在 Python 项目中的最佳配置和使用技巧。",
     icon: "🐍",
     tags: ["copilot", "python", "后端"],
+    updatedAt: "2026-05-10",
     content: `    # Copilot Python 开发指令
 
     ## 配置 copilot-instructions.md
@@ -838,6 +868,7 @@ Cascade 是 Windsurf 的多文件编辑功能
     description: "在 Windsurf 中使用 Cascade 进行 React 开发的规则和技巧。",
     icon: "⚛️",
     tags: ["windsurf", "react", "前端"],
+    updatedAt: "2026-05-10",
     content: `    # Windsurf React 开发规则
 
     ## 项目配置
@@ -868,6 +899,7 @@ Cascade 是 Windsurf 的多文件编辑功能
     description: "在 Windsurf 中进行 Python 开发的 AI 编程规则和最佳实践。",
     icon: "🐍",
     tags: ["windsurf", "python", "后端"],
+    updatedAt: "2026-05-10",
     content: `    # Windsurf Python 开发规则
 
     ## 开发流程
@@ -898,6 +930,7 @@ Cascade 是 Windsurf 的多文件编辑功能
     description: "面向 AI 编程工具的 Prompt Engineering 系统方法论和模板。",
     icon: "📐",
     tags: ["prompt", "工程", "方法论"],
+    updatedAt: "2026-05-10",
     content: `    # AI 编程 Prompt 工程指南
 
     ## 结构化 Prompt 模板
@@ -933,6 +966,7 @@ Cascade 是 Windsurf 的多文件编辑功能
     description: "使用 AI 编程工具进行全栈开发的完整工作流和最佳实践。",
     icon: "🚀",
     tags: ["全栈", "工作流", "效率"],
+    updatedAt: "2026-05-10",
     content: `    # AI 全栈开发工作流
 
     ## 项目启动

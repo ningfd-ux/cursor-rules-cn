@@ -152,15 +152,20 @@ export default async function RulePage({ params }: RulePageProps) {
             {rule.description}
           </p>
           <div className="mt-4 flex flex-wrap items-center justify-between gap-4">
-            <div className="flex flex-wrap gap-1.5">
-              {rule.tags.map((tag: string) => (
-                <span
-                  key={tag}
-                  className="rounded bg-zinc-100 px-2 py-0.5 text-xs text-zinc-500 dark:bg-zinc-800 dark:text-zinc-400"
-                >
-                  #{tag}
-                </span>
-              ))}
+            <div className="flex flex-wrap items-center gap-3">
+              <div className="flex flex-wrap gap-1.5">
+                {rule.tags.map((tag: string) => (
+                  <span
+                    key={tag}
+                    className="rounded bg-zinc-100 px-2 py-0.5 text-xs text-zinc-500 dark:bg-zinc-800 dark:text-zinc-400"
+                  >
+                    #{tag}
+                  </span>
+                ))}
+              </div>
+              <span className="text-xs text-zinc-300 dark:text-zinc-600">
+                更新于 {rule.updatedAt}
+              </span>
             </div>
             <CopyButton content={rule.content} />
           </div>

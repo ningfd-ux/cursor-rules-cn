@@ -21,6 +21,14 @@ export default function Header() {
             首页
           </Link>
           <a
+            href="https://github.com/ningfd-ux/cursor-rules-cn/issues/new"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hidden rounded-md bg-blue-600 px-3 py-1 font-medium text-white transition-colors hover:bg-blue-700 sm:inline-block"
+          >
+            + 提交规则
+          </a>
+          <a
             href="https://github.com/ningfd-ux/cursor-rules-cn"
             target="_blank"
             rel="noopener noreferrer"

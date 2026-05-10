@@ -11,9 +11,18 @@ import { rules, categories } from "@/data/rules";
 function HomeContent() {
   const searchParams = useSearchParams();
   const activeCategory = searchParams.get("category");
-  const filteredRules = activeCategory
+  const sortBy = searchParams.get("sort") || "default";
+
+  let filteredRules = activeCategory
     ? rules.filter((r) => r.category === activeCategory)
     : rules;
+
+  if (sortBy === "newest") {
+    filteredRules = [...filteredRules].sort(
+      (a, b) => b.updatedAt.localeCompare(a.updatedAt)
+    );
+  }
+
   const featuredRules = rules.slice(0, 3);
 
   return (
@@ -89,7 +98,30 @@ function HomeContent() {
           <h2 className="text-lg font-semibold text-zinc-900 dark:text-zinc-100">
             📖 {activeCategory ? `${categories.find((c) => c.slug === activeCategory)?.name} ` : "全部"}规则
           </h2>
-          <span className="text-sm text-zinc-400">{filteredRules.length} 条</span>
+          <div className="flex items-center gap-2 text-sm">
+            <Link
+              href={activeCategory ? `/?category=${activeCategory}&sort=default` : "/"}
+              className={`rounded-md px-2.5 py-1 transition-colors ${
+                sortBy === "default"
+                  ? "bg-zinc-100 text-zinc-700 dark:bg-zinc-800 dark:text-zinc-300"
+                  : "text-zinc-400 hover:text-zinc-600 dark:hover:text-zinc-300"
+              }`}
+            >
+              默认
+            </Link>
+            <Link
+              href={activeCategory ? `/?category=${activeCategory}&sort=newest` : "/?sort=newest"}
+              className={`rounded-md px-2.5 py-1 transition-colors ${
+                sortBy === "newest"
+                  ? "bg-zinc-100 text-zinc-700 dark:bg-zinc-800 dark:text-zinc-300"
+                  : "text-zinc-400 hover:text-zinc-600 dark:hover:text-zinc-300"
+              }`}
+            >
+              最新
+            </Link>
+            <span className="text-xs text-zinc-300 dark:text-zinc-600">|</span>
+            <span className="text-zinc-400">{filteredRules.length} 条</span>
+          </div>
         </div>
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {filteredRules.map((rule) => (
@@ -97,6 +129,28 @@ function HomeContent() {
           ))}
         </div>
       </section>
+
+      {/* 社区贡献 */}
+      <section className="mt-12 rounded-xl border border-zinc-200 bg-white p-8 text-center dark:border-zinc-800 dark:bg-zinc-900">
+        <h2 className="mb-2 text-lg font-semibold text-zinc-900 dark:text-zinc-100">
+          🤝 分享你的规则
+        </h2>
+        <p className="mb-4 text-sm text-zinc-500 dark:text-zinc-400">
+          有自己总结的好规则？提交到社区，帮助更多开发者。
+        </p>
+        <a
+          href="https://github.com/ningfd-ux/cursor-rules-cn/issues/new"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-flex items-center gap-2 rounded-lg bg-blue-600 px-5 py-2.5 text-sm font-medium text-white transition-colors hover:bg-blue-700"
+        >
+          <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+            <path strokeLinecap="round" strokeLinejoin="round" d="M12 4v16m8-8H4" />
+          </svg>
+          通过 GitHub Issues 提交
+        </a>
+      </section>
+
       <BackToTop />
     </div>
   );
