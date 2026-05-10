@@ -3,6 +3,7 @@ import Link from "next/link";
 import type { Metadata } from "next";
 import { rules, getCategoryName } from "@/data/rules";
 import CopyButton from "@/components/CopyButton";
+import LikeButton from "@/components/LikeButton";
 import BackToTop from "@/components/BackToTop";
 
 interface RulePageProps {
@@ -163,11 +164,19 @@ export default async function RulePage({ params }: RulePageProps) {
                   </span>
                 ))}
               </div>
-              <span className="text-xs text-zinc-300 dark:text-zinc-600">
-                更新于 {rule.updatedAt}
-              </span>
+              <div className="flex items-center gap-3 text-xs text-zinc-300 dark:text-zinc-600">
+                <span>更新于 {rule.updatedAt}</span>
+                {rule.appliesTo && (
+                  <span className="rounded bg-zinc-50 px-1.5 py-0.5 text-zinc-400 dark:bg-zinc-800 dark:text-zinc-500">
+                    {rule.appliesTo}
+                  </span>
+                )}
+              </div>
             </div>
-            <CopyButton content={rule.content} />
+            <div className="flex items-center gap-2">
+              <LikeButton slug={rule.slug} />
+              <CopyButton content={rule.content} />
+            </div>
           </div>
         </header>
 
