@@ -1,30 +1,12 @@
-"use client";
-
-import { useSearchParams } from "next/navigation";
 import Link from "next/link";
-import { Suspense } from "react";
 import RuleCard from "@/components/RuleCard";
-import CategoryBadge from "@/components/CategoryBadge";
+import RuleGrid from "@/components/RuleGrid";
 import BackToTop from "@/components/BackToTop";
 import { rules, categories } from "@/data/rules";
 
-function HomeContent() {
-  const searchParams = useSearchParams();
-  const activeCategory = searchParams.get("category");
-  const sortBy = searchParams.get("sort") || "default";
+const featuredRules = rules.slice(0, 3);
 
-  let filteredRules = activeCategory
-    ? rules.filter((r) => r.category === activeCategory)
-    : rules;
-
-  if (sortBy === "newest") {
-    filteredRules = [...filteredRules].sort(
-      (a, b) => b.updatedAt.localeCompare(a.updatedAt)
-    );
-  }
-
-  const featuredRules = rules.slice(0, 3);
-
+export default function Home() {
   return (
     <div className="mx-auto max-w-5xl px-4 py-12">
       {/* Hero */}
@@ -49,7 +31,7 @@ function HomeContent() {
         </div>
       </section>
 
-      {/* 精选推荐 */}
+      {/* 精选推荐 (server-rendered) */}
       <section className="mb-10">
         <h2 className="mb-4 text-lg font-semibold text-zinc-900 dark:text-zinc-100">
           🔥 精选推荐
@@ -61,76 +43,10 @@ function HomeContent() {
         </div>
       </section>
 
-      {/* 分类导航 */}
-      <section className="mb-10">
-        <h2 className="mb-4 text-lg font-semibold text-zinc-900 dark:text-zinc-100">
-          📂 分类浏览
-        </h2>
-        <div className="flex flex-wrap gap-2">
-          <Link
-            href="/"
-            className={`inline-flex items-center gap-1.5 rounded-full px-3.5 py-1.5 text-sm font-medium transition-colors ${
-              !activeCategory
-                ? "bg-blue-600 text-white"
-                : "bg-zinc-100 text-zinc-700 hover:bg-zinc-200 dark:bg-zinc-800 dark:text-zinc-300 dark:hover:bg-zinc-700"
-            }`}
-          >
-            全部
-            <span className={`text-xs ${!activeCategory ? "text-blue-200" : "text-zinc-400 dark:text-zinc-500"}`}>
-              {rules.length}
-            </span>
-          </Link>
-          {categories.map((cat) => (
-            <CategoryBadge
-              key={cat.slug}
-              name={cat.name}
-              slug={cat.slug}
-              count={cat.count}
-              active={activeCategory === cat.slug}
-            />
-          ))}
-        </div>
-      </section>
+      {/* 分类导航 + Rules 列表 (client-side interactive) */}
+      <RuleGrid rules={rules} />
 
-      {/* Rules 列表 */}
-      <section>
-        <div className="mb-4 flex items-center justify-between">
-          <h2 className="text-lg font-semibold text-zinc-900 dark:text-zinc-100">
-            📖 {activeCategory ? `${categories.find((c) => c.slug === activeCategory)?.name} ` : "全部"}规则
-          </h2>
-          <div className="flex items-center gap-2 text-sm">
-            <Link
-              href={activeCategory ? `/?category=${activeCategory}&sort=default` : "/"}
-              className={`rounded-md px-2.5 py-1 transition-colors ${
-                sortBy === "default"
-                  ? "bg-zinc-100 text-zinc-700 dark:bg-zinc-800 dark:text-zinc-300"
-                  : "text-zinc-400 hover:text-zinc-600 dark:hover:text-zinc-300"
-              }`}
-            >
-              默认
-            </Link>
-            <Link
-              href={activeCategory ? `/?category=${activeCategory}&sort=newest` : "/?sort=newest"}
-              className={`rounded-md px-2.5 py-1 transition-colors ${
-                sortBy === "newest"
-                  ? "bg-zinc-100 text-zinc-700 dark:bg-zinc-800 dark:text-zinc-300"
-                  : "text-zinc-400 hover:text-zinc-600 dark:hover:text-zinc-300"
-              }`}
-            >
-              最新
-            </Link>
-            <span className="text-xs text-zinc-300 dark:text-zinc-600">|</span>
-            <span className="text-zinc-400">{filteredRules.length} 条</span>
-          </div>
-        </div>
-        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          {filteredRules.map((rule) => (
-            <RuleCard key={rule.slug} rule={rule} />
-          ))}
-        </div>
-      </section>
-
-      {/* 社区贡献 */}
+      {/* 社区贡献 (server-rendered) */}
       <section className="mt-12 rounded-xl border border-zinc-200 bg-white p-8 text-center dark:border-zinc-800 dark:bg-zinc-900">
         <h2 className="mb-2 text-lg font-semibold text-zinc-900 dark:text-zinc-100">
           🤝 分享你的规则
@@ -153,13 +69,5 @@ function HomeContent() {
 
       <BackToTop />
     </div>
-  );
-}
-
-export default function Home() {
-  return (
-    <Suspense fallback={<div className="mx-auto max-w-5xl px-4 py-12 text-center text-zinc-400">加载中...</div>}>
-      <HomeContent />
-    </Suspense>
   );
 }
