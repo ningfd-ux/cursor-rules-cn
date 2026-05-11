@@ -13,12 +13,12 @@ export interface Rule {
 
 
 export const categories = [
-  { slug: "cursor", name: "Cursor Rules", count: 12 },
-  { slug: "claude", name: "Claude Code", count: 7 },
-  { slug: "copilot", name: "GitHub Copilot", count: 5 },
+  { slug: "cursor", name: "Cursor Rules", count: 18 },
+  { slug: "claude", name: "Claude Code", count: 9 },
+  { slug: "copilot", name: "GitHub Copilot", count: 7 },
   { slug: "windsurf", name: "Windsurf", count: 4 },
   { slug: "tutorial", name: "教程指南", count: 5 },
-  { slug: "general", name: "通用 AI 编程", count: 5 },
+  { slug: "general", name: "通用 AI 编程", count: 7 },
 ];
 
 export function getCategoryName(slug: string): string {
@@ -36,7 +36,7 @@ export function getCategoryName(slug: string): string {
 export const rules: Rule[] = [
   {
     slug: "cursor-general-rules",
-    title: "Cursor 通用编码规则",
+    title: "让 Cursor 写出高质量代码的通用规则",
     category: "cursor",
     description: "适用于所有 Cursor 项目的通用规则，规范代码风格、注释和架构。",
     icon: "⚙️",
@@ -74,7 +74,7 @@ export const rules: Rule[] = [
   },
   {
 slug: "cursor-react-rules",
-title: "Cursor React 开发规则",
+title: "让 Cursor 更懂 React 的最佳开发规则",
 category: "cursor",
 description: "React 项目中使用 Cursor 的最佳实践与规则配置。",
 icon: "⚛️",
@@ -106,7 +106,7 @@ content: `# Cursor React 开发规则
   },
   {
 slug: "cursor-nextjs-rules",
-title: "Cursor Next.js 项目规则",
+title: "用 Cursor 开发 Next.js 项目的完整规则",
 category: "cursor",
 description: "Next.js App Router 项目中使用 Cursor 的规则和最佳实践。",
 icon: "▲",
@@ -139,7 +139,7 @@ content: `# Cursor Next.js 项目规则
   },
   {
 slug: "cursor-python-rules",
-title: "Cursor Python 开发规则",
+title: "Cursor + Python 高效开发的编码规则",
 category: "cursor",
 description: "Python 项目中使用 Cursor 的编码规则和最佳实践。",
 icon: "🐍",
@@ -171,7 +171,7 @@ content: `# Cursor Python 开发规则
   },
   {
 slug: "cursor-git-workflow",
-title: "Cursor Git 工作流规则",
+title: "Cursor 中 Git 工作流的最佳实践规则",
 category: "cursor",
 description: "在 Cursor 中使用 Git 的规范工作流和提交规则。",
 icon: "🔀",
@@ -203,7 +203,7 @@ content: `# Cursor Git 工作流规则
   },
   {
 slug: "cursor-typescript-rules",
-title: "Cursor TypeScript 严格模式规则",
+title: "Cursor TypeScript 严格模式配置规则",
 category: "cursor",
 description: "TypeScript 项目启用严格模式的编码规则。",
 icon: "📘",
@@ -234,7 +234,7 @@ content: `# Cursor TypeScript 严格模式规则
   },
   {
 slug: "claude-code-general",
-title: "Claude Code 通用规则",
+title: "Claude Code 入门必读的通用规则",
 category: "claude",
 description: "使用 Claude Code 进行 AI 编程的通用规则和最佳 Prompt。",
 icon: "🤖",
@@ -260,7 +260,7 @@ content: `# Claude Code 通用规则
   },
   {
 slug: "claude-code-react",
-title: "Claude Code React 开发 Prompt",
+title: "用 Claude Code 写 React 的高效 Prompt",
 category: "claude",
 description: "针对 React 项目的 Claude Code 专用 Prompt 模板。",
 icon: "⚛️",
@@ -280,7 +280,7 @@ content: `# Claude Code React 开发 Prompt
   },
   {
 slug: "claude-code-workflow",
-title: "Claude Code 工作流规则",
+title: "Claude Code 日常开发工作流最佳实践",
 category: "claude",
 description: "Claude Code 在日常开发中的最佳工作流程。",
 icon: "🔄",
@@ -309,7 +309,7 @@ content: `# Claude Code 工作流规则
   },
   {
 slug: "claude-code-prompts",
-title: "Claude Code 高效 Prompt 大全",
+title: "Claude Code 最实用的 Prompt 模板合集",
 category: "claude",
 description: "收集 Claude Code 最实用的 Prompt 模板和使用技巧。",
 icon: "💡",
@@ -339,7 +339,7 @@ content: `# Claude Code 高效 Prompt 大全
   },
   {
 slug: "copilot-general",
-title: "GitHub Copilot 通用规则",
+title: "GitHub Copilot 新手必看的使用规则",
 category: "copilot",
 description: "GitHub Copilot 的使用规则和最佳实践。",
 icon: "🪁",
@@ -364,7 +364,7 @@ content: `# GitHub Copilot 通用规则
   },
   {
 slug: "copilot-instructions",
-title: "GitHub Copilot 项目指令配置",
+title: "配置 Copilot 项目指令的最佳实践",
 category: "copilot",
 description: "通过 copilot-instructions.md 配置项目级 Copilot 行为。",
 icon: "📋",
@@ -397,7 +397,7 @@ markdown
   },
   {
     slug: "copilot-testing",
-    title: "Copilot 辅助测试编写",
+    title: "用 Copilot 自动生成测试代码的技巧",
     category: "copilot",
     description: "使用 GitHub Copilot 编写测试代码的最佳实践。",
     icon: "🧪",
@@ -422,7 +422,7 @@ markdown
   },
   {
 slug: "windsurf-rules",
-title: "Windsurf AI 编程规则",
+title: "Windsurf AI 编程入门配置规则",
 category: "windsurf",
 description: "Windsurf IDE 的 AI 编程规则和最佳实践。",
 icon: "🏄",
@@ -448,7 +448,7 @@ content: `# Windsurf AI 编程规则
   },
   {
 slug: "windsurf-cascade",
-title: "Windsurf Cascade 功能指南",
+title: "Windsurf Cascade 多文件编辑完全指南",
 category: "windsurf",
 description: "Windsurf Cascade 多文件编辑功能的使用指南。",
 icon: "🌊",
@@ -472,7 +472,7 @@ Cascade 是 Windsurf 的多文件编辑功能
   },
   {
 slug: "ai-coding-prompt-tips",
-title: "AI 编程 Prompt 终极技巧",
+title: "AI 编程 Prompt 终极技巧提升 10 倍效率",
 category: "general",
 description: "适用于所有 AI 编程工具的 Prompt 编写技巧。",
 icon: "🎯",
@@ -497,7 +497,7 @@ content: `# AI 编程 Prompt 终极技巧
   },
   {
 slug: "ai-code-review",
-title: "AI 辅助代码审查规则",
+title: "用 AI 做代码审查的完整规则和流程",
 category: "general",
 description: "使用 AI 工具进行代码审查的规则和流程。",
 icon: "👁️",
@@ -524,7 +524,7 @@ content: `# AI 辅助代码审查规则
   },
   {
 slug: "cursor-rules-best-practices",
-title: "Cursor Rules 最佳实践合集",
+title: "Cursor Rules 高级用法和实战经验",
 category: "general",
 description: "Cursor Rules 的高级用法和实战经验总结。",
 icon: "⭐",
@@ -551,7 +551,7 @@ content: `# Cursor Rules 最佳实践合集
 
   {
 slug: "cursor-vue-rules",
-title: "Cursor Vue.js 开发规则",
+title: "让 Cursor 更懂 Vue 3 的最佳开发规则",
 category: "cursor",
 description: "Vue 3 + Composition API 项目中使用 Cursor 的编码规则。",
 icon: "🟢",
@@ -585,7 +585,7 @@ content: `# Cursor Vue.js 开发规则
 
   {
 slug: "cursor-go-rules",
-title: "Cursor Go 开发规则",
+title: "用 Cursor 写出优雅 Go 代码的规则",
 category: "cursor",
 description: "Go 语言项目中使用 Cursor 的编码规范和最佳实践。",
 icon: "🔷",
@@ -619,7 +619,7 @@ content: `    # Cursor Go 开发规则
 
   {
 slug: "cursor-testing-rules",
-title: "Cursor 测试开发规则",
+title: "Cursor 自动生成测试的完整规则",
 category: "cursor",
 description: "在 Cursor 中编写单元测试、集成测试的规则和最佳实践。",
 icon: "🧪",
@@ -652,7 +652,7 @@ content: `    # Cursor 测试开发规则
 
   {
 slug: "cursor-api-rules",
-title: "Cursor API 开发规则",
+title: "用 Cursor 开发 RESTful API 的编码规范",
 category: "cursor",
 description: "RESTful API 和 GraphQL 开发中 Cursor 的编码规范。",
 icon: "🌐",
@@ -688,7 +688,7 @@ content: `    # Cursor API 开发规则
 
   {
 slug: "cursor-docker-rules",
-title: "Cursor Docker 容器化规则",
+title: "Cursor 中 Docker 容器化的最佳实践",
 category: "cursor",
 description: "使用 Cursor 开发 Docker 容器化应用的最佳实践和规则。",
 icon: "🐳",
@@ -718,7 +718,7 @@ content: `    # Cursor Docker 容器化规则
 
   {
 slug: "cursor-database-rules",
-title: "Cursor 数据库开发规则",
+title: "Cursor 数据库开发 Schema 设计规则",
 category: "cursor",
 description: "数据库 Schema 设计、查询优化和数据迁移的 Cursor 编码规则。",
 icon: "🗄️",
@@ -754,7 +754,7 @@ content: `    # Cursor 数据库开发规则
 
   {
 slug: "claude-code-python",
-title: "Claude Code Python 开发 Prompt",
+title: "用 Claude Code 写 Python 的高效 Prompt",
 category: "claude",
 description: "用 Claude Code 进行 Python 开发的高效 Prompt 模板。",
 icon: "🐍",
@@ -778,7 +778,7 @@ content: `    # Claude Code Python 开发 Prompt
 
   {
 slug: "claude-code-testing",
-title: "Claude Code 测试编写指南",
+title: "Claude Code 自动生成测试的 Prompt 指南",
 category: "claude",
 description: "使用 Claude Code 自动生成和维护测试代码的最佳 Prompt。",
 icon: "🧪",
@@ -801,7 +801,7 @@ content: `    # Claude Code 测试编写指南
 
   {
 slug: "claude-code-refactoring",
-title: "Claude Code 代码重构 Prompt",
+title: "Claude Code 代码重构 Prompt 模板",
 category: "claude",
 description: "使用 Claude Code 安全重构代码的 Prompt 模板和流程。",
 icon: "🔨",
@@ -824,7 +824,7 @@ content: `    # Claude Code 代码重构 Prompt
 
   {
 slug: "copilot-vue",
-title: "Copilot Vue 3 开发指令",
+title: "Copilot 在 Vue 3 项目的最佳配置",
 category: "copilot",
 description: "GitHub Copilot 在 Vue 3 项目中的最佳配置和使用规则。",
 icon: "🟢",
@@ -854,7 +854,7 @@ content: `    # Copilot Vue 3 开发指令
 
   {
 slug: "copilot-python",
-title: "Copilot Python 开发指令",
+title: "Copilot Python 开发的最佳配置指令",
 category: "copilot",
 description: "GitHub Copilot 在 Python 项目中的最佳配置和使用技巧。",
 icon: "🐍",
@@ -884,7 +884,7 @@ content: `    # Copilot Python 开发指令
 
   {
 slug: "windsurf-react",
-title: "Windsurf React 开发规则",
+title: "Windsurf 中用 Cascade 开发 React 的规则",
 category: "windsurf",
 description: "在 Windsurf 中使用 Cascade 进行 React 开发的规则和技巧。",
 icon: "⚛️",
@@ -915,7 +915,7 @@ content: `    # Windsurf React 开发规则
 
   {
 slug: "windsurf-python",
-title: "Windsurf Python 开发规则",
+title: "Windsurf 中 Python 开发的 AI 编程规则",
 category: "windsurf",
 description: "在 Windsurf 中进行 Python 开发的 AI 编程规则和最佳实践。",
 icon: "🐍",
@@ -946,7 +946,7 @@ content: `    # Windsurf Python 开发规则
 
   {
 slug: "ai-prompt-engineering",
-title: "AI 编程 Prompt 工程指南",
+title: "AI 编程 Prompt 工程系统方法论",
 category: "general",
 description: "面向 AI 编程工具的 Prompt Engineering 系统方法论和模板。",
 icon: "📐",
@@ -982,7 +982,7 @@ content: `    # AI 编程 Prompt 工程指南
 
   {
 slug: "ai-fullstack-development",
-title: "AI 全栈开发工作流",
+title: "用 AI 工具做全栈开发的完整工作流",
 category: "general",
 description: "使用 AI 编程工具进行全栈开发的完整工作流和最佳实践。",
 icon: "🚀",
@@ -1070,7 +1070,7 @@ content: `    # AI 全栈开发工作流
   },
   {
     slug: "cursor-rules-migration",
-    title: "从 Copilot 迁移到 Cursor 完整指南",
+    title: "从 Copilot 迁移到 Cursor 的完整指南",
     category: "tutorial",
     description: "从 GitHub Copilot 切换到 Cursor 的完整指南，包括规则迁移和习惯适配。",
     icon: "📖",
@@ -1121,7 +1121,7 @@ Cursor 相比 Copilot 的优势：
   },
   {
     slug: "cursor-agent-workflow",
-    title: "Cursor Agent 模式深度使用教程",
+    title: "Cursor Agent 模式从入门到精通教程",
     category: "tutorial",
     description: "Cursor Agent 模式实战教程，从基础到高级的完整工作流。",
     icon: "📖",
@@ -1167,7 +1167,7 @@ Agent 模式是 Cursor 的核心差异化功能，它能：
   },
   {
     slug: "claude-code-workflow-guide",
-    title: "Claude Code CLI 工作流实战指南",
+    title: "Claude Code CLI 命令行实战指南",
     category: "tutorial",
     description: "Claude Code 命令行工具的高效使用指南和实战场景。",
     icon: "📖",
@@ -1228,7 +1228,7 @@ claude "为 src/utils/ 下的工具函数生成 pytest 测试，覆盖边界情�
   },
   {
     slug: "cursor-vue-best-practices",
-    title: "Vue 3 + Cursor 高效开发实战",
+    title: "Vue 3 + Cursor 高效开发实战教程",
     category: "tutorial",
     description: "在实际 Vue 3 项目中使用 Cursor AI 编程的高效工作流和实战技巧。",
     icon: "📖",
@@ -1276,6 +1276,341 @@ claude "为 src/utils/ 下的工具函数生成 pytest 测试，覆盖边界情�
 
 ### 状态管理
 "创建一个 useAuth composable，包含登录、登出和 token 管理，支持持久化。`,
+  },
+
+
+  {
+    slug: "cursor-rust-rules",
+    title: "Cursor Rust 开发编码规范规则",
+    category: "cursor",
+    description: "Rust 项目中使用 Cursor 的编码规范和所有权管理最佳实践。",
+    icon: "🦀",
+    tags: ["cursor", "rust", "系统编程"],
+    updatedAt: "2026-05-11",
+    appliesTo: "Cursor 0.40+",
+    content: `# Cursor Rust 开发编码规范规则
+
+## 代码风格
+- 遵循 Rust 官方风格指南
+- 使用 rustfmt 格式化代码
+- 所有公共项必须写文档注释（///）
+- 使用 clippy 保持代码质量
+
+## 所有权与借用
+- 优先使用引用而不是所有权转移
+- 生命周期标注尽可能让编译器推断
+- 使用 Rc/Arc 管理共享所有权
+- RefCell 只用于内部可变性
+
+## 错误处理
+- 使用 thiserror 定义错误类型
+- 使用 anyhow 处理可恢复错误
+- 避免 unwrap/expect，使用 ? 运算符
+- 为库代码提供有意义的错误信息
+
+## 异步
+- 使用 tokio 作为异步运行时
+- async fn 作为默认异步接口
+- 避免阻塞线程池中的异步任务`,
+  },
+  {
+    slug: "cursor-java-rules",
+    title: "Cursor Java 开发编码规范规则",
+    category: "cursor",
+    description: "Java 项目中使用 Cursor 进行开发的编码规范和 Spring Boot 最佳实践。",
+    icon: "☕",
+    tags: ["cursor", "java", "spring"],
+    updatedAt: "2026-05-11",
+    appliesTo: "Cursor 0.40+",
+    content: `# Cursor Java 开发编码规范规则
+
+## 代码风格
+- 遵循 Java 官方编码规范
+- 使用 4 空格缩进
+- 类名使用 PascalCase
+- 方法名和变量使用 camelCase
+
+## 项目结构
+- 按功能模块分包
+- Controller/Service/Repository 分层
+- DTO 用于 API 数据传输
+- 常量使用枚举或常量类
+
+## Spring Boot
+- 使用构造函数注入
+- 事务注解放在 Service 层
+- 配置使用 application.yml
+- 统一异常处理使用 @ControllerAdvice`,
+  },
+  {
+    slug: "cursor-flutter-rules",
+    title: "Cursor Flutter 移动端开发规则",
+    category: "cursor",
+    description: "Flutter/Dart 项目中使用 Cursor 的编码规则和最佳实践。",
+    icon: "📱",
+    tags: ["cursor", "flutter", "dart"],
+    updatedAt: "2026-05-11",
+    appliesTo: "Cursor 0.40+",
+    content: `# Cursor Flutter 移动端开发规则
+
+## Dart 规范
+- 遵循 effective-dart 指南
+- 使用 dart format 格式化
+- 类型标注优先于 var
+- 避免动态类型
+
+## Flutter 组件
+- 使用 StatelessWidget 优先
+- StatefulWidget 只在必要时使用
+- 组件拆分保持单一职责
+- 使用 const 构造函数优化性能
+
+## 状态管理
+- 小项目使用 setState
+- 中大型项目使用 Riverpod 或 Bloc
+- 避免全局状态滥用
+- Provider 按模块分层
+
+## 路由
+- 使用 GoRouter 声明式路由
+- 路由模块按功能拆分
+- 深度链接支持`,
+  },
+  {
+    slug: "cursor-tailwind-rules",
+    title: "Cursor Tailwind CSS 开发规则",
+    category: "cursor",
+    description: "使用 Cursor 配合 Tailwind CSS 开发的编码规范和最佳实践。",
+    icon: "🎨",
+    tags: ["cursor", "tailwind", "css"],
+    updatedAt: "2026-05-11",
+    appliesTo: "Cursor 0.40+",
+    content: `# Cursor Tailwind CSS 开发规则
+
+## 使用原则
+- 优先使用 Tailwind 工具类
+- 自定义样式使用 @apply 指令
+- 颜色使用设计系统 token
+- 响应式使用断点前缀
+
+## 组件样式
+- 公共组件提取为可复用类
+- 使用 cn() 合并 class 名
+- 暗色模式使用 dark: 前缀
+- 动画使用 Tailwind 动画类
+
+## 性能
+- 避免动态拼接 class
+- 使用 PurgeCSS 清除未使用的样式
+- 提取公共样式减少重复`,
+  },
+  {
+    slug: "cursor-prisma-rules",
+    title: "Cursor Prisma ORM 数据层开发规则",
+    category: "cursor",
+    description: "Prisma ORM 项目中使用 Cursor 的数据库模型设计和查询规则。",
+    icon: "🗃️",
+    tags: ["cursor", "prisma", "database"],
+    updatedAt: "2026-05-11",
+    appliesTo: "Cursor 0.40+",
+    content: `# Cursor Prisma ORM 数据层开发规则
+
+## Schema 设计
+- 模型名使用 PascalCase 单数
+- 字段名使用 camelCase
+- 关系使用 @relation 明确注解
+- 索引在查询热点字段上添加
+
+## 查询规范
+- 使用 select 只查询需要的字段
+- 避免 N+1 使用 include 预加载
+- 批量操作使用 createMany/updateMany
+- 分页使用 cursor-based
+
+## 迁移管理
+- 每次变更生成新迁移
+- 迁移需 Review 后再部署
+- 生产环境使用 migrate deploy`,
+  },
+  {
+    slug: "cursor-e2e-testing",
+    title: "Cursor E2E 自动化测试规则",
+    category: "cursor",
+    description: "用 Cursor 编写 Playwright/Cypress 端到端测试的编码规则。",
+    icon: "🎭",
+    tags: ["cursor", "e2e", "playwright"],
+    updatedAt: "2026-05-11",
+    appliesTo: "Cursor 0.40+",
+    content: `# Cursor E2E 自动化测试规则
+
+## 框架选择
+- Web 应用使用 Playwright
+- 简单场景使用 Cypress
+- 统一使用 Page Object 模式
+
+## 测试设计
+- 每个测试独立可运行
+- 测试数据使用 beforeEach 准备
+- 避免测试间依赖
+- 关键用户路径优先覆盖
+
+## 断言规范
+- 使用软断言不中断流程
+- 等待元素可见后再操作
+- 截图用于失败分析`,
+  },
+  {
+    slug: "claude-code-nextjs",
+    title: "Claude Code Next.js 项目开发 Prompt",
+    category: "claude",
+    description: "用 Claude Code 开发 Next.js App Router 项目的高效 Prompt 模板。",
+    icon: "▲",
+    tags: ["claude-code", "nextjs", "prompt"],
+    updatedAt: "2026-05-11",
+    content: `# Claude Code Next.js 项目开发 Prompt
+
+## 创建页面路由
+"在 app/(main)/dashboard/ 下创建仪表盘页面，包含数据概览卡片、最近订单表格和销售趋势图表。"
+
+## 添加 Server Action
+"在 app/actions/user.ts 中创建用户注册 Server Action，使用 Zod 验证输入，插入数据库后发送欢迎邮件。"
+
+## 实现中间件
+"创建 middleware.ts，实现登录保护，未登录用户重定向到 /login，已登录用户才能访问 /dashboard/*。"
+
+## 优化 SEO
+"为产品详情页生成动态 metadata 和结构化数据 JSON-LD。`,
+  },
+  {
+    slug: "claude-code-api-dev",
+    title: "Claude Code 后端 API 开发 Prompt",
+    category: "claude",
+    description: "用 Claude Code 开发 RESTful 和 GraphQL API 的 Prompt 模板。",
+    icon: "🌐",
+    tags: ["claude-code", "api", "backend"],
+    updatedAt: "2026-05-11",
+    content: `# Claude Code 后端 API 开发 Prompt
+
+## 创建 CRUD 接口
+"在 app/api/products/ 下创建商品 CRUD 接口，支持分页查询、按分类筛选、价格排序。"
+
+## 身份验证
+"实现 JWT 身份验证中间件，包含 token 签发、验证和刷新，过期时间 7 天。"
+
+## 文件上传
+"创建文件上传接口，支持图片压缩、格式校验（仅 jpg/png/webp），上传到 S3 并返回 URL。`,
+  },
+  {
+    slug: "copilot-react-native",
+    title: "Copilot React Native 移动端指令",
+    category: "copilot",
+    description: "GitHub Copilot 在 React Native 项目中的最佳配置和使用规则。",
+    icon: "📱",
+    tags: ["copilot", "react-native", "mobile"],
+    updatedAt: "2026-05-11",
+    content: `# Copilot React Native 移动端指令
+
+## 配置 copilot-instructions.md
+
+## 技术栈
+- React Native 0.76+
+- TypeScript strict
+- Expo SDK 52+
+- React Navigation 7
+
+## 编码规范
+- 使用函数组件 + Hooks
+- 样式使用 StyleSheet.create
+- 屏幕组件放在 screens/ 目录
+- 导航配置统一管理
+
+## 常用 Prompt
+- "创建登录页面，包含邮箱密码输入和表单验证"
+- "实现底部 Tab 导航和抽屉导航嵌套"
+- "添加推送通知处理逻辑"`,
+  },
+  {
+    slug: "copilot-docker",
+    title: "Copilot Docker 容器化指令",
+    category: "copilot",
+    description: "GitHub Copilot 辅助 Docker 开发和容器化部署的最佳实践。",
+    icon: "🐳",
+    tags: ["copilot", "docker", "devops"],
+    updatedAt: "2026-05-11",
+    content: `# Copilot Docker 容器化指令
+
+## 配置 copilot-instructions.md
+
+## 技术栈
+- Docker / Docker Compose
+- 多阶段构建
+- Alpine 基础镜像
+
+## 常用 Prompt
+- "为 Node.js 应用生成多阶段构建 Dockerfile"
+- "写 docker-compose.yml 包含 PostgreSQL 和 Redis"
+- "生成 .dockerignore 排除 node_modules 和 .git"`,
+  },
+  {
+    slug: "general-ai-workflow",
+    title: "AI 编程工作流模式与效率指南",
+    category: "general",
+    description: "适用所有 AI 编程工具的高效开发工作流模式和团队协作指南。",
+    icon: "🔄",
+    tags: ["AI", "工作流", "效率", "协作"],
+    updatedAt: "2026-05-11",
+    content: `# AI 编程工作流模式与效率指南
+
+## 单人模式
+- 每日开始：让 AI 回顾 TODO 和进度
+- 编码前：描述需求让 AI 设计方案
+- 编码中：小步提交，每次让 AI Review
+- 编码后：AI 生成测试和文档
+
+## 团队模式
+- 共享 .cursorrules 项目规则
+- 统一 AI 工具版本和配置
+- Code Review 结合 AI 审查
+- 知识库共享 AI Prompt 模板
+
+## 常见陷阱
+- 不要一次性提太多需求
+- 不要完全信任 AI 生成的代码
+- 不要跳过测试
+- AI 不擅长做架构决策`,
+  },
+  {
+    slug: "general-api-design",
+    title: "AI 辅助 API 设计最佳实践指南",
+    category: "general",
+    description: "使用 AI 编程工具进行 API 设计的规范、模式和实战经验。",
+    icon: "📡",
+    tags: ["API", "设计", "REST"],
+    updatedAt: "2026-05-11",
+    content: `# AI 辅助 API 设计最佳实践指南
+
+## RESTful 规范
+- 资源使用复数名词
+- GET 不修改数据
+- POST 创建资源
+- PUT 全量更新，PATCH 部分更新
+
+## 请求和响应
+- 统一错误响应格式
+- 列表接口必须分页
+- 敏感字段不在 URL 中传递
+- 版本号在 URL 路径中
+
+## 安全
+- 所有 API 需要认证
+- HTTPS 强制使用
+- 输入校验防注入
+- 限制请求频率
+
+## 文档
+- 使用 OpenAPI/Swagger
+- 自动生成 API 文档
+- 每个端点写示例`,
   },
 
 ];

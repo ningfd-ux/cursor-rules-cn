@@ -9,8 +9,15 @@ export default function Footer() {
           <Link href="/" className="hover:text-zinc-600 dark:hover:text-zinc-300">
             首页
           </Link>
-          <span>·</span>
-          <span>Built with Next.js</span>
+          <Link href="/about" className="hover:text-zinc-600 dark:hover:text-zinc-300">
+            关于
+          </Link>
+          <Link href="/privacy" className="hover:text-zinc-600 dark:hover:text-zinc-300">
+            隐私
+          </Link>
+          <Link href="/contact" className="hover:text-zinc-600 dark:hover:text-zinc-300">
+            联系
+          </Link>
         </div>
       </div>
     </footer>
