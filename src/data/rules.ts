@@ -13,12 +13,12 @@ export interface Rule {
 
 
 export const categories = [
-  { slug: "cursor", name: "Cursor Rules", count: 18 },
+  { slug: "cursor", name: "Cursor Rules", count: 31 },
   { slug: "claude", name: "Claude Code", count: 9 },
   { slug: "copilot", name: "GitHub Copilot", count: 7 },
   { slug: "windsurf", name: "Windsurf", count: 4 },
   { slug: "tutorial", name: "教程指南", count: 5 },
-  { slug: "general", name: "通用 AI 编程", count: 7 },
+  { slug: "general", name: "通用 AI 编程", count: 8 },
 ];
 
 export function getCategoryName(slug: string): string {
@@ -1611,6 +1611,412 @@ claude "为 src/utils/ 下的工具函数生成 pytest 测试，覆盖边界情�
 - 使用 OpenAPI/Swagger
 - 自动生成 API 文档
 - 每个端点写示例`,
+  },
+
+
+  {
+    slug: "cursor-svelte-rules",
+    title: "Cursor Svelte 开发编码规范规则",
+    category: "cursor",
+    description: "Svelte 5 + SvelteKit 项目中 Cursor 的编码规则和最佳实践。",
+    icon: "🧑‍💻",
+    tags: ["cursor", "svelte", "前端"],
+    updatedAt: "2026-05-11",
+    appliesTo: "Cursor 0.40+",
+    content: `# Cursor Svelte 开发编码规范规则
+
+## 组件规范
+- 使用 Svelte 5 runes 语法
+- 组件文件使用 .svelte 扩展名
+- 逻辑复用使用 stores 和 actions
+- 每个组件单一职责
+
+## SvelteKit 路由
+- 使用 filesystem-based routing
+- 页面文件放在 routes/ 目录
+- API 端点使用 +server.ts
+- 布局使用 +layout.svelte
+
+## 样式
+- 使用 <style> 局部作用域
+- 支持 Tailwind CSS
+- 全局样式放在 app.css`,
+  },
+  {
+    slug: "cursor-angular-rules",
+    title: "Cursor Angular 开发编码规范规则",
+    category: "cursor",
+    description: "Angular 17+ 独立组件模式下 Cursor 的编码规则。",
+    icon: "🅰️",
+    tags: ["cursor", "angular", "前端"],
+    updatedAt: "2026-05-11",
+    appliesTo: "Cursor 0.40+",
+    content: `# Cursor Angular 开发编码规范规则
+
+## 组件规范
+- 使用 standalone 组件
+- 组件文件名使用 .component.ts
+- 模板和样式文件分离
+- 使用 OnPush 变更检测
+
+## 依赖注入
+- 使用 inject() 函数
+- 服务使用 providedIn: root
+- 避免在构造函数中写逻辑
+
+## 路由
+- 使用懒加载路由
+- 路由守卫保护敏感页面
+- 使用 ResolveFn 预加载数据`,
+  },
+  {
+    slug: "cursor-nodejs-rules",
+    title: "Cursor Node.js Express 后端开发规则",
+    category: "cursor",
+    description: "Node.js + Express 项目中 Cursor 的编码规则和中间件规范。",
+    icon: "🟢",
+    tags: ["cursor", "nodejs", "express"],
+    updatedAt: "2026-05-11",
+    appliesTo: "Cursor 0.40+",
+    content: `# Cursor Node.js Express 后端开发规则
+
+## 项目结构
+- 按功能模块组织文件
+- routes/ controllers/ services/ 分层
+- 中间件放在 middleware/ 目录
+- 配置使用环境变量
+
+## API 设计
+- RESTful 路由命名
+- 使用 express-validator 校验输入
+- 统一错误处理中间件
+- 使用 asyncHandler 包装异步路由
+
+## 安全
+- 使用 helmet 增强安全头
+- 使用 cors 配置跨域
+- 请求频率限制
+- 敏感信息不在日志中输出`,
+  },
+  {
+    slug: "cursor-laravel-rules",
+    title: "Cursor Laravel PHP 开发规则",
+    category: "cursor",
+    description: "Laravel 11 项目中使用 Cursor 的 MVC 架构和 Eloquent 规范。",
+    icon: "🎯",
+    tags: ["cursor", "laravel", "php"],
+    updatedAt: "2026-05-11",
+    appliesTo: "Cursor 0.40+",
+    content: `# Cursor Laravel PHP 开发规则
+
+## MVC 架构
+- 模型放在 app/Models
+- 控制器瘦、模型胖
+- 业务逻辑放在 Service 类
+- 表单验证使用 FormRequest
+
+## Eloquent
+- 使用 with() 预加载关联
+- 避免 N+1 查询
+- 使用 scope 定义查询范围
+- 批量赋值保护
+
+## API
+- 使用 API Resource 格式化响应
+- 使用 Sanctum 或 Passport 认证
+- 版本化 API 路由`,
+  },
+  {
+    slug: "cursor-saas-rules",
+    title: "Cursor SaaS 项目开发规则",
+    category: "cursor",
+    description: "SaaS 创业项目使用 Cursor 的完整开发规则，从多租户到支付集成。",
+    icon: "🏢",
+    tags: ["cursor", "saas", "startup"],
+    updatedAt: "2026-05-11",
+    appliesTo: "Cursor 0.40+",
+    content: `# Cursor SaaS 项目开发规则
+
+## 多租户
+- 使用 tenant_id 字段隔离数据
+- 中间件自动设置租户上下文
+- 数据库按租户分表或 schema
+
+## 支付集成
+- Stripe 订阅管理
+- Webhook 处理支付事件
+- 按计划限制功能访问
+
+## 用户管理
+- 邮箱密码 + OAuth 登录
+- 角色权限控制 RBAC
+- 邀请码注册机制
+
+## DevOps
+- 数据库迁移自动化
+- CI/CD 自动部署
+- 日志和监控告警`,
+  },
+  {
+    slug: "cursor-mvp-rules",
+    title: "Cursor MVP 快速开发规则",
+    category: "cursor",
+    description: "用 Cursor 快速构建 MVP 的开发规则，从原型到上线。",
+    icon: "🚀",
+    tags: ["cursor", "mvp", "快速开发"],
+    updatedAt: "2026-05-11",
+    appliesTo: "Cursor 0.40+",
+    content: `# Cursor MVP 快速开发规则
+
+## 开发策略
+- 先用单体架构快速验证
+- 选择熟悉的技术栈
+- 核心功能优先，非核心砍掉
+- 使用现成模版和组件库
+
+## AI 加速
+- 用 Cursor Agent 生成 CRUD
+- AI 生成单元测试
+- 自动编写 API 文档
+- 快速迭代 UI 原型
+
+## 部署
+- Vercel / Railway 一键部署
+- 使用托管数据库减少运维
+- 监控使用 Sentry 免费版`,
+  },
+  {
+    slug: "cursor-indie-hacker-rules",
+    title: "Cursor 独立开发者工作流规则",
+    category: "cursor",
+    description: "独立开发者使用 Cursor 一人搞定全栈开发的最佳工作流和规则。",
+    icon: "💻",
+    tags: ["cursor", "indie", "独立开发"],
+    updatedAt: "2026-05-11",
+    appliesTo: "Cursor 0.40+",
+    content: `# Cursor 独立开发者工作流规则
+
+## 一个人 = 一个团队
+
+- Cursor Agent 做后端代码
+- Cursor Composer 做前端 UI
+- Claude Code 做测试和 CI
+- AI 生成设计稿和文案
+
+## 效率最大化
+- 每周一规划，每天发布
+- 使用模板快速启动项目
+- 复用自己的 .cursorrules 库
+- AI 做代码审查和测试
+
+## 工具链
+- GitHub + Vercel 自动部署
+- Supabase 做后端和数据库
+- Stripe 做支付
+- Resend 做邮件`,
+  },
+  {
+    slug: "cursor-ai-agent-rules",
+    title: "Cursor AI Agent 开发规则",
+    category: "cursor",
+    description: "使用 Cursor 开发 AI Agent 应用的规则和最佳实践。",
+    icon: "🤖",
+    tags: ["cursor", "ai-agent", "llm"],
+    updatedAt: "2026-05-11",
+    appliesTo: "Cursor 0.40+",
+    content: `# Cursor AI Agent 开发规则
+
+## 架构设计
+- 使用 LangChain / Vercel AI SDK
+- Agent 工具调用模式
+- 记忆管理（短期 + 长期）
+- 流式响应处理
+
+## Prompt 管理
+- 系统提示词集中管理
+- 使用模板引擎构建 prompt
+- 版本控制提示词变更
+- 效果评估机制
+
+## 安全
+- 输入验证和清理
+- 限制工具执行权限
+- 速率限制
+- 敏感信息过滤
+
+## 测试
+- 模拟用户对话测试
+- 工具调用正确性测试
+- 边缘情况覆盖`,
+  },
+  {
+    slug: "cursor-startup-team-rules",
+    title: "Cursor 创业团队协作规则",
+    category: "cursor",
+    description: "创业团队统一 Cursor 配置和 AI 编码规范的团队协作规则。",
+    icon: "👥",
+    tags: ["cursor", "team", "协作"],
+    updatedAt: "2026-05-11",
+    appliesTo: "Cursor 0.40+",
+    content: `# Cursor 创业团队协作规则
+
+## 统一配置
+- 项目级 .cursorrules 团队共享
+- 一致的代码风格配置
+- 统一的 AI 行为规范
+
+## 代码审查
+- AI 自动审查 PR
+- 人工确认 AI 建议
+- 代码质量门禁
+
+## 知识管理
+- 团队共享 Prompt 模板
+- Cursor 技巧文档化
+- 定期分享最佳实践`,
+  },
+  {
+    slug: "cursor-landing-page-rules",
+    title: "Cursor Landing Page 开发规则",
+    category: "cursor",
+    description: "用 Cursor 快速构建落地页的规则和最佳实践。",
+    icon: "📄",
+    tags: ["cursor", "landing-page", "前端"],
+    updatedAt: "2026-05-11",
+    appliesTo: "Cursor 0.40+",
+    content: `# Cursor Landing Page 开发规则
+
+## 技术选型
+- Next.js + Tailwind CSS
+- Framer Motion 动画
+- 响应式设计优先
+- SEO 优化内置
+
+## 页面结构
+- Hero + 特性 + 案例 + CTA
+- 社交证明（用户评价）
+- FAQ 解答疑虑
+- 页脚含所有链接
+
+## 性能
+- 图片使用 next/image
+- 字体使用 next/font
+- 关键 CSS 内联
+- 延迟加载非首屏内容`,
+  },
+  {
+    slug: "cursor-graphql-rules",
+    title: "Cursor GraphQL API 开发规则",
+    category: "cursor",
+    description: "使用 Cursor 开发 GraphQL API 的编码规则和查询优化最佳实践。",
+    icon: "◈",
+    tags: ["cursor", "graphql", "api"],
+    updatedAt: "2026-05-11",
+    appliesTo: "Cursor 0.40+",
+    content: `# Cursor GraphQL API 开发规则
+
+## Schema 设计
+- 使用 SDL 优先方式
+- 类型命名使用 PascalCase
+- 字段命名使用 camelCase
+- Query 和 Mutation 分开定义
+
+## 解析器
+- 使用 DataLoader 解决 N+1
+- 批量查询优化
+- 错误处理返回标准格式
+
+## 安全
+- 深度限制防止恶意查询
+- 复杂度分析
+- 认证中间件
+- 字段级别权限`,
+  },
+  {
+    slug: "cursor-redis-rules",
+    title: "Cursor Redis 缓存开发规则",
+    category: "cursor",
+    description: "在 Cursor 项目中集成和使用 Redis 缓存的编码规则。",
+    icon: "⚡",
+    tags: ["cursor", "redis", "缓存"],
+    updatedAt: "2026-05-11",
+    appliesTo: "Cursor 0.40+",
+    content: `# Cursor Redis 缓存开发规则
+
+## 缓存策略
+- 缓存穿透、击穿、雪崩防护
+- 合理设置 TTL
+- 使用分布式锁防并发
+- 缓存预热机制
+
+## 数据结构
+- 字符串用于简单缓存
+- Hash 存储对象字段
+- List 做消息队列
+- Sorted Set 做排行榜
+
+## 规范
+- Key 命名使用业务前缀
+- 过期时间统一设置
+- 大 Key 拆分
+- 监控缓存命中率`,
+  },
+  {
+    slug: "cursor-fullstack-app-rules",
+    title: "Cursor 全栈应用开发规则",
+    category: "cursor",
+    description: "使用 Cursor 进行全栈应用开发的端到端编码规则。",
+    icon: "⚡",
+    tags: ["cursor", "fullstack", "web"],
+    updatedAt: "2026-05-11",
+    appliesTo: "Cursor 0.40+",
+    content: `# Cursor 全栈应用开发规则
+
+## 技术栈推荐
+- Next.js / Nuxt 做前端
+- Prisma / Drizzle 做 ORM
+- PostgreSQL 做数据库
+- Tailwind CSS 做样式
+
+## 开发流程
+- 先设计数据库 Schema
+- 生成类型定义
+- 实现 API 接口
+- 开发前端页面
+
+## 质量保证
+- E2E 测试关键路径
+- 单元测试核心逻辑
+- 性能预算监控
+- 可访问性检查`,
+  },
+  {
+    slug: "general-rule-generator-workflow",
+    title: "AI Rule Generator 开发工作流",
+    category: "general",
+    description: "通过结构化表单自动生成个性化 .cursorrules 的工作流和方法。",
+    icon: "🔧",
+    tags: ["AI", "generator", "工作流"],
+    updatedAt: "2026-05-11",
+    content: `# AI Rule Generator 开发工作流
+
+## 规则模板结构
+
+一个好的 Rule 包含：
+1. 技术栈声明（项目使用什么框架和语言）
+2. 编码规范（命名、缩进、注释）
+3. 架构约束（组件大小、分层规则）
+4. 安全规则（输入校验、敏感信息）
+
+## 生成方法
+
+使用结构化提示词让 AI 生成 Rule：
+
+"生成一个 [技术栈] 的 .cursorrules，包含代码风格、组件规范和错误处理规则。"
+
+## 示例 Prompt
+
+"生成一个 TypeScript + React + Tailwind CSS 的 .cursorrules，组件使用函数组件和 Hooks，样式使用 Tailwind 类。"`,
   },
 
 ];

@@ -20,6 +20,9 @@ export default function Header() {
           <Link href="/" className="hover:text-zinc-900 dark:hover:text-zinc-300">
             首页
           </Link>
+          <Link href="/frameworks/react" className="hidden hover:text-zinc-900 dark:hover:text-zinc-300 sm:inline-block">
+            Framework
+          </Link>
           <a
             href="https://github.com/ningfd-ux/cursor-rules-cn/issues/new"
             target="_blank"

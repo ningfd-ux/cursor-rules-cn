@@ -30,6 +30,42 @@ export default function Home() {
         </div>
       </section>
 
+      {/* 热门分类 (new) */}
+      <section className="mb-12">
+        <h2 className="mb-5 text-lg font-semibold text-zinc-900 dark:text-zinc-100">
+          📂 热门分类
+        </h2>
+        <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+          {[
+            { href: "/frameworks/react", icon: "⚛️", name: "React", desc: "React + Hooks 开发规则", count: rules.filter(r => r.tags.includes("react")).length },
+            { href: "/frameworks/nextjs", icon: "▲", name: "Next.js", desc: "App Router 完整配置", count: rules.filter(r => r.tags.includes("nextjs")).length },
+            { href: "/frameworks/vue", icon: "🟢", name: "Vue", desc: "Vue 3 + Composition API", count: rules.filter(r => r.tags.includes("vue")).length },
+            { href: "/frameworks/python", icon: "🐍", name: "Python", desc: "FastAPI + Django 规则", count: rules.filter(r => r.tags.includes("python")).length },
+            { href: "/frameworks/go", icon: "🔷", name: "Go", desc: "Golang 编码规范", count: rules.filter(r => r.tags.includes("go")).length },
+            { href: "/compare", icon: "⚖️", name: "工具对比", desc: "Cursor vs Copilot 等", count: 3 },
+          ].map((cat) => (
+            <Link
+              key={cat.href}
+              href={cat.href}
+              className="group rounded-xl border border-zinc-200 bg-white p-5 transition-all hover:border-blue-200 hover:shadow-md dark:border-zinc-800 dark:bg-zinc-900 dark:hover:border-blue-800"
+            >
+              <div className="mb-2 flex items-center gap-2">
+                <span className="text-xl">{cat.icon}</span>
+                <span className="text-sm font-semibold text-zinc-900 group-hover:text-blue-600 dark:text-zinc-100 dark:group-hover:text-blue-400">
+                  {cat.name}
+                </span>
+              </div>
+              <p className="text-xs text-zinc-400">{cat.desc}</p>
+              {cat.count > 0 && (
+                <span className="mt-2 inline-block rounded bg-zinc-50 px-2 py-0.5 text-xs text-zinc-400 dark:bg-zinc-800 dark:text-zinc-500">
+                  {cat.count} 条规则
+                </span>
+              )}
+            </Link>
+          ))}
+        </div>
+      </section>
+
       {/* 精选推荐 (server-rendered) */}
       <section className="mb-10">
         <h2 className="mb-4 text-lg font-semibold text-zinc-900 dark:text-zinc-100">
