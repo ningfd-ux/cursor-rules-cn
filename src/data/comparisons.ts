@@ -103,4 +103,49 @@ Cursor 是 AI 原生 IDE，Claude Code 是命令行 AI 工具。它们解决不�
 - 批量重构用 Claude Code
 - 调试和探索用 Cursor`,
   },
+
+  {
+    slug: "cursor-vs-traditional-ide",
+    title: "Cursor vs 传统 IDE：AI 时代的开发方式变革",
+    description: "对比 Cursor AI IDE 和传统 VS Code/WebStorm 等 IDE 的开发效率差异。",
+    icon: "⚖️",
+    tags: ["cursor", "vs-code", "对比"],
+    content: `# Cursor vs 传统 IDE：全面对比
+
+## 核心差异
+
+- Cursor：AI 理解上下文代码补全
+- 传统 IDE：基于规则补全
+- Cursor：自然语言描述生成代码
+- 传统 IDE：手动编写全部代码
+
+## 效率对比
+
+- 创建 CRUD：Cursor 5分钟 vs 传统 30分钟
+- 调试 Bug：Cursor 10分钟 vs 传统 45分钟
+- 代码审查：Cursor 5分钟 vs 传统 20分钟
+
+## 最佳方案
+
+Cursor 作为主力 IDE，传统 IDE 作为备用。`,
+  },
+  {
+    slug: "cursor-pricing-guide",
+    title: "Cursor 定价指南：免费版 vs Pro vs Business",
+    description: "Cursor 各定价方案的完整对比，帮你选择最合适的订阅计划。",
+    icon: "💰",
+    tags: ["cursor", "pricing", "指南"],
+    content: `# Cursor 定价指南：2026 最新
+
+## 版本对比
+
+Free：每月 2000 次 AI 补全，有 Chat，无 Agent
+Pro（$20/月）：无限 AI 补全，有 Agent 模式
+Business（$40/月）：无限 + 团队管理 + 隐私模式
+
+## 推荐
+
+个人开发者选 Pro，学生用 Free 足够，团队选 Business。`,
+  },
+
 ];

@@ -13,12 +13,12 @@ export interface Rule {
 
 
 export const categories = [
-  { slug: "cursor", name: "Cursor Rules", count: 31 },
-  { slug: "claude", name: "Claude Code", count: 9 },
+  { slug: "cursor", name: "Cursor Rules", count: 42 },
+  { slug: "claude", name: "Claude Code", count: 10 },
   { slug: "copilot", name: "GitHub Copilot", count: 7 },
   { slug: "windsurf", name: "Windsurf", count: 4 },
   { slug: "tutorial", name: "教程指南", count: 5 },
-  { slug: "general", name: "通用 AI 编程", count: 8 },
+  { slug: "general", name: "通用 AI 编程", count: 13 },
 ];
 
 export function getCategoryName(slug: string): string {
@@ -2019,4 +2019,481 @@ claude "为 src/utils/ 下的工具函数生成 pytest 测试，覆盖边界情�
 "生成一个 TypeScript + React + Tailwind CSS 的 .cursorrules，组件使用函数组件和 Hooks，样式使用 Tailwind 类。"`,
   },
 
+
+  {
+    slug: "cursor-ruby-rails",
+    title: "Cursor Ruby on Rails 开发规则",
+    category: "cursor",
+    description: "Ruby on Rails 7+ 项目中使用 Cursor 的编码规则和最佳实践。",
+    icon: "💎",
+    tags: ["cursor", "ruby", "rails"],
+    updatedAt: "2026-05-11",
+    appliesTo: "Cursor 0.40+",
+    content: `# Cursor Ruby on Rails 开发规则
+
+## Rails 规范
+- 遵循 Rails 约定优于配置
+- 使用 RESTful 资源路由
+- Model/View/Controller 分离
+- 业务逻辑放在 Service 层
+
+## 代码风格
+- 使用 2 空格缩进
+- 方法使用 snake_case
+- 类名使用 CamelCase
+- 常量使用 SCREAMING_SNAKE_CASE
+
+## 数据库
+- 迁移使用 change 方法
+- 模型中定义关联和验证
+- 使用索引优化查询
+- 批量操作使用 find_each`,
+  },
+  {
+    slug: "cursor-swift-ios",
+    title: "Cursor iOS Swift 开发规则",
+    category: "cursor",
+    description: "Swift + SwiftUI 项目中 Cursor 的编码规范和最佳实践。",
+    icon: "🍎",
+    tags: ["cursor", "swift", "ios"],
+    updatedAt: "2026-05-11",
+    appliesTo: "Cursor 0.40+",
+    content: `# Cursor iOS Swift 开发规则
+
+## Swift 规范
+- 使用 Swift 最新版本
+- 遵循 Swift API 设计指南
+- 使用 SwiftUI 优先
+- UIKit 用于兼容性场景
+
+## 架构
+- 使用 MVVM 架构
+- Service 层处理网络请求
+- Repository 模式管理数据
+- 依赖注入管理服务
+
+## SwiftUI
+- 使用 @State/@Binding 管理局部状态
+- @ObservableObject 管理可观察对象
+- 视图拆分保持小型化
+- 预览提供 mock 数据`,
+  },
+  {
+    slug: "cursor-kotlin-android",
+    title: "Cursor Kotlin Android 开发规则",
+    category: "cursor",
+    description: "Android Kotlin + Jetpack Compose 项目中 Cursor 的编码规则。",
+    icon: "🤖",
+    tags: ["cursor", "kotlin", "android"],
+    updatedAt: "2026-05-11",
+    appliesTo: "Cursor 0.40+",
+    content: `# Cursor Kotlin Android 开发规则
+
+## Kotlin 规范
+- 使用 Kotlin 1.9+
+- 遵循 Kotlin 编码规范
+- 使用 coroutines 处理异步
+- Flow 用于数据流
+
+## Jetpack Compose
+- 使用 @Composable 函数构建 UI
+- 状态提升至 ViewModel
+- SideEffect 管理副作用
+- 预览函数提供示例数据
+
+## 架构
+- MVVM + Clean Architecture
+- Repository 管理数据源
+- Hilt 依赖注入
+- Navigation Compose 路由`,
+  },
+  {
+    slug: "cursor-csharp-dotnet",
+    title: "Cursor C# .NET 开发规则",
+    category: "cursor",
+    description: ".NET 8+ 项目中使用 Cursor 的编码规则和架构规范。",
+    icon: "🔷",
+    tags: ["cursor", "csharp", "dotnet"],
+    updatedAt: "2026-05-11",
+    appliesTo: "Cursor 0.40+",
+    content: `# Cursor C# .NET 开发规则
+
+## 代码风格
+- 遵循 .NET 编码规范
+- 使用 4 空格缩进
+- 类和方法使用 PascalCase
+- 参数和字段使用 camelCase
+
+## ASP.NET Core
+- 使用最小 API 或控制器
+- 依赖注入注册服务
+- Entity Framework Core 管理数据
+- Serilog 结构化日志
+
+## 架构
+- Clean Architecture 分层
+- MediatR 处理命令查询
+- FluentValidation 输入校验
+- AutoMapper 对象映射`,
+  },
+  {
+    slug: "cursor-astro-rules",
+    title: "Cursor Astro 静态站点开发规则",
+    category: "cursor",
+    description: "Astro 框架项目中 Cursor 的编码规则和岛屿架构最佳实践。",
+    icon: "🚀",
+    tags: ["cursor", "astro", "前端"],
+    updatedAt: "2026-05-11",
+    appliesTo: "Cursor 0.40+",
+    content: `# Cursor Astro 静态站点开发规则
+
+## Astro 规范
+- 使用 .astro 组件语法
+- 内容集合管理 Markdown 文章
+- 岛屿架构交互组件
+- 使用 View Transitions 路由
+
+## 内容管理
+- Markdown/MDX 管理博客内容
+- 集合 schema 验证 frontmatter
+- 自动生成目录和导航
+
+## 性能
+- 静态生成所有页面
+- 图片使用 Astro:image
+- 按需加载岛屿组件`,
+  },
+  {
+    slug: "cursor-remix-rules",
+    title: "Cursor Remix 全栈开发规则",
+    category: "cursor",
+    description: "Remix 全栈框架项目中使用 Cursor 的编码规则和最佳实践。",
+    icon: "🎸",
+    tags: ["cursor", "remix", "react"],
+    updatedAt: "2026-05-11",
+    appliesTo: "Cursor 0.40+",
+    content: `# Cursor Remix 全栈开发规则
+
+## 路由规范
+- 使用嵌套路由和布局
+- loader 加载服务端数据
+- action 处理表单提交
+- useFetcher 实现渐进增强
+
+## 数据管理
+- loader/action 直接访问数据库
+- 使用 Session 管理用户状态
+- Cookie 管理客户端偏好
+
+## 部署
+- 适配 Cloudflare Pages
+- 或部署到 Fly.io / Vercel
+- 环境变量管理配置`,
+  },
+  {
+    slug: "cursor-tauri-rules",
+    title: "Cursor Tauri 桌面应用开发规则",
+    category: "cursor",
+    description: "Tauri 桌面应用项目中 Cursor 的 Rust 后端和前端编码规范。",
+    icon: "🖥️",
+    tags: ["cursor", "tauri", "desktop"],
+    updatedAt: "2026-05-11",
+    appliesTo: "Cursor 0.40+",
+    content: `# Cursor Tauri 桌面应用开发规则
+
+## 项目结构
+- 前端使用 React/Vue/Svelte
+- Rust 后端在 src-tauri/
+- 命令在 Rust 中定义
+- 事件在前后端间传递
+
+## Rust 后端
+- 使用 tauri::command 导出函数
+- 错误处理返回 Result
+- 文件系统操作使用安全 API
+- 数据库使用 SQLite
+
+## 前端
+- 调用 @tauri-apps/api
+- 窗口管理使用 Webview API
+- 系统托盘和菜单配置`,
+  },
+  {
+    slug: "cursor-supabase-rules",
+    title: "Cursor Supabase 后端开发规则",
+    category: "cursor",
+    description: "Supabase BaaS 项目中使用 Cursor 的数据库策略和行级安全规则。",
+    icon: "⚡",
+    tags: ["cursor", "supabase", "database"],
+    updatedAt: "2026-05-11",
+    appliesTo: "Cursor 0.40+",
+    content: `# Cursor Supabase 后端开发规则
+
+## 数据库设计
+- 使用 PostgreSQL 原生特性
+- 行级安全 RLS 策略
+- 实时订阅启用 Realtime
+- 存储桶管理文件上传
+
+## 认证
+- 内置邮箱/OAuth 认证
+- 自定义 JWT 声明
+- 用户元数据管理
+- 角色权限控制
+
+## API
+- 自动生成 RESTful API
+- 使用 PostgREST 过滤查询
+- Edge Functions 自定义逻辑
+- 数据库函数调用`,
+  },
+  {
+    slug: "cursor-stripe-rules",
+    title: "Cursor Stripe 支付集成规则",
+    category: "cursor",
+    description: "Stripe 支付集成项目中使用 Cursor 的结算流程和 Webhook 规范。",
+    icon: "💳",
+    tags: ["cursor", "stripe", "payment"],
+    updatedAt: "2026-05-11",
+    appliesTo: "Cursor 0.40+",
+    content: `# Cursor Stripe 支付集成规则
+
+## 结账流程
+- 使用 Stripe Checkout 或 Payment Element
+- 创建 PaymentIntent 处理支付
+- 订阅管理使用 Stripe Billing
+- Webhook 处理异步事件
+
+## Webhook 安全
+- 验证 Stripe 签名
+- 幂等键防止重复处理
+- 异步处理耗时任务
+- 日志记录所有事件
+
+## 数据模型
+- Customer 对象对应用户
+- Subscription 映射会员计划
+- Product/Price 管理定价
+- Invoice 记录账单`,
+  },
+  {
+    slug: "claude-code-debugging",
+    title: "Claude Code 调试修复 Prompt",
+    category: "claude",
+    description: "用 Claude Code 高效调试代码的 Prompt 模板和调试工作流。",
+    icon: "🐛",
+    tags: ["claude-code", "调试", "prompt"],
+    updatedAt: "2026-05-11",
+    content: `# Claude Code 调试修复 Prompt
+
+## 分析错误
+"分析这个错误堆栈：粘贴错误日志。导致这个错误的原因是什么？如何修复？"
+
+## 定位 Bug
+"在 src/components/UserList.tsx 中，列表在第二次渲染时显示空白。检查代码找出原因并提供修复。"
+
+## 性能分析
+"分析这个函数（粘贴代码）的性能瓶颈，提供优化方案并解释为什么新方案更快。"
+
+## 安全审计
+"审查这段用户输入处理代码，找出安全漏洞并提供修复方案。重点关注 XSS 和 SQL 注入。"`,
+  },
+  {
+    slug: "general-code-security",
+    title: "AI 编程安全规范指南",
+    category: "general",
+    description: "使用 AI 编程工具时的安全编码规范，防止引入漏洞。",
+    icon: "🔒",
+    tags: ["AI", "安全", "最佳实践"],
+    updatedAt: "2026-05-11",
+    content: `# AI 编程安全规范指南
+
+## 输入验证
+- 永远不要信任用户输入
+- 使用白名单校验
+- SQL 参数化查询防注入
+- XSS 防护使用转义
+
+## 认证授权
+- 密码使用 bcrypt 哈希
+- JWT 令牌设置合理过期时间
+- API Key 通过环境变量注入
+- 最小权限原则
+
+## AI 生成代码审查
+- 检查 AI 生成的 SQL 查询
+- 验证认证逻辑完整性
+- 审计文件路径拼接
+- 不使用 AI 生成的密码学代码`,
+  },
+  {
+    slug: "general-responsive-design",
+    title: "AI 辅助响应式设计规则",
+    category: "general",
+    description: "使用 AI 编程工具实现响应式设计的编码规范和最佳实践。",
+    icon: "📱",
+    tags: ["AI", "响应式", "CSS"],
+    updatedAt: "2026-05-11",
+    content: `# AI 辅助响应式设计规则
+
+## 设计原则
+- Mobile First 优先开发
+- 使用相对单位 rem/em/%
+- 断点使用 Tailwind 默认值
+- 图片设置 max-width: 100%
+
+## 布局
+- CSS Grid 用于整体布局
+- Flexbox 用于组件内排列
+- Container Queries 组件级响应
+- 间距使用间距系统
+
+## AI Prompt
+"创建响应式导航栏：移动端汉堡菜单，平板展开图标+文字，桌面完整菜单。"
+
+"设计卡片网格布局，自动适应 1/2/3/4 列，图片保持比例。"`,
+  },
+
+
+  {
+    slug: "cursor-nuxt-rules",
+    title: "Cursor Nuxt 3 全栈开发规则",
+    category: "cursor",
+    description: "Nuxt 3 + Vue 项目中使用 Cursor 的全栈开发编码规则。",
+    icon: "🍃",
+    tags: ["cursor", "nuxt", "vue"],
+    updatedAt: "2026-05-11",
+    appliesTo: "Cursor 0.40+",
+    content: `# Cursor Nuxt 3 全栈开发规则
+
+## 目录结构
+- pages/ 文件路由
+- composables/ 共享逻辑
+- server/ API 和中间件
+- middleware/ 路由守卫
+
+## 数据获取
+- useFetch 获取服务端数据
+- useState 共享状态
+- useAsyncData 异步数据
+- Server Routes API 端点
+
+## 模块
+- Pinia 状态管理
+- Tailwind CSS 样式
+- Nuxt Image 图片优化
+- Nuxt SEO 元数据`,
+  },
+  {
+    slug: "cursor-playwright-rules",
+    title: "Cursor Playwright E2E 测试规则",
+    category: "cursor",
+    description: "使用 Cursor 编写 Playwright 端到端测试的编码规则和最佳实践。",
+    icon: "🎭",
+    tags: ["cursor", "playwright", "e2e"],
+    updatedAt: "2026-05-11",
+    appliesTo: "Cursor 0.40+",
+    content: `# Cursor Playwright E2E 测试规则
+
+## 测试结构
+- 测试文件放在 e2e/ 目录
+- Page Object 模式管理页面
+- describe 组织测试套件
+- 每个测试独立可运行
+
+## 选择器
+- 优先使用 role 和 text
+- 避免 CSS 类名选择器
+- data-testid 用于复杂组件
+- 等待元素可见后操作
+
+## 断言
+- 使用 soft assert 收集错误
+- 截图用于失败分析
+- 网络请求使用 route 拦截
+- 视觉回归使用 screenshot`,
+  },
+  {
+    slug: "general-monorepo-rules",
+    title: "AI Monorepo 多包管理开发规则",
+    category: "general",
+    description: "使用 AI 编程工具管理 Monorepo 项目的编码规则和包管理最佳实践。",
+    icon: "📦",
+    tags: ["AI", "monorepo", "turborepo"],
+    updatedAt: "2026-05-11",
+    content: `# AI Monorepo 多包管理开发规则
+
+## 工具选择
+- Turborepo 构建编排
+- pnpm workspace 包管理
+- Changesets 版本和发版
+- ESLint + Prettier 统一配置
+
+## 项目结构
+- packages/ 公共包
+- apps/ 应用入口
+- tools/ 构建工具
+- 共享 tsconfig 配置
+
+## AI 协作
+- AI 理解包依赖关系
+- 跨包重构自动更新引用
+- 统一代码风格配置
+- 自动生成 Changelog`,
+  },
+  {
+    slug: "general-deployment-rules",
+    title: "AI 部署运维 CI/CD 指南",
+    category: "general",
+    description: "使用 AI 编程工具配置 CI/CD 流水线和自动化部署的规则。",
+    icon: "🚢",
+    tags: ["AI", "deploy", "cicd"],
+    updatedAt: "2026-05-11",
+    content: `# AI 部署运维 CI/CD 指南
+
+## CI 配置
+- GitHub Actions 自动化
+- lint + test + build 流水线
+- 预览部署每个 PR
+- 自动生成 Release Notes
+
+## Docker
+- 多阶段构建优化
+- 使用 .dockerignore
+- 安全扫描镜像
+- 标签管理版本
+
+## 监控
+- 健康检查端点
+- 错误追踪 Sentry
+- 性能监控
+- 日志聚合和告警`,
+  },
+  {
+    slug: "general-testing-strategy",
+    title: "AI 辅助测试策略完整指南",
+    category: "general",
+    description: "测试金字塔策略和 AI 辅助生成测试的最佳实践。",
+    icon: "🧪",
+    tags: ["AI", "test", "strategy"],
+    updatedAt: "2026-05-11",
+    content: `# AI 辅助测试策略完整指南
+
+## 测试金字塔
+- 单元测试占 70%（快速、隔离）
+- 集成测试占 20%（API、数据库）
+- E2E 测试占 10%（关键路径）
+
+## AI 在测试中的应用
+- 根据代码自动生成单元测试
+- 生成 mock 数据和 fixture
+- 分析覆盖率补充测试
+- 自动修复失败的测试
+
+## 测试规范
+- AAA 模式（Arrange-Act-Assert）
+- 描述性测试名称
+- 一个测试一个行为
+- 边界情况优先覆盖`,
+  },
 ];

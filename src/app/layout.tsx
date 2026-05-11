@@ -71,6 +71,7 @@ export default function RootLayout({
             />
           </>
         )}
+        <link rel="alternate" type="application/rss+xml" title="Cursor Rules 中文库" href="https://cursorrules.fun/rss.xml" />
       </head>
       <body className="flex min-h-full flex-col bg-zinc-50 dark:bg-zinc-950">
         <Header />
