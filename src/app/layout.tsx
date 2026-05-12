@@ -73,6 +73,25 @@ export default function RootLayout({
             />
           </>
         )}
+        <link rel="alternate" type="application/rss+xml" title="Cursor Rules 中文库" href="https://cursorrules.fun/rss.xml" />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "WebSite",
+              name: "Cursor Rules 中文库",
+              url: "https://cursorrules.fun/",
+              description:
+                "让 AI 写出真正能用的代码。81 条 Cursor Rules，覆盖 40+ 技术栈，每条含使用场景和常见错误。",
+              potentialAction: {
+                "@type": "SearchAction",
+                target: "https://cursorrules.fun/?q={search_term_string}",
+                "query-input": "required name=search_term_string",
+              },
+            }),
+          }}
+        />
       </head>
       <body className="flex min-h-full flex-col bg-zinc-50 dark:bg-zinc-950">
         <Header />

@@ -1,4 +1,4 @@
-﻿import Link from "next/link";
+import Link from "next/link";
 import RuleCard from "@/components/RuleCard";
 import BackToTop from "@/components/BackToTop";
 import { rules, categories } from "@/data/rules";
@@ -8,99 +8,78 @@ const featuredRules = rules.slice(0, 3);
 export default function Home() {
   return (
     <div className="mx-auto max-w-5xl px-4 py-12">
-      {/* Hero - New Positioning */}
+      {/* Hero */}
       <section className="mb-12 text-center">
-        <span className="mb-4 inline-block rounded-full bg-green-100 px-3 py-1 text-xs font-medium text-green-600 dark:bg-green-900 dark:text-green-300">
-          🚀 Production Ready AI Code
-        </span>
         <h1 className="mb-4 text-3xl font-bold tracking-tight text-zinc-900 dark:text-zinc-100 sm:text-4xl">
-          让 AI 写出真正能上线的代码
+          让 AI 写出<span className="text-blue-600">真正能用的代码</span>
         </h1>
-        <p className="mx-auto mb-6 max-w-2xl text-base leading-relaxed text-zinc-500 dark:text-zinc-400">
-          不要再让 AI 写出玩具代码、废弃 API 和满是 any 的垃圾代码。
-          <br />
-          精选 46 条经过验证的 AI 编码规则，或者用 AI 生成你的专属配置。
+        <p className="mx-auto mb-6 max-w-2xl text-lg leading-relaxed text-zinc-500 dark:text-zinc-400">
+          每条规则都有使用场景和避坑指南，不只是模板列表。
+          覆盖 React、Next.js、Vue、Python、Go、AI Agent 等 40+ 技术栈。
         </p>
-        <div className="flex items-center justify-center gap-4">
+        <div className="mb-6 flex flex-wrap items-center justify-center gap-3">
           <Link
             href="/generator"
-            className="inline-flex items-center gap-2 rounded-lg bg-green-600 px-6 py-3 text-sm font-medium text-white transition-colors hover:bg-green-700"
+            className="inline-flex items-center gap-2 rounded-lg bg-green-600 px-5 py-2.5 text-sm font-medium text-white transition-colors hover:bg-green-700"
           >
-            ✨ AI 智能生成规则
+            <span>✨ AI 智能生成</span>
+            <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+              <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
+            </svg>
           </Link>
           <a
             href="#categories"
-            className="inline-flex items-center gap-2 rounded-lg border border-zinc-300 bg-white px-6 py-3 text-sm font-medium text-zinc-700 transition-colors hover:bg-zinc-50 dark:border-zinc-700 dark:bg-zinc-900 dark:text-zinc-300 dark:hover:bg-zinc-800"
+            className="inline-flex items-center gap-2 rounded-lg border border-zinc-200 px-5 py-2.5 text-sm font-medium text-zinc-700 transition-colors hover:bg-zinc-50 dark:border-zinc-700 dark:text-zinc-300 dark:hover:bg-zinc-800"
           >
-            📖 浏览规则库
+            浏览规则
           </a>
         </div>
-        <div className="mt-6 flex items-center justify-center gap-6 text-sm text-zinc-400 dark:text-zinc-500">
-          <span className="flex items-center gap-1">✅ 不再有 deprecated API</span>
-          <span className="flex items-center gap-1">✅ 不再有类型不安全的 any</span>
-          <span className="flex items-center gap-1">✅ 不再有只会写 useEffect 的 AI</span>
+        <div className="flex items-center justify-center gap-3 text-sm text-zinc-400 dark:text-zinc-500">
+          <span className="flex items-center gap-1">{rules.length} 条规则</span>
+          <span>·</span>
+          <span className="flex items-center gap-1">{categories.length} 个分类</span>
+          <span>·</span>
+          <span className="flex items-center gap-1">每条含使用场景 + 常见错误</span>
         </div>
       </section>
 
-      {/* Before / After Demo */}
-      <section className="mb-10">
-        <div className="rounded-xl border border-zinc-200 bg-white p-8 dark:border-zinc-800 dark:bg-zinc-900">
-          <h2 className="mb-6 text-center text-lg font-semibold text-zinc-900 dark:text-zinc-100">
-            🔍 加了 Rules 之后，AI 写代码的区别有多大？
-          </h2>
-          <div className="grid gap-6 sm:grid-cols-2">
-            <div>
-              <div className="mb-2 rounded bg-red-100 px-3 py-1 text-xs font-medium text-red-600 dark:bg-red-900 dark:text-red-300">
-                ❌ 没有 Rules - AI 写的垃圾代码
+      {/* 热门分类 (new) */}
+      <section className="mb-12">
+        <h2 className="mb-5 text-lg font-semibold text-zinc-900 dark:text-zinc-100">
+          📂 热门分类
+        </h2>
+        <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+          {[
+            { href: "/frameworks/react", icon: "⚛️", name: "React", desc: "React + Hooks 开发规则", count: rules.filter(r => r.tags.includes("react")).length },
+            { href: "/frameworks/nextjs", icon: "▲", name: "Next.js", desc: "App Router 完整配置", count: rules.filter(r => r.tags.includes("nextjs")).length },
+            { href: "/frameworks/vue", icon: "🟢", name: "Vue", desc: "Vue 3 + Composition API", count: rules.filter(r => r.tags.includes("vue")).length },
+            { href: "/frameworks/python", icon: "🐍", name: "Python", desc: "FastAPI + Django 规则", count: rules.filter(r => r.tags.includes("python")).length },
+            { href: "/frameworks/go", icon: "🔷", name: "Go", desc: "Golang 编码规范", count: rules.filter(r => r.tags.includes("go")).length },
+            { href: "/compare", icon: "⚖️", name: "工具对比", desc: "Cursor vs Copilot 等", count: 3 },
+          ].map((cat) => (
+            <Link
+              key={cat.href}
+              href={cat.href}
+              className="group rounded-xl border border-zinc-200 bg-white p-5 transition-all hover:border-blue-200 hover:shadow-md dark:border-zinc-800 dark:bg-zinc-900 dark:hover:border-blue-800"
+            >
+              <div className="mb-2 flex items-center gap-2">
+                <span className="text-xl">{cat.icon}</span>
+                <span className="text-sm font-semibold text-zinc-900 group-hover:text-blue-600 dark:text-zinc-100 dark:group-hover:text-blue-400">
+                  {cat.name}
+                </span>
               </div>
-              <pre className="rounded-lg bg-red-50 p-4 text-xs leading-relaxed text-red-800 dark:bg-red-900/20 dark:text-red-300 overflow-x-auto">
-{`// 😡 全是 any，类型安全为零
-function fetchUser(id: any): any {
-  return fetch(\`/api/users/\${id}\`);
-}
-
-// 😡 废弃的 Pages Router 写法
-export async function getServerSideProps() {
-  const data = await fetchUser(1);
-  return { props: { data } };
-}
-
-// 😡 滥用 useEffect
-useEffect(() => {
-  fetchData().then(setData);
-}, []);`}
-              </pre>
-            </div>
-            <div>
-              <div className="mb-2 rounded bg-green-100 px-3 py-1 text-xs font-medium text-green-600 dark:bg-green-900 dark:text-green-300">
-                ✅ 有 Rules - 生产级代码质量
-              </div>
-              <pre className="rounded-lg bg-green-50 p-4 text-xs leading-relaxed text-green-800 dark:bg-green-900/20 dark:text-green-300 overflow-x-auto">
-{`// ✅ 完整的类型安全
-interface User {
-  id: string;
-  name: string;
-  email: string;
-}
-
-async function fetchUser(id: string): Promise<User> {
-  const res = await fetch(\`/api/users/\${id}\`);
-  if (!res.ok) throw new Error('Failed to fetch');
-  return res.json();
-}
-
-// ✅ App Router + Server Components
-export default async function UserPage() {
-  const user = await fetchUser('1');
-  return <UserProfile user={user} />;
-}`}
-              </pre>
-            </div>
-          </div>
+              <p className="text-xs text-zinc-400">{cat.desc}</p>
+              {cat.count > 0 && (
+                <span className="mt-2 inline-block rounded bg-zinc-50 px-2 py-0.5 text-xs text-zinc-400 dark:bg-zinc-800 dark:text-zinc-500">
+                  {cat.count} 条规则
+                </span>
+              )}
+            </Link>
+          ))}
         </div>
       </section>
 
-      {/* 精选推荐 */}
+      {/* 精选推荐 (server-rendered) */}
       <section className="mb-10">
         <h2 className="mb-4 text-lg font-semibold text-zinc-900 dark:text-zinc-100">
           🔥 精选推荐
@@ -112,7 +91,7 @@ export default async function UserPage() {
         </div>
       </section>
 
-      {/* 分类导航 */}
+      {/* 分类导航 (server-rendered) */}
       <section className="mb-10" id="categories">
         <h2 className="mb-4 text-lg font-semibold text-zinc-900 dark:text-zinc-100">
           📂 分类浏览
@@ -138,7 +117,7 @@ export default async function UserPage() {
         </div>
       </section>
 
-      {/* Rules 列表 */}
+      {/* Rules 列表 (all server-rendered as static HTML) */}
       <section id="rules-section">
         <div className="mb-4 flex items-center justify-between" id="rules-header">
           <h2 className="text-lg font-semibold text-zinc-900 dark:text-zinc-100">
@@ -187,6 +166,7 @@ export default async function UserPage() {
 
       <BackToTop />
 
+      {/* Client-side filtering script - lightweight, no framework needed */}
       <script
         dangerouslySetInnerHTML={{
           __html: `

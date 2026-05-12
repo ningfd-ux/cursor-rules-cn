@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<channel>
+  <title>Cursor Rules 中文库</title>
+  <link>https://cursorrules.fun</link>
+  <description>精选 Cursor、Claude Code、GitHub Copilot 等 AI 编程工具的 Rules 和 Prompt 模板</description>
+  <language>zh-cn</language>
+  <lastBuildDate>Mon, 11 May 2026 01:38:03 +0000</lastBuildDate>
+  <atom:link href="https://cursorrules.fun/rss.xml" rel="self" type="application/rss+xml"/>
+  <item>
+    <title>Cursor Rust 开发编码规范规则</title>
+    <link>https://cursorrules.fun/rules/cursor-rust-rules</link>
+    <description><![CDATA[Rust 项目中使用 Cursor 的编码规范和所有权管理最佳实践。]]></description>
+    <pubDate>Mon, 11 May 2026 00:00:00 +0000</pubDate>
+    <guid>https://cursorrules.fun/rules/cursor-rust-rules</guid>
+  </item>
+  <item>
+    <title>Cursor Java 开发编码规范规则</title>
+    <link>https://cursorrules.fun/rules/cursor-java-rules</link>
+    <description><![CDATA[Java 项目中使用 Cursor 进行开发的编码规范和 Spring Boot 最佳实践。]]></description>
+    <pubDate>Mon, 11 May 2026 00:00:00 +0000</pubDate>
+    <guid>https://cursorrules.fun/rules/cursor-java-rules</guid>
+  </item>
+  <item>
+    <title>Cursor Flutter 移动端开发规则</title>
+    <link>https://cursorrules.fun/rules/cursor-flutter-rules</link>
+    <description><![CDATA[Flutter/Dart 项目中使用 Cursor 的编码规则和最佳实践。]]></description>
+    <pubDate>Mon, 11 May 2026 00:00:00 +0000</pubDate>
+    <guid>https://cursorrules.fun/rules/cursor-flutter-rules</guid>
+  </item>
+  <item>
+    <title>Cursor Tailwind CSS 开发规则</title>
+    <link>https://cursorrules.fun/rules/cursor-tailwind-rules</link>
+    <description><![CDATA[使用 Cursor 配合 Tailwind CSS 开发的编码规范和最佳实践。]]></description>
+    <pubDate>Mon, 11 May 2026 00:00:00 +0000</pubDate>
+    <guid>https://cursorrules.fun/rules/cursor-tailwind-rules</guid>
+  </item>
+  <item>
+    <title>Cursor Prisma ORM 数据层开发规则</title>
+    <link>https://cursorrules.fun/rules/cursor-prisma-rules</link>
+    <description><![CDATA[Prisma ORM 项目中使用 Cursor 的数据库模型设计和查询规则。]]></description>
+    <pubDate>Mon, 11 May 2026 00:00:00 +0000</pubDate>
+    <guid>https://cursorrules.fun/rules/cursor-prisma-rules</guid>
+  </item>
+  <item>
+    <title>Cursor E2E 自动化测试规则</title>
+    <link>https://cursorrules.fun/rules/cursor-e2e-testing</link>
+    <description><![CDATA[用 Cursor 编写 Playwright/Cypress 端到端测试的编码规则。]]></description>
+    <pubDate>Mon, 11 May 2026 00:00:00 +0000</pubDate>
+    <guid>https://cursorrules.fun/rules/cursor-e2e-testing</guid>
+  </item>
+  <item>
+    <title>Claude Code Next.js 项目开发 Prompt</title>
+    <link>https://cursorrules.fun/rules/claude-code-nextjs</link>
+    <description><![CDATA[用 Claude Code 开发 Next.js App Router 项目的高效 Prompt 模板。]]></description>
+    <pubDate>Mon, 11 May 2026 00:00:00 +0000</pubDate>
+    <guid>https://cursorrules.fun/rules/claude-code-nextjs</guid>
+  </item>
+  <item>
+    <title>Claude Code 后端 API 开发 Prompt</title>
+    <link>https://cursorrules.fun/rules/claude-code-api-dev</link>
+    <description><![CDATA[用 Claude Code 开发 RESTful 和 GraphQL API 的 Prompt 模板。]]></description>
+    <pubDate>Mon, 11 May 2026 00:00:00 +0000</pubDate>
+    <guid>https://cursorrules.fun/rules/claude-code-api-dev</guid>
+  </item>
+  <item>
+    <title>Copilot React Native 移动端指令</title>
+    <link>https://cursorrules.fun/rules/copilot-react-native</link>
+    <description><![CDATA[GitHub Copilot 在 React Native 项目中的最佳配置和使用规则。]]></description>
+    <pubDate>Mon, 11 May 2026 00:00:00 +0000</pubDate>
+    <guid>https://cursorrules.fun/rules/copilot-react-native</guid>
+  </item>
+  <item>
+    <title>Copilot Docker 容器化指令</title>
+    <link>https://cursorrules.fun/rules/copilot-docker</link>
+    <description><![CDATA[GitHub Copilot 辅助 Docker 开发和容器化部署的最佳实践。]]></description>
+    <pubDate>Mon, 11 May 2026 00:00:00 +0000</pubDate>
+    <guid>https://cursorrules.fun/rules/copilot-docker</guid>
+  </item>
+  <item>
+    <title>AI 编程工作流模式与效率指南</title>
+    <link>https://cursorrules.fun/rules/general-ai-workflow</link>
+    <description><![CDATA[适用所有 AI 编程工具的高效开发工作流模式和团队协作指南。]]></description>
+    <pubDate>Mon, 11 May 2026 00:00:00 +0000</pubDate>
+    <guid>https://cursorrules.fun/rules/general-ai-workflow</guid>
+  </item>
+  <item>
+    <title>AI 辅助 API 设计最佳实践指南</title>
+    <link>https://cursorrules.fun/rules/general-api-design</link>
+    <description><![CDATA[使用 AI 编程工具进行 API 设计的规范、模式和实战经验。]]></description>
+    <pubDate>Mon, 11 May 2026 00:00:00 +0000</pubDate>
+    <guid>https://cursorrules.fun/rules/general-api-design</guid>
+  </item>
+  <item>
+    <title>Cursor Svelte 开发编码规范规则</title>
+    <link>https://cursorrules.fun/rules/cursor-svelte-rules</link>
+    <description><![CDATA[Svelte 5 + SvelteKit 项目中 Cursor 的编码规则和最佳实践。]]></description>
+    <pubDate>Mon, 11 May 2026 00:00:00 +0000</pubDate>
+    <guid>https://cursorrules.fun/rules/cursor-svelte-rules</guid>
+  </item>
+  <item>
+    <title>Cursor Angular 开发编码规范规则</title>
+    <link>https://cursorrules.fun/rules/cursor-angular-rules</link>
+    <description><![CDATA[Angular 17+ 独立组件模式下 Cursor 的编码规则。]]></description>
+    <pubDate>Mon, 11 May 2026 00:00:00 +0000</pubDate>
+    <guid>https://cursorrules.fun/rules/cursor-angular-rules</guid>
+  </item>
+  <item>
+    <title>Cursor Node.js Express 后端开发规则</title>
+    <link>https://cursorrules.fun/rules/cursor-nodejs-rules</link>
+    <description><![CDATA[Node.js + Express 项目中 Cursor 的编码规则和中间件规范。]]></description>
+    <pubDate>Mon, 11 May 2026 00:00:00 +0000</pubDate>
+    <guid>https://cursorrules.fun/rules/cursor-nodejs-rules</guid>
+  </item>
+  <item>
+    <title>Cursor Laravel PHP 开发规则</title>
+    <link>https://cursorrules.fun/rules/cursor-laravel-rules</link>
+    <description><![CDATA[Laravel 11 项目中使用 Cursor 的 MVC 架构和 Eloquent 规范。]]></description>
+    <pubDate>Mon, 11 May 2026 00:00:00 +0000</pubDate>
+    <guid>https://cursorrules.fun/rules/cursor-laravel-rules</guid>
+  </item>
+  <item>
+    <title>Cursor SaaS 项目开发规则</title>
+    <link>https://cursorrules.fun/rules/cursor-saas-rules</link>
+    <description><![CDATA[SaaS 创业项目使用 Cursor 的完整开发规则，从多租户到支付集成。]]></description>
+    <pubDate>Mon, 11 May 2026 00:00:00 +0000</pubDate>
+    <guid>https://cursorrules.fun/rules/cursor-saas-rules</guid>
+  </item>
+  <item>
+    <title>Cursor MVP 快速开发规则</title>
+    <link>https://cursorrules.fun/rules/cursor-mvp-rules</link>
+    <description><![CDATA[用 Cursor 快速构建 MVP 的开发规则，从原型到上线。]]></description>
+    <pubDate>Mon, 11 May 2026 00:00:00 +0000</pubDate>
+    <guid>https://cursorrules.fun/rules/cursor-mvp-rules</guid>
+  </item>
+  <item>
+    <title>Cursor 独立开发者工作流规则</title>
+    <link>https://cursorrules.fun/rules/cursor-indie-hacker-rules</link>
+    <description><![CDATA[独立开发者使用 Cursor 一人搞定全栈开发的最佳工作流和规则。]]></description>
+    <pubDate>Mon, 11 May 2026 00:00:00 +0000</pubDate>
+    <guid>https://cursorrules.fun/rules/cursor-indie-hacker-rules</guid>
+  </item>
+  <item>
+    <title>Cursor AI Agent 开发规则</title>
+    <link>https://cursorrules.fun/rules/cursor-ai-agent-rules</link>
+    <description><![CDATA[使用 Cursor 开发 AI Agent 应用的规则和最佳实践。]]></description>
+    <pubDate>Mon, 11 May 2026 00:00:00 +0000</pubDate>
+    <guid>https://cursorrules.fun/rules/cursor-ai-agent-rules</guid>
+  </item>
+  <item>
+    <title>Cursor 创业团队协作规则</title>
+    <link>https://cursorrules.fun/rules/cursor-startup-team-rules</link>
+    <description><![CDATA[创业团队统一 Cursor 配置和 AI 编码规范的团队协作规则。]]></description>
+    <pubDate>Mon, 11 May 2026 00:00:00 +0000</pubDate>
+    <guid>https://cursorrules.fun/rules/cursor-startup-team-rules</guid>
+  </item>
+  <item>
+    <title>Cursor Landing Page 开发规则</title>
+    <link>https://cursorrules.fun/rules/cursor-landing-page-rules</link>
+    <description><![CDATA[用 Cursor 快速构建落地页的规则和最佳实践。]]></description>
+    <pubDate>Mon, 11 May 2026 00:00:00 +0000</pubDate>
+    <guid>https://cursorrules.fun/rules/cursor-landing-page-rules</guid>
+  </item>
+  <item>
+    <title>Cursor GraphQL API 开发规则</title>
+    <link>https://cursorrules.fun/rules/cursor-graphql-rules</link>
+    <description><![CDATA[使用 Cursor 开发 GraphQL API 的编码规则和查询优化最佳实践。]]></description>
+    <pubDate>Mon, 11 May 2026 00:00:00 +0000</pubDate>
+    <guid>https://cursorrules.fun/rules/cursor-graphql-rules</guid>
+  </item>
+  <item>
+    <title>Cursor Redis 缓存开发规则</title>
+    <link>https://cursorrules.fun/rules/cursor-redis-rules</link>
+    <description><![CDATA[在 Cursor 项目中集成和使用 Redis 缓存的编码规则。]]></description>
+    <pubDate>Mon, 11 May 2026 00:00:00 +0000</pubDate>
+    <guid>https://cursorrules.fun/rules/cursor-redis-rules</guid>
+  </item>
+  <item>
+    <title>Cursor 全栈应用开发规则</title>
+    <link>https://cursorrules.fun/rules/cursor-fullstack-app-rules</link>
+    <description><![CDATA[使用 Cursor 进行全栈应用开发的端到端编码规则。]]></description>
+    <pubDate>Mon, 11 May 2026 00:00:00 +0000</pubDate>
+    <guid>https://cursorrules.fun/rules/cursor-fullstack-app-rules</guid>
+  </item>
+  <item>
+    <title>AI Rule Generator 开发工作流</title>
+    <link>https://cursorrules.fun/rules/general-rule-generator-workflow</link>
+    <description><![CDATA[通过结构化表单自动生成个性化 .cursorrules 的工作流和方法。]]></description>
+    <pubDate>Mon, 11 May 2026 00:00:00 +0000</pubDate>
+    <guid>https://cursorrules.fun/rules/general-rule-generator-workflow</guid>
+  </item>
+  <item>
+    <title>Cursor Ruby on Rails 开发规则</title>
+    <link>https://cursorrules.fun/rules/cursor-ruby-rails</link>
+    <description><![CDATA[Ruby on Rails 7+ 项目中使用 Cursor 的编码规则和最佳实践。]]></description>
+    <pubDate>Mon, 11 May 2026 00:00:00 +0000</pubDate>
+    <guid>https://cursorrules.fun/rules/cursor-ruby-rails</guid>
+  </item>
+  <item>
+    <title>Cursor iOS Swift 开发规则</title>
+    <link>https://cursorrules.fun/rules/cursor-swift-ios</link>
+    <description><![CDATA[Swift + SwiftUI 项目中 Cursor 的编码规范和最佳实践。]]></description>
+    <pubDate>Mon, 11 May 2026 00:00:00 +0000</pubDate>
+    <guid>https://cursorrules.fun/rules/cursor-swift-ios</guid>
+  </item>
+  <item>
+    <title>Cursor Kotlin Android 开发规则</title>
+    <link>https://cursorrules.fun/rules/cursor-kotlin-android</link>
+    <description><![CDATA[Android Kotlin + Jetpack Compose 项目中 Cursor 的编码规则。]]></description>
+    <pubDate>Mon, 11 May 2026 00:00:00 +0000</pubDate>
+    <guid>https://cursorrules.fun/rules/cursor-kotlin-android</guid>
+  </item>
+  <item>
+    <title>Cursor C# .NET 开发规则</title>
+    <link>https://cursorrules.fun/rules/cursor-csharp-dotnet</link>
+    <description><![CDATA[.NET 8+ 项目中使用 Cursor 的编码规则和架构规范。]]></description>
+    <pubDate>Mon, 11 May 2026 00:00:00 +0000</pubDate>
+    <guid>https://cursorrules.fun/rules/cursor-csharp-dotnet</guid>
+  </item>
+</channel>
+</rss>

@@ -1,4 +1,4 @@
-﻿import Link from "next/link";
+import Link from "next/link";
 import ThemeToggle from "@/components/ThemeToggle";
 import SearchWrapper from "@/components/SearchWrapper";
 
@@ -20,8 +20,11 @@ export default function Header() {
           <Link href="/" className="hover:text-zinc-900 dark:hover:text-zinc-300">
             首页
           </Link>
-          <Link href="/generator" className="hover:text-green-600 dark:hover:text-green-400 font-medium">
+          <Link href="/generator" className="font-medium text-blue-600 hover:text-blue-700 dark:text-blue-400">
             ✨ AI 生成
+          </Link>
+          <Link href="/frameworks/react" className="hidden hover:text-zinc-900 dark:hover:text-zinc-300 sm:inline-block">
+            Framework
           </Link>
           <a
             href="https://github.com/ningfd-ux/cursor-rules-cn/issues/new"
