@@ -36,6 +36,20 @@ const posts = [
     date: "2026-05-12",
     tags: ["入门", "工作流", "教程"],
   },
+  {
+    slug: "how-to-write-cursor-rules",
+    title: "如何编写 Cursor Rules：完整指南",
+    excerpt: "从零学习编写 .cursorrules、AGENTS.md 的结构、语法和最佳实践。含完整模板。",
+    date: "2026-05-12",
+    tags: ["教程", "Cursor", "指南"],
+  },
+  {
+    slug: "cursor-typescript-setup",
+    title: "Cursor TypeScript 配置指南：从 strict 到 safe",
+    excerpt: "TypeScript 严格模式下 Cursor 的完整规则配置，类型安全和错误处理的最佳实践。",
+    date: "2026-05-12",
+    tags: ["TypeScript", "配置", "教程"],
+  },
 ];
 
 export default function BlogPage() {
