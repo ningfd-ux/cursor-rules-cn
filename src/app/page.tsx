@@ -1,4 +1,4 @@
-import Link from "next/link";
+﻿import Link from "next/link";
 import RuleCard from "@/components/RuleCard";
 import BackToTop from "@/components/BackToTop";
 import { rules, categories } from "@/data/rules";
@@ -8,29 +8,99 @@ const featuredRules = rules.slice(0, 3);
 export default function Home() {
   return (
     <div className="mx-auto max-w-5xl px-4 py-12">
-      {/* Hero */}
+      {/* Hero - New Positioning */}
       <section className="mb-12 text-center">
-        <span className="mb-4 inline-block rounded-full bg-blue-100 px-3 py-1 text-xs font-medium text-blue-600 dark:bg-blue-900 dark:text-blue-300">
-          🆕 持续更新中 · 全部免费复制
+        <span className="mb-4 inline-block rounded-full bg-green-100 px-3 py-1 text-xs font-medium text-green-600 dark:bg-green-900 dark:text-green-300">
+          🚀 Production Ready AI Code
         </span>
         <h1 className="mb-4 text-3xl font-bold tracking-tight text-zinc-900 dark:text-zinc-100 sm:text-4xl">
-          复制即用的 <span className="text-blue-600">Cursor Rules</span>
+          让 AI 写出真正能上线的代码
         </h1>
         <p className="mx-auto mb-6 max-w-2xl text-base leading-relaxed text-zinc-500 dark:text-zinc-400">
-          精选 Cursor、Claude Code、GitHub Copilot、Windsurf 等 AI 编程工具的
-          Rules 和 Prompt 模板。<br />
-          找到适合你的规则 → 一键复制 → 粘贴到项目根目录，立即生效。
+          不要再让 AI 写出玩具代码、废弃 API 和满是 any 的垃圾代码。
+          <br />
+          精选 46 条经过验证的 AI 编码规则，或者用 AI 生成你的专属配置。
         </p>
-        <div className="flex items-center justify-center gap-3 text-sm text-zinc-400 dark:text-zinc-500">
-          <span className="flex items-center gap-1">📦 {rules.length} 条规则</span>
-          <span>·</span>
-          <span className="flex items-center gap-1">📂 {categories.length} 个分类</span>
-          <span>·</span>
-          <span className="flex items-center gap-1">⚡ 即搜即用</span>
+        <div className="flex items-center justify-center gap-4">
+          <Link
+            href="/generator"
+            className="inline-flex items-center gap-2 rounded-lg bg-green-600 px-6 py-3 text-sm font-medium text-white transition-colors hover:bg-green-700"
+          >
+            ✨ AI 智能生成规则
+          </Link>
+          <a
+            href="#categories"
+            className="inline-flex items-center gap-2 rounded-lg border border-zinc-300 bg-white px-6 py-3 text-sm font-medium text-zinc-700 transition-colors hover:bg-zinc-50 dark:border-zinc-700 dark:bg-zinc-900 dark:text-zinc-300 dark:hover:bg-zinc-800"
+          >
+            📖 浏览规则库
+          </a>
+        </div>
+        <div className="mt-6 flex items-center justify-center gap-6 text-sm text-zinc-400 dark:text-zinc-500">
+          <span className="flex items-center gap-1">✅ 不再有 deprecated API</span>
+          <span className="flex items-center gap-1">✅ 不再有类型不安全的 any</span>
+          <span className="flex items-center gap-1">✅ 不再有只会写 useEffect 的 AI</span>
         </div>
       </section>
 
-      {/* 精选推荐 (server-rendered) */}
+      {/* Before / After Demo */}
+      <section className="mb-10">
+        <div className="rounded-xl border border-zinc-200 bg-white p-8 dark:border-zinc-800 dark:bg-zinc-900">
+          <h2 className="mb-6 text-center text-lg font-semibold text-zinc-900 dark:text-zinc-100">
+            🔍 加了 Rules 之后，AI 写代码的区别有多大？
+          </h2>
+          <div className="grid gap-6 sm:grid-cols-2">
+            <div>
+              <div className="mb-2 rounded bg-red-100 px-3 py-1 text-xs font-medium text-red-600 dark:bg-red-900 dark:text-red-300">
+                ❌ 没有 Rules - AI 写的垃圾代码
+              </div>
+              <pre className="rounded-lg bg-red-50 p-4 text-xs leading-relaxed text-red-800 dark:bg-red-900/20 dark:text-red-300 overflow-x-auto">
+{`// 😡 全是 any，类型安全为零
+function fetchUser(id: any): any {
+  return fetch(\`/api/users/\${id}\`);
+}
+
+// 😡 废弃的 Pages Router 写法
+export async function getServerSideProps() {
+  const data = await fetchUser(1);
+  return { props: { data } };
+}
+
+// 😡 滥用 useEffect
+useEffect(() => {
+  fetchData().then(setData);
+}, []);`}
+              </pre>
+            </div>
+            <div>
+              <div className="mb-2 rounded bg-green-100 px-3 py-1 text-xs font-medium text-green-600 dark:bg-green-900 dark:text-green-300">
+                ✅ 有 Rules - 生产级代码质量
+              </div>
+              <pre className="rounded-lg bg-green-50 p-4 text-xs leading-relaxed text-green-800 dark:bg-green-900/20 dark:text-green-300 overflow-x-auto">
+{`// ✅ 完整的类型安全
+interface User {
+  id: string;
+  name: string;
+  email: string;
+}
+
+async function fetchUser(id: string): Promise<User> {
+  const res = await fetch(\`/api/users/\${id}\`);
+  if (!res.ok) throw new Error('Failed to fetch');
+  return res.json();
+}
+
+// ✅ App Router + Server Components
+export default async function UserPage() {
+  const user = await fetchUser('1');
+  return <UserProfile user={user} />;
+}`}
+              </pre>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 精选推荐 */}
       <section className="mb-10">
         <h2 className="mb-4 text-lg font-semibold text-zinc-900 dark:text-zinc-100">
           🔥 精选推荐
@@ -42,7 +112,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 分类导航 (server-rendered) */}
+      {/* 分类导航 */}
       <section className="mb-10" id="categories">
         <h2 className="mb-4 text-lg font-semibold text-zinc-900 dark:text-zinc-100">
           📂 分类浏览
@@ -68,7 +138,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Rules 列表 (all server-rendered as static HTML) */}
+      {/* Rules 列表 */}
       <section id="rules-section">
         <div className="mb-4 flex items-center justify-between" id="rules-header">
           <h2 className="text-lg font-semibold text-zinc-900 dark:text-zinc-100">
@@ -117,7 +187,6 @@ export default function Home() {
 
       <BackToTop />
 
-      {/* Client-side filtering script - lightweight, no framework needed */}
       <script
         dangerouslySetInnerHTML={{
           __html: `
