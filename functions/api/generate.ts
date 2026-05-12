@@ -23,14 +23,31 @@ export async function onRequestPost(context: { request: Request; env: Env }) {
       model: string;
       outputFormat: string;
       packageJson: string;
+      repoUrl: string;
     };
+
+    // Resolve package.json: use provided text, or fetch from GitHub repo
+    let resolvedPackageJson = body.packageJson || "";
+    if (body.repoUrl && body.repoUrl.trim().length > 0) {
+      try {
+        const fetched = await fetchPackageJsonFromRepo(body.repoUrl.trim());
+        if (fetched) {
+          resolvedPackageJson = fetched;
+        }
+      } catch (e) {
+        return Response.json(
+          { error: "无法从该仓库获取 package.json，请确认仓库地址正确且为公开仓库" },
+          { status: 400 }
+        );
+      }
+    }
 
     const prompt = buildPrompt(
       body.techStack,
       body.strictness,
       body.model,
       body.outputFormat || "cursorrules",
-      body.packageJson || "",
+      resolvedPackageJson,
     );
 
     const response = await fetch("https://api.deepseek.com/v1/chat/completions", {
@@ -195,6 +212,39 @@ Then include these sections:
 7. Anti-Patterns (what NOT to do — specific to detected libraries and their common pitfalls)
 
 Make it extremely practical and action-oriented. Each rule must be specific to the exact libraries and versions detected. Avoid generic advice like "use TypeScript" or "write clean code" — instead say things like "Prefer Server Components in App Router" or "Validate all API inputs with Zod" or "Use Prisma's createMany for bulk inserts".`;
+}
+
+// Fetch package.json from a public GitHub repository
+async function fetchPackageJsonFromRepo(repoUrl: string): Promise<string | null> {
+  // Normalize GitHub URL to raw.githubusercontent.com URL
+  let rawUrl = "";
+
+  // Pattern: https://github.com/user/repo
+  const githubMatch = repoUrl.match(/github\.com\/([^\/]+)\/([^\/\s?#]+)/);
+  if (!githubMatch) return null;
+
+  const user = githubMatch[1];
+  const repo = githubMatch[2].replace(/\.git$/, "");
+
+  // Check if a specific branch is in the URL
+  const branchMatch = repoUrl.match(/\/tree\/([^\/\s?#]+)/);
+  const branch = branchMatch ? branchMatch[1] : "main";
+
+  rawUrl = `https://raw.githubusercontent.com/${user}/${repo}/${branch}/package.json`;
+
+  const response = await fetch(rawUrl);
+  if (!response.ok) {
+    // Try "master" branch if "main" fails
+    if (branch === "main") {
+      const fallbackUrl = `https://raw.githubusercontent.com/${user}/${repo}/master/package.json`;
+      const fallbackResponse = await fetch(fallbackUrl);
+      if (!fallbackResponse.ok) return null;
+      return await fallbackResponse.text();
+    }
+    return null;
+  }
+
+  return await response.text();
 }
 
 export {};

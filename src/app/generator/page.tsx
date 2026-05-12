@@ -46,11 +46,47 @@ export default function GeneratorPage() {
   const [model, setModel] = useState("cursor");
   const [outputFormat, setOutputFormat] = useState("cursorrules");
   const [packageJson, setPackageJson] = useState("");
+  const [repoUrl, setRepoUrl] = useState("");
   const [generatedRules, setGeneratedRules] = useState("");
   const [isLoading, setIsLoading] = useState(false);
+  const [isFetchingRepo, setIsFetchingRepo] = useState(false);
   const [copied, setCopied] = useState(false);
   const [error, setError] = useState("");
   const [showPackageInput, setShowPackageInput] = useState(false);
+  const [showRepoInput, setShowRepoInput] = useState(false);
+  const [repoFetched, setRepoFetched] = useState(false);
+
+  const handleFetchRepo = async () => {
+    if (!repoUrl.trim()) return;
+    setIsFetchingRepo(true);
+    setError("");
+    try {
+      const response = await fetch("/api/generate", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          techStack,
+          strictness: "moderate",
+          model: "cursor",
+          outputFormat: "cursorrules",
+          repoUrl: repoUrl.trim(),
+          packageJson: "",
+        }),
+      });
+      const data = await response.json();
+      if (data.content) {
+        setPackageJson(data.content);
+        setRepoFetched(true);
+        setShowPackageInput(true);
+      } else {
+        setError(data.error || "无法获取 package.json");
+      }
+    } catch {
+      setError("网络连接失败，请稍后重试");
+    } finally {
+      setIsFetchingRepo(false);
+    }
+  };
 
   const handleGenerate = async () => {
     setIsLoading(true);
@@ -66,6 +102,7 @@ export default function GeneratorPage() {
           model,
           outputFormat,
           packageJson,
+          repoUrl: showRepoInput ? repoUrl.trim() : "",
         }),
       });
       const data = await response.json();
@@ -97,12 +134,13 @@ export default function GeneratorPage() {
           AI Repo Standards Generator
         </h1>
         <p className="mx-auto mb-6 max-w-xl text-base leading-relaxed text-zinc-500 dark:text-zinc-400">
-          粘贴你的 package.json，AI 自动分析项目架构，生成专属的编码规范配置文件。
+          粘贴你的 package.json 或导入 GitHub 仓库，AI 自动分析项目架构，生成专属的编码规范配置文件。
         </p>
       </section>
 
       <section className="mb-10">
         <div className="rounded-xl border border-zinc-200 bg-white p-8 dark:border-zinc-800 dark:bg-zinc-900">
+          {/* Row 1: Tech Stack + Strictness + Tool */}
           <div className="mb-5 grid gap-5 sm:grid-cols-3">
             <div>
               <label className="mb-2 block text-sm font-medium text-zinc-900 dark:text-zinc-100">技术栈</label>
@@ -130,6 +168,7 @@ export default function GeneratorPage() {
             </div>
           </div>
 
+          {/* Row 2: Output Format */}
           <div className="mb-5">
             <label className="mb-2 block text-sm font-medium text-zinc-900 dark:text-zinc-100">输出格式</label>
             <div className="grid gap-3 sm:grid-cols-2">
@@ -156,6 +195,51 @@ export default function GeneratorPage() {
             </div>
           </div>
 
+          {/* Row 3: GitHub Repo Import */}
+          <div className="mb-5">
+            <button
+              type="button"
+              onClick={() => setShowRepoInput(!showRepoInput)}
+              className="flex items-center gap-2 text-sm font-medium text-zinc-600 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-200"
+            >
+              <svg className={`h-4 w-4 transition-transform ${showRepoInput ? "rotate-90" : ""}`} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
+              </svg>
+              导入 GitHub 仓库（自动获取 package.json）
+            </button>
+            {showRepoInput && (
+              <div className="mt-3">
+                <div className="flex gap-2">
+                  <input
+                    type="text"
+                    value={repoUrl}
+                    onChange={(e) => { setRepoUrl(e.target.value); setRepoFetched(false); }}
+                    placeholder="https://github.com/user/repo"
+                    className="flex-1 rounded-lg border border-zinc-300 bg-white px-4 py-2.5 text-sm focus:border-green-500 focus:outline-none focus:ring-2 focus:ring-green-500/20 dark:border-zinc-700 dark:bg-zinc-800 dark:text-zinc-200"
+                    disabled={isLoading || isFetchingRepo}
+                  />
+                  <button
+                    onClick={handleFetchRepo}
+                    disabled={isFetchingRepo || !repoUrl.trim()}
+                    className="shrink-0 rounded-lg bg-zinc-100 px-4 py-2.5 text-sm font-medium text-zinc-700 transition-colors hover:bg-zinc-200 disabled:cursor-not-allowed disabled:opacity-50 dark:bg-zinc-700 dark:text-zinc-300 dark:hover:bg-zinc-600"
+                  >
+                    {isFetchingRepo ? (
+                      <span className="flex items-center gap-1.5">
+                        <svg className="h-3.5 w-3.5 animate-spin" viewBox="0 0 24 24">
+                          <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" fill="none" />
+                          <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z" />
+                        </svg>
+                        获取中
+                      </span>
+                    ) : repoFetched ? "✅ 已获取" : "获取 package.json"}
+                  </button>
+                </div>
+                <p className="mt-1.5 text-xs text-zinc-400">输入公开 GitHub 仓库地址，自动提取 package.json 并用于生成</p>
+              </div>
+            )}
+          </div>
+
+          {/* Row 4: Package.json */}
           <div className="mb-5">
             <button
               type="button"
@@ -165,7 +249,7 @@ export default function GeneratorPage() {
               <svg className={`h-4 w-4 transition-transform ${showPackageInput ? "rotate-90" : ""}`} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                 <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
               </svg>
-              粘贴 package.json（可选 — 让生成更懂你的项目）
+              手动粘贴 package.json（可选）
             </button>
             {showPackageInput && (
               <div className="mt-3">
@@ -177,11 +261,11 @@ export default function GeneratorPage() {
                   className="w-full rounded-lg border border-zinc-300 bg-white px-4 py-3 font-mono text-xs leading-relaxed focus:border-green-500 focus:outline-none focus:ring-2 focus:ring-green-500/20 dark:border-zinc-700 dark:bg-zinc-800 dark:text-zinc-200"
                   disabled={isLoading}
                 />
-                <p className="mt-1.5 text-xs text-zinc-400">粘贴 package.json 内容后，AI 会自动分析你的依赖并生成更精准的规则</p>
               </div>
             )}
           </div>
 
+          {/* Generate Button */}
           <button onClick={handleGenerate} disabled={isLoading}
             className="w-full rounded-lg bg-green-600 px-6 py-3 text-sm font-medium text-white transition-colors hover:bg-green-700 disabled:cursor-not-allowed disabled:opacity-50">
             {isLoading ? (
@@ -217,7 +301,7 @@ export default function GeneratorPage() {
       <section className="rounded-xl border border-zinc-200 bg-white p-6 dark:border-zinc-800 dark:bg-zinc-900">
         <h3 className="mb-4 font-semibold text-zinc-900 dark:text-zinc-100">💡 使用技巧</h3>
         <ul className="space-y-2 text-sm text-zinc-500 dark:text-zinc-400">
-          <li>粘贴 package.json 可以让生成的规则精准匹配你实际使用的库和版本</li>
+          <li>粘贴 GitHub 仓库地址，AI 自动获取 package.json 分析你的技术栈</li>
           <li>选择不同的输出格式（.cursorrules / .mdc / AGENTS.md / copilot-instructions.md）适配不同工具</li>
           <li>生成后根据项目实际情况微调规则内容</li>
         </ul>
