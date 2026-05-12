@@ -124,6 +124,13 @@ content: `# Cursor React 开发规则
 - 不要在规则中写过于具体的业务逻辑，规则应该描述通用规范
 - 不要频繁修改 .cursorrules 导致 AI 行为不一致，建议按版本管理
 - 规则太多会降低 AI 响应质量，控制在 50 行以内
+
+
+## 相关规则
+
+- [用 Cursor 开发 Next.js 项目的完整规则](/rules/cursor-nextjs-rules)
+- [Cursor TypeScript 严格模式配置规则](/rules/cursor-typescript-rules)
+- [让 Cursor 更懂 Vue 3 的最佳开发规则](/rules/cursor-vue-rules)
 `,
   },
   {
@@ -168,6 +175,13 @@ content: `# Cursor Next.js 项目规则
 - 不要在规则中写过于具体的业务逻辑，规则应该描述通用规范
 - 不要频繁修改 .cursorrules 导致 AI 行为不一致，建议按版本管理
 - 规则太多会降低 AI 响应质量，控制在 50 行以内
+
+
+## 相关规则
+
+- [让 Cursor 更懂 React 的最佳开发规则](/rules/cursor-react-rules)
+- [Cursor Tailwind CSS 开发规则](/rules/cursor-tailwind-rules)
+- [Cursor Prisma ORM 数据层开发规则](/rules/cursor-prisma-rules)
 `,
   },
   {
@@ -211,6 +225,13 @@ content: `# Cursor Python 开发规则
 - 不要在规则中写过于具体的业务逻辑，规则应该描述通用规范
 - 不要频繁修改 .cursorrules 导致 AI 行为不一致，建议按版本管理
 - 规则太多会降低 AI 响应质量，控制在 50 行以内
+
+
+## 相关规则
+
+- [Cursor 数据库开发 Schema 设计规则](/rules/cursor-database-rules)
+- [用 Cursor 开发 RESTful API 的编码规范](/rules/cursor-api-rules)
+- [Cursor 自动生成测试的完整规则](/rules/cursor-testing-rules)
 `,
   },
   {
@@ -296,6 +317,12 @@ content: `# Cursor TypeScript 严格模式规则
 - 不要在规则中写过于具体的业务逻辑，规则应该描述通用规范
 - 不要频繁修改 .cursorrules 导致 AI 行为不一致，建议按版本管理
 - 规则太多会降低 AI 响应质量，控制在 50 行以内
+
+
+## 相关规则
+
+- [让 Cursor 更懂 React 的最佳开发规则](/rules/cursor-react-rules)
+- [用 Cursor 开发 Next.js 项目的完整规则](/rules/cursor-nextjs-rules)
 `,
   },
   {
@@ -333,6 +360,12 @@ content: `# Claude Code 通用规则
 - 不要一次性提太多需求，把大任务拆成小步骤
 - 提供足够的文件路径上下文，帮助 Claude 找到正确位置
 - 必须审查 AI 生成的每一行代码，不盲信
+
+
+## 相关规则
+
+- [用 Claude Code 写 React 的高效 Prompt](/rules/claude-code-react)
+- [用 Claude Code 写 Python 的高效 Prompt](/rules/claude-code-python)
 `,
   },
   {
@@ -811,6 +844,13 @@ content: `# Cursor Vue.js 开发规则
 - 不要在规则中写过于具体的业务逻辑，规则应该描述通用规范
 - 不要频繁修改 .cursorrules 导致 AI 行为不一致，建议按版本管理
 - 规则太多会降低 AI 响应质量，控制在 50 行以内
+
+
+## 相关规则
+
+- [让 Cursor 更懂 React 的最佳开发规则](/rules/cursor-react-rules)
+- [Cursor Nuxt 3 全栈开发规则](/rules/cursor-nuxt-rules)
+- [Cursor Tailwind CSS 开发规则](/rules/cursor-tailwind-rules)
 `,
   },
 
@@ -856,6 +896,13 @@ content: `    # Cursor Go 开发规则
 - 不要在规则中写过于具体的业务逻辑，规则应该描述通用规范
 - 不要频繁修改 .cursorrules 导致 AI 行为不一致，建议按版本管理
 - 规则太多会降低 AI 响应质量，控制在 50 行以内
+
+
+## 相关规则
+
+- [用 Cursor 开发 RESTful API 的编码规范](/rules/cursor-api-rules)
+- [Cursor 自动生成测试的完整规则](/rules/cursor-testing-rules)
+- [Cursor 中 Docker 容器化的最佳实践](/rules/cursor-docker-rules)
 `,
   },
 
@@ -900,6 +947,12 @@ content: `    # Cursor 测试开发规则
 - 不要在规则中写过于具体的业务逻辑，规则应该描述通用规范
 - 不要频繁修改 .cursorrules 导致 AI 行为不一致，建议按版本管理
 - 规则太多会降低 AI 响应质量，控制在 50 行以内
+
+
+## 相关规则
+
+- [Cursor E2E 自动化测试规则](/rules/cursor-e2e-testing)
+- [AI 辅助测试策略完整指南](/rules/general-testing-strategy)
 `,
   },
 
@@ -947,6 +1000,12 @@ content: `    # Cursor API 开发规则
 - 不要在规则中写过于具体的业务逻辑，规则应该描述通用规范
 - 不要频繁修改 .cursorrules 导致 AI 行为不一致，建议按版本管理
 - 规则太多会降低 AI 响应质量，控制在 50 行以内
+
+
+## 相关规则
+
+- [Cursor GraphQL API 开发规则](/rules/cursor-graphql-rules)
+- [Cursor 数据库开发 Schema 设计规则](/rules/cursor-database-rules)
 `,
   },
 
@@ -988,6 +1047,12 @@ content: `    # Cursor Docker 容器化规则
 - 不要在规则中写过于具体的业务逻辑，规则应该描述通用规范
 - 不要频繁修改 .cursorrules 导致 AI 行为不一致，建议按版本管理
 - 规则太多会降低 AI 响应质量，控制在 50 行以内
+
+
+## 相关规则
+
+- [Cursor Node.js Express 后端开发规则](/rules/cursor-nodejs-rules)
+- [AI 部署运维 CI/CD 指南](/rules/general-deployment-rules)
 `,
   },
 
@@ -1035,6 +1100,12 @@ content: `    # Cursor 数据库开发规则
 - 不要在规则中写过于具体的业务逻辑，规则应该描述通用规范
 - 不要频繁修改 .cursorrules 导致 AI 行为不一致，建议按版本管理
 - 规则太多会降低 AI 响应质量，控制在 50 行以内
+
+
+## 相关规则
+
+- [Cursor Prisma ORM 数据层开发规则](/rules/cursor-prisma-rules)
+- [Cursor Supabase 后端开发规则](/rules/cursor-supabase-rules)
 `,
   },
 
@@ -1973,6 +2044,14 @@ claude "为 src/utils/ 下的工具函数生成 pytest 测试，覆盖边界情�
 - 不要在规则中写过于具体的业务逻辑，规则应该描述通用规范
 - 不要频繁修改 .cursorrules 导致 AI 行为不一致，建议按版本管理
 - 规则太多会降低 AI 响应质量，控制在 50 行以内
+
+
+## 相关规则
+
+- [让 Cursor 更懂 React 的最佳开发规则,](/rules/cursor-react-rules)
+- [用 Cursor 开发 Next.js 项目的完整规则,](/rules/cursor-nextjs-rules)
+- [Cursor Landing Page 开发规则,](/rules/cursor-landing-page-rules)
+
 `,
   },
   {
@@ -2491,6 +2570,14 @@ claude "为 src/utils/ 下的工具函数生成 pytest 测试，覆盖边界情�
 - 不要在规则中写过于具体的业务逻辑，规则应该描述通用规范
 - 不要频繁修改 .cursorrules 导致 AI 行为不一致，建议按版本管理
 - 规则太多会降低 AI 响应质量，控制在 50 行以内
+
+
+## 相关规则
+
+- [Cursor Stripe 支付集成规则,](/rules/cursor-stripe-rules)
+- [Cursor 全栈应用开发规则,](/rules/cursor-fullstack-app-rules)
+- [Cursor MVP 快速开发规则,](/rules/cursor-mvp-rules)
+
 `,
   },
   {
@@ -2616,6 +2703,13 @@ claude "为 src/utils/ 下的工具函数生成 pytest 测试，覆盖边界情�
 - 不要在规则中写过于具体的业务逻辑，规则应该描述通用规范
 - 不要频繁修改 .cursorrules 导致 AI 行为不一致，建议按版本管理
 - 规则太多会降低 AI 响应质量，控制在 50 行以内
+
+
+## 相关规则
+
+- [AI 编程工作流模式与效率指南,](/rules/general-ai-workflow)
+- [Claude Code 入门必读的通用规则,](/rules/claude-code-general)
+
 `,
   },
   {

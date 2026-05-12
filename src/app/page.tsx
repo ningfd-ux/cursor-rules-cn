@@ -10,23 +10,36 @@ export default function Home() {
     <div className="mx-auto max-w-5xl px-4 py-12">
       {/* Hero */}
       <section className="mb-12 text-center">
-        <span className="mb-4 inline-block rounded-full bg-blue-100 px-3 py-1 text-xs font-medium text-blue-600 dark:bg-blue-900 dark:text-blue-300">
-          🆕 持续更新中 · 全部免费复制
-        </span>
         <h1 className="mb-4 text-3xl font-bold tracking-tight text-zinc-900 dark:text-zinc-100 sm:text-4xl">
-          复制即用的 <span className="text-blue-600">Cursor Rules</span>
+          让 AI 写出<span className="text-blue-600">真正能用的代码</span>
         </h1>
-        <p className="mx-auto mb-6 max-w-2xl text-base leading-relaxed text-zinc-500 dark:text-zinc-400">
-          精选 Cursor、Claude Code、GitHub Copilot、Windsurf 等 AI 编程工具的
-          Rules 和 Prompt 模板。<br />
-          找到适合你的规则 → 一键复制 → 粘贴到项目根目录，立即生效。
+        <p className="mx-auto mb-6 max-w-2xl text-lg leading-relaxed text-zinc-500 dark:text-zinc-400">
+          每条规则都有使用场景和避坑指南，不只是模板列表。
+          覆盖 React、Next.js、Vue、Python、Go、AI Agent 等 40+ 技术栈。
         </p>
+        <div className="mb-6 flex flex-wrap items-center justify-center gap-3">
+          <a
+            href="#categories"
+            className="inline-flex items-center gap-2 rounded-lg bg-blue-600 px-5 py-2.5 text-sm font-medium text-white transition-colors hover:bg-blue-700"
+          >
+            浏览规则
+            <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+              <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
+            </svg>
+          </a>
+          <Link
+            href="/compare"
+            className="inline-flex items-center gap-2 rounded-lg border border-zinc-200 px-5 py-2.5 text-sm font-medium text-zinc-700 transition-colors hover:bg-zinc-50 dark:border-zinc-700 dark:text-zinc-300 dark:hover:bg-zinc-800"
+          >
+            工具对比
+          </Link>
+        </div>
         <div className="flex items-center justify-center gap-3 text-sm text-zinc-400 dark:text-zinc-500">
-          <span className="flex items-center gap-1">📦 {rules.length} 条规则</span>
+          <span className="flex items-center gap-1">{rules.length} 条规则</span>
           <span>·</span>
-          <span className="flex items-center gap-1">📂 {categories.length} 个分类</span>
+          <span className="flex items-center gap-1">{categories.length} 个分类</span>
           <span>·</span>
-          <span className="flex items-center gap-1">⚡ 即搜即用</span>
+          <span className="flex items-center gap-1">每条含使用场景 + 常见错误</span>
         </div>
       </section>
 

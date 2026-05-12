@@ -138,6 +138,22 @@ export default async function RulePage({ params }: RulePageProps) {
         ← 返回首页
       </Link>
 
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Article",
+            headline: rule.title,
+            description: rule.description,
+            dateModified: rule.updatedAt,
+            author: { "@type": "Organization", name: "Cursor Rules 中文库" },
+            publisher: { "@type": "Organization", name: "Cursor Rules 中文库" },
+            mainEntityOfPage: `https://cursorrules.fun/rules/${rule.slug}`,
+          }),
+        }}
+      />
+
       <article>
         <header className="mb-8">
           <div className="mb-3 flex items-center gap-3">
