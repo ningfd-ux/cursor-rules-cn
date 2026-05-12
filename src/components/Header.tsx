@@ -9,7 +9,7 @@ export default function Header() {
         <Link href="/" className="flex shrink-0 items-center gap-2">
           <span className="text-xl">⚡</span>
           <span className="hidden text-lg font-bold text-zinc-900 dark:text-zinc-100 sm:inline">
-            Cursor Rules <span className="text-sm font-normal text-zinc-400">中文库</span>
+            Cursor Rules <span className="text-sm font-normal text-zinc-400">· AI 编码规范</span>
           </span>
         </Link>
         <div className="flex-1 px-4">
