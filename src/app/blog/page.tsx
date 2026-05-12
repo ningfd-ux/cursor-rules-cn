@@ -29,6 +29,13 @@ const posts = [
     date: "2026-05-12",
     tags: ["Agent", "Cursor", "效率"],
   },
+  {
+    slug: "ai-coding-workflow-beginners",
+    title: "AI 编码工作流入门指南 2026：从零开始用 Cursor",
+    excerpt: "面向编程新手，从装好 Cursor 到写出第一个生产级代码的完整工作流。",
+    date: "2026-05-12",
+    tags: ["入门", "工作流", "教程"],
+  },
 ];
 
 export default function BlogPage() {
