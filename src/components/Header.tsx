@@ -29,6 +29,9 @@ export default function Header() {
           <Link href="/compare" className="hidden hover:text-zinc-900 dark:hover:text-zinc-300 md:inline-block">
             对比
           </Link>
+          <Link href="/blog" className="hidden hover:text-zinc-900 dark:hover:text-zinc-300 lg:inline-block">
+            文章
+          </Link>
           <a
             href="https://github.com/ningfd-ux/cursor-rules-cn/issues/new"
             target="_blank"

@@ -143,6 +143,22 @@ export default function Home() {
         </div>
       </section>
 
+      {/* 最新文章 */}
+      <section className="mb-6 rounded-xl border border-blue-100 bg-blue-50 p-6 dark:border-blue-900 dark:bg-blue-950">
+        <div className="flex items-center justify-between">
+          <div>
+            <h2 className="text-lg font-semibold text-zinc-900 dark:text-zinc-100">📝 最新文章</h2>
+            <p className="text-sm text-zinc-500 dark:text-zinc-400">7 天从 0 到上线：本站的完整搭建记录</p>
+          </div>
+          <Link
+            href="/blog/build-saas-with-cursor-7-days"
+            className="shrink-0 rounded-lg bg-blue-600 px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-blue-700"
+          >
+            阅读 →
+          </Link>
+        </div>
+      </section>
+
       {/* 社区贡献 */}
       <section className="mt-12 rounded-xl border border-zinc-200 bg-white p-8 text-center dark:border-zinc-800 dark:bg-zinc-900">
         <h2 className="mb-2 text-lg font-semibold text-zinc-900 dark:text-zinc-100">
