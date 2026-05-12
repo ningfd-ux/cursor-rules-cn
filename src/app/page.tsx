@@ -46,7 +46,43 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 热门分类 (new) */}
+      {/* 最新文章 - 放在首屏上方 */}
+      <section className="mb-10 rounded-2xl border border-blue-100 bg-gradient-to-br from-blue-50 to-white p-6 dark:border-blue-900 dark:from-blue-950 dark:to-zinc-900 sm:p-8">
+        <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+          <div>
+            <h2 className="text-xl font-bold text-zinc-900 dark:text-zinc-100">📝 实战文章</h2>
+            <p className="mt-1 text-sm text-zinc-500 dark:text-zinc-400">本站完整搭建记录 · 格式对比 · 入门指南 · TypeScript 配置</p>
+          </div>
+          <Link
+            href="/blog"
+            className="inline-flex items-center gap-1.5 rounded-lg bg-blue-600 px-5 py-2.5 text-sm font-medium text-white transition-colors hover:bg-blue-700"
+          >
+            查看全部文章
+            <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+              <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
+            </svg>
+          </Link>
+        </div>
+        <div className="mt-5 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+          <Link href="/blog/build-saas-with-cursor-7-days" className="group rounded-lg border border-blue-100 bg-white p-4 transition-all hover:shadow-md dark:border-blue-800 dark:bg-zinc-800/50">
+            <span className="text-xs text-blue-600 dark:text-blue-400">🔥 精选</span>
+            <h3 className="mt-1 text-sm font-semibold text-zinc-900 group-hover:text-blue-600 dark:text-zinc-100">7 天从 0 到上线</h3>
+            <p className="mt-0.5 text-xs text-zinc-400">本站的完整搭建记录</p>
+          </Link>
+          <Link href="/blog/cursor-rules-vs-agents-md" className="group rounded-lg border border-zinc-200 bg-white p-4 transition-all hover:shadow-md dark:border-zinc-700 dark:bg-zinc-800/50">
+            <span className="text-xs text-zinc-400">格式对比</span>
+            <h3 className="mt-1 text-sm font-semibold text-zinc-900 group-hover:text-blue-600 dark:text-zinc-100">.cursorrules vs AGENTS.md</h3>
+            <p className="mt-0.5 text-xs text-zinc-400">到底用哪个？</p>
+          </Link>
+          <Link href="/blog/how-to-write-cursor-rules" className="group hidden rounded-lg border border-zinc-200 bg-white p-4 transition-all hover:shadow-md dark:border-zinc-700 dark:bg-zinc-800/50 lg:block">
+            <span className="text-xs text-zinc-400">教程</span>
+            <h3 className="mt-1 text-sm font-semibold text-zinc-900 group-hover:text-blue-600 dark:text-zinc-100">如何编写 Cursor Rules</h3>
+            <p className="mt-0.5 text-xs text-zinc-400">完整指南含模板</p>
+          </Link>
+        </div>
+      </section>
+
+      {/* 热门分类 */}
       <section className="mb-12">
         <h2 className="mb-5 text-lg font-semibold text-zinc-900 dark:text-zinc-100">
           📂 热门分类
@@ -143,22 +179,6 @@ export default function Home() {
               <RuleCard rule={rule} />
             </div>
           ))}
-        </div>
-      </section>
-
-      {/* 最新文章 */}
-      <section className="mb-6 rounded-xl border border-blue-100 bg-blue-50 p-6 dark:border-blue-900 dark:bg-blue-950">
-        <div className="flex items-center justify-between">
-          <div>
-            <h2 className="text-lg font-semibold text-zinc-900 dark:text-zinc-100">📝 最新文章</h2>
-            <p className="text-sm text-zinc-500 dark:text-zinc-400">7 天从 0 到上线：本站的完整搭建记录</p>
-          </div>
-          <Link
-            href="/blog/build-saas-with-cursor-7-days"
-            className="shrink-0 rounded-lg bg-blue-600 px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-blue-700"
-          >
-            阅读 →
-          </Link>
         </div>
       </section>
 
