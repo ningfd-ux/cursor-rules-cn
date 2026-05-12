@@ -24,7 +24,10 @@ export default function Header() {
             ✨ AI 生成
           </Link>
           <Link href="/frameworks/react" className="hidden hover:text-zinc-900 dark:hover:text-zinc-300 sm:inline-block">
-            Framework
+            Rules
+          </Link>
+          <Link href="/compare" className="hidden hover:text-zinc-900 dark:hover:text-zinc-300 md:inline-block">
+            对比
           </Link>
           <a
             href="https://github.com/ningfd-ux/cursor-rules-cn/issues/new"
