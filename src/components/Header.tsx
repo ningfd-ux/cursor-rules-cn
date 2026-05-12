@@ -26,6 +26,9 @@ export default function Header() {
           <Link href="/frameworks" className="hidden hover:text-zinc-900 dark:hover:text-zinc-300 sm:inline-block">
             Rules
           </Link>
+          <Link href="/formats" className="hidden hover:text-zinc-900 dark:hover:text-zinc-300 lg:inline-block">
+            格式
+          </Link>
           <Link href="/compare" className="hidden hover:text-zinc-900 dark:hover:text-zinc-300 md:inline-block">
             对比
           </Link>
