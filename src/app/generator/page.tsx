@@ -124,6 +124,19 @@ export default function GeneratorPage() {
     setTimeout(() => setCopied(false), 2000);
   };
 
+  const handleDownload = () => {
+    const fileName = outputFormat === "cursorrules" ? ".cursorrules" :
+      outputFormat === "mdc" ? "rules.mdc" :
+      outputFormat === "agents" ? "AGENTS.md" : "copilot-instructions.md";
+    const blob = new Blob([generatedRules], { type: "text/markdown" });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement("a");
+    a.href = url;
+    a.download = fileName;
+    a.click();
+    URL.revokeObjectURL(url);
+  };
+
   return (
     <div className="mx-auto max-w-4xl px-4 py-12">
       <section className="mb-10 text-center">
@@ -287,10 +300,16 @@ export default function GeneratorPage() {
         <section className="mb-10">
           <div className="mb-4 flex items-center justify-between">
             <h2 className="text-lg font-semibold text-zinc-900 dark:text-zinc-100">生成结果</h2>
-            <button onClick={handleCopy}
-              className="rounded-lg bg-zinc-100 px-4 py-2 text-sm font-medium text-zinc-700 transition-colors hover:bg-zinc-200 dark:bg-zinc-800 dark:text-zinc-300 dark:hover:bg-zinc-700">
-              {copied ? "✅ 已复制" : "📋 复制全部"}
-            </button>
+            <div className="flex gap-2">
+              <button onClick={handleDownload}
+                className="rounded-lg border border-zinc-200 px-4 py-2 text-sm font-medium text-zinc-600 transition-colors hover:bg-zinc-50 dark:border-zinc-700 dark:text-zinc-400 dark:hover:bg-zinc-800">
+                ⬇ 下载
+              </button>
+              <button onClick={handleCopy}
+                className="rounded-lg bg-zinc-100 px-4 py-2 text-sm font-medium text-zinc-700 transition-colors hover:bg-zinc-200 dark:bg-zinc-800 dark:text-zinc-300 dark:hover:bg-zinc-700">
+                {copied ? "✅ 已复制" : "📋 复制全部"}
+              </button>
+            </div>
           </div>
           <div className="overflow-auto rounded-xl border border-zinc-200 bg-white p-6 dark:border-zinc-800 dark:bg-zinc-900">
             <pre className="text-sm leading-relaxed text-zinc-800 dark:text-zinc-200 whitespace-pre-wrap">{generatedRules}</pre>
