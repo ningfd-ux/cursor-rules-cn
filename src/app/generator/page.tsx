@@ -2,6 +2,13 @@
 
 import { useState } from "react";
 
+const PACKAGE_EXAMPLE = `{
+  "dependencies": {
+    "next": "^14.2.0",
+    "react": "^18.3.0"
+  }
+}`;
+
 const frameworks = [
   { value: "react", label: "React" },
   { value: "nextjs", label: "Next.js" },
@@ -26,14 +33,24 @@ const models = [
   { value: "general", label: "通用 AI" },
 ];
 
+const outputFormats = [
+  { value: "cursorrules", label: ".cursorrules（Cursor 传统格式）" },
+  { value: "mdc", label: ".cursor/rules/*.mdc（Cursor 新版）" },
+  { value: "agents", label: "AGENTS.md（Claude Code）" },
+  { value: "copilot", label: "copilot-instructions.md（GitHub Copilot）" },
+];
+
 export default function GeneratorPage() {
   const [techStack, setTechStack] = useState("nextjs");
   const [strictness, setStrictness] = useState("moderate");
   const [model, setModel] = useState("cursor");
+  const [outputFormat, setOutputFormat] = useState("cursorrules");
+  const [packageJson, setPackageJson] = useState("");
   const [generatedRules, setGeneratedRules] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const [copied, setCopied] = useState(false);
   const [error, setError] = useState("");
+  const [showPackageInput, setShowPackageInput] = useState(false);
 
   const handleGenerate = async () => {
     setIsLoading(true);
@@ -43,7 +60,13 @@ export default function GeneratorPage() {
       const response = await fetch("/api/generate", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ techStack, strictness, model }),
+        body: JSON.stringify({
+          techStack,
+          strictness,
+          model,
+          outputFormat,
+          packageJson,
+        }),
       });
       const data = await response.json();
       if (data.content) {
@@ -71,16 +94,16 @@ export default function GeneratorPage() {
           NEW · AI 智能生成
         </span>
         <h1 className="mb-3 text-3xl font-bold tracking-tight text-zinc-900 dark:text-zinc-100 sm:text-4xl">
-          AI Rule Generator
+          AI Repo Standards Generator
         </h1>
         <p className="mx-auto mb-6 max-w-xl text-base leading-relaxed text-zinc-500 dark:text-zinc-400">
-          选择你的技术栈和严格程度，AI 自动生成专属的 .cursorrules 配置文件。
+          粘贴你的 package.json，AI 自动分析项目架构，生成专属的编码规范配置文件。
         </p>
       </section>
 
       <section className="mb-10">
         <div className="rounded-xl border border-zinc-200 bg-white p-8 dark:border-zinc-800 dark:bg-zinc-900">
-          <div className="mb-6 grid gap-5 sm:grid-cols-3">
+          <div className="mb-5 grid gap-5 sm:grid-cols-3">
             <div>
               <label className="mb-2 block text-sm font-medium text-zinc-900 dark:text-zinc-100">技术栈</label>
               <select value={techStack} onChange={(e) => setTechStack(e.target.value)}
@@ -107,6 +130,58 @@ export default function GeneratorPage() {
             </div>
           </div>
 
+          <div className="mb-5">
+            <label className="mb-2 block text-sm font-medium text-zinc-900 dark:text-zinc-100">输出格式</label>
+            <div className="grid gap-3 sm:grid-cols-2">
+              {outputFormats.map((fmt) => (
+                <label key={fmt.value}
+                  className={`flex cursor-pointer items-center gap-3 rounded-lg border p-3 text-sm transition-colors ${
+                    outputFormat === fmt.value
+                      ? "border-green-500 bg-green-50 dark:border-green-400 dark:bg-green-900/20"
+                      : "border-zinc-200 bg-white hover:bg-zinc-50 dark:border-zinc-700 dark:bg-zinc-800 dark:hover:bg-zinc-700"
+                  }`}
+                >
+                  <input
+                    type="radio"
+                    name="outputFormat"
+                    value={fmt.value}
+                    checked={outputFormat === fmt.value}
+                    onChange={(e) => setOutputFormat(e.target.value)}
+                    className="h-4 w-4 accent-green-600"
+                    disabled={isLoading}
+                  />
+                  <span className="text-zinc-700 dark:text-zinc-300">{fmt.label}</span>
+                </label>
+              ))}
+            </div>
+          </div>
+
+          <div className="mb-5">
+            <button
+              type="button"
+              onClick={() => setShowPackageInput(!showPackageInput)}
+              className="flex items-center gap-2 text-sm font-medium text-zinc-600 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-200"
+            >
+              <svg className={`h-4 w-4 transition-transform ${showPackageInput ? "rotate-90" : ""}`} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
+              </svg>
+              粘贴 package.json（可选 — 让生成更懂你的项目）
+            </button>
+            {showPackageInput && (
+              <div className="mt-3">
+                <textarea
+                  value={packageJson}
+                  onChange={(e) => setPackageJson(e.target.value)}
+                  placeholder={PACKAGE_EXAMPLE}
+                  rows={6}
+                  className="w-full rounded-lg border border-zinc-300 bg-white px-4 py-3 font-mono text-xs leading-relaxed focus:border-green-500 focus:outline-none focus:ring-2 focus:ring-green-500/20 dark:border-zinc-700 dark:bg-zinc-800 dark:text-zinc-200"
+                  disabled={isLoading}
+                />
+                <p className="mt-1.5 text-xs text-zinc-400">粘贴 package.json 内容后，AI 会自动分析你的依赖并生成更精准的规则</p>
+              </div>
+            )}
+          </div>
+
           <button onClick={handleGenerate} disabled={isLoading}
             className="w-full rounded-lg bg-green-600 px-6 py-3 text-sm font-medium text-white transition-colors hover:bg-green-700 disabled:cursor-not-allowed disabled:opacity-50">
             {isLoading ? (
@@ -115,9 +190,9 @@ export default function GeneratorPage() {
                   <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" fill="none" />
                   <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z" />
                 </svg>
-                AI 正在生成...
+                AI 正在分析项目并生成...
               </span>
-            ) : ("✨ 生成我的专属 .cursorrules")}
+            ) : ("✨ 从我的项目生成编码规范")}
           </button>
 
           {error && <p className="mt-3 text-center text-sm text-red-500">{error}</p>}
@@ -134,7 +209,7 @@ export default function GeneratorPage() {
             </button>
           </div>
           <div className="overflow-auto rounded-xl border border-zinc-200 bg-white p-6 dark:border-zinc-800 dark:bg-zinc-900">
-            <pre className="text-sm leading-relaxed text-zinc-800 dark:text-zinc-200">{generatedRules}</pre>
+            <pre className="text-sm leading-relaxed text-zinc-800 dark:text-zinc-200 whitespace-pre-wrap">{generatedRules}</pre>
           </div>
         </section>
       )}
@@ -142,9 +217,9 @@ export default function GeneratorPage() {
       <section className="rounded-xl border border-zinc-200 bg-white p-6 dark:border-zinc-800 dark:bg-zinc-900">
         <h3 className="mb-4 font-semibold text-zinc-900 dark:text-zinc-100">💡 使用技巧</h3>
         <ul className="space-y-2 text-sm text-zinc-500 dark:text-zinc-400">
+          <li>粘贴 package.json 可以让生成的规则精准匹配你实际使用的库和版本</li>
+          <li>选择不同的输出格式（.cursorrules / .mdc / AGENTS.md / copilot-instructions.md）适配不同工具</li>
           <li>生成后根据项目实际情况微调规则内容</li>
-          <li>配合 .cursorrules 文件放在项目根目录即可生效</li>
-          <li>团队协作时可以共享同一份配置保证代码风格统一</li>
         </ul>
       </section>
     </div>

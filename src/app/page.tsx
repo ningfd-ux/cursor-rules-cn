@@ -22,7 +22,7 @@ export default function Home() {
             href="/generator"
             className="inline-flex items-center gap-2 rounded-lg bg-green-600 px-5 py-2.5 text-sm font-medium text-white transition-colors hover:bg-green-700"
           >
-            <span>✨ AI 智能生成</span>
+            <span>✨ 从你的项目生成编码规范</span>
             <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
               <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
             </svg>
