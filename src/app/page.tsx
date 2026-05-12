@@ -10,28 +10,31 @@ export default function Home() {
     <div className="mx-auto max-w-5xl px-4 py-12">
       {/* Hero */}
       <section className="mb-12 text-center">
+        <span className="mb-4 inline-block rounded-full bg-green-100 px-3 py-1 text-xs font-medium text-green-600 dark:bg-green-900 dark:text-green-300">
+          支持导出 .cursorrules · AGENTS.md · CLAUDE.md · copilot-instructions.md
+        </span>
         <h1 className="mb-4 text-3xl font-bold tracking-tight text-zinc-900 dark:text-zinc-100 sm:text-4xl">
-          让 AI 写出<span className="text-blue-600">真正能用的代码</span>
+          AI 编码规范<span className="text-blue-600">生成器 + 规则库</span>
         </h1>
         <p className="mx-auto mb-6 max-w-2xl text-lg leading-relaxed text-zinc-500 dark:text-zinc-400">
-          每条规则都有使用场景和避坑指南，不只是模板列表。
-          覆盖 React、Next.js、Vue、Python、Go、AI Agent 等 40+ 技术栈。
+          粘上你的 GitHub 仓库，AI 自动分析技术栈，生成完整的编码规范配置文件。
+          支持 Cursor、Claude Code、GitHub Copilot、Windsurf 四大工具。
         </p>
         <div className="mb-6 flex flex-wrap items-center justify-center gap-3">
           <Link
             href="/generator"
-            className="inline-flex items-center gap-2 rounded-lg bg-green-600 px-5 py-2.5 text-sm font-medium text-white transition-colors hover:bg-green-700"
+            className="inline-flex items-center gap-2 rounded-lg bg-blue-600 px-6 py-3 text-base font-medium text-white shadow-sm transition-colors hover:bg-blue-700"
           >
-            <span>✨ 从你的项目生成编码规范</span>
-            <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-              <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
+            <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+              <path strokeLinecap="round" strokeLinejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z" />
             </svg>
+            从你的仓库生成规范
           </Link>
           <a
             href="#categories"
-            className="inline-flex items-center gap-2 rounded-lg border border-zinc-200 px-5 py-2.5 text-sm font-medium text-zinc-700 transition-colors hover:bg-zinc-50 dark:border-zinc-700 dark:text-zinc-300 dark:hover:bg-zinc-800"
+            className="inline-flex items-center gap-2 rounded-lg border border-zinc-200 bg-white px-5 py-3 text-sm font-medium text-zinc-700 shadow-sm transition-colors hover:bg-zinc-50 dark:border-zinc-700 dark:bg-zinc-800 dark:text-zinc-300 dark:hover:bg-zinc-700"
           >
-            浏览规则
+            浏览规则库
           </a>
         </div>
         <div className="flex items-center justify-center gap-3 text-sm text-zinc-400 dark:text-zinc-500">
@@ -39,7 +42,7 @@ export default function Home() {
           <span>·</span>
           <span className="flex items-center gap-1">{categories.length} 个分类</span>
           <span>·</span>
-          <span className="flex items-center gap-1">每条含使用场景 + 常见错误</span>
+          <span className="flex items-center gap-1">GitHub 仓库导入 · 一键下载</span>
         </div>
       </section>
 

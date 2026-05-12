@@ -23,7 +23,7 @@ export default function Header() {
           <Link href="/generator" className="font-medium text-blue-600 hover:text-blue-700 dark:text-blue-400">
             ✨ AI 生成
           </Link>
-          <Link href="/frameworks/react" className="hidden hover:text-zinc-900 dark:hover:text-zinc-300 sm:inline-block">
+          <Link href="/frameworks" className="hidden hover:text-zinc-900 dark:hover:text-zinc-300 sm:inline-block">
             Rules
           </Link>
           <Link href="/compare" className="hidden hover:text-zinc-900 dark:hover:text-zinc-300 md:inline-block">
