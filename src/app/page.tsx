@@ -38,13 +38,32 @@ export default function Home() {
           </a>
         </div>
         <div className="flex items-center justify-center gap-3 text-sm text-zinc-400 dark:text-zinc-500">
-          <span className="flex items-center gap-1">{rules.length} 条规则</span>
+          <span className="flex items-center gap-1"><strong className="text-zinc-600 dark:text-zinc-300">{rules.length}</strong> 条规则</span>
           <span>·</span>
-          <span className="flex items-center gap-1">{categories.length} 个分类</span>
+          <span className="flex items-center gap-1"><strong className="text-zinc-600 dark:text-zinc-300">{categories.length}</strong> 个分类</span>
           <span>·</span>
-          <span className="flex items-center gap-1">GitHub 仓库导入 · 一键下载</span>
+          <span className="flex items-center gap-1"><strong className="text-zinc-600 dark:text-zinc-300">5</strong> 篇博客</span>
+          <span>·</span>
+          <span className="flex items-center gap-1">4 种输出格式</span>
         </div>
       </section>
+
+      {/* 网站数据 - 信任信号 */}
+      <div className="mb-10 grid grid-cols-2 gap-3 sm:grid-cols-4">
+
+        {[
+          ["📦", rules.length, "条编码规则"],
+          ["📄", "108", "静态页面"],
+          ["📝", "5", "篇实战文章"],
+          ["⚡", `${categories.length}个`, "技术栈分类"],
+        ].map(([icon, num, label]) => (
+          <div key={label as string} className="rounded-xl border border-zinc-200 bg-white p-4 text-center dark:border-zinc-800 dark:bg-zinc-900">
+            <div className="text-2xl">{icon}</div>
+            <div className="mt-1 text-2xl font-bold text-zinc-900 dark:text-zinc-100">{num}</div>
+            <div className="text-xs text-zinc-400">{label}</div>
+          </div>
+        ))}
+      </div>
 
       {/* 最新文章 - 放在首屏上方 */}
       <section className="mb-10 rounded-2xl border border-blue-100 bg-gradient-to-br from-blue-50 to-white p-6 dark:border-blue-900 dark:from-blue-950 dark:to-zinc-900 sm:p-8">
