@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import BackToTop from "@/components/BackToTop";
+import BlogFooter from "@/components/BlogFooter";
 
 export const metadata: Metadata = {
   title: "如何编写 Cursor Rules：完整指南 2026",
@@ -65,6 +66,7 @@ export default function PostPage() {
           </div>
         </section>
       </article>
+      <BlogFooter />
       <BackToTop />
     </div>
   );

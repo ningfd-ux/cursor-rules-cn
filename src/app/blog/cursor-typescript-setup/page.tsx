@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import BackToTop from "@/components/BackToTop";
+import BlogFooter from "@/components/BlogFooter";
 
 export const metadata: Metadata = {
   title: "Cursor TypeScript 配置指南：从 strict 到 safe 的最佳规则",
@@ -54,6 +55,7 @@ export default function PostPage() {
           </ul>
         </section>
       </article>
+      <BlogFooter />
       <BackToTop />
     </div>
   );

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import BackToTop from "@/components/BackToTop";
+import BlogFooter from "@/components/BlogFooter";
 
 export const metadata: Metadata = {
   title: "7 天从 0 到上线：我用 Cursor + Claude Code 搭了一个规则站",
@@ -157,16 +158,15 @@ Target developers who actually ship production code.</pre>
             规则本身没有护城河，三个月后谁都能抄。但域名权重、Google 收录、交叉内链、用户信任——这些是时间和持续运营积累的，抄不走。
           </p>
 
-          <div className="not-prose rounded-xl border border-blue-200 bg-blue-50 p-6 dark:border-blue-800 dark:bg-blue-950">
-            <h3 className="font-semibold text-blue-900 dark:text-blue-200">相关资源</h3>
-            <ul className="mt-2 space-y-1 text-sm text-blue-700 dark:text-blue-300">
-              <li><Link href="/generator" className="hover:underline">→ 用 AI Generator 为你的项目生成规则</Link></li>
-              <li><Link href="/frameworks/react" className="hover:underline">→ React 项目规则合集</Link></li>
-              <li><Link href="/compare" className="hover:underline">→ Cursor vs 其他 AI 工具对比</Link></li>
-            </ul>
-          </div>
         </section>
       </article>
+      <BlogFooter
+        related={[
+          { slug: "cursor-rules-vs-agents-md", title: ".cursorrules vs AGENTS.md", excerpt: "三种配置文件格式对比" },
+          { slug: "ai-coding-workflow-beginners", title: "AI 编码工作流入门指南", excerpt: "从零开始用 Cursor" },
+        ]}
+        next={{ slug: "cursor-rules-vs-agents-md", title: ".cursorrules vs AGENTS.md vs CLAUDE.md：到底用哪个？" }}
+      />
       <BackToTop />
     </div>
   );

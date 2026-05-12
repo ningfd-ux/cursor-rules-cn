@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import BackToTop from "@/components/BackToTop";
+import BlogFooter from "@/components/BlogFooter";
 
 export const metadata: Metadata = {
   title: ".cursorrules vs AGENTS.md vs CLAUDE.md：到底用哪个？",
@@ -84,6 +85,7 @@ export default function PostPage() {
           <p><strong>通用方案：</strong>用我们的 <Link href="/generator" className="text-blue-600 hover:text-blue-700 dark:text-blue-400">AI Rule Generator</Link> 一次性生成你需要的格式。</p>
         </section>
       </article>
+      <BlogFooter />
       <BackToTop />
     </div>
   );
