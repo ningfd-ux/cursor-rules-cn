@@ -45,11 +45,32 @@ const posts = [
     tags: ["入门", "工作流", "教程"],
   },
   {
+    slug: "best-cursor-rules-2026",
+    title: "Best Cursor Rules 2026：最值得用的 10 条编码规则",
+    excerpt: "2026 年最实用的 10 条规则，覆盖 React、Next.js、Vue、Python 等，直接可用。",
+    date: "2026-05-12",
+    tags: ["推荐", "排名", "2026"],
+  },
+  {
     slug: "cursor-agent-mode-workflow",
     title: "Cursor Agent 模式实战：一天写出 20 条规则的工作流",
     excerpt: "如何用 Cursor Agent 批量生成高质量编码规则，效率提升 10 倍的真实案例。",
     date: "2026-05-12",
     tags: ["Agent", "Cursor", "效率"],
+  },
+  {
+    slug: "v2ex-post",
+    title: "我用 Cursor 7 天搭了一个 AI 编码规范站，总成本 53 块",
+    excerpt: "面向中文社区的分享：从买域名到上线 108 页的完整经历。",
+    date: "2026-05-12",
+    tags: ["分享", "中文", "经验"],
+  },
+  {
+    slug: "show-hn-launch",
+    title: "Show HN: I Built an AI Coding Rules Platform in 7 Days for $0",
+    excerpt: "面向英文开发者社区的技术分享文章。总成本 53 元，全静态零服务器。",
+    date: "2026-05-12",
+    tags: ["Show HN", "Launch", "English"],
   },
 ];
 
