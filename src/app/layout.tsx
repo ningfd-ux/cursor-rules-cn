@@ -18,32 +18,32 @@ const gaId = "G-4ZJT8YPWT8";
 
 export const metadata: Metadata = {
   title: {
-    default: "Cursor Rules · AI 编码规范 - 让 AI 写出真正能上线的代码",
-    template: "%s | Cursor Rules · AI 编码规范",
+    default: "Cursor Rules — AI Coding Standards & Generator",
+    template: "%s | Cursor Rules",
   },
   description:
-    "收录 Cursor、Claude Code、GitHub Copilot、Windsurf 等 AI 编程工具的 Rules、Prompt 和最佳实践。让 AI 写出生产级代码，不再有 deprecated API 和 any 类型。",
+    "Production-ready AI coding rules and an AI generator. Paste your repo, get .cursorrules, AGENTS.md, CLAUDE.md, and copilot-instructions.md. 81 curated rules across 40+ stacks.",
   keywords: [
     "Cursor Rules",
-    "Cursor 规则",
+    "AI coding standards",
+    "cursorrules",
+    "AGENTS.md",
+    "CLAUDE.md",
     "Claude Code",
-    "AI 编程",
     "GitHub Copilot",
-    "Windsurf",
-    "AI Prompt",
-    "中文教程",
-    "AI 代码质量",
-    "Production Ready AI Code",
+    "AI coding workflow",
+    "AI code generator",
+    "cursor rules generator",
   ],
   robots: "index, follow",
   verification: {
     google: "googlebfdc59878de2548f.html",
   },
   openGraph: {
-    title: "Cursor Rules · AI 编码规范 - 让 AI 写出真正能上线的代码",
-    description: "收录 Cursor、Claude Code、GitHub Copilot 等 AI 编程工具的 Rules 和最佳实践",
+    title: "Cursor Rules — AI Coding Standards & Generator",
+    description: "Production-ready AI coding rules. Paste your repo, get .cursorrules, AGENTS.md, and more.",
     type: "website",
-    locale: "zh_CN",
+    locale: "en_US",
   },
 };
 

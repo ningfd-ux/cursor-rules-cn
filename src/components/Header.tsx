@@ -9,7 +9,7 @@ export default function Header() {
         <Link href="/" className="flex shrink-0 items-center gap-2">
           <span className="text-xl">⚡</span>
           <span className="hidden text-lg font-bold text-zinc-900 dark:text-zinc-100 sm:inline">
-            Cursor Rules <span className="text-sm font-normal text-zinc-400">· AI 编码规范</span>
+            Cursor Rules <span className="text-sm font-normal text-zinc-400">· AI Coding Standards</span>
           </span>
         </Link>
         <div className="flex-1 px-4">
@@ -18,22 +18,22 @@ export default function Header() {
         <nav className="flex shrink-0 items-center gap-4 text-sm text-zinc-500">
           <ThemeToggle />
           <Link href="/" className="hover:text-zinc-900 dark:hover:text-zinc-300">
-            首页
+            Home
           </Link>
           <Link href="/generator" className="font-medium text-blue-600 hover:text-blue-700 dark:text-blue-400">
-            ✨ AI 生成
+            ✨ Generator
           </Link>
           <Link href="/frameworks" className="hidden hover:text-zinc-900 dark:hover:text-zinc-300 sm:inline-block">
             Rules
           </Link>
           <Link href="/formats" className="hidden hover:text-zinc-900 dark:hover:text-zinc-300 lg:inline-block">
-            格式
+            Formats
           </Link>
           <Link href="/compare" className="hidden hover:text-zinc-900 dark:hover:text-zinc-300 md:inline-block">
-            对比
+            Compare
           </Link>
           <Link href="/blog" className="hidden hover:text-zinc-900 dark:hover:text-zinc-300 lg:inline-block">
-            文章
+            Blog
           </Link>
           <a
             href="https://github.com/ningfd-ux/cursor-rules-cn/issues/new"
@@ -41,7 +41,7 @@ export default function Header() {
             rel="noopener noreferrer"
             className="hidden rounded-md bg-blue-600 px-3 py-1 font-medium text-white transition-colors hover:bg-blue-700 sm:inline-block"
           >
-            + 提交规则
+            + Submit
           </a>
           <a
             href="https://github.com/ningfd-ux/cursor-rules-cn"
