@@ -5,15 +5,15 @@ import { rules } from "@/data/rules";
 import BackToTop from "@/components/BackToTop";
 
 export const metadata: Metadata = {
-  title: "Framework Rules 合集",
-  description: "按技术栈分类的 Cursor Rules 合集。React、Next.js、Vue、Python、Go 等框架的最佳 AI 编程规则。",
+  title: "Framework Rules",
+  description: "AI coding rules organized by framework. Best practices for React, Next.js, Vue, Python, Go, and more.",
 };
 
 export default function FrameworksPage() {
   return (
     <div className="mx-auto max-w-5xl px-4 py-12">
       <Link href="/" className="mb-6 inline-flex items-center gap-1 text-sm text-zinc-400 hover:text-zinc-600">
-        ← 返回首页
+        ← Back to home
       </Link>
       <h1 className="mb-2 text-3xl font-bold text-zinc-900 dark:text-zinc-100">Framework Rules</h1>
       <p className="mb-8 max-w-2xl text-base text-zinc-500 dark:text-zinc-400">
@@ -37,7 +37,7 @@ export default function FrameworksPage() {
                   <h2 className="text-lg font-semibold text-zinc-900 group-hover:text-blue-600 dark:text-zinc-100 dark:group-hover:text-blue-400">
                     {fw.name}
                   </h2>
-                  <p className="text-sm text-zinc-400">{fwRules.length} 条规则</p>
+                  <p className="text-sm text-zinc-400">{fwRules.length}  rules</p>
                 </div>
               </div>
               <p className="text-sm leading-relaxed text-zinc-500 dark:text-zinc-400">

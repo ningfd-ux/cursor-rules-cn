@@ -81,12 +81,12 @@ export default function BlogPage() {
   return (
     <div className="mx-auto max-w-5xl px-4 py-12">
       <Link href="/" className="mb-6 inline-flex items-center gap-1 text-sm text-zinc-400 hover:text-zinc-600">
-        ← 返回首页
+        ← Back to home
       </Link>
 
-      <h1 className="mb-3 text-3xl font-bold text-zinc-900 dark:text-zinc-100">文章</h1>
+      <h1 className="mb-3 text-3xl font-bold text-zinc-900 dark:text-zinc-100">Blog</h1>
       <p className="mb-8 text-base text-zinc-500 dark:text-zinc-400">
-        用 AI 编程工具构建真实项目的实战记录和编码工作流教程。
+        Real-world build logs, workflow tutorials, and AI coding guides.
       </p>
 
       {/* Featured Article - Hero Style */}

@@ -24,7 +24,7 @@ export default function PostPage() {
 
   return (
     <div className="mx-auto max-w-3xl px-4 py-12">
-      <Link href="/blog" className="mb-6 inline-flex items-center gap-1 text-sm text-zinc-400 hover:text-zinc-600">← 返回文章列表</Link>
+      <Link href="/blog" className="mb-6 inline-flex items-center gap-1 text-sm text-zinc-400 hover:text-zinc-600">← Back to blog</Link>
       <article className="max-w-none">
         <header className="mb-8 not-prose">
           <div className="mb-3 flex items-center gap-2 text-sm text-zinc-400">

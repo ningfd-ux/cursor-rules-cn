@@ -145,13 +145,13 @@ export default function GeneratorPage() {
     <div className="mx-auto max-w-4xl px-4 py-12">
       <section className="mb-10 text-center">
         <span className="mb-3 inline-block rounded-full bg-green-100 px-3 py-1 text-xs font-medium text-green-600 dark:bg-green-900 dark:text-green-300">
-          NEW · AI 智能生成
+          NEW · AI-Powered
         </span>
         <h1 className="mb-3 text-3xl font-bold tracking-tight text-zinc-900 dark:text-zinc-100 sm:text-4xl">
           AI Repo Standards Generator
         </h1>
         <p className="mx-auto mb-6 max-w-xl text-base leading-relaxed text-zinc-500 dark:text-zinc-400">
-          粘贴你的 package.json 或导入 GitHub 仓库，AI 自动分析项目架构，生成专属的编码规范配置文件。
+          Paste your package.json or import a GitHub repo. AI auto-detects your stack and generates a project-specific coding standards file.
         </p>
       </section>
 
@@ -160,7 +160,7 @@ export default function GeneratorPage() {
           {/* Row 1: Tech Stack + Strictness + Tool */}
           <div className="mb-5 grid gap-5 sm:grid-cols-3">
             <div>
-              <label className="mb-2 block text-sm font-medium text-zinc-900 dark:text-zinc-100">技术栈</label>
+              <label className="mb-2 block text-sm font-medium text-zinc-900 dark:text-zinc-100">Tech Stack</label>
               <select value={techStack} onChange={(e) => setTechStack(e.target.value)}
                 className="w-full rounded-lg border border-zinc-300 bg-white px-4 py-2.5 text-sm focus:border-green-500 focus:outline-none focus:ring-2 focus:ring-green-500/20 dark:border-zinc-700 dark:bg-zinc-800 dark:text-zinc-100"
                 disabled={isLoading}>
@@ -168,7 +168,7 @@ export default function GeneratorPage() {
               </select>
             </div>
             <div>
-              <label className="mb-2 block text-sm font-medium text-zinc-900 dark:text-zinc-100">严格程度</label>
+              <label className="mb-2 block text-sm font-medium text-zinc-900 dark:text-zinc-100">Strictness</label>
               <select value={strictness} onChange={(e) => setStrictness(e.target.value)}
                 className="w-full rounded-lg border border-zinc-300 bg-white px-4 py-2.5 text-sm focus:border-green-500 focus:outline-none focus:ring-2 focus:ring-green-500/20 dark:border-zinc-700 dark:bg-zinc-800 dark:text-zinc-100"
                 disabled={isLoading}>
@@ -176,7 +176,7 @@ export default function GeneratorPage() {
               </select>
             </div>
             <div>
-              <label className="mb-2 block text-sm font-medium text-zinc-900 dark:text-zinc-100">目标工具</label>
+              <label className="mb-2 block text-sm font-medium text-zinc-900 dark:text-zinc-100">Target Tool</label>
               <select value={model} onChange={(e) => setModel(e.target.value)}
                 className="w-full rounded-lg border border-zinc-300 bg-white px-4 py-2.5 text-sm focus:border-green-500 focus:outline-none focus:ring-2 focus:ring-green-500/20 dark:border-zinc-700 dark:bg-zinc-800 dark:text-zinc-100"
                 disabled={isLoading}>
@@ -187,7 +187,7 @@ export default function GeneratorPage() {
 
           {/* Row 2: Output Format */}
           <div className="mb-5">
-            <label className="mb-2 block text-sm font-medium text-zinc-900 dark:text-zinc-100">输出格式</label>
+            <label className="mb-2 block text-sm font-medium text-zinc-900 dark:text-zinc-100">Output Format</label>
             <div className="grid gap-3 sm:grid-cols-2">
               {outputFormats.map((fmt) => (
                 <label key={fmt.value}
@@ -222,7 +222,7 @@ export default function GeneratorPage() {
               <svg className={`h-4 w-4 transition-transform ${showRepoInput ? "rotate-90" : ""}`} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                 <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
               </svg>
-              导入 GitHub 仓库（自动获取 package.json）
+              Import GitHub repo (auto-fetch package.json)
             </button>
             {showRepoInput && (
               <div className="mt-3">
@@ -246,12 +246,12 @@ export default function GeneratorPage() {
                           <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" fill="none" />
                           <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z" />
                         </svg>
-                        获取中
+                        Fetching...
                       </span>
-                    ) : repoFetched ? "✅ 已获取" : "获取 package.json"}
+                    ) : repoFetched ? "✅ Fetched" : "获取 package.json"}
                   </button>
                 </div>
-                <p className="mt-1.5 text-xs text-zinc-400">输入公开 GitHub 仓库地址，自动提取 package.json 并用于生成</p>
+                <p className="mt-1.5 text-xs text-zinc-400">Enter a public GitHub repo URL to auto-extract its package.json</p>
               </div>
             )}
           </div>
@@ -266,7 +266,7 @@ export default function GeneratorPage() {
               <svg className={`h-4 w-4 transition-transform ${showPackageInput ? "rotate-90" : ""}`} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                 <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
               </svg>
-              手动粘贴 package.json（可选）
+              Paste package.json manually (optional)
             </button>
             {showPackageInput && (
               <div className="mt-3">
@@ -291,9 +291,9 @@ export default function GeneratorPage() {
                   <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" fill="none" />
                   <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z" />
                 </svg>
-                AI 正在分析项目并生成...
+                AI is analyzing your project...
               </span>
-            ) : ("✨ 从我的项目生成编码规范")}
+            ) : ("✨ Generate from my project")}
           </button>
 
           {error && <p className="mt-3 text-center text-sm text-red-500">{error}</p>}
@@ -310,7 +310,7 @@ export default function GeneratorPage() {
       {generatedRules && (
         <section className="mb-10">
           <div className="mb-4 flex items-center justify-between">
-            <h2 className="text-lg font-semibold text-zinc-900 dark:text-zinc-100">生成结果</h2>
+            <h2 className="text-lg font-semibold text-zinc-900 dark:text-zinc-100">Generated Rules</h2>
             <div className="flex gap-2">
               <button onClick={handleDownload}
                 className="rounded-lg border border-zinc-200 px-4 py-2 text-sm font-medium text-zinc-600 transition-colors hover:bg-zinc-50 dark:border-zinc-700 dark:text-zinc-400 dark:hover:bg-zinc-800">
@@ -318,7 +318,7 @@ export default function GeneratorPage() {
               </button>
               <button onClick={handleCopy}
                 className="rounded-lg bg-zinc-100 px-4 py-2 text-sm font-medium text-zinc-700 transition-colors hover:bg-zinc-200 dark:bg-zinc-800 dark:text-zinc-300 dark:hover:bg-zinc-700">
-                {copied ? "✅ 已复制" : "📋 复制全部"}
+                {copied ? "✅ Copied" : "📋 Copy All"}
               </button>
             </div>
           </div>
@@ -329,11 +329,11 @@ export default function GeneratorPage() {
       )}
 
       <section className="rounded-xl border border-zinc-200 bg-white p-6 dark:border-zinc-800 dark:bg-zinc-900">
-        <h3 className="mb-4 font-semibold text-zinc-900 dark:text-zinc-100">💡 使用技巧</h3>
+        <h3 className="mb-4 font-semibold text-zinc-900 dark:text-zinc-100">💡 Usage Tips</h3>
         <ul className="space-y-2 text-sm text-zinc-500 dark:text-zinc-400">
-          <li>粘贴 GitHub 仓库地址，AI 自动获取 package.json 分析你的技术栈</li>
-          <li>选择不同的输出格式（.cursorrules / .mdc / AGENTS.md / copilot-instructions.md）适配不同工具</li>
-          <li>生成后根据项目实际情况微调规则内容</li>
+          <li>粘贴 GitHub 仓库地址，AI 自动获取 package.json 分析你的Tech Stack</li>
+          <li>选择不同的Output Format（.cursorrules / .mdc / AGENTS.md / copilot-instructions.md）适配不同工具</li>
+          <li>Tweak the generated rules to fit your specific project needs</li>
         </ul>
       </section>
     </div>

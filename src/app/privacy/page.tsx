@@ -2,52 +2,53 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "隐私政策",
-  description: "Cursor Rules 中文库的隐私政策和数据处理说明。",
+  title: "Privacy Policy",
+  description: "Privacy Policy for Cursor Rules — AI Coding Standards & Generator.",
 };
 
 export default function PrivacyPage() {
   return (
     <div className="mx-auto max-w-3xl px-4 py-12">
       <Link href="/" className="mb-6 inline-flex items-center gap-1 text-sm text-zinc-400 hover:text-zinc-600">
-        ← 返回首页
+        ← Back to home
       </Link>
-      <h1 className="mb-6 text-3xl font-bold text-zinc-900 dark:text-zinc-100">隐私政策</h1>
+      <h1 className="mb-6 text-3xl font-bold text-zinc-900 dark:text-zinc-100">Privacy Policy</h1>
 
       <section className="mb-6">
-        <h2 className="mb-2 text-lg font-semibold text-zinc-900 dark:text-zinc-100">数据收集</h2>
+        <h2 className="mb-2 text-lg font-semibold text-zinc-900 dark:text-zinc-100">Data Collection</h2>
         <p className="leading-relaxed text-zinc-600 dark:text-zinc-400">
-          本站使用 Google Analytics (GA4) 收集匿名访问数据，包括页面浏览量、访问来源、设备类型等。
-          这些数据帮助我们了解网站使用情况，持续改进内容质量。不会收集个人身份信息。
+          We use Google Analytics (GA4) to collect anonymous usage data including page views, traffic sources,
+          and device types. No personally identifiable information is collected.
         </p>
       </section>
 
       <section className="mb-6">
-        <h2 className="mb-2 text-lg font-semibold text-zinc-900 dark:text-zinc-100">Cookie</h2>
+        <h2 className="mb-2 text-lg font-semibold text-zinc-900 dark:text-zinc-100">Cookies</h2>
         <p className="leading-relaxed text-zinc-600 dark:text-zinc-400">
-          本站使用 Google Analytics Cookie 来区分独立访客。你可以通过浏览器设置禁用 Cookie。
-          暗色模式偏好存储在浏览器本地存储（localStorage）中，不会被发送到服务器。
+          We use Google Analytics cookies to distinguish unique visitors. You can disable cookies
+          in browser settings. Dark mode preference is stored in localStorage and never sent to a server.
         </p>
       </section>
 
       <section className="mb-6">
-        <h2 className="mb-2 text-lg font-semibold text-zinc-900 dark:text-zinc-100">第三方服务</h2>
+        <h2 className="mb-2 text-lg font-semibold text-zinc-900 dark:text-zinc-100">Third-party services</h2>
         <p className="leading-relaxed text-zinc-600 dark:text-zinc-400">
-          本站部署在 Cloudflare Pages 上，使用 Google Analytics 分析流量。这些服务各自遵循其隐私政策。
+          This site is hosted on Cloudflare Pages and uses Google Analytics for traffic analysis.
+          These services follow their respective privacy policies.
         </p>
       </section>
 
       <section className="mb-6">
-        <h2 className="mb-2 text-lg font-semibold text-zinc-900 dark:text-zinc-100">数据安全</h2>
+        <h2 className="mb-2 text-lg font-semibold text-zinc-900 dark:text-zinc-100">Data security</h2>
         <p className="leading-relaxed text-zinc-600 dark:text-zinc-400">
-          本站不存储用户数据，不设置用户账号。所有内容公开可访问。
+          We store no user data and have no user accounts. All content is publicly accessible.
         </p>
       </section>
 
       <section>
-        <h2 className="mb-2 text-lg font-semibold text-zinc-900 dark:text-zinc-100">更新日期</h2>
+        <h2 className="mb-2 text-lg font-semibold text-zinc-900 dark:text-zinc-100">Last updated</h2>
         <p className="leading-relaxed text-zinc-600 dark:text-zinc-400">
-          本隐私政策最后更新于 2026 年 5 月 11 日。
+          This privacy policy was last updated on May 12, 2026.
         </p>
       </section>
     </div>
