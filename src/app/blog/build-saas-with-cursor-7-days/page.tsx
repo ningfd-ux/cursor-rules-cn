@@ -165,7 +165,7 @@ Target developers who actually ship production code.</pre>
           { slug: "cursor-rules-vs-agents-md", title: ".cursorrules vs AGENTS.md", excerpt: "三种配置文件格式对比" },
           { slug: "ai-coding-workflow-beginners", title: "AI 编码工作流入门指南", excerpt: "从零开始用 Cursor" },
         ]}
-        next={{ slug: "cursor-rules-vs-agents-md", title: ".cursorrules vs AGENTS.md vs CLAUDE.md：到底用哪个？" }}
+        prev={{ slug: "build-saas-with-cursor-7-days", title: "7天从0到上线" }}
       />
       <BackToTop />
     </div>

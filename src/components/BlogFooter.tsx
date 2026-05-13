@@ -1,12 +1,12 @@
 import Link from "next/link";
+import Comments from "@/components/Comments";
 
 interface BlogFooterProps {
   prev?: { slug: string; title: string };
-  next?: { slug: string; title: string };
   related?: { slug: string; title: string; excerpt: string }[];
 }
 
-export default function BlogFooter({ prev, next, related }: BlogFooterProps) {
+export default function BlogFooter({ prev, related }: BlogFooterProps) {
   return (
     <div className="mt-12 space-y-8 not-prose">
       {/* 相关文章推荐 */}
@@ -40,14 +40,11 @@ export default function BlogFooter({ prev, next, related }: BlogFooterProps) {
         <Link href="/blog" className="text-sm font-medium text-blue-600 hover:text-blue-700 dark:text-blue-400">
           全部文章 →
         </Link>
-        <div>
-          {next && (
-            <Link href={`/blog/${next.slug}`} className="text-sm text-zinc-500 hover:text-blue-600 dark:text-zinc-400">
-              {next.title.length > 30 ? next.title.slice(0, 30) + "..." : next.title} →
-            </Link>
-          )}
-        </div>
+        <div />
       </div>
+
+      {/* Comments */}
+      <Comments page={prev?.slug || ""} />
 
       {/* CTA */}
       <div className="rounded-xl border border-blue-200 bg-blue-50 p-6 dark:border-blue-800 dark:bg-blue-950">
