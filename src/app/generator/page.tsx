@@ -150,9 +150,36 @@ export default function GeneratorPage() {
         <h1 className="mb-3 text-3xl font-bold tracking-tight text-zinc-900 dark:text-zinc-100 sm:text-4xl">
           AI Repo Standards Generator
         </h1>
-        <p className="mx-auto mb-6 max-w-xl text-base leading-relaxed text-zinc-500 dark:text-zinc-400">
+        <p className="mx-auto mb-8 max-w-xl text-base leading-relaxed text-zinc-500 dark:text-zinc-400">
           Paste your package.json or import a GitHub repo. AI auto-detects your stack and generates a project-specific coding standards file.
         </p>
+
+        {/* Proof / Example */}
+        <div className="mx-auto max-w-2xl rounded-xl border border-green-100 bg-green-50 p-5 text-left dark:border-green-900 dark:bg-green-950 sm:p-6">
+          <div className="mb-3 flex items-center gap-2">
+            <svg className="h-4 w-4 text-green-600 dark:text-green-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+              <path strokeLinecap="round" strokeLinejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+            <span className="text-sm font-medium text-green-700 dark:text-green-300">What the AI sees</span>
+          </div>
+          <div className="grid gap-3 text-xs sm:grid-cols-3">
+            <div>
+              <p className="font-medium text-zinc-700 dark:text-zinc-300">Input</p>
+              <p className="mt-0.5 text-zinc-500 dark:text-zinc-400">Your package.json or repo URL</p>
+              <p className="mt-1 rounded bg-white px-2 py-1 font-mono text-zinc-400 dark:bg-zinc-800 dark:text-zinc-500">next@15, react@19, prisma, zod, tailwindcss...</p>
+            </div>
+            <div>
+              <p className="font-medium text-zinc-700 dark:text-zinc-300">Detects</p>
+              <p className="mt-0.5 text-zinc-500 dark:text-zinc-400">Framework, styling, ORM, validation, auth</p>
+              <p className="mt-1 rounded bg-white px-2 py-1 font-mono text-zinc-400 dark:bg-zinc-800 dark:text-zinc-500">Next.js App Router · Tailwind · Prisma · Zod</p>
+            </div>
+            <div>
+              <p className="font-medium text-zinc-700 dark:text-zinc-300">Generates</p>
+              <p className="mt-0.5 text-zinc-500 dark:text-zinc-400">Specific rules, not generic advice</p>
+              <p className="mt-1 rounded bg-white px-2 py-1 font-mono text-zinc-400 dark:bg-zinc-800 dark:text-zinc-500">.cursorrules · AGENTS.md · CLAUDE.md</p>
+            </div>
+          </div>
+        </div>
       </section>
 
       <section className="mb-10">

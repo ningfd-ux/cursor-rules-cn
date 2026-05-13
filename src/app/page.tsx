@@ -13,14 +13,14 @@ export default function Home() {
       {/* Hero */}
       <section className="mb-12 text-center">
         <span className="mb-4 inline-block rounded-full bg-green-100 px-3 py-1 text-xs font-medium text-green-600 dark:bg-green-900 dark:text-green-300">
-          支持导出 .cursorrules · AGENTS.md · CLAUDE.md · copilot-instructions.md
+          Detect stack · Generate standards · Ship reliable AI code
         </span>
         <h1 className="mb-4 text-3xl font-bold tracking-tight text-zinc-900 dark:text-zinc-100 sm:text-4xl">
           AI Coding Standards<span className="text-blue-600"> & Generator</span>
         </h1>
         <p className="mx-auto mb-6 max-w-2xl text-lg leading-relaxed text-zinc-500 dark:text-zinc-400">
-          Paste your GitHub repo. AI analyzes your stack and generates production-ready coding rules.
-          Supports Cursor, Claude Code, GitHub Copilot, and Windsurf.
+          Paste your repo → AI detects your stack → Get project-specific rules.
+          Not generic templates. Real standards based on your actual dependencies.
         </p>
         <div className="mb-6 flex flex-wrap items-center justify-center gap-3">
           <Link
