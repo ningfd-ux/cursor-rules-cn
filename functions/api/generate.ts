@@ -153,14 +153,22 @@ export async function onRequestPost(context: { request: Request; env: Env }) {
 }
 
 function getSystemPrompt(outputFormat: string): string {
+  const basePersona =
+    "You are a senior tech lead writing a coding standards file for a real production team. " +
+    "Your standards are specific enough that a junior dev could follow them and produce code indistinguishable from a senior. " +
+    "You NEVER write generic advice like \"use TypeScript\" or \"write clean code.\" " +
+    "Instead, you write enforceable rules referencing actual libraries, file paths, and patterns. ";
+
   switch (outputFormat) {
     case "cursorrules":
-      return (
-        "You are an expert software engineer who writes .cursorrules files. " +
+      return basePersona +
         "Output ONLY the .cursorrules content. No explanations. " +
-        "Use clear sections with ## headers. Each section should have bullet points. " +
-        "Make every rule practical and specific, not generic."
-      );
+        "Use ## headers for sections. Each section contains bullet points (- ). " +
+        "Rules MUST reference specific libraries detected in the project (e.g., \"Use Prisma's createMany for bulk inserts\" not \"write efficient queries\"). " +
+        "Include patterns for: server/client boundaries, data flow, file naming, error handling, validation, and testing — but ONLY if relevant to the detected stack. " +
+        "Start with a \"## Detected Architecture\" section describing what you see. " +
+        "If a package is detected (Zod, Prisma, Tailwind, NextAuth...), you MUST give rules specific to it. " +
+        "Be opinionated. A real tech lead doesn't say \"choose wisely\" — they say \"do it this way.\"";
     case "mdc":
       return (
         "You are an expert software engineer who writes .cursor/rules/*.mdc files for Cursor IDE. " +
@@ -182,11 +190,10 @@ function getSystemPrompt(outputFormat: string): string {
         "Make every instruction practical and specific."
       );
     default:
-      return (
-        "You are an expert software engineer who writes AI coding standards files. " +
-        "Output ONLY the rules content. No explanations. " +
-        "Make every rule practical and specific, not generic."
-      );
+      return basePersona +
+        "Output ONLY the standards content. No explanations. " +
+        "Rules MUST reference specific detected libraries. " +
+        "Be opinionated. Every rule should pass the test: \"Can a junior dev follow this and produce production-grade code?\"";
   }
 }
 
@@ -213,19 +220,32 @@ function buildPrompt(
   let depAnalysis = "";
   if (packageJson && packageJson.trim().length > 0) {
     depAnalysis = `
+CRITICAL: Analyze these exact dependencies and generate rules SPECIFIC to each detected library.
+For each detected package, you MUST give a concrete, enforceable rule — not a general principle.
+
 The user's package.json:
 \`\`\`json
 ${packageJson}
 \`\`\`
-Analyze dependencies and generate rules specific to detected libraries (Next.js, React, Prisma, Zod, Tailwind, etc.).`;
+
+Examples of good rules vs bad rules:
+BAD: "Write clean, maintainable code.
+GOOD: "Server Components must not import 'use client' libraries. Keep data fetching in Server Components, pass data as props to client leaves."
+
+BAD: "Use proper error handling.
+GOOD: "Wrap all Server Actions in try/catch. Return { error: string } for user-facing errors. Log full stack with console.error for debugging."
+
+BAD: "Use TypeScript.
+GOOD: "All function returns must have explicit types. Use 'satisfies' for config objects. Never use 'as' casting for props."`;
   }
 
   return `Generate ${outputFormatLabel[outputFormat] || ".cursorrules"} for a project using: ${techStack}.
 ${depAnalysis}
 Strictness: ${strictnessMap[strictness] || strictnessMap.moderate}
 
-Include: Technology Stack, Code Style, Architecture Constraints, Error Handling, Security, Common Patterns, Anti-Patterns.
-Be specific and practical. Avoid generic advice.`;
+Sections: Detected Architecture, File Structure, Code Style, Data Flow, Error Handling, Security, Testing, Anti-Patterns.
+Each rule must reference a specific library or pattern detected in the dependencies.
+Be a tech lead, not a checklist writer. Choose one approach and commit to it.`;
 }
 
 async function fetchPackageJsonFromRepo(repoUrl: string): Promise<string | null> {

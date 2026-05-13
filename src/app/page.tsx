@@ -36,7 +36,7 @@ export default function Home() {
             href="#categories"
             className="inline-flex items-center gap-2 rounded-lg border border-zinc-200 bg-white px-5 py-3 text-sm font-medium text-zinc-700 shadow-sm transition-colors hover:bg-zinc-50 dark:border-zinc-700 dark:bg-zinc-800 dark:text-zinc-300 dark:hover:bg-zinc-700"
           >
-            Browse rules
+            Browse standards
           </a>
         </div>
         <div className="flex items-center justify-center gap-3 text-sm text-zinc-400 dark:text-zinc-500">
@@ -161,7 +161,7 @@ export default function Home() {
             data-cat="all"
             className="category-btn inline-flex items-center gap-1.5 rounded-full bg-blue-600 px-3.5 py-1.5 text-sm font-medium text-white transition-colors"
           >
-            全部
+            All
             <span className="text-xs text-blue-200">{rules.length}</span>
           </button>
           {categories.map((cat) => (
@@ -206,10 +206,10 @@ export default function Home() {
       {/* 社区贡献 */}
       <section className="mt-12 rounded-xl border border-zinc-200 bg-white p-8 text-center dark:border-zinc-800 dark:bg-zinc-900">
         <h2 className="mb-2 text-lg font-semibold text-zinc-900 dark:text-zinc-100">
-          🤝 Share your rules
+          🤝 Share your standards
         </h2>
         <p className="mb-4 text-sm text-zinc-500 dark:text-zinc-400">
-          Got a good rule? Submit to the community and help other developers.
+          Got solid coding standards? Submit to the community.
         </p>
         <a
           href="https://github.com/ningfd-ux/cursor-rules-cn/issues/new"
@@ -220,7 +220,7 @@ export default function Home() {
           <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
             <path strokeLinecap="round" strokeLinejoin="round" d="M12 4v16m8-8H4" />
           </svg>
-          通过 GitHub Issues 提交
+          Submit via GitHub
         </a>
       </section>
 

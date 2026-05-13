@@ -24,7 +24,7 @@ export default function Header() {
             ✨ Generator
           </Link>
           <Link href="/frameworks" className="hidden hover:text-zinc-900 dark:hover:text-zinc-300 sm:inline-block">
-            Rules
+            Standards
           </Link>
           <Link href="/formats" className="hidden hover:text-zinc-900 dark:hover:text-zinc-300 lg:inline-block">
             Formats
