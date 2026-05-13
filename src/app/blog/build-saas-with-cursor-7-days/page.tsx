@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import BackToTop from "@/components/BackToTop";
 import BlogFooter from "@/components/BlogFooter";
+import SidebarComments from "@/components/SidebarComments";
 
 export const metadata: Metadata = {
   title: "7 天从 0 到上线：我用 Cursor + Claude Code 搭了一个规则站",
@@ -168,6 +169,7 @@ Target developers who actually ship production code.</pre>
         prev={{ slug: "build-saas-with-cursor-7-days", title: "7天从0到上线" }}
       />
       <BackToTop />
+      <SidebarComments page="build-saas-with-cursor-7-days" />
     </div>
   );
 }
