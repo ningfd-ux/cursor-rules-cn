@@ -17,8 +17,8 @@ export const categories = [
   { slug: "claude", name: "Claude Code", count: 10 },
   { slug: "copilot", name: "GitHub Copilot", count: 7 },
   { slug: "windsurf", name: "Windsurf", count: 4 },
-  { slug: "tutorial", name: "教程指南", count: 5 },
-  { slug: "general", name: "通用 AI 编程", count: 13 },
+  { slug: "tutorial", name: "Tutorials", count: 5 },
+  { slug: "general", name: "General AI", count: 13 },
 ];
 
 export function getCategoryName(slug: string): string {
@@ -27,8 +27,8 @@ export function getCategoryName(slug: string): string {
     claude: "Claude Code",
     copilot: "Copilot",
     windsurf: "Windsurf",
-    tutorial: "教程",
-    general: "通用",
+    tutorial: "Tutorial",
+    general: "General",
   };
   return map[slug] ?? slug;
 }

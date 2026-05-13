@@ -17,7 +17,7 @@ export default function FrameworksPage() {
       </Link>
       <h1 className="mb-2 text-3xl font-bold text-zinc-900 dark:text-zinc-100">Framework Rules</h1>
       <p className="mb-8 max-w-2xl text-base text-zinc-500 dark:text-zinc-400">
-        按技术栈分类的 Cursor Rules 合集。点击进入查看对应框架的全部规则和教程。
+        AI coding standards organized by framework.
       </p>
 
       <div className="grid gap-6 sm:grid-cols-2">
@@ -37,7 +37,7 @@ export default function FrameworksPage() {
                   <h2 className="text-lg font-semibold text-zinc-900 group-hover:text-blue-600 dark:text-zinc-100 dark:group-hover:text-blue-400">
                     {fw.name}
                   </h2>
-                  <p className="text-sm text-zinc-400">{fwRules.length} 条规则</p>
+                  <p className="text-sm text-zinc-400">{fwRules.length}  standards</p>
                 </div>
               </div>
               <p className="text-sm leading-relaxed text-zinc-500 dark:text-zinc-400">

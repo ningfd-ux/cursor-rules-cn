@@ -204,8 +204,7 @@ export default async function RulePage({ params }: RulePageProps) {
             如何使用？
           </p>
           <p className="mt-1">
-            将以下内容复制到项目根目录的 <code className="rounded bg-blue-100 px-1 py-0.5 text-xs dark:bg-blue-900 dark:text-blue-200">.cursorrules</code> 文件，
-            或直接在 Cursor 设置中粘贴即可生效。每条规则按场景分类，可根据需要自由组合。
+            Copy the content below to your project's `.cursorrules` file, or paste it directly in Cursor settings.
           </p>
         </div>
 
