@@ -55,6 +55,7 @@ export default function GeneratorPage() {
   const [showPackageInput, setShowPackageInput] = useState(false);
   const [showRepoInput, setShowRepoInput] = useState(false);
   const [repoFetched, setRepoFetched] = useState(false);
+  const [remainingCalls, setRemainingCalls] = useState(2);
 
   const handleFetchRepo = async () => {
     if (!repoUrl.trim()) return;
@@ -108,6 +109,9 @@ export default function GeneratorPage() {
       const data = await response.json();
       if (data.content) {
         setGeneratedRules(data.content);
+        if (typeof data.remaining === "number") {
+          setRemainingCalls(data.remaining);
+        }
       } else {
         setError(data.error || "未知错误");
       }
@@ -293,6 +297,13 @@ export default function GeneratorPage() {
           </button>
 
           {error && <p className="mt-3 text-center text-sm text-red-500">{error}</p>}
+          {!error && (
+            <p className="mt-3 text-center text-xs text-zinc-400">
+              {remainingCalls > 0
+                ? `剩余 ${remainingCalls} 次免费生成 · 每小时重置`
+                : "免费次数已用完 · 请稍后再试"}
+            </p>
+          )}
         </div>
       </section>
 
