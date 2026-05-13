@@ -1,6 +1,7 @@
 import Link from "next/link";
 import RuleCard from "@/components/RuleCard";
 import BackToTop from "@/components/BackToTop";
+import FloatingFeedback from "@/components/FloatingFeedback";
 import { rules, categories } from "@/data/rules";
 
 const featuredRules = rules.slice(0, 3);
@@ -223,6 +224,7 @@ export default function Home() {
       </section>
 
       <BackToTop />
+      <FloatingFeedback />
 
       {/* Client-side filtering script - lightweight, no framework needed */}
       <script
