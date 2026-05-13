@@ -40,7 +40,7 @@ export default async function FrameworkPage({ params }: Props) {
   return (
     <div className="mx-auto max-w-5xl px-4 py-12">
       <Link href="/" className="mb-6 inline-flex items-center gap-1 text-sm text-zinc-400 hover:text-zinc-600">
-        ← 返回首页
+        ← Back to home
       </Link>
 
       <div className="mb-8">
@@ -48,9 +48,9 @@ export default async function FrameworkPage({ params }: Props) {
           <span className="text-3xl">{fw.icon}</span>
           <div>
             <h1 className="text-2xl font-bold text-zinc-900 dark:text-zinc-100 sm:text-3xl">
-              Best Cursor Rules for {fw.name} Projects
+              Best Cursor Standards for {fw.name} Projects
             </h1>
-            <p className="mt-1 text-sm text-zinc-400">{fwRules.length} 条相关规则</p>
+            <p className="mt-1 text-sm text-zinc-400">{fwRules.length} related standards</p>
           </div>
         </div>
         <p className="max-w-2xl text-base leading-relaxed text-zinc-500 dark:text-zinc-400">
@@ -60,7 +60,7 @@ export default async function FrameworkPage({ params }: Props) {
 
       {fwRules.length === 0 ? (
         <div className="rounded-xl border border-dashed border-zinc-200 p-12 text-center text-zinc-400 dark:border-zinc-800">
-          暂无相关规则
+          No standards yet
         </div>
       ) : (
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
@@ -70,10 +70,10 @@ export default async function FrameworkPage({ params }: Props) {
         </div>
       )}
 
-      {/* 相关推荐 */}
+      {/* Related frameworks */}
       <section className="mt-12">
         <h2 className="mb-4 text-lg font-semibold text-zinc-900 dark:text-zinc-100">
-          其他 Framework
+          Other Frameworks
         </h2>
         <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
           {frameworks

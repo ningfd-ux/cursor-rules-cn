@@ -4,19 +4,19 @@ import { comparisons } from "@/data/comparisons";
 import BackToTop from "@/components/BackToTop";
 
 export const metadata: Metadata = {
-  title: "AI 编程工具对比",
-  description: "Cursor vs Copilot vs Windsurf vs Claude Code 全面对比，帮你选最合适的 AI 编程工具。",
+  title: "AI Coding Tools Comparison",
+  description: "Comprehensive comparison of Cursor vs Copilot vs Windsurf vs Claude Code to help you choose the best AI coding tool.",
 };
 
 export default function ComparePage() {
   return (
     <div className="mx-auto max-w-5xl px-4 py-12">
       <Link href="/" className="mb-6 inline-flex items-center gap-1 text-sm text-zinc-400 hover:text-zinc-600">
-        ← 返回首页
+        ← Back to home
       </Link>
-      <h1 className="mb-2 text-3xl font-bold text-zinc-900 dark:text-zinc-100">AI 编程工具对比</h1>
+      <h1 className="mb-2 text-3xl font-bold text-zinc-900 dark:text-zinc-100">AI Coding Tools Comparison</h1>
       <p className="mb-8 max-w-2xl text-base text-zinc-500 dark:text-zinc-400">
-        Cursor、GitHub Copilot、Windsurf、Claude Code 哪个最适合你？从功能、价格、体验全方位对比。
+        Which is best for you? Compare Cursor, GitHub Copilot, Windsurf, and Claude Code on features, pricing, and experience.
       </p>
 
       <div className="grid gap-6">

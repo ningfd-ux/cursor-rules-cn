@@ -5,17 +5,17 @@ import { rules } from "@/data/rules";
 import BackToTop from "@/components/BackToTop";
 
 export const metadata: Metadata = {
-  title: "Framework Rules 合集",
-  description: "按技术栈分类的 Cursor Rules 合集。React、Next.js、Vue、Python、Go 等框架的最佳 AI 编程规则。",
+  title: "Framework Standards Collection",
+  description: "Cursor Rules organized by tech stack. Best AI coding standards for React, Next.js, Vue, Python, Go, and more.",
 };
 
 export default function FrameworksPage() {
   return (
     <div className="mx-auto max-w-5xl px-4 py-12">
       <Link href="/" className="mb-6 inline-flex items-center gap-1 text-sm text-zinc-400 hover:text-zinc-600">
-        ← 返回首页
+        ← Back to home
       </Link>
-      <h1 className="mb-2 text-3xl font-bold text-zinc-900 dark:text-zinc-100">Framework Rules</h1>
+      <h1 className="mb-2 text-3xl font-bold text-zinc-900 dark:text-zinc-100">Framework Standards</h1>
       <p className="mb-8 max-w-2xl text-base text-zinc-500 dark:text-zinc-400">
         AI coding standards organized by framework.
       </p>

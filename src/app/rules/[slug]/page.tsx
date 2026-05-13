@@ -40,7 +40,7 @@ function renderContent(content: string) {
   while (i < lines.length) {
     const line = lines[i];
 
-    // 代码块
+    // code block
     if (line.startsWith("```") || line.startsWith("~~~")) {
       result.push("<pre><code>");
       i++;
@@ -54,7 +54,7 @@ function renderContent(content: string) {
       continue;
     }
 
-    // 标题
+    // heading
     if (line.startsWith("### ")) {
       result.push(`<h3>${inlineMarkdown(line.slice(4))}</h3>`);
       i++;
@@ -71,7 +71,7 @@ function renderContent(content: string) {
       continue;
     }
 
-    // 无序列表
+    // unordered list
     if (line.startsWith("- ")) {
       result.push("<ul>");
       while (i < lines.length && lines[i].startsWith("- ")) {
@@ -82,7 +82,7 @@ function renderContent(content: string) {
       continue;
     }
 
-    // 有序列表
+    // ordered list
     if (/^\d+\.\s/.test(line)) {
       result.push("<ol>");
       while (i < lines.length && /^\d+\.\s/.test(lines[i])) {
@@ -94,13 +94,13 @@ function renderContent(content: string) {
       continue;
     }
 
-    // 空行
+    // blank line
     if (line.trim() === "") {
       i++;
       continue;
     }
 
-    // 普通段落
+    // paragraph
     result.push(`<p>${inlineMarkdown(line)}</p>`);
     i++;
   }
@@ -135,7 +135,7 @@ export default async function RulePage({ params }: RulePageProps) {
         href="/"
         className="mb-6 inline-flex items-center gap-1 text-sm text-zinc-400 hover:text-zinc-600 dark:hover:text-zinc-300"
       >
-        ← 返回首页
+        ← Back to home
       </Link>
 
       <script
@@ -147,8 +147,8 @@ export default async function RulePage({ params }: RulePageProps) {
             headline: rule.title,
             description: rule.description,
             dateModified: rule.updatedAt,
-            author: { "@type": "Organization", name: "Cursor Rules 中文库" },
-            publisher: { "@type": "Organization", name: "Cursor Rules 中文库" },
+            author: { "@type": "Organization", name: "Cursor Rules" },
+            publisher: { "@type": "Organization", name: "Cursor Rules" },
             mainEntityOfPage: `https://cursorrules.fun/rules/${rule.slug}`,
           }),
         }}
@@ -181,7 +181,7 @@ export default async function RulePage({ params }: RulePageProps) {
                 ))}
               </div>
               <div className="flex items-center gap-3 text-xs text-zinc-300 dark:text-zinc-600">
-                <span>更新于 {rule.updatedAt}</span>
+                <span>Updated {rule.updatedAt}</span>
                 {rule.appliesTo && (
                   <span className="rounded bg-zinc-50 px-1.5 py-0.5 text-zinc-400 dark:bg-zinc-800 dark:text-zinc-500">
                     {rule.appliesTo}
@@ -201,7 +201,7 @@ export default async function RulePage({ params }: RulePageProps) {
             <svg className="h-4 w-4 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
               <path strokeLinecap="round" strokeLinejoin="round" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
             </svg>
-            如何使用？
+How to use?
           </p>
           <p className="mt-1">
             Copy the content below to your project's `.cursorrules` file, or paste it directly in Cursor settings.
@@ -214,10 +214,10 @@ export default async function RulePage({ params }: RulePageProps) {
         />
       </article>
 
-      {/* 相关推荐 */}
+      {/* Related standards */}
       <section className="mt-12">
         <h2 className="mb-4 text-lg font-semibold text-zinc-900 dark:text-zinc-100">
-          相关规则
+          Related Standards
         </h2>
         <div className="grid gap-3 sm:grid-cols-2">
           {rules

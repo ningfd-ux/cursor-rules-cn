@@ -50,10 +50,10 @@ export default async function ComparePage({ params }: Props) {
   return (
     <div className="mx-auto max-w-3xl px-4 py-12">
       <Link href="/compare" className="mb-6 inline-flex items-center gap-1 text-sm text-zinc-400 hover:text-zinc-600">
-        ← 返回对比
+        ← Back to comparison
       </Link>
       <Link href="/" className="ml-4 inline-flex items-center gap-1 text-sm text-zinc-400 hover:text-zinc-600">
-        首页
+        Home
       </Link>
 
       <article className="mt-6">

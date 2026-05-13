@@ -18,21 +18,20 @@ const gaId = "G-4ZJT8YPWT8";
 
 export const metadata: Metadata = {
   title: {
-    default: "Cursor Rules · AI 编码规范 - 让 AI 写出真正能上线的代码",
-    template: "%s | Cursor Rules · AI 编码规范",
+    default: "Cursor Rules · AI Coding Standards - Production-Grade AI Code",
+    template: "%s | Cursor Rules · AI Coding Standards",
   },
   description:
-    "收录 Cursor、Claude Code、GitHub Copilot、Windsurf 等 AI 编程工具的 Rules、Prompt 和最佳实践。让 AI 写出生产级代码，不再有 deprecated API 和 any 类型。",
+    "Curated Rules, Prompts, and Best Practices for Cursor, Claude Code, GitHub Copilot, Windsurf, and more AI coding tools. Get production-grade code without deprecated APIs or any types.",
   keywords: [
     "Cursor Rules",
-    "Cursor 规则",
+    "Cursor Standards",
     "Claude Code",
-    "AI 编程",
+    "AI Coding",
     "GitHub Copilot",
     "Windsurf",
     "AI Prompt",
-    "中文教程",
-    "AI 代码质量",
+    "AI Code Quality",
     "Production Ready AI Code",
   ],
   robots: "index, follow",
@@ -40,10 +39,10 @@ export const metadata: Metadata = {
     google: "googlebfdc59878de2548f.html",
   },
   openGraph: {
-    title: "Cursor Rules · AI 编码规范 - 让 AI 写出真正能上线的代码",
-    description: "收录 Cursor、Claude Code、GitHub Copilot 等 AI 编程工具的 Rules 和最佳实践",
+    title: "Cursor Rules · AI Coding Standards - Production-Grade AI Code",
+    description: "Curated Rules and Best Practices for Cursor, Claude Code, GitHub Copilot, and more AI coding tools",
     type: "website",
-    locale: "zh_CN",
+    locale: "en_US",
   },
 };
 
@@ -54,7 +53,7 @@ export default function RootLayout({
 }>) {
   return (
     <html
-      lang="zh-CN"
+      lang="en"
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
       <head>
@@ -73,17 +72,17 @@ export default function RootLayout({
             />
           </>
         )}
-        <link rel="alternate" type="application/rss+xml" title="Cursor Rules · AI 编码规范" href="https://cursorrules.fun/rss.xml" />
+        <link rel="alternate" type="application/rss+xml" title="Cursor Rules · AI Coding Standards" href="https://cursorrules.fun/rss.xml" />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
             __html: JSON.stringify({
               "@context": "https://schema.org",
               "@type": "WebSite",
-              name: "Cursor Rules · AI 编码规范",
+              name: "Cursor Rules · AI Coding Standards",
               url: "https://cursorrules.fun/",
               description:
-                "让 AI 写出真正能用的代码。81 条 Cursor Rules，覆盖 40+ 技术栈，每条含使用场景和常见错误。",
+                "Production-grade AI code. 81 Cursor Rules, covering 40+ tech stacks, each with usage scenarios and common mistakes.",
               potentialAction: {
                 "@type": "SearchAction",
                 target: "https://cursorrules.fun/?q={search_term_string}",

@@ -104,12 +104,12 @@ export default function Home() {
         </h2>
         <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
           {[
-            { href: "/frameworks/react", icon: "⚛️", name: "React", desc: "React + Hooks standards", count: rules.filter(r => r.tags.includes("react")).length },
-            { href: "/frameworks/nextjs", icon: "▲", name: "Next.js", desc: "App Router config", count: rules.filter(r => r.tags.includes("nextjs")).length },
+            { href: "/frameworks/react", icon: "⚛️", name: "React", desc: "React + Hooks Development", count: rules.filter(r => r.tags.includes("react")).length },
+            { href: "/frameworks/nextjs", icon: "▲", name: "Next.js", desc: "App Router Complete Setup", count: rules.filter(r => r.tags.includes("nextjs")).length },
             { href: "/frameworks/vue", icon: "🟢", name: "Vue", desc: "Vue 3 + Composition API", count: rules.filter(r => r.tags.includes("vue")).length },
-            { href: "/frameworks/python", icon: "🐍", name: "Python", desc: "FastAPI + Django standards", count: rules.filter(r => r.tags.includes("python")).length },
-            { href: "/frameworks/go", icon: "🔷", name: "Go", desc: "Golang conventions", count: rules.filter(r => r.tags.includes("go")).length },
-            { href: "/compare", icon: "⚖️", name: "Compare", desc: "Cursor vs Copilot etc.", count: 5 },
+            { href: "/frameworks/python", icon: "🐍", name: "Python", desc: "FastAPI + Django Rules", count: rules.filter(r => r.tags.includes("python")).length },
+            { href: "/frameworks/go", icon: "🔷", name: "Go", desc: "Golang Coding Standards", count: rules.filter(r => r.tags.includes("go")).length },
+            { href: "/compare", icon: "⚖️", name: "Compare", desc: "Cursor vs Copilot & More", count: 5 },
           ].map((cat) => (
             <Link
               key={cat.href}

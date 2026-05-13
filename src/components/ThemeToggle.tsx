@@ -29,7 +29,7 @@ export default function ThemeToggle() {
   return (
     <button
       onClick={toggle}
-      aria-label={dark ? "切换到亮色模式" : "切换到暗色模式"}
+      aria-label="Toggle dark mode"
       className="rounded-md p-1 text-zinc-500 hover:text-zinc-900 dark:hover:text-zinc-300"
     >
       {dark ? (

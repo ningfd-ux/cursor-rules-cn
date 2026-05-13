@@ -65,7 +65,7 @@ export default function Search({ rules }: SearchProps) {
           }}
           onFocus={() => setOpen(true)}
           onBlur={() => setTimeout(() => setOpen(false), 200)}
-          placeholder="搜索规则... (Ctrl+K)"
+          placeholder="Search standards... (Ctrl+K)"
           className="w-full rounded-lg border border-zinc-200 bg-white py-2 pl-10 pr-10 text-sm text-zinc-900 placeholder-zinc-400 outline-none transition-colors focus:border-blue-400 dark:border-zinc-700 dark:bg-zinc-900 dark:text-zinc-100 dark:placeholder-zinc-500 dark:focus:border-blue-500"
         />
         {query && (
@@ -87,7 +87,7 @@ export default function Search({ rules }: SearchProps) {
         <div className="absolute left-0 right-0 top-full z-50 mt-1 overflow-hidden rounded-lg border border-zinc-200 bg-white shadow-lg dark:border-zinc-700 dark:bg-zinc-900">
           {results.length === 0 ? (
             <div className="px-4 py-6 text-center text-sm text-zinc-400">
-              没有找到匹配的规则
+              No matching standards found
             </div>
           ) : (
             <ul className="max-h-80 overflow-auto py-1">
