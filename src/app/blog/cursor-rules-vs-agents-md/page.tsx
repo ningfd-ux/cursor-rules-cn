@@ -4,8 +4,8 @@ import BackToTop from "@/components/BackToTop";
 import BlogFooter from "@/components/BlogFooter";
 
 export const metadata: Metadata = {
-  title: ".cursorrules vs AGENTS.md vs CLAUDE.md：到底用哪个？",
-  description: "三种 AI 编码配置文件的格式对比、适用场景和最佳实践。Cursor 新旧格式、Claude Code 和 Copilot 怎么选？",
+  title: ".cursorrules vs AGENTS.md vs CLAUDE.md: Which One Should You Use?",
+  description: "A comparison of three AI coding config file formats — their use cases and best practices. Cursor old vs new format, Claude Code, and Copilot — how to choose?",
 };
 
 export default function PostPage() {
@@ -17,22 +17,22 @@ export default function PostPage() {
         <header className="mb-8 not-prose">
           <div className="mb-3 flex items-center gap-2 text-sm text-zinc-400">
             <span>2026-05-12</span><span>·</span>
-            <span className="rounded bg-zinc-100 px-2 py-0.5 text-xs dark:bg-zinc-800">格式对比</span>
+            <span className="rounded bg-zinc-100 px-2 py-0.5 text-xs dark:bg-zinc-800">Format Comparison</span>
             <span className="rounded bg-zinc-100 px-2 py-0.5 text-xs dark:bg-zinc-800">Cursor</span>
           </div>
-          <h1 className="text-3xl font-bold text-zinc-900 dark:text-zinc-100">.cursorrules vs AGENTS.md vs CLAUDE.md：到底用哪个？</h1>
+          <h1 className="text-3xl font-bold text-zinc-900 dark:text-zinc-100">.cursorrules vs AGENTS.md vs CLAUDE.md: Which One Should You Use?</h1>
         </header>
 
         <section className="text-base leading-relaxed text-zinc-600 dark:text-zinc-400 space-y-6">
-          <p className="lead text-lg text-zinc-700 dark:text-zinc-300">AI 编码配置文件的格式越来越多，但大部分开发者还不清楚它们之间的区别。本文一次讲清楚。</p>
+          <p className="lead text-lg text-zinc-700 dark:text-zinc-300">AI coding config formats keep multiplying, but most developers still don't know how they differ. This article clears it all up.</p>
 
-          <h2 className="text-xl font-bold text-zinc-900 dark:text-zinc-100 mt-8">三种格式的核心区别</h2>
+          <h2 className="text-xl font-bold text-zinc-900 dark:text-zinc-100 mt-8">Core Differences Between the Three Formats</h2>
 
           <div className="overflow-auto rounded-lg border border-zinc-200 not-prose dark:border-zinc-700">
             <table className="w-full text-sm">
               <thead>
                 <tr className="bg-zinc-50 dark:bg-zinc-800">
-                  <th className="p-3 text-left font-medium text-zinc-900 dark:text-zinc-100">特性</th>
+                  <th className="p-3 text-left font-medium text-zinc-900 dark:text-zinc-100">Feature</th>
                   <th className="p-3 text-left font-medium text-zinc-900 dark:text-zinc-100">.cursorrules</th>
                   <th className="p-3 text-left font-medium text-zinc-900 dark:text-zinc-100">AGENTS.md</th>
                   <th className="p-3 text-left font-medium text-zinc-900 dark:text-zinc-100">CLAUDE.md</th>
@@ -40,13 +40,13 @@ export default function PostPage() {
               </thead>
               <tbody className="divide-y divide-zinc-200 dark:divide-zinc-700">
                 {[
-                  ["工具", "Cursor", "Cursor（新版）", "Claude Code"],
-                  ["格式", "纯文本", "Markdown", "Markdown"],
-                  ["位置", "项目根目录", ".cursor/rules/*.mdc", "项目根目录"],
-                  ["作用范围", "全局", "按 glob 匹配", "全局"],
-                  ["多个文件", "不支持", "支持分文件", "不支持"],
-                  ["启动加载", "自动", "按需匹配", "自动"],
-                  ["当前状态", "Legacy", "推荐", "推荐"],
+                  ["Tool", "Cursor", "Cursor (new)", "Claude Code"],
+                  ["Format", "Plain text", "Markdown", "Markdown"],
+                  ["Location", "Project root", ".cursor/rules/*.mdc", "Project root"],
+                  ["Scope", "Global", "Glob-matched", "Global"],
+                  ["Multiple Files", "Not supported", "Supports split files", "Not supported"],
+                  ["Loading", "Auto on start", "Matched on demand", "Auto on start"],
+                  ["Current Status", "Legacy", "Recommended", "Recommended"],
                 ].map((row, i) => (
                   <tr key={i} className="text-zinc-600 dark:text-zinc-400">
                     {row.map((cell, j) => (
@@ -58,31 +58,31 @@ export default function PostPage() {
             </table>
           </div>
 
-          <h2 className="text-xl font-bold text-zinc-900 dark:text-zinc-100 mt-8">什么时候用哪个？</h2>
+          <h2 className="text-xl font-bold text-zinc-900 dark:text-zinc-100 mt-8">When to Use Which?</h2>
 
-          <h3 className="text-lg font-semibold text-zinc-800 dark:text-zinc-200 mt-6">用 .cursorrules（传统）</h3>
-          <p>你的 Cursor 版本还没升级到最新。项目简单，不需要按文件类型分开控制。作为通用兜底配置。</p>
+          <h3 className="text-lg font-semibold text-zinc-800 dark:text-zinc-200 mt-6">Use .cursorrules (legacy)</h3>
+          <p>Your Cursor version hasn't been updated to the latest. Your project is simple and doesn't need per-file-type control. Use as a universal fallback config.</p>
 
-          <h3 className="text-lg font-semibold text-zinc-800 dark:text-zinc-200 mt-6">用 AGENTS.md（推荐）</h3>
-          <p>项目有多种文件类型，需要精细化控制。按技术栈拆分规则文件。想使用 Cursor 最新 Project Rules 功能。这也是 Cursor 官方当前推荐的格式。</p>
+          <h3 className="text-lg font-semibold text-zinc-800 dark:text-zinc-200 mt-6">Use AGENTS.md (recommended)</h3>
+          <p>Your project has multiple file types and needs granular control. You want to split rules by tech stack. You want to use Cursor's latest Project Rules feature. This is Cursor's current officially recommended format.</p>
 
-          <h3 className="text-lg font-semibold text-zinc-800 dark:text-zinc-200 mt-6">用 CLAUDE.md</h3>
-          <p>你的主力工具是 Claude Code CLI。需要的是对话式指令而不是规则文件。希望 Claude 自动理解项目上下文。</p>
+          <h3 className="text-lg font-semibold text-zinc-800 dark:text-zinc-200 mt-6">Use CLAUDE.md</h3>
+          <p>Your primary tool is the Claude Code CLI. You need conversational instructions rather than rule files. You want Claude to automatically understand your project context.</p>
 
           <div className="rounded-xl border border-blue-200 bg-blue-50 p-6 not-prose dark:border-blue-800 dark:bg-blue-950">
-            <h3 className="font-semibold text-blue-900 dark:text-blue-200">用 Generator 一键生成所有格式</h3>
-            <p className="mt-1 text-sm text-blue-700 dark:text-blue-300">不需要自己纠结选哪个——AI Rule Generator 支持全部 4 种格式输出，选一个就行。</p>
-            <Link href="/generator" className="mt-3 inline-block rounded-lg bg-blue-600 px-4 py-2 text-sm font-medium text-white hover:bg-blue-700">去生成 →</Link>
+            <h3 className="font-semibold text-blue-900 dark:text-blue-200">Generate All Formats With One Click</h3>
+            <p className="mt-1 text-sm text-blue-700 dark:text-blue-300">No need to agonize over the choice — the AI Rule Generator supports all 4 output formats. Just pick one.</p>
+            <Link href="/generator" className="mt-3 inline-block rounded-lg bg-blue-600 px-4 py-2 text-sm font-medium text-white hover:bg-blue-700">Generate Now →</Link>
           </div>
 
-          <h2 className="text-xl font-bold text-zinc-900 dark:text-zinc-100 mt-8">未来趋势</h2>
-          <p>Cursor 官方正在弱化 .cursorrules，推荐使用 .cursor/rules/*.mdc 分文件模式。这意味着如果你现在开新项目，建议直接用 AGENTS.md 格式，一步到位。</p>
-          <p>同时，Claude Code 正在推动 CLAUDE.md 成为行业标准——类似 .cursorrules 但更偏向对话式描述而非规则列表。</p>
+          <h2 className="text-xl font-bold text-zinc-900 dark:text-zinc-100 mt-8">Future Trends</h2>
+          <p>Cursor is deprecating .cursorrules in favor of the .cursor/rules/*.mdc split-file pattern. If you're starting a new project, go straight to AGENTS.md format — no migration needed later.</p>
+          <p>Meanwhile, Claude Code is pushing CLAUDE.md toward becoming an industry standard — similar to .cursorrules but more conversational than a rule list.</p>
 
-          <h2 className="text-xl font-bold text-zinc-900 dark:text-zinc-100 mt-8">我们的建议</h2>
-          <p><strong>新项目：</strong>直接用 AGENTS.md（Cursor 新版）或 CLAUDE.md（Claude Code）。</p>
-          <p><strong>现有项目：</strong>保留 .cursorrules 不动，逐步迁移到新版格式。</p>
-          <p><strong>通用方案：</strong>用我们的 <Link href="/generator" className="text-blue-600 hover:text-blue-700 dark:text-blue-400">AI Rule Generator</Link> 一次性生成你需要的格式。</p>
+          <h2 className="text-xl font-bold text-zinc-900 dark:text-zinc-100 mt-8">Our Recommendation</h2>
+          <p><strong>New projects:</strong> Use AGENTS.md (Cursor new format) or CLAUDE.md (Claude Code) directly.</p>
+          <p><strong>Existing projects:</strong> Keep .cursorrules as-is and gradually migrate to the new format.</p>
+          <p><strong>Universal solution:</strong> Use our <Link href="/generator" className="text-blue-600 hover:text-blue-700 dark:text-blue-400">AI Rule Generator</Link> to produce whatever format you need in one go.</p>
         </section>
       </article>
       <BlogFooter />

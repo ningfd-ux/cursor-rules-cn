@@ -186,11 +186,11 @@ content: `# Cursor Next.js 项目规则
   },
   {
 slug: "cursor-python-rules",
-title: "Cursor + Python 高效开发的编码规则",
+title: "Python Coding Standards for Cursor",
 category: "cursor",
-description: "Python 项目中使用 Cursor 的编码规则和最佳实践。",
+description: "Coding rules and best practices for Python projects in Cursor.",
 icon: "🐍",
-tags: ["cursor", "python", "后端"],
+tags: ["cursor", "python", "backend"],
 updatedAt: "2026-05-03",
 appliesTo: "Cursor 0.40+",
 content: `# Cursor Python 开发规则
@@ -236,11 +236,11 @@ content: `# Cursor Python 开发规则
   },
   {
 slug: "cursor-git-workflow",
-title: "Cursor 中 Git 工作流的最佳实践规则",
+title: "Git Workflow Best Practices for Cursor",
 category: "cursor",
-description: "在 Cursor 中使用 Git 的规范工作流和提交规则。",
+description: "Standardized Git workflow and commit conventions for Cursor.",
 icon: "🔀",
-tags: ["cursor", "git", "工作流"],
+tags: ["cursor", "git", "workflow"],
 updatedAt: "2026-04-25",
 content: `# Cursor Git 工作流规则
 
@@ -279,11 +279,11 @@ content: `# Cursor Git 工作流规则
   },
   {
 slug: "cursor-typescript-rules",
-title: "Cursor TypeScript 严格模式配置规则",
+title: "TypeScript Strict Mode Rules for Cursor",
 category: "cursor",
-description: "TypeScript 项目启用严格模式的编码规则。",
+description: "Coding rules for TypeScript projects with strict mode enabled.",
 icon: "📘",
-tags: ["cursor", "typescript", "严格模式"],
+tags: ["cursor", "typescript", "strict-mode"],
 updatedAt: "2026-05-04",
 appliesTo: "Cursor 0.40+",
 content: `# Cursor TypeScript 严格模式规则
@@ -327,11 +327,11 @@ content: `# Cursor TypeScript 严格模式规则
   },
   {
 slug: "claude-code-general",
-title: "Claude Code 入门必读的通用规则",
+title: "Claude Code Starter Guide: Essential Rules",
 category: "claude",
-description: "使用 Claude Code 进行 AI 编程的通用规则和最佳 Prompt。",
+description: "General rules and optimal prompts for AI coding with Claude Code.",
 icon: "🤖",
-tags: ["claude-code", "通用", "prompt"],
+tags: ["claude-code", "general", "prompt"],
 updatedAt: "2026-04-30",
 appliesTo: "Claude Code 0.1+",
 content: `# Claude Code 通用规则
@@ -370,9 +370,9 @@ content: `# Claude Code 通用规则
   },
   {
 slug: "claude-code-react",
-title: "用 Claude Code 写 React 的高效 Prompt",
+title: "Effective React Prompts for Claude Code",
 category: "claude",
-description: "针对 React 项目的 Claude Code 专用 Prompt 模板。",
+description: "Prompt templates tailored for React projects in Claude Code.",
 icon: "⚛️",
 tags: ["claude-code", "react", "prompt"],
 updatedAt: "2026-05-05",
@@ -401,11 +401,11 @@ content: `# Claude Code React 开发 Prompt
   },
   {
 slug: "claude-code-workflow",
-title: "Claude Code 日常开发工作流最佳实践",
+title: "Claude Code Daily Development Workflow",
 category: "claude",
-description: "Claude Code 在日常开发中的最佳工作流程。",
+description: "Best practices for daily development workflows with Claude Code.",
 icon: "🔄",
-tags: ["claude-code", "工作流", "最佳实践"],
+tags: ["claude-code", "workflow", "best-practices"],
 updatedAt: "2026-05-06",
 appliesTo: "Claude Code 0.1+",
 content: `# Claude Code 工作流规则
@@ -441,11 +441,11 @@ content: `# Claude Code 工作流规则
   },
   {
 slug: "claude-code-prompts",
-title: "Claude Code 最实用的 Prompt 模板合集",
+title: "Claude Code Prompt Templates Collection",
 category: "claude",
-description: "收集 Claude Code 最实用的 Prompt 模板和使用技巧。",
+description: "A curated collection of the most practical Claude Code prompt templates and usage tips.",
 icon: "💡",
-tags: ["claude-code", "prompt", "模板"],
+tags: ["claude-code", "prompt", "templates"],
 updatedAt: "2026-05-01",
 content: `# Claude Code 高效 Prompt 大全
 
@@ -482,11 +482,11 @@ content: `# Claude Code 高效 Prompt 大全
   },
   {
 slug: "copilot-general",
-title: "GitHub Copilot 新手必看的使用规则",
+title: "GitHub Copilot Beginner's Guide",
 category: "copilot",
-description: "GitHub Copilot 的使用规则和最佳实践。",
+description: "Usage rules and best practices for GitHub Copilot.",
 icon: "🪁",
-tags: ["copilot", "通用", "最佳实践"],
+tags: ["copilot", "general", "best-practices"],
 updatedAt: "2026-04-29",
 content: `# GitHub Copilot 通用规则
 
@@ -518,11 +518,11 @@ content: `# GitHub Copilot 通用规则
   },
   {
 slug: "copilot-instructions",
-title: "配置 Copilot 项目指令的最佳实践",
+title: "Configuring Copilot Project Instructions",
 category: "copilot",
-description: "通过 copilot-instructions.md 配置项目级 Copilot 行为。",
+description: "Configure project-level Copilot behavior via copilot-instructions.md.",
 icon: "📋",
-tags: ["copilot", "配置", "instructions"],
+tags: ["copilot", "configuration", "instructions"],
 updatedAt: "2026-05-03",
 content: `# GitHub Copilot 项目指令配置
 
@@ -562,11 +562,11 @@ markdown
   },
   {
     slug: "copilot-testing",
-    title: "用 Copilot 自动生成测试代码的技巧",
+    title: "Auto-Generating Tests with Copilot",
     category: "copilot",
-    description: "使用 GitHub Copilot 编写测试代码的最佳实践。",
+    description: "Best practices for writing tests with GitHub Copilot.",
     icon: "🧪",
-    tags: ["copilot", "测试", "jest"],
+    tags: ["copilot", "testing", "jest"],
     updatedAt: "2026-04-27",
     content: `# Copilot 辅助测试编写
 
