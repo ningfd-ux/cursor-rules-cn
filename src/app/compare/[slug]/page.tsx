@@ -23,23 +23,65 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 function renderContent(content: string) {
   const lines = content.split("\n");
   const result: string[] = [];
+  let inTable = false;
 
-  for (const line of lines) {
-    if (line.startsWith("| ") && line.endsWith(" |")) {
-      result.push(`<p class="text-sm text-zinc-600 dark:text-zinc-400 font-mono">${line}</p>`);
-    } else if (line.startsWith("|")) {
-      // skip markdown table formatting lines
+  for (let i = 0; i < lines.length; i++) {
+    const line = lines[i];
+
+    // Table rows
+    if (line.startsWith("|")) {
+      const cells = line.split("|").filter(c => c.trim()).map(c => c.trim());
+      const isHeader = lines[i + 1]?.startsWith("|") && lines[i + 1]?.includes("---");
+      if (isHeader) {
+        result.push(`<table class="w-full text-sm mb-4 border-collapse"><thead><tr class="border-b border-zinc-200 dark:border-zinc-700">`);
+        for (const cell of cells) {
+          result.push(`<th class="py-2 px-3 text-left text-xs font-semibold text-zinc-900 dark:text-zinc-100">${inlineMd(cell)}</th>`);
+        }
+        result.push(`</tr></thead><tbody>`);
+        i++; // skip separator
+        inTable = true;
+        continue;
+      }
+      if (inTable) {
+        const nextLineIsTable = lines[i + 1]?.startsWith("|");
+        result.push(`<tr class="border-b border-zinc-100 dark:border-zinc-800">`);
+        for (const cell of cells) {
+          result.push(`<td class="py-2 px-3 text-xs text-zinc-600 dark:text-zinc-400">${inlineMd(cell)}</td>`);
+        }
+        result.push(`</tr>`);
+        if (!nextLineIsTable) {
+          result.push(`</tbody></table>`);
+          inTable = false;
+        }
+        continue;
+      }
+      // Single | line not in table context
+      result.push(`<p class="text-sm text-zinc-600 dark:text-zinc-400 font-mono mb-2">${line}</p>`);
+      continue;
+    }
+
+    // Headings
+    if (line.startsWith("### ")) {
+      result.push(`<h3 class="text-base font-semibold mt-5 mb-2 text-zinc-900 dark:text-zinc-100">${inlineMd(line.slice(4))}</h3>`);
     } else if (line.startsWith("## ")) {
-      result.push(`<h2 class="text-lg font-semibold mt-6 mb-3 text-zinc-900 dark:text-zinc-100">${line.slice(3)}</h2>`);
+      result.push(`<h2 class="text-lg font-semibold mt-6 mb-3 text-zinc-900 dark:text-zinc-100">${inlineMd(line.slice(3))}</h2>`);
+    } else if (line.startsWith("# ")) {
+      result.push(`<h1 class="text-xl font-bold mt-4 mb-4 text-zinc-900 dark:text-zinc-100">${inlineMd(line.slice(2))}</h1>`);
     } else if (line.startsWith("- ")) {
-      result.push(`<li class="text-sm text-zinc-500 dark:text-zinc-400 ml-4">${line.slice(2)}</li>`);
+      result.push(`<li class="text-sm text-zinc-500 dark:text-zinc-400 ml-4">${inlineMd(line.slice(2))}</li>`);
     } else if (line.trim() === "") {
-      // skip empty lines
+      // skip
     } else {
-      result.push(`<p class="text-sm leading-relaxed text-zinc-600 dark:text-zinc-400 mb-2">${line}</p>`);
+      result.push(`<p class="text-sm leading-relaxed text-zinc-600 dark:text-zinc-400 mb-2">${inlineMd(line)}</p>`);
     }
   }
   return result.join("\n");
+}
+
+function inlineMd(text: string): string {
+  return text
+    .replace(/`([^`]+)`/g, "<code class=\"rounded bg-zinc-100 px-1 py-0.5 text-xs dark:bg-zinc-800\">$1</code>")
+    .replace(/\*\*([^*]+)\*\*/g, "<strong>$1</strong>");
 }
 
 export default async function ComparePage({ params }: Props) {

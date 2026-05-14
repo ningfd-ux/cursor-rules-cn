@@ -18,29 +18,28 @@ const gaId = "G-4ZJT8YPWT8";
 
 export const metadata: Metadata = {
   title: {
-    default: "Cursor Rules · AI Coding Standards - Production-Grade AI Code",
-    template: "%s | Cursor Rules · AI Coding Standards",
+    default: "AI Coding Standards Generator — Repository-Aware Rules for AI Code Quality",
+    template: "%s | AI Coding Standards Generator",
   },
   description:
-    "Curated Rules, Prompts, and Best Practices for Cursor, Claude Code, GitHub Copilot, Windsurf, and more AI coding tools. Get production-grade code without deprecated APIs or any types.",
+    "Generate project-specific coding standards from your repo. Analyzes your dependencies and outputs repository-aware rules for Cursor, Claude Code, Copilot — not generic templates.",
   keywords: [
-    "Cursor Rules",
-    "Cursor Standards",
+    "AI coding standards",
+    "cursor rules generator",
+    "repository-aware",
     "Claude Code",
-    "AI Coding",
+    "AGENTS.md",
     "GitHub Copilot",
-    "Windsurf",
-    "AI Prompt",
-    "AI Code Quality",
-    "Production Ready AI Code",
+    "AI code quality",
+    "coding standards generator",
   ],
   robots: "index, follow",
   verification: {
     google: "googlebfdc59878de2548f.html",
   },
   openGraph: {
-    title: "Cursor Rules · AI Coding Standards - Production-Grade AI Code",
-    description: "Curated Rules and Best Practices for Cursor, Claude Code, GitHub Copilot, and more AI coding tools",
+    title: "AI Coding Standards Generator — Repository-Aware Rules",
+    description: "Generate project-specific coding standards from your repo. Analyzes dependencies, outputs rules for Cursor, Claude Code, Copilot.",
     type: "website",
     locale: "en_US",
   },
@@ -72,17 +71,17 @@ export default function RootLayout({
             />
           </>
         )}
-        <link rel="alternate" type="application/rss+xml" title="Cursor Rules · AI Coding Standards" href="https://cursorrules.fun/rss.xml" />
+        <link rel="alternate" type="application/rss+xml" title="AI Coding Standards Generator" href="https://cursorrules.fun/rss.xml" />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
             __html: JSON.stringify({
               "@context": "https://schema.org",
               "@type": "WebSite",
-              name: "Cursor Rules · AI Coding Standards",
+              name: "AI Coding Standards Generator",
               url: "https://cursorrules.fun/",
               description:
-                "Production-grade AI code. 81 Cursor Rules, covering 40+ tech stacks, each with usage scenarios and common mistakes.",
+                "Generate repository-aware AI coding standards. Analyzes your dependencies, outputs rules for Cursor, Claude Code, Copilot and AI agents.",
               potentialAction: {
                 "@type": "SearchAction",
                 target: "https://cursorrules.fun/?q={search_term_string}",

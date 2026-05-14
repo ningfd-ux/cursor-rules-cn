@@ -34,17 +34,17 @@ const models = [
 ];
 
 const outputFormats = [
-  { value: "cursorrules", label: ".cursorrules (Cursor legacy)" },
-  { value: "mdc", label: ".cursor/rules/*.mdc (Cursor v2)" },
+  { value: "mdc", label: ".cursor/rules/*.mdc (Cursor — recommended)" },
   { value: "agents", label: "AGENTS.md (Claude Code)" },
   { value: "copilot", label: "copilot-instructions.md (GitHub Copilot)" },
+  { value: "cursorrules", label: ".cursorrules (Cursor — legacy)" },
 ];
 
 export default function GeneratorPage() {
   const [techStack, setTechStack] = useState("nextjs");
   const [strictness, setStrictness] = useState("moderate");
   const [model, setModel] = useState("cursor");
-  const [outputFormat, setOutputFormat] = useState("cursorrules");
+  const [outputFormat, setOutputFormat] = useState("mdc");
   const [packageJson, setPackageJson] = useState("");
   const [repoUrl, setRepoUrl] = useState("");
   const [generatedRules, setGeneratedRules] = useState("");
@@ -68,7 +68,7 @@ export default function GeneratorPage() {
           techStack,
           strictness: "moderate",
           model: "cursor",
-          outputFormat: "cursorrules",
+          outputFormat: "mdc",
           repoUrl: repoUrl.trim(),
           packageJson: "",
         }),
@@ -131,10 +131,10 @@ export default function GeneratorPage() {
           NEW · AI-Powered
         </span>
         <h1 className="mb-3 text-3xl font-bold tracking-tight text-zinc-900 dark:text-zinc-100 sm:text-4xl">
-          AI Repo Standards Generator
+          Generate AI coding standards <span className="text-green-600">from your repo</span>
         </h1>
         <p className="mx-auto mb-8 max-w-xl text-base leading-relaxed text-zinc-500 dark:text-zinc-400">
-          Paste your package.json or import a GitHub repo. AI auto-detects your stack and generates project-specific coding standards.
+          Paste your package.json. AI detects your stack and generates project-specific standards — not generic advice.
         </p>
 
         {/* === Step 5: Proof Showcase === */}
@@ -171,129 +171,133 @@ export default function GeneratorPage() {
 
       <section className="mb-10">
         <div className="rounded-xl border border-zinc-200 bg-white p-8 dark:border-zinc-800 dark:bg-zinc-900">
-          {/* Row 1: Tech Stack + Strictness + Tool */}
-          <div className="mb-5 grid gap-5 sm:grid-cols-3">
-            <div>
-              <label className="mb-2 block text-sm font-medium text-zinc-900 dark:text-zinc-100">Tech Stack</label>
-              <select value={techStack} onChange={(e) => setTechStack(e.target.value)}
-                className="w-full rounded-lg border border-zinc-300 bg-white px-4 py-2.5 text-sm focus:border-green-500 focus:outline-none focus:ring-2 focus:ring-green-500/20 dark:border-zinc-700 dark:bg-zinc-800 dark:text-zinc-100"
-                disabled={isLoading}>
-                {frameworks.map((f) => (<option key={f.value} value={f.value}>{f.label}</option>))}
-              </select>
-            </div>
-            <div>
-              <label className="mb-2 block text-sm font-medium text-zinc-900 dark:text-zinc-100">Strictness</label>
-              <select value={strictness} onChange={(e) => setStrictness(e.target.value)}
-                className="w-full rounded-lg border border-zinc-300 bg-white px-4 py-2.5 text-sm focus:border-green-500 focus:outline-none focus:ring-2 focus:ring-green-500/20 dark:border-zinc-700 dark:bg-zinc-800 dark:text-zinc-100"
-                disabled={isLoading}>
-                {strictnessLevels.map((s) => (<option key={s.value} value={s.value}>{s.label}</option>))}
-              </select>
-            </div>
-            <div>
-              <label className="mb-2 block text-sm font-medium text-zinc-900 dark:text-zinc-100">Target Tool</label>
-              <select value={model} onChange={(e) => setModel(e.target.value)}
-                className="w-full rounded-lg border border-zinc-300 bg-white px-4 py-2.5 text-sm focus:border-green-500 focus:outline-none focus:ring-2 focus:ring-green-500/20 dark:border-zinc-700 dark:bg-zinc-800 dark:text-zinc-100"
-                disabled={isLoading}>
-                {models.map((m) => (<option key={m.value} value={m.value}>{m.label}</option>))}
-              </select>
-            </div>
-          </div>
+          {/* Section A: Repo Context (primary, always visible) */}
+          <div className="mb-6">
+            <h3 className="mb-3 text-sm font-semibold text-zinc-900 dark:text-zinc-100">Repo Context</h3>
+            <p className="mb-3 text-xs text-zinc-400">Paste your package.json — AI analyzes dependencies to generate specific standards.</p>
+            <textarea
+              value={packageJson}
+              onChange={(e) => setPackageJson(e.target.value)}
+              placeholder={PACKAGE_EXAMPLE}
+              rows={7}
+              className="w-full rounded-lg border border-zinc-300 bg-white px-4 py-3 font-mono text-xs leading-relaxed focus:border-green-500 focus:outline-none focus:ring-2 focus:ring-green-500/20 dark:border-zinc-700 dark:bg-zinc-800 dark:text-zinc-200"
+              disabled={isLoading}
+            />
 
-          {/* Row 2: Output Format */}
-          <div className="mb-5">
-            <label className="mb-2 block text-sm font-medium text-zinc-900 dark:text-zinc-100">Output Format</label>
-            <div className="grid gap-3 sm:grid-cols-2">
-              {outputFormats.map((fmt) => (
-                <label key={fmt.value}
-                  className={`flex cursor-pointer items-center gap-3 rounded-lg border p-3 text-sm transition-colors ${
-                    outputFormat === fmt.value
-                      ? "border-green-500 bg-green-50 dark:border-green-400 dark:bg-green-900/20"
-                      : "border-zinc-200 bg-white hover:bg-zinc-50 dark:border-zinc-700 dark:bg-zinc-800 dark:hover:bg-zinc-700"
-                  }`}
-                >
-                  <input
-                    type="radio"
-                    name="outputFormat"
-                    value={fmt.value}
-                    checked={outputFormat === fmt.value}
-                    onChange={(e) => setOutputFormat(e.target.value)}
-                    className="h-4 w-4 accent-green-600"
-                    disabled={isLoading}
-                  />
-                  <span className="text-zinc-700 dark:text-zinc-300">{fmt.label}</span>
-                </label>
-              ))}
-            </div>
-          </div>
-
-          {/* Row 3: GitHub Repo Import */}
-          <div className="mb-5">
-            <button
-              type="button"
-              onClick={() => setShowRepoInput(!showRepoInput)}
-              className="flex items-center gap-2 text-sm font-medium text-zinc-600 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-200"
-            >
-              <svg className={`h-4 w-4 transition-transform ${showRepoInput ? "rotate-90" : ""}`} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
-              </svg>
-              Import GitHub repo (auto-fetch package.json)
-            </button>
-            {showRepoInput && (
-              <div className="mt-3">
-                <div className="flex gap-2">
-                  <input
-                    type="text"
-                    value={repoUrl}
-                    onChange={(e) => { setRepoUrl(e.target.value); setRepoFetched(false); }}
-                    placeholder="https://github.com/user/repo"
-                    className="flex-1 rounded-lg border border-zinc-300 bg-white px-4 py-2.5 text-sm focus:border-green-500 focus:outline-none focus:ring-2 focus:ring-green-500/20 dark:border-zinc-700 dark:bg-zinc-800 dark:text-zinc-200"
-                    disabled={isLoading || isFetchingRepo}
-                  />
-                  <button
-                    onClick={handleFetchRepo}
-                    disabled={isFetchingRepo || !repoUrl.trim()}
-                    className="shrink-0 rounded-lg bg-zinc-100 px-4 py-2.5 text-sm font-medium text-zinc-700 transition-colors hover:bg-zinc-200 disabled:cursor-not-allowed disabled:opacity-50 dark:bg-zinc-700 dark:text-zinc-300 dark:hover:bg-zinc-600"
-                  >
-                    {isFetchingRepo ? (
-                      <span className="flex items-center gap-1.5">
-                        <svg className="h-3.5 w-3.5 animate-spin" viewBox="0 0 24 24">
-                          <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" fill="none" />
-                          <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z" />
-                        </svg>
-                        Fetching...
-                      </span>
-                    ) : repoFetched ? "✅ Fetched" : "Fetch package.json"}
-                  </button>
+            {/* GitHub Import (expandable, below textarea) */}
+            <div className="mt-3">
+              <button
+                type="button"
+                onClick={() => setShowRepoInput(!showRepoInput)}
+                className="flex items-center gap-2 text-sm font-medium text-zinc-600 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-200"
+              >
+                <svg className={`h-4 w-4 transition-transform ${showRepoInput ? "rotate-90" : ""}`} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
+                </svg>
+                Or import from a GitHub repo
+              </button>
+              {showRepoInput && (
+                <div className="mt-3">
+                  <div className="flex gap-2">
+                    <input
+                      type="text"
+                      value={repoUrl}
+                      onChange={(e) => { setRepoUrl(e.target.value); setRepoFetched(false); }}
+                      placeholder="https://github.com/user/repo"
+                      className="flex-1 rounded-lg border border-zinc-300 bg-white px-4 py-2.5 text-sm focus:border-green-500 focus:outline-none focus:ring-2 focus:ring-green-500/20 dark:border-zinc-700 dark:bg-zinc-800 dark:text-zinc-200"
+                      disabled={isLoading || isFetchingRepo}
+                    />
+                    <button
+                      onClick={handleFetchRepo}
+                      disabled={isFetchingRepo || !repoUrl.trim()}
+                      className="shrink-0 rounded-lg bg-zinc-100 px-4 py-2.5 text-sm font-medium text-zinc-700 transition-colors hover:bg-zinc-200 disabled:cursor-not-allowed disabled:opacity-50 dark:bg-zinc-700 dark:text-zinc-300 dark:hover:bg-zinc-600"
+                    >
+                      {isFetchingRepo ? (
+                        <span className="flex items-center gap-1.5">
+                          <svg className="h-3.5 w-3.5 animate-spin" viewBox="0 0 24 24">
+                            <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" fill="none" />
+                            <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z" />
+                          </svg>
+                          Fetching...
+                        </span>
+                      ) : repoFetched ? "✅ Fetched" : "Fetch package.json"}
+                    </button>
+                  </div>
+                  <p className="mt-1.5 text-xs text-zinc-400">Enter a public GitHub repo URL to auto-extract its package.json</p>
                 </div>
-                <p className="mt-1.5 text-xs text-zinc-400">Enter a public GitHub repo URL to auto-extract its package.json</p>
-              </div>
-            )}
+              )}
+            </div>
           </div>
 
-          {/* Row 4: Package.json */}
-          <div className="mb-5">
+          {/* Section B: Preferences (collapsible, smaller) */}
+          <div className="mb-6">
             <button
               type="button"
-              onClick={() => setShowPackageInput(!showPackageInput)}
-              className="flex items-center gap-2 text-sm font-medium text-zinc-600 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-200"
+              onClick={() => {
+                const el = document.getElementById("preferences-section");
+                if (el) el.classList.toggle("hidden");
+              }}
+              className="flex items-center gap-2 text-sm font-medium text-zinc-500 hover:text-zinc-700 dark:text-zinc-400 dark:hover:text-zinc-200"
             >
-              <svg className={`h-4 w-4 transition-transform ${showPackageInput ? "rotate-90" : ""}`} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
+              <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.066 2.573c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.573 1.066c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.066-2.573c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
+                <path strokeLinecap="round" strokeLinejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
               </svg>
-              Paste package.json manually (optional)
+              Preferences
             </button>
-            {showPackageInput && (
-              <div className="mt-3">
-                <textarea
-                  value={packageJson}
-                  onChange={(e) => setPackageJson(e.target.value)}
-                  placeholder={PACKAGE_EXAMPLE}
-                  rows={6}
-                  className="w-full rounded-lg border border-zinc-300 bg-white px-4 py-3 font-mono text-xs leading-relaxed focus:border-green-500 focus:outline-none focus:ring-2 focus:ring-green-500/20 dark:border-zinc-700 dark:bg-zinc-800 dark:text-zinc-200"
-                  disabled={isLoading}
-                />
+            <div id="preferences-section" className="mt-4 hidden">
+              <div className="mb-4 grid gap-4 sm:grid-cols-3">
+                <div>
+                  <label className="mb-2 block text-sm font-medium text-zinc-900 dark:text-zinc-100">Tech Stack</label>
+                  <select value={techStack} onChange={(e) => setTechStack(e.target.value)}
+                    className="w-full rounded-lg border border-zinc-300 bg-white px-4 py-2.5 text-sm focus:border-green-500 focus:outline-none focus:ring-2 focus:ring-green-500/20 dark:border-zinc-700 dark:bg-zinc-800 dark:text-zinc-100"
+                    disabled={isLoading}>
+                    {frameworks.map((f) => (<option key={f.value} value={f.value}>{f.label}</option>))}
+                  </select>
+                </div>
+                <div>
+                  <label className="mb-2 block text-sm font-medium text-zinc-900 dark:text-zinc-100">Strictness</label>
+                  <select value={strictness} onChange={(e) => setStrictness(e.target.value)}
+                    className="w-full rounded-lg border border-zinc-300 bg-white px-4 py-2.5 text-sm focus:border-green-500 focus:outline-none focus:ring-2 focus:ring-green-500/20 dark:border-zinc-700 dark:bg-zinc-800 dark:text-zinc-100"
+                    disabled={isLoading}>
+                    {strictnessLevels.map((s) => (<option key={s.value} value={s.value}>{s.label}</option>))}
+                  </select>
+                </div>
+                <div>
+                  <label className="mb-2 block text-sm font-medium text-zinc-900 dark:text-zinc-100">Target Tool</label>
+                  <select value={model} onChange={(e) => setModel(e.target.value)}
+                    className="w-full rounded-lg border border-zinc-300 bg-white px-4 py-2.5 text-sm focus:border-green-500 focus:outline-none focus:ring-2 focus:ring-green-500/20 dark:border-zinc-700 dark:bg-zinc-800 dark:text-zinc-100"
+                    disabled={isLoading}>
+                    {models.map((m) => (<option key={m.value} value={m.value}>{m.label}</option>))}
+                  </select>
+                </div>
               </div>
-            )}
+              <div>
+                <label className="mb-2 block text-sm font-medium text-zinc-900 dark:text-zinc-100">Output Format</label>
+                <div className="grid gap-2 sm:grid-cols-2">
+                  {outputFormats.map((fmt) => (
+                    <label key={fmt.value}
+                      className={`flex cursor-pointer items-center gap-3 rounded-lg border p-3 text-sm transition-colors ${
+                        outputFormat === fmt.value
+                          ? "border-green-500 bg-green-50 dark:border-green-400 dark:bg-green-900/20"
+                          : "border-zinc-200 bg-white hover:bg-zinc-50 dark:border-zinc-700 dark:bg-zinc-800 dark:hover:bg-zinc-700"
+                      }`}
+                    >
+                      <input
+                        type="radio"
+                        name="outputFormat"
+                        value={fmt.value}
+                        checked={outputFormat === fmt.value}
+                        onChange={(e) => setOutputFormat(e.target.value)}
+                        className="h-4 w-4 accent-green-600"
+                        disabled={isLoading}
+                      />
+                      <span className="text-zinc-700 dark:text-zinc-300">{fmt.label}</span>
+                    </label>
+                  ))}
+                </div>
+              </div>
+            </div>
           </div>
 
           {/* Generate Button */}
@@ -307,7 +311,7 @@ export default function GeneratorPage() {
                 </svg>
                 AI is analyzing your project...
               </span>
-            ) : ("✨ Generate from my project")}
+            ) : ("Generate Standards")}
           </button>
 
           {error && <p className="mt-3 text-center text-sm text-red-500">{error}</p>}
@@ -317,11 +321,21 @@ export default function GeneratorPage() {
       {generatedRules && (
         <section className="mb-10">
           <div className="mb-4 flex items-center justify-between">
-            <h2 className="text-lg font-semibold text-zinc-900 dark:text-zinc-100">Generated Standards</h2>
-            <button onClick={handleCopy}
-              className="rounded-lg bg-zinc-100 px-4 py-2 text-sm font-medium text-zinc-700 transition-colors hover:bg-zinc-200 dark:bg-zinc-800 dark:text-zinc-300 dark:hover:bg-zinc-700">
-              {copied ? "✅ Copied" : "📋 Copy All"}
-            </button>
+            <div>
+              <h2 className="text-lg font-semibold text-zinc-900 dark:text-zinc-100">Generated Standards</h2>
+              <p className="mt-1 text-xs text-zinc-400">
+                Specific rules based on detected dependencies — explains why each rule exists
+              </p>
+            </div>
+            <div className="flex items-center gap-2">
+              <span className="rounded-full bg-green-100 px-3 py-1 text-xs font-medium text-green-700 dark:bg-green-900 dark:text-green-300">
+                Generated for {models.find(m => m.value === model)?.label || model}
+              </span>
+              <button onClick={handleCopy}
+                className="rounded-lg bg-zinc-100 px-4 py-2 text-sm font-medium text-zinc-700 transition-colors hover:bg-zinc-200 dark:bg-zinc-800 dark:text-zinc-300 dark:hover:bg-zinc-700">
+                {copied ? "✅ Copied" : "📋 Copy All"}
+              </button>
+            </div>
           </div>
           <div className="overflow-auto rounded-xl border border-zinc-200 bg-white p-6 dark:border-zinc-800 dark:bg-zinc-900">
             <pre className="text-sm leading-relaxed text-zinc-800 dark:text-zinc-200 whitespace-pre-wrap">{generatedRules}</pre>

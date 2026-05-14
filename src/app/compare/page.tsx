@@ -4,8 +4,8 @@ import { comparisons } from "@/data/comparisons";
 import BackToTop from "@/components/BackToTop";
 
 export const metadata: Metadata = {
-  title: "AI Coding Tools Comparison",
-  description: "Comprehensive comparison of Cursor vs Copilot vs Windsurf vs Claude Code to help you choose the best AI coding tool.",
+  title: "AI Coding Tools — Engineering Comparison",
+  description: "Engineering-depth comparison of Cursor, Copilot, Windsurf, Claude Code. Repo understanding, context memory, multi-file edits, hallucination behavior.",
 };
 
 export default function ComparePage() {
@@ -14,9 +14,9 @@ export default function ComparePage() {
       <Link href="/" className="mb-6 inline-flex items-center gap-1 text-sm text-zinc-400 hover:text-zinc-600">
         ← Back to home
       </Link>
-      <h1 className="mb-2 text-3xl font-bold text-zinc-900 dark:text-zinc-100">AI Coding Tools Comparison</h1>
+      <h1 className="mb-2 text-3xl font-bold text-zinc-900 dark:text-zinc-100">AI Coding Tools — Engineering Comparison</h1>
       <p className="mb-8 max-w-2xl text-base text-zinc-500 dark:text-zinc-400">
-        Which is best for you? Compare Cursor, GitHub Copilot, Windsurf, and Claude Code on features, pricing, and experience.
+        Repo understanding, context memory, multi-file edits, hallucination behavior. Choose the right tool for production work.
       </p>
 
       <div className="grid gap-6">

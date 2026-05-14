@@ -9,7 +9,7 @@ export default function Header() {
         <Link href="/" className="flex shrink-0 items-center gap-2">
           <span className="text-xl">⚡</span>
           <span className="hidden text-lg font-bold text-zinc-900 dark:text-zinc-100 sm:inline">
-            Cursor Rules <span className="text-sm font-normal text-zinc-400">· AI Coding Standards</span>
+            AI Coding Standards
           </span>
         </Link>
         <div className="flex-1 px-4">
@@ -17,23 +17,15 @@ export default function Header() {
         </div>
         <nav className="flex shrink-0 items-center gap-4 text-sm text-zinc-500">
           <ThemeToggle />
-          <Link href="/" className="hover:text-zinc-900 dark:hover:text-zinc-300">
-            Home
-          </Link>
           <Link href="/generator" className="font-medium text-blue-600 hover:text-blue-700 dark:text-blue-400">
-            ✨ Generator
+            Generator
           </Link>
-          <Link href="/frameworks/react" className="hidden hover:text-zinc-900 dark:hover:text-zinc-300 sm:inline-block">
-            Standards
+          <Link href="/compare" className="hidden hover:text-zinc-900 dark:hover:text-zinc-300 sm:inline-block">
+            Compare
           </Link>
-          <a
-            href="https://github.com/ningfd-ux/cursor-rules-cn/issues/new"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="hidden rounded-md bg-blue-600 px-3 py-1 font-medium text-white transition-colors hover:bg-blue-700 sm:inline-block"
-          >
-            + Submit
-          </a>
+          <Link href="/frameworks" className="hidden hover:text-zinc-900 dark:hover:text-zinc-300 sm:inline-block">
+            Frameworks
+          </Link>
           <a
             href="https://github.com/ningfd-ux/cursor-rules-cn"
             target="_blank"

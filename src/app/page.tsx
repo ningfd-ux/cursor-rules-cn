@@ -1,9 +1,6 @@
 import Link from "next/link";
-import RuleCard from "@/components/RuleCard";
 import BackToTop from "@/components/BackToTop";
 import { rules, categories } from "@/data/rules";
-
-const featuredRules = rules.slice(0, 3);
 
 export default function Home() {
   return (
@@ -11,14 +8,14 @@ export default function Home() {
       {/* Hero */}
       <section className="mb-12 text-center">
         <span className="mb-4 inline-block rounded-full bg-green-100 px-3 py-1 text-xs font-medium text-green-600 dark:bg-green-900 dark:text-green-300">
-          Detect stack · Generate standards · Ship reliable AI code
+          Repository-aware · Not template-based · Engineering-first
         </span>
         <h1 className="mb-4 text-3xl font-bold tracking-tight text-zinc-900 dark:text-zinc-100 sm:text-4xl">
-          Generate AI coding standards <span className="text-blue-600">from your repo</span>
+          Make AI-generated code <span className="text-blue-600">maintainable</span>
         </h1>
         <p className="mx-auto mb-6 max-w-2xl text-lg leading-relaxed text-zinc-500 dark:text-zinc-400">
-          Repository-aware standards for Cursor, Claude Code, Copilot and AI agents.
-          Not generic templates — every standard is based on your actual dependencies.
+          Paste your repo. Get project-specific coding standards based on your actual
+          dependencies — not generic advice. Works with Cursor, Claude Code, Copilot and AI agents.
         </p>
         <div className="mb-6 flex flex-wrap items-center justify-center gap-3">
           <Link
@@ -31,30 +28,21 @@ export default function Home() {
             Generate from your repo
           </Link>
           <a
-            href="#categories"
+            href="/compare"
             className="inline-flex items-center gap-2 rounded-lg border border-zinc-200 bg-white px-5 py-3 text-sm font-medium text-zinc-700 shadow-sm transition-colors hover:bg-zinc-50 dark:border-zinc-700 dark:bg-zinc-800 dark:text-zinc-300 dark:hover:bg-zinc-700"
           >
-            Browse standards
+            Compare AI tools
           </a>
-        </div>
-        <div className="flex items-center justify-center gap-3 text-sm text-zinc-400 dark:text-zinc-500">
-          <span className="flex items-center gap-1"><strong className="text-zinc-600 dark:text-zinc-300">{rules.length}</strong> standards</span>
-          <span>·</span>
-          <span className="flex items-center gap-1"><strong className="text-zinc-600 dark:text-zinc-300">{categories.length}</strong> categories</span>
-          <span>·</span>
-          <span className="flex items-center gap-1"><strong className="text-zinc-600 dark:text-zinc-300">8</strong> blog posts</span>
-          <span>·</span>
-          <span className="flex items-center gap-1">4 output formats</span>
         </div>
       </section>
 
       {/* Stats */}
       <div className="mb-10 grid grid-cols-2 gap-3 sm:grid-cols-4">
         {[
-          ["📦", rules.length, "coding standards"],
+          ["🎯", rules.length, "repository-aware rules"],
           ["📄", "111", "static pages"],
-          ["📝", "8", "blog posts"],
-          ["⚡", `${categories.length}`, "categories"],
+          ["📦", "4", "output formats"],
+          ["⚡", `${categories.length}`, "tech stacks covered"],
         ].map(([icon, num, label]) => (
           <div key={label as string} className="rounded-xl border border-zinc-200 bg-white p-4 text-center dark:border-zinc-800 dark:bg-zinc-900">
             <div className="text-2xl">{icon}</div>
@@ -64,132 +52,144 @@ export default function Home() {
         ))}
       </div>
 
-      {/* Blog articles */}
-      <section className="mb-10 rounded-2xl border border-blue-100 bg-gradient-to-br from-blue-50 to-white p-6 dark:border-blue-900 dark:from-blue-950 dark:to-zinc-900 sm:p-8">
-        <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
-          <div>
-            <h2 className="text-xl font-bold text-zinc-900 dark:text-zinc-100">📝 Latest articles</h2>
-            <p className="mt-1 text-sm text-zinc-500 dark:text-zinc-400">Build log · Format comparison · Beginner's guide · TypeScript setup</p>
-          </div>
-          <Link href="/blog" className="inline-flex items-center gap-1.5 rounded-lg bg-blue-600 px-5 py-2.5 text-sm font-medium text-white transition-colors hover:bg-blue-700">
-            View all articles
-            <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-              <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
-            </svg>
+      {/* See it in action */}
+      <section className="mb-10">
+        <div className="mb-5 flex items-center justify-center gap-4">
+          <h2 className="text-lg font-semibold text-zinc-900 dark:text-zinc-100">See it in action</h2>
+          <Link href="/examples" className="text-sm text-blue-600 hover:text-blue-700 dark:text-blue-400">
+            More examples →
           </Link>
         </div>
-        <div className="mt-5 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
-          <Link href="/blog/build-saas-with-cursor-7-days" className="group rounded-lg border border-blue-100 bg-white p-4 transition-all hover:shadow-md dark:border-blue-800 dark:bg-zinc-800/50">
-            <span className="text-xs text-blue-600 dark:text-blue-400">🔥 Featured</span>
-            <h3 className="mt-1 text-sm font-semibold text-zinc-900 group-hover:text-blue-600 dark:text-zinc-100">7 Days from 0 to Launch</h3>
-            <p className="mt-0.5 text-xs text-zinc-400">Complete build log of this site</p>
-          </Link>
-          <Link href="/blog/cursor-rules-vs-agents-md" className="group rounded-lg border border-zinc-200 bg-white p-4 transition-all hover:shadow-md dark:border-zinc-700 dark:bg-zinc-800/50">
-            <span className="text-xs text-zinc-400">Comparison</span>
-            <h3 className="mt-1 text-sm font-semibold text-zinc-900 group-hover:text-blue-600 dark:text-zinc-100">.cursorrules vs AGENTS.md</h3>
-            <p className="mt-0.5 text-xs text-zinc-400">Which one to use?</p>
-          </Link>
-          <Link href="/blog/how-to-write-cursor-rules" className="group hidden rounded-lg border border-zinc-200 bg-white p-4 transition-all hover:shadow-md dark:border-zinc-700 dark:bg-zinc-800/50 lg:block">
-            <span className="text-xs text-zinc-400">Guide</span>
-            <h3 className="mt-1 text-sm font-semibold text-zinc-900 group-hover:text-blue-600 dark:text-zinc-100">How to Write Cursor Rules</h3>
-            <p className="mt-0.5 text-xs text-zinc-400">Complete guide with templates</p>
-          </Link>
+        <div className="overflow-hidden rounded-2xl border border-zinc-200 bg-white dark:border-zinc-800 dark:bg-zinc-900">
+          <div className="grid gap-0 sm:grid-cols-3">
+            <div className="border-b border-zinc-100 bg-zinc-50/50 p-6 dark:border-zinc-800 dark:bg-zinc-900/50 sm:border-b-0 sm:border-r">
+              <p className="mb-3 text-xs font-semibold uppercase tracking-wider text-zinc-400">Input</p>
+              <p className="mb-2 text-xs text-zinc-500">Your package.json</p>
+              <pre className="overflow-x-auto rounded bg-zinc-100 px-3 py-2 font-mono text-[11px] leading-relaxed text-zinc-600 dark:bg-zinc-800 dark:text-zinc-400">{`{
+  "next": "^15.0",
+  "react": "^19.0",
+  "tailwindcss": "^4.0",
+  "prisma": "^6.0",
+  "zod": "^3.23"
+}`}</pre>
+            </div>
+            <div className="border-b border-zinc-100 p-6 dark:border-zinc-800 sm:border-b-0 sm:border-r">
+              <p className="mb-3 text-xs font-semibold uppercase tracking-wider text-zinc-400">Detected</p>
+              <p className="mb-2 text-xs font-medium text-zinc-700 dark:text-zinc-300">Next.js 15 · React 19 · Tailwind v4 · Prisma · Zod</p>
+              <ul className="space-y-1 text-xs text-zinc-500 dark:text-zinc-400">
+                <li>- App Router with Server Components</li>
+                <li>- ORM: Prisma with PostgreSQL</li>
+                <li>- Validation: Zod schemas</li>
+                <li>- Styling: Tailwind CSS v4</li>
+              </ul>
+            </div>
+            <div className="p-6">
+              <p className="mb-3 text-xs font-semibold uppercase tracking-wider text-green-600 dark:text-green-400">Generated Standards</p>
+              <ul className="space-y-1.5 text-xs leading-relaxed text-zinc-600 dark:text-zinc-400">
+                <li><strong className="text-zinc-800 dark:text-zinc-200">Prefer Server Components</strong> by default. Only add &apos;use client&apos; when using hooks or event handlers.</li>
+                <li><strong className="text-zinc-800 dark:text-zinc-200">Never fetch in client components.</strong> Fetch data in Server Components, pass as props.</li>
+                <li><strong className="text-zinc-800 dark:text-zinc-200">Wrap Server Actions in Prisma transactions.</strong> Use interactive transactions for multi-table writes.</li>
+                <li><strong className="text-zinc-800 dark:text-zinc-200">Validate all external input with Zod.</strong> Define schemas in lib/schemas/, reuse across routes and actions.</li>
+              </ul>
+            </div>
+          </div>
         </div>
       </section>
 
-      {/* Categories */}
-      <section className="mb-12">
-        <h2 className="mb-5 text-lg font-semibold text-zinc-900 dark:text-zinc-100">
-          📂 Categories
-        </h2>
-        <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+      {/* Supported Stacks */}
+      <section className="mb-10">
+        <h2 className="mb-4 text-center text-sm font-semibold uppercase tracking-wider text-zinc-400">Supported Stacks</h2>
+        <div className="flex flex-wrap items-center justify-center gap-3">
           {[
-            { href: "/frameworks/react", icon: "⚛️", name: "React", desc: "React + Hooks Development", count: rules.filter(r => r.tags.includes("react")).length },
-            { href: "/frameworks/nextjs", icon: "▲", name: "Next.js", desc: "App Router Complete Setup", count: rules.filter(r => r.tags.includes("nextjs")).length },
-            { href: "/frameworks/vue", icon: "🟢", name: "Vue", desc: "Vue 3 + Composition API", count: rules.filter(r => r.tags.includes("vue")).length },
-            { href: "/frameworks/python", icon: "🐍", name: "Python", desc: "FastAPI + Django Rules", count: rules.filter(r => r.tags.includes("python")).length },
-            { href: "/frameworks/go", icon: "🔷", name: "Go", desc: "Golang Coding Standards", count: rules.filter(r => r.tags.includes("go")).length },
-            { href: "/compare", icon: "⚖️", name: "Compare", desc: "Cursor vs Copilot & More", count: 5 },
-          ].map((cat) => (
+            { href: "/frameworks/react", icon: "⚛️", name: "React" },
+            { href: "/frameworks/nextjs", icon: "▲", name: "Next.js" },
+            { href: "/frameworks/vue", icon: "🟢", name: "Vue" },
+            { href: "/frameworks/python", icon: "🐍", name: "Python" },
+            { href: "/frameworks/go", icon: "🔷", name: "Go" },
+          ].map((s) => (
             <Link
-              key={cat.href}
-              href={cat.href}
-              className="group rounded-xl border border-zinc-200 bg-white p-5 transition-all hover:border-blue-200 hover:shadow-md dark:border-zinc-800 dark:bg-zinc-900 dark:hover:border-blue-800"
+              key={s.href}
+              href={s.href}
+              className="inline-flex items-center gap-1.5 rounded-full border border-zinc-200 bg-white px-4 py-2 text-sm text-zinc-600 transition-colors hover:border-zinc-300 hover:text-zinc-900 dark:border-zinc-700 dark:bg-zinc-900 dark:text-zinc-400 dark:hover:border-zinc-600 dark:hover:text-zinc-200"
             >
-              <div className="mb-2 flex items-center gap-2">
-                <span className="text-xl">{cat.icon}</span>
-                <span className="text-sm font-semibold text-zinc-900 group-hover:text-blue-600 dark:text-zinc-100 dark:group-hover:text-blue-400">{cat.name}</span>
-              </div>
-              <p className="text-xs text-zinc-400">{cat.desc}</p>
-              {cat.count > 0 && <span className="mt-2 inline-block rounded bg-zinc-50 px-2 py-0.5 text-xs text-zinc-400 dark:bg-zinc-800 dark:text-zinc-500">{cat.count} standards</span>}
+              <span>{s.icon}</span>
+              <span>{s.name}</span>
             </Link>
           ))}
         </div>
       </section>
 
-      {/* Featured */}
+      {/* Why Our Generator Is Different */}
       <section className="mb-10">
-        <h2 className="mb-4 text-lg font-semibold text-zinc-900 dark:text-zinc-100">🔥 Featured</h2>
-        <div className="grid gap-4 sm:grid-cols-3">
-          {featuredRules.map((rule) => (<RuleCard key={rule.slug} rule={rule} />))}
-        </div>
-      </section>
-
-      {/* Category filters + Rules list */}
-      <section className="mb-10" id="categories">
-        <h2 className="mb-4 text-lg font-semibold text-zinc-900 dark:text-zinc-100">📂 Browse by category</h2>
-        <div className="flex flex-wrap gap-2" id="category-filters">
-          <button data-cat="all" className="category-btn inline-flex items-center gap-1.5 rounded-full bg-blue-600 px-3.5 py-1.5 text-sm font-medium text-white transition-colors">All<span className="text-xs text-blue-200">{rules.length}</span></button>
-          {categories.map((cat) => (
-            <button key={cat.slug} data-cat={cat.slug} className="category-btn inline-flex items-center gap-1.5 rounded-full bg-zinc-100 px-3.5 py-1.5 text-sm font-medium text-zinc-700 transition-colors hover:bg-zinc-200 dark:bg-zinc-800 dark:text-zinc-300 dark:hover:bg-zinc-700">{cat.name}<span className="text-xs text-zinc-400 dark:text-zinc-500">{cat.count}</span></button>
+        <h2 className="mb-5 text-lg font-semibold text-zinc-900 dark:text-zinc-100">Why our generator is different</h2>
+        <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+          {[
+            ["🎯", "Repository-aware", "Analyzes your package.json dependencies and project architecture to generate relevant rules."],
+            ["🧩", "Framework-specific", "Understands Next.js, React, Python, Go — generates rules that reference your actual libraries."],
+            ["🤖", "AI-tool optimized", "Outputs .cursorrules, AGENTS.md, copilot-instructions.md — formatted for your tool of choice."],
+            ["🛡️", "Maintainability-first", "Enforceable, opinionated rules — not vague advice. Written like a senior tech lead would."],
+          ].map(([icon, title, desc]) => (
+            <div key={title as string} className="rounded-xl border border-zinc-200 bg-white p-5 dark:border-zinc-800 dark:bg-zinc-900">
+              <div className="mb-2 text-xl">{icon}</div>
+              <h3 className="text-sm font-semibold text-zinc-900 dark:text-zinc-100">{title}</h3>
+              <p className="mt-1 text-xs leading-relaxed text-zinc-400">{desc}</p>
+            </div>
           ))}
         </div>
       </section>
 
-      <section id="rules-section">
-        <div className="mb-4 flex items-center justify-between" id="rules-header">
-          <h2 className="text-lg font-semibold text-zinc-900 dark:text-zinc-100">📖 All standards</h2>
-          <div className="flex items-center gap-2 text-sm">
-            <button data-sort="default" className="sort-btn rounded-md bg-zinc-100 px-2.5 py-1 text-zinc-700 transition-colors dark:bg-zinc-800 dark:text-zinc-300">Default</button>
-            <button data-sort="newest" className="sort-btn rounded-md px-2.5 py-1 text-zinc-400 transition-colors hover:text-zinc-600 dark:hover:text-zinc-300">Newest</button>
-            <span className="text-xs text-zinc-300 dark:text-zinc-600">|</span>
-            <span className="text-zinc-400" id="rule-count">{rules.length}</span>
-          </div>
-        </div>
-        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3" id="rules-grid">
-          {rules.map((rule) => (
-            <div key={rule.slug} className="rule-card" data-category={rule.category} data-date={rule.updatedAt}><RuleCard rule={rule} /></div>
+      {/* Problems We Prevent */}
+      <section className="mb-10">
+        <h2 className="mb-5 text-lg font-semibold text-zinc-900 dark:text-zinc-100">Problems generator-written standards prevent</h2>
+        <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+          {[
+            ["🚫", "Fetching in wrong component", "Next.js: data fetching in client components causing waterfall requests and broken SSR."],
+            ["🚫", "Missing validation", "External input hitting your database unvalidated — no Zod schemas, no type safety."],
+            ["🚫", "Inconsistent architecture", "Each AI session invents its own file structure, creating an unmaintainable codebase."],
+            ["🚫", "Transaction bugs", "Prisma writes without transactions — partial saves, race conditions, corrupted data."],
+          ].map(([icon, title, desc]) => (
+            <div key={title as string} className="rounded-xl border border-red-100 bg-red-50/50 p-5 dark:border-red-900 dark:bg-red-950/30">
+              <div className="mb-2 text-lg">{icon}</div>
+              <h3 className="text-sm font-semibold text-red-800 dark:text-red-300">{title}</h3>
+              <p className="mt-1 text-xs leading-relaxed text-red-600 dark:text-red-400">{desc}</p>
+            </div>
           ))}
         </div>
       </section>
 
-      {/* Share */}
-      <section className="mt-12 rounded-xl border border-zinc-200 bg-white p-8 text-center dark:border-zinc-800 dark:bg-zinc-900">
-        <h2 className="mb-2 text-lg font-semibold text-zinc-900 dark:text-zinc-100">🤝 Share your standards</h2>
-        <p className="mb-4 text-sm text-zinc-500 dark:text-zinc-400">Got solid coding standards? Submit to the community.</p>
-        <a href="https://github.com/ningfd-ux/cursor-rules-cn/issues/new" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 rounded-lg bg-blue-600 px-5 py-2.5 text-sm font-medium text-white transition-colors hover:bg-blue-700">
-          <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M12 4v16m8-8H4" /></svg>
-          Submit via GitHub
-        </a>
+      {/* Top Compare */}
+      <section className="mb-10">
+        <h2 className="mb-4 text-lg font-semibold text-zinc-900 dark:text-zinc-100">Compare AI coding tools</h2>
+        <div className="grid gap-3 sm:grid-cols-3">
+          <Link href="/compare/cursor-vs-windsurf" className="rounded-xl border border-zinc-200 bg-white p-4 transition-all hover:border-blue-200 hover:shadow-sm dark:border-zinc-800 dark:bg-zinc-900 dark:hover:border-blue-800">
+            <span className="text-xs text-zinc-400">Cursor vs Windsurf</span>
+            <p className="mt-1 text-xs leading-relaxed text-zinc-500 dark:text-zinc-400">Compare repo awareness, context memory, and multi-file editing.</p>
+          </Link>
+          <Link href="/compare/cursor-vs-copilot" className="rounded-xl border border-zinc-200 bg-white p-4 transition-all hover:border-blue-200 hover:shadow-sm dark:border-zinc-800 dark:bg-zinc-900 dark:hover:border-blue-800">
+            <span className="text-xs text-zinc-400">Cursor vs Copilot</span>
+            <p className="mt-1 text-xs leading-relaxed text-zinc-500 dark:text-zinc-400">Repo understanding, context limits, and agent workflows compared.</p>
+          </Link>
+          <Link href="/compare/cursor-vs-claude-code" className="rounded-xl border border-zinc-200 bg-white p-4 transition-all hover:border-blue-200 hover:shadow-sm dark:border-zinc-800 dark:bg-zinc-900 dark:hover:border-blue-800">
+            <span className="text-xs text-zinc-400">Cursor vs Claude Code</span>
+            <p className="mt-1 text-xs leading-relaxed text-zinc-500 dark:text-zinc-400">IDE vs CLI. Compare automation, autonomy, and CI/CD integration.</p>
+          </Link>
+        </div>
+      </section>
+
+      {/* Bottom CTA */}
+      <section className="text-center">
+        <Link
+          href="/generator"
+          className="inline-flex items-center gap-2 rounded-lg bg-blue-600 px-6 py-3 text-base font-medium text-white shadow-sm transition-colors hover:bg-blue-700"
+        >
+          <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+            <path strokeLinecap="round" strokeLinejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z" />
+          </svg>
+          Generate standards from your repo
+        </Link>
       </section>
 
       <BackToTop />
-
-      <script dangerouslySetInnerHTML={{ __html: `
-(function() {
-  var activeCat = null, sortMode = "default";
-  function apply() {
-    var cards = document.querySelectorAll("#rules-grid .rule-card"), visible = 0;
-    cards.forEach(function(c) { var m = !activeCat || c.dataset.category === activeCat; c.style.display = m ? "" : "none"; if (m) visible++; });
-    if (sortMode === "newest") { var g = document.getElementById("rules-grid"), arr = Array.from(cards).filter(function(c) { return c.style.display !== "none"; }); arr.sort(function(a, b) { return b.dataset.date.localeCompare(a.dataset.date); }); arr.forEach(function(c) { g.appendChild(c); }); }
-    document.getElementById("rule-count").textContent = visible;
-    var h = document.querySelector("#rules-section h2");
-    if (activeCat) { var n = document.querySelector("#category-filters [data-cat='" + activeCat + "']"); h.textContent = "📖 " + (n ? n.textContent.trim().replace(/\\d+$/, "").trim() : "") + " standards"; }
-    else h.textContent = "📖 All standards";
-  }
-  document.querySelectorAll("#category-filters .category-btn").forEach(function(b) { b.addEventListener("click", function() { activeCat = this.dataset.cat === "all" ? null : this.dataset.cat; document.querySelectorAll("#category-filters .category-btn").forEach(function(x) { if (x === b) x.className = x.className.replace(/bg-zinc-100[^"]*/g, "bg-blue-600 text-white"); else x.className = "category-btn inline-flex items-center gap-1.5 rounded-full bg-zinc-100 px-3.5 py-1.5 text-sm font-medium text-zinc-700 transition-colors hover:bg-zinc-200 dark:bg-zinc-800 dark:text-zinc-300 dark:hover:bg-zinc-700"; }); apply(); }); });
-  document.querySelectorAll("#rules-header .sort-btn").forEach(function(b) { b.addEventListener("click", function() { sortMode = this.dataset.sort; document.querySelectorAll("#rules-header .sort-btn").forEach(function(x) { if (x === b) x.className = "sort-btn rounded-md bg-zinc-100 px-2.5 py-1 text-zinc-700 transition-colors dark:bg-zinc-800 dark:text-zinc-300"; else x.className = "sort-btn rounded-md px-2.5 py-1 text-zinc-400 transition-colors hover:text-zinc-600 dark:hover:text-zinc-300"; }); apply(); }); });
-})();` }} />
     </div>
   );
 }

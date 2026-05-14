@@ -1,151 +1,180 @@
 export const comparisons = [
   {
     slug: "cursor-vs-copilot",
-    title: "Cursor vs GitHub Copilot：哪个更适合你？",
-    description: "深度对比 Cursor 和 GitHub Copilot 的功能差异、使用体验和适用场景，帮你做出选择。",
+    title: "Cursor vs GitHub Copilot — Beyond Code Completion",
+    description: "Engineering comparison: repo understanding, context memory, multi-file edits, and how each tool handles real production codebases.",
     icon: "⚖️",
-    tags: ["cursor", "copilot", "对比"],
-    content: `# Cursor vs GitHub Copilot：深度对比
+    tags: ["cursor", "copilot", "engineering"],
+    content: `# Cursor vs GitHub Copilot — Engineering Deep Dive
 
-## 核心差异
+## Repo Understanding
 
-| 特性 | Cursor | GitHub Copilot |
-|------|--------|---------------|
-| 代码补全 | ✅ AI 原生 IDE | ✅ IDE 插件 |
-| 多文件编辑 | ✅ Agent 模式 | ❌ 仅单文件 |
-| 终端集成 | ✅ 内置 | ❌ 需手动 |
-| 项目理解 | ✅ 完整代码库 | ⚠️ 当前文件 |
-| 自定义规则 | ✅ .cursorrules | ✅ copilot-instructions.md |
-| 定价 | $20/月 Pro | $10/月 Individual |
-| 模型 | Claude/GPT-4 自定义 | OpenAI Codex |
+| Dimension | Cursor | GitHub Copilot |
+|-----------|--------|---------------|
+| Codebase indexing | Full repo embedding + RAG | Current file + open tabs |
+| Cross-file awareness | Agent reads related files automatically | Manual reference via #file |
+| Dependency graph | Understands import chains | File-by-file only |
+| Breaking change detection | Flags downstream effects of edits | No cross-file impact analysis |
 
-## 什么时候选 Cursor？
+Cursor maintains a full embedding index of your codebase. When you ask it to refactor across files, it already knows where the usages are. Copilot's context is limited to what's open in your editor — it can't see the full picture unless you manually reference files.
 
-- 需要深度理解整个代码库
-- 频繁进行跨文件重构
-- 需要 AI 执行终端命令
-- 希望自定义 AI 行为（.cursorrules）
+## Context Memory
 
-## 什么时候选 Copilot？
+| Dimension | Cursor | GitHub Copilot |
+|-----------|--------|---------------|
+| Conversation memory | Full chat history within session | Limited to current prompt |
+| Project conventions | Learns from .cursorrules + codebase | Learns from copilot-instructions.md |
+| Memory across sessions | Notepad / Rules for AI | None |
+| Hallucination rate | Lower (grounded in indexed code) | Higher (less grounding context) |
 
-- 团队已经在使用 VS Code
-- 只需要智能代码补全
-- 预算有限
-- 不需要多文件编辑功能
+Cursor's indexed approach means it references real code more often. Copilot works well for inline completions but struggles with project-wide context. Both can hallucinate APIs — but Cursor hallucinates less because it can check against your actual imports.
 
-## 我们的建议
+## Multi-file Edits
 
-对于独立开发者和初创团队：**Cursor** 更值得投资。Agent 模式和 .cursorrules 带来的效率提升远超价格差异。`,
+| Dimension | Cursor | GitHub Copilot |
+|-----------|--------|---------------|
+| Agent/Composer mode | Full project refactoring | Not available |
+| Apply edits across files | Agent applies edits to multiple files | Manual copy-paste |
+| Undo/rollback | Checkpoint system | Ctrl+Z per file |
+
+Cursor's Agent mode can write code across 5+ files in one session. Copilot's edits are inline — you review and accept one suggestion at a time. For large refactors, Cursor saves significant time.
+
+## Large Repo Handling
+
+| Dimension | Cursor | GitHub Copilot |
+|-----------|--------|---------------|
+| Monorepo support | Indexes sub-packages | No special handling |
+| .cursorrules / .gitignore | Respects ignore patterns | Respects .gitignore |
+| Performance on >10k files | Slower indexing, usable | No indexing overhead |
+
+## Verdict
+
+**Cursor**: Better for project-level work, refactoring, and any task requiring codebase awareness.
+**Copilot**: Better for inline completions and developers who prefer less AI intrusion.
+**Both**: Many teams use both — Copilot for completions, Cursor for complex tasks.`,
   },
   {
     slug: "cursor-vs-windsurf",
-    title: "Cursor vs Windsurf：AI IDE 终极对比",
-    description: "两款最热 AI IDE 的全面对比，功能、体验和性能哪个更强？",
+    title: "Cursor vs Windsurf — IDE-Level AI Comparison",
+    description: "Comparing Cascade vs Agent mode, context windows, multi-file editing quality, and large repo performance.",
     icon: "⚖️",
-    tags: ["cursor", "windsurf", "对比"],
-    content: `# Cursor vs Windsurf：AI IDE 终极对比
+    tags: ["cursor", "windsurf", "engineering"],
+    content: `# Cursor vs Windsurf — Engineering Comparison
 
-## 核心差异
+## Repo Understanding
 
-| 特性 | Cursor | Windsurf |
-|------|--------|----------|
-| 基础 IDE | VS Code 分支 | VS Code 分支 |
-| AI 模式 | Chat + Agent + Composer | Cascade + 内联建议 |
-| 多文件编辑 | ✅ Agent 模式 | ✅ Cascade |
-| 终端集成 | ✅ | ✅ |
-| 自定义规则 | ✅ .cursorrules | ✅ .windsurfrules |
-| 定价 | 免费 + $20 Pro | 免费 + $15 Pro |
-| 上下文长度 | 大 | 中 |
+| Dimension | Cursor | Windsurf |
+|-----------|--------|----------|
+| Codebase indexing | Full embedding-based index | Cascade indexes open files |
+| Cross-file context | RAG across entire repo | Cascade search across workspace |
+| Dependency tracking | Import graph analysis | File-level awareness |
 
-## Cursor 优势
+Cursor's embedding index gives it deeper codebase understanding. Windsurf's Cascade is strong on files you're actively working on but has less global awareness.
 
-- .cursorrules 生态更成熟
-- Agent 模式更稳定
-- 社区和资源更丰富
+## Context Memory
 
-## Windsurf 优势
+| Dimension | Cursor | Windsurf |
+|-----------|--------|----------|
+| Context window size | Large (200k+ tokens) | Medium |
+| Persistent memory | Rules for AI / Notepad | .windsurfrules |
+| Conversation continuity | Full chat history | Cascade session memory |
 
-- Cascade 多文件编辑流畅
-- 价格更便宜
-- 新手更容易上手
+Cursor's larger context window means it can hold more of your codebase in memory during a session. Windsurf's Cascade sessions are well-designed but have tighter context limits.
 
-## 选择建议
+## Multi-file Edits
 
-追求深度 AI 集成和自定义 → Cursor
-追求性价比和快速上手 → Windsurf`,
+| Dimension | Cursor | Windsurf |
+|-----------|--------|----------|
+| Multi-file agent | Agent mode | Cascade |
+| Edit quality on 3+ files | Good, sometimes needs guidance | Good, sometimes over-edits |
+| Diff review | Inline diff view | Inline review |
+
+Both handle multi-file edits well. Windsurf's Cascade can be more aggressive — it's more likely to edit files you didn't ask for. Cursor's Agent is more conservative and explicit about what it changes.
+
+## Hallucination Behavior
+
+| Dimension | Cursor | Windsurf |
+|-----------|--------|----------|
+| API hallucination | Low (grounded in imports) | Low-Medium |
+| File path hallucination | Uncommon (indexed paths) | Occasional |
+| Config hallucination | Respects detected config | Sometimes invents config |
+
+Cursor's strict grounding in your actual imports and file structure gives it an edge. Windsurf can occasionally reference files or configs that don't exist.
+
+## Large Repo Handling
+
+| Dimension | Cursor | Windsurf |
+|-----------|--------|----------|
+| Monorepo | Partial indexing per sub-package | Workspace-based |
+| Performance at scale | Slower startup, stable operation | Faster startup |
+| Memory usage | Higher | Moderate |
+
+## Verdict
+
+**Cursor**: More accurate, grounded, and reliable for production work. Larger context window is a real advantage.
+**Windsurf**: Faster and more aggressive — good for rapid prototyping. Cascade feels more "helpful" but occasionally overreaches.
+**Bottom line**: Cursor for precision, Windsurf for speed.`,
   },
   {
     slug: "cursor-vs-claude-code",
-    title: "Cursor vs Claude Code：终端 AI 还是 IDE AI？",
-    description: "Cursor 图形化 IDE 和 Claude Code 命令行工具的对比，哪种开发方式更适合你？",
+    title: "Cursor vs Claude Code — IDE vs CLI for AI Development",
+    description: "Terminal-native vs IDE: how Claude Code handles repos, context, multi-file operations, and CI/CD integration differently.",
     icon: "⚖️",
-    tags: ["cursor", "claude-code", "对比"],
-    content: `# Cursor vs Claude Code
+    tags: ["cursor", "claude-code", "engineering"],
+    content: `# Cursor vs Claude Code — IDE vs CLI
 
-## 本质区别
+## Repo Understanding
 
-Cursor 是 AI 原生 IDE，Claude Code 是命令行 AI 工具。它们解决不同层次的问题。
+| Dimension | Cursor | Claude Code |
+|-----------|--------|------------|
+| Repo indexing | Automatic embedding index | Reads files on demand |
+| Context mechanism | RAG over codebase | Reads tools output in loop |
+| Depth | Good (pre-indexed) | Excellent (reads whatever it needs) |
 
-| 特性 | Cursor | Claude Code |
-|------|--------|------------|
-| 交互方式 | GUI IDE | 命令行 |
-| 学习曲线 | 低 | 中 |
-| 自动化 | 半自动 | 全自动（CI 友好） |
-| CI/CD 集成 | ❌ | ✅ |
-| 批量操作 | 手动 | 脚本化 |
-| 项目管理 | 可视化 | 全命令行 |
+Claude Code reads your files actively during a session — it can go deeper on specific files. Cursor pre-indexes but may miss nuanced patterns that Claude Code finds by reading source directly.
 
-## 最好的方案
+## Context Memory
 
-**两者结合使用：**
-- 日常开发用 Cursor
-- CI 流程用 Claude Code
-- 批量重构用 Claude Code
-- 调试和探索用 Cursor`,
+| Dimension | Cursor | Claude Code |
+|-----------|--------|------------|
+| Context window | Large (200k+) | Very large (200k+) |
+| CLAUDE.md / AGENTS.md | Not natively supported | First-class support |
+| Session persistence | Notepad / Rules | CLAUDE.md persists across sessions |
+
+Claude Code's CLAUDE.md/AGENTS.md integration is deeper — it's a first-class concept, not just a file it reads. Cursor treats .cursorrules as config; Claude Code treats AGENTS.md as an extension of its system prompt.
+
+## Multi-file Operations
+
+| Dimension | Cursor | Claude Code |
+|-----------|--------|------------|
+| Multi-file edits | Agent mode, visual diffs | Reads/writes via tools |
+| Batch operations | Manual | Can be scripted |
+| Git integration | Basic | Can commit, branch, push |
+
+Claude Code is more automated — it can chain file reads, edits, and git operations in a single session. Cursor requires you to approve each change. For CI/CD and automated refactors, Claude Code wins.
+
+## Hallucination Behavior
+
+| Dimension | Cursor | Claude Code |
+|-----------|--------|------------|
+| API hallucination | Low (grounded in imports) | Very low (reads source) |
+| File operations | User-approved | Autonomous |
+| Risk profile | Lower (visual review of all changes) | Higher (autonomous edits) |
+
+Claude Code hallucinates less because it actively reads your code rather than relying on an index. However, its autonomy means mistakes can propagate faster if you don't review.
+
+## Large Repo Handling
+
+| Dimension | Cursor | Claude Code |
+|-----------|--------|------------|
+| Monorepo | Indexes sub-packages | Reads relevant files only |
+| Performance | Upfront indexing cost | Pay-per-read, scales well |
+| CI/CD | Not available | Native — runs in CI |
+
+## Verdict
+
+**Cursor**: Best for daily development. Visual diffs, lower risk of unwanted changes, pre-indexed awareness.
+**Claude Code**: Best for automated workflows, CI/CD, and deep repo analysis. More autonomous but higher blast radius.
+**Ideal**: Cursor for writing code, Claude Code for reviewing and refactoring.`,
   },
-
-  {
-    slug: "cursor-vs-traditional-ide",
-    title: "Cursor vs 传统 IDE：AI 时代的开发方式变革",
-    description: "对比 Cursor AI IDE 和传统 VS Code/WebStorm 等 IDE 的开发效率差异。",
-    icon: "⚖️",
-    tags: ["cursor", "vs-code", "对比"],
-    content: `# Cursor vs 传统 IDE：全面对比
-
-## 核心差异
-
-- Cursor：AI 理解上下文代码补全
-- 传统 IDE：基于规则补全
-- Cursor：自然语言描述生成代码
-- 传统 IDE：手动编写全部代码
-
-## 效率对比
-
-- 创建 CRUD：Cursor 5分钟 vs 传统 30分钟
-- 调试 Bug：Cursor 10分钟 vs 传统 45分钟
-- 代码审查：Cursor 5分钟 vs 传统 20分钟
-
-## 最佳方案
-
-Cursor 作为主力 IDE，传统 IDE 作为备用。`,
-  },
-  {
-    slug: "cursor-pricing-guide",
-    title: "Cursor 定价指南：免费版 vs Pro vs Business",
-    description: "Cursor 各定价方案的完整对比，帮你选择最合适的订阅计划。",
-    icon: "💰",
-    tags: ["cursor", "pricing", "指南"],
-    content: `# Cursor 定价指南：2026 最新
-
-## 版本对比
-
-Free：每月 2000 次 AI 补全，有 Chat，无 Agent
-Pro（$20/月）：无限 AI 补全，有 Agent 模式
-Business（$40/月）：无限 + 团队管理 + 隐私模式
-
-## 推荐
-
-个人开发者选 Pro，学生用 Free 足够，团队选 Business。`,
-  },
-
 ];

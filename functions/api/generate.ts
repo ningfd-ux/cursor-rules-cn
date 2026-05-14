@@ -109,7 +109,12 @@ function getSystemPrompt(outputFormat: string): string {
     "Your standards are specific enough that a junior dev could follow them and produce code indistinguishable from a senior. " +
     "You NEVER write generic advice like \"use TypeScript\" or \"write clean code.\" " +
     "Instead, you write enforceable rules referencing actual libraries, file paths, and patterns. " +
-    "Be opinionated. A real tech lead doesn't say \"choose wisely\" — they say \"do it this way.\" ";
+    "Be opinionated. A real tech lead doesn't say \"choose wisely\" — they say \"do it this way.\" " +
+    "Every rule must reference a SPECIFIC library or framework detected. " +
+    "Rules must be testable: a code reviewer can answer yes/no whether a PR follows each rule. " +
+    "Anti-patterns section is REQUIRED — list 3-5 common mistakes with the detected stack. " +
+    "For each rule, add a one-line \"Why:\" explanation referencing the detected dependency or architecture pattern. " +
+    "DO NOT add introductory text or meta-commentary outside the standards content. ";
 
   switch (outputFormat) {
     case "cursorrules":
@@ -159,13 +164,23 @@ function buildPrompt(techStack: string, strictness: string, outputFormat: string
   let depAnalysis = "";
   if (packageJson && packageJson.trim().length > 0) {
     depAnalysis = `
-CRITICAL: Analyze these exact dependencies. For EACH detected library, write ONE specific enforceable rule.
-Examples of BAD vs GOOD rules:
-BAD: "Write clean maintainable code."
-GOOD: "Server Components must not import 'use client' libraries. Keep data fetching in Server Components, pass data as props to client leaves."
+CRITICAL: The user has provided a real package.json. This is NOT a hypothetical project.
+Step 1: Parse the JSON and identify the EXACT libraries and versions.
+Step 2: For EACH detected library, write ONE specific enforceable rule that references that library by name.
+Step 3: Infer architecture from dependency combinations (e.g. next + prisma → App Router + ORM pattern).
+
+BAD vs GOOD rules (MANDATORY to follow this pattern):
+BAD: "Write clean, maintainable code."
+GOOD: "Server Components (default) must not import client-side libraries. Fetch data in Server Components, pass as props to client leaves."
 
 BAD: "Use proper error handling."
-GOOD: "Wrap all Server Actions in try/catch. Return { error: string } for user-facing errors. Log full stack with console.error."
+GOOD: "Wrap every Server Action in try/catch. Return { error: string } for user-facing errors. Log full stack trace with console.error(error)."
+
+BAD: "Validate user input."
+GOOD: "Define Zod schemas in lib/schemas/. Import and parse in every route handler and Server Action. Return 400 with Zod error messages on validation failure."
+
+BAD: "Use TypeScript properly."
+GOOD: "No 'any' types. Use Zod inference (z.infer<typeof schema>) for all data models. Create type aliases in lib/types.ts for reused types."
 
 The user's package.json:
 \`\`\`json
@@ -178,9 +193,18 @@ ${packageJson}
 ${depAnalysis}
 Strictness: ${strictnessMap[strictness] || strictnessMap.moderate}
 
-Sections: Detected Architecture, File Structure, Code Style, Data Flow, Error Handling, Security, Testing, Anti-Patterns.
-Each rule must reference a specific library or pattern detected in the dependencies.
-Be a tech lead, not a checklist writer. Choose one approach and commit to it.`;
+Required sections (in order):
+1. Detected Architecture — summarize the stack decisions (e.g. "Next.js App Router + Prisma ORM + Zod validation")
+2. Server/Client Boundaries — which code runs where, what's forbidden in each context
+3. Data Flow — fetching patterns, mutation patterns, caching strategy
+4. File Structure — naming conventions, directory layout for the detected stack
+5. Error Handling — exact patterns per layer (server actions, API routes, client)
+6. Testing — specific testing library usage if detected, otherwise general approach
+7. Anti-Patterns — 4-6 common mistakes developers make with this specific stack
+
+FORMAT: Each rule is a bullet (-). Be terse. Be specific. Reference libraries by name.
+DO NOT explain. DO NOT add markdown headers beyond the sections above. DO NOT preface with "Here are..." or "Below is..." or "I've generated..." or any meta-commentary.
+A real .cursorrules/AGENTS.md file starts immediately with content. Do that.`;
 }
 
 async function fetchPackageJsonFromRepo(repoUrl: string): Promise<string | null> {
