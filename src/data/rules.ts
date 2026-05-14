@@ -2415,30 +2415,30 @@ Save as .cursor/rules/*.mdc or AGENTS.md. The AI coding tool loads these convent
   },
   {
     slug: "cursor-angular-rules",
-    title: "Cursor Angular 开发编码规范规则",
+    title: "Cursor Angular Development Coding Standards",
     category: "cursor",
-    description: "Angular 17+ 独立组件模式下 Cursor 的编码规则。",
+    description: "Coding rules for Cursor in Angular 17+ standalone component mode.",
     icon: "🅰️",
     tags: ["cursor", "angular", "frontend"],
     updatedAt: "2026-05-11",
     appliesTo: "Cursor 0.40+",
-    content: `# Cursor Angular 开发编码规范规则
+    content: `# Cursor Angular Development Coding Standards
 
 ## Component Standards
-- 使用 standalone 组件
-- 组件文件名使用 .component.ts
-- 模板和样式文件分离
-- 使用 OnPush 变更检测
+- Use standalone components
+- Component filenames use .component.ts suffix
+- Separate template and style files
+- Use OnPush change detection
 
-## 依赖注入
-- 使用 inject() 函数
-- 服务使用 providedIn: root
-- 避免在构造函数中写逻辑
+## Dependency Injection
+- Use the inject() function
+- Services use providedIn: root
+- Avoid writing logic in constructors
 
 ## Routes
-- 使用懒加载路由
-- 路由守卫保护敏感页面
-- 使用 ResolveFn 预加载数据
+- Use lazy-loaded routes
+- Protect sensitive pages with route guards
+- Use ResolveFn to preload data
 
 ## Usage Scenarios
 
@@ -2453,32 +2453,32 @@ Save as .cursor/rules/*.mdc or AGENTS.md. The AI coding tool loads these convent
   },
   {
     slug: "cursor-nodejs-rules",
-    title: "Cursor Node.js Express 后端开发规则",
+    title: "Cursor Node.js Express Backend Development Rules",
     category: "cursor",
-    description: "Node.js + Express 项目中 Cursor 的编码规则和中间件规范。",
+    description: "Coding rules and middleware standards for Node.js + Express projects in Cursor.",
     icon: "🟢",
     tags: ["cursor", "nodejs", "express"],
     updatedAt: "2026-05-11",
     appliesTo: "Cursor 0.40+",
-    content: `# Cursor Node.js Express 后端开发规则
+    content: `# Cursor Node.js Express Backend Development Rules
 
 ## Project Structure
-- 按功能模块组织文件
-- routes/ controllers/ services/ 分层
-- 中间件放在 middleware/ 目录
-- 配置使用环境变量
+- Organize files by feature module
+- Separate into routes/ controllers/ services/ layers
+- Middleware goes in middleware/ directory
+- Configuration uses environment variables
 
-## API 设计
-- RESTful 路由命名
-- 使用 express-validator 校验输入
-- Unified error handling中间件
-- 使用 asyncHandler 包装异步路由
+## API Design
+- Use RESTful route naming conventions
+- Validate input with express-validator
+- Use unified error handling middleware
+- Wrap async routes with asyncHandler
 
 ## Security
-- 使用 helmet 增强安全头
-- 使用 cors 配置跨域
-- 请求频率限制
-- 敏感信息不在日志中输出
+- Use helmet to set security headers
+- Configure CORS with cors middleware
+- Apply rate limiting to all endpoints
+- Never log sensitive information
 
 ## Usage Scenarios
 
@@ -2493,31 +2493,31 @@ Save as .cursor/rules/*.mdc or AGENTS.md. The AI coding tool loads these convent
   },
   {
     slug: "cursor-laravel-rules",
-    title: "Cursor Laravel PHP 开发规则",
+    title: "Cursor Laravel PHP Development Rules",
     category: "cursor",
-    description: "Laravel 11 项目中使用 Cursor 的 MVC 架构和 Eloquent 规范。",
+    description: "MVC architecture and Eloquent ORM standards for Laravel 11 projects in Cursor.",
     icon: "🎯",
     tags: ["cursor", "laravel", "php"],
     updatedAt: "2026-05-11",
     appliesTo: "Cursor 0.40+",
-    content: `# Cursor Laravel PHP 开发规则
+    content: `# Cursor Laravel PHP Development Rules
 
-## MVC 架构
-- 模型放在 app/Models
-- 控制器瘦、模型胖
-- 业务逻辑放在 Service 类
-- 表单验证使用 FormRequest
+## MVC Architecture
+- Models go in app/Models
+- Keep controllers thin, models rich
+- Business logic goes in Service classes
+- Form validation uses FormRequest
 
 ## Eloquent
-- 使用 with() 预加载关联
-- 避免 N+1 查询
-- 使用 scope 定义查询范围
-- 批量赋值保护
+- Use with() for eager-loading relationships
+- Avoid N+1 queries
+- Use scopes to define reusable query constraints
+- Protect against mass assignment
 
 ## API
-- 使用 API Resource 格式化响应
-- 使用 Sanctum 或 Passport 认证
-- 版本化 API 路由
+- Use API Resources to format responses
+- Authenticate with Sanctum or Passport
+- Version your API routes
 
 ## Usage Scenarios
 
@@ -2532,34 +2532,34 @@ Save as .cursor/rules/*.mdc or AGENTS.md. The AI coding tool loads these convent
   },
   {
     slug: "cursor-saas-rules",
-    title: "Cursor SaaS 项目开发规则",
+    title: "Cursor SaaS Project Development Rules",
     category: "cursor",
-    description: "SaaS 创业项目使用 Cursor 的完整开发规则，从多租户到支付集成。",
+    description: "Complete development rules for SaaS startup projects in Cursor, from multi-tenancy to payment integration.",
     icon: "🏢",
     tags: ["cursor", "saas", "startup"],
     updatedAt: "2026-05-11",
     appliesTo: "Cursor 0.40+",
-    content: `# Cursor SaaS 项目开发规则
+    content: `# Cursor SaaS Project Development Rules
 
-## 多租户
-- 使用 tenant_id 字段隔离数据
-- 中间件自动设置租户上下文
-- 数据库按租户分表或 schema
+## Multi-Tenancy
+- Isolate data by tenant_id field
+- Middleware auto-sets tenant context
+- Database per-tenant via separate tables or schemas
 
-## 支付集成
-- Stripe 订阅管理
-- Webhook 处理支付事件
-- 按计划限制功能访问
+## Payment Integration
+- Stripe subscription management
+- Webhook handling for payment events
+- Feature gating by plan tier
 
-## 用户管理
-- 邮箱密码 + OAuth 登录
-- 角色权限控制 RBAC
-- 邀请码注册机制
+## User Management
+- Email/password + OAuth login
+- Role-based access control (RBAC)
+- Invite code registration flow
 
 ## DevOps
-- 数据库迁移自动化
-- CI/CD 自动部署
-- 日志和监控告警
+- Automated database migrations
+- CI/CD auto-deployment
+- Logging and monitoring alerts
 
 ## Usage Scenarios
 
@@ -2574,39 +2574,39 @@ Save as .cursor/rules/*.mdc or AGENTS.md. The AI coding tool loads these convent
 
 ## Related Standards
 
-- [Cursor Stripe 支付集成规则,](/rules/cursor-stripe-rules)
-- [Cursor 全栈应用开发规则,](/rules/cursor-fullstack-app-rules)
-- [Cursor MVP 快速开发规则,](/rules/cursor-mvp-rules)
+- [Cursor Stripe Payment Integration Rules](/rules/cursor-stripe-rules)
+- [Cursor Full-Stack App Development Rules](/rules/cursor-fullstack-app-rules)
+- [Cursor MVP Rapid Development Rules](/rules/cursor-mvp-rules)
 
 `,
   },
   {
     slug: "cursor-mvp-rules",
-    title: "Cursor MVP 快速开发规则",
+    title: "Cursor MVP Rapid Development Rules",
     category: "cursor",
-    description: "用 Cursor 快速构建 MVP 的开发规则，从原型到上线。",
+    description: "Development rules for rapidly building MVPs with Cursor, from prototype to launch.",
     icon: "🚀",
-    tags: ["cursor", "mvp", "快速开发"],
+    tags: ["cursor", "mvp", "rapid-development"],
     updatedAt: "2026-05-11",
     appliesTo: "Cursor 0.40+",
     content: `# MVP Rapid Development Standards
 
-## 开发策略
-- 先用单体架构快速验证
-- 选择熟悉的技术栈
-- 核心功能优先，非核心砍掉
-- 使用现成模版和组件库
+## Development Strategy
+- Start with a monolith for rapid validation
+- Choose a tech stack you know well
+- Core features first, cut non-essentials ruthlessly
+- Use off-the-shelf templates and component libraries
 
-## AI 加速
-- 用 Cursor Agent 生成 CRUD
-- AI 生成单元测试
-- 自动编写 API 文档
-- 快速迭代 UI 原型
+## AI Acceleration
+- Use Cursor Agent to generate CRUD operations
+- AI generates unit tests
+- Auto-generate API documentation
+- Rapidly iterate on UI prototypes
 
 ## Deployment
-- Vercel / Railway 一键部署
-- 使用托管数据库减少运维
-- 监控使用 Sentry 免费版
+- One-click deploy via Vercel / Railway
+- Use managed databases to reduce ops overhead
+- Monitor with Sentry free tier
 
 ## Usage Scenarios
 
@@ -2621,33 +2621,33 @@ Save as .cursor/rules/*.mdc or AGENTS.md. The AI coding tool loads these convent
   },
   {
     slug: "cursor-indie-hacker-rules",
-    title: "Cursor 独立开发者工作流规则",
+    title: "Cursor Solo Developer Workflow Rules",
     category: "cursor",
-    description: "独立开发者使用 Cursor 一人搞定全栈开发的最佳工作流和规则。",
+    description: "Best workflow and rules for solo developers shipping full-stack projects alone with Cursor.",
     icon: "💻",
-    tags: ["cursor", "indie", "独立开发"],
+    tags: ["cursor", "indie", "solo-dev"],
     updatedAt: "2026-05-11",
     appliesTo: "Cursor 0.40+",
-    content: `# Cursor 独立开发者工作流规则
+    content: `# Cursor Solo Developer Workflow Rules
 
-## 一个人 = 一个团队
+## One Person = One Team
 
-- Cursor Agent 做后端代码
-- Cursor Composer 做前端 UI
-- Claude Code 做测试和 CI
-- AI 生成设计稿和文案
+- Cursor Agent handles backend code
+- Cursor Composer handles frontend UI
+- Claude Code handles testing and CI
+- AI generates design mockups and copywriting
 
-## 效率最大化
-- 每周一规划，每天发布
-- 使用模板快速启动项目
-- 复用自己的 .cursorrules 库
-- AI 做代码审查和测试
+## Maximize Productivity
+- Plan every Monday, ship every day
+- Use templates to bootstrap projects fast
+- Reuse your own .cursorrules library across projects
+- AI handles code review and testing
 
-## 工具链
-- GitHub + Vercel 自动部署
-- Supabase 做后端和数据库
-- Stripe 做支付
-- Resend 做邮件
+## Toolchain
+- GitHub + Vercel for auto-deployment
+- Supabase for backend and database
+- Stripe for payments
+- Resend for transactional email
 
 ## Usage Scenarios
 
@@ -2662,37 +2662,37 @@ Save as .cursor/rules/*.mdc or AGENTS.md. The AI coding tool loads these convent
   },
   {
     slug: "cursor-ai-agent-rules",
-    title: "Cursor AI Agent 开发规则",
+    title: "Cursor AI Agent Development Rules",
     category: "cursor",
-    description: "使用 Cursor 开发 AI Agent 应用的规则和最佳实践。",
+    description: "Rules and best practices for developing AI Agent applications with Cursor.",
     icon: "🤖",
     tags: ["cursor", "ai-agent", "llm"],
     updatedAt: "2026-05-11",
     appliesTo: "Cursor 0.40+",
-    content: `# Cursor AI Agent 开发规则
+    content: `# Cursor AI Agent Development Rules
 
-## Architecture设计
-- 使用 LangChain / Vercel AI SDK
-- Agent 工具调用模式
-- 记忆管理（短期 + 长期）
-- 流式响应处理
+## Architecture Design
+- Use LangChain / Vercel AI SDK
+- Agent tool-calling pattern
+- Memory management (short-term + long-term)
+- Streaming response handling
 
-## Prompt 管理
-- 系统提示词集中管理
-- 使用模板引擎构建 prompt
-- 版本控制提示词变更
-- 效果评估机制
+## Prompt Management
+- Centralize system prompts
+- Use a template engine to construct prompts
+- Version-control prompt changes
+- Establish evaluation metrics
 
 ## Security
-- 输入验证和清理
-- 限制工具执行权限
-- 速率限制
-- 敏感信息过滤
+- Input validation and sanitization
+- Scope tool execution permissions tightly
+- Apply rate limiting
+- Filter sensitive information from output
 
 ## Testing
-- 模拟用户对话测试
-- 工具调用正确性测试
-- 边缘情况覆盖
+- Simulate user conversation flow
+- Test tool-calling correctness
+- Cover edge cases thoroughly
 
 ## Usage Scenarios
 
@@ -2707,36 +2707,36 @@ Save as .cursor/rules/*.mdc or AGENTS.md. The AI coding tool loads these convent
 
 ## Related Standards
 
-- [AI 编程工作流模式与效率指南,](/rules/general-ai-workflow)
-- [Claude Code 入门必读的通用规则,](/rules/claude-code-general)
+- [AI Coding Workflow Patterns & Productivity Guide](/rules/general-ai-workflow)
+- [Claude Code Starter Guide: Essential Rules](/rules/claude-code-general)
 
 `,
   },
   {
     slug: "cursor-startup-team-rules",
-    title: "Cursor 创业团队协作规则",
+    title: "Cursor Startup Team Collaboration Rules",
     category: "cursor",
-    description: "创业团队统一 Cursor 配置和 AI 编码规范的团队协作规则。",
+    description: "Team collaboration rules for standardizing Cursor config and AI coding conventions across a startup team.",
     icon: "👥",
-    tags: ["cursor", "team", "协作"],
+    tags: ["cursor", "team", "collaboration"],
     updatedAt: "2026-05-11",
     appliesTo: "Cursor 0.40+",
-    content: `# Cursor 创业团队协作规则
+    content: `# Cursor Startup Team Collaboration Rules
 
-## 统一配置
-- 项目级 .cursorrules 团队共享
-- 一致的代码风格配置
-- 统一的 AI 行为规范
+## Unified Configuration
+- Project-level .cursorrules shared across the team
+- Consistent code style configuration
+- Uniform AI behavior standards
 
 ## Code Review
-- AI 自动审查 PR
-- 人工确认 AI 建议
-- 代码质量门禁
+- AI auto-reviews PRs
+- Human confirms AI suggestions before merge
+- Code quality gates enforced by CI
 
-## 知识管理
-- 团队共享 Prompt 模板
-- Cursor 技巧文档化
-- 定期分享最佳实践
+## Knowledge Management
+- Team-shared prompt templates
+- Document Cursor tips and techniques
+- Regular best-practice sharing sessions
 
 ## Usage Scenarios
 
@@ -2751,32 +2751,32 @@ Save as .cursor/rules/*.mdc or AGENTS.md. The AI coding tool loads these convent
   },
   {
     slug: "cursor-landing-page-rules",
-    title: "Cursor Landing Page 开发规则",
+    title: "Cursor Landing Page Development Rules",
     category: "cursor",
-    description: "用 Cursor 快速构建落地页的规则和最佳实践。",
+    description: "Rules and best practices for rapidly building landing pages with Cursor.",
     icon: "📄",
     tags: ["cursor", "landing-page", "frontend"],
     updatedAt: "2026-05-11",
     appliesTo: "Cursor 0.40+",
     content: `# Landing Page Development Standards
 
-## 技术选型
+## Technology Stack
 - Next.js + Tailwind CSS
-- Framer Motion 动画
-- 响应式设计优先
-- SEO 优化内置
+- Framer Motion for animations
+- Mobile-first responsive design
+- SEO optimization built in
 
-## 页面结构
-- Hero + 特性 + 案例 + CTA
-- 社交证明（用户评价）
-- FAQ 解答疑虑
-- 页脚含所有链接
+## Page Structure
+- Hero + Features + Testimonials + CTA
+- Social proof (user reviews)
+- FAQ to address objections
+- Footer with all essential links
 
 ## Performance
-- Use next/image for images
-- 字体使用 next/font
-- 关键 CSS 内联
-- 延迟加载非首屏内容
+- Use next/image for all images
+- Use next/font for typefaces
+- Inline critical CSS
+- Lazy-load below-the-fold content
 
 ## Usage Scenarios
 
@@ -2791,31 +2791,31 @@ Save as .cursor/rules/*.mdc or AGENTS.md. The AI coding tool loads these convent
   },
   {
     slug: "cursor-graphql-rules",
-    title: "Cursor GraphQL API 开发规则",
+    title: "Cursor GraphQL API Development Rules",
     category: "cursor",
-    description: "使用 Cursor 开发 GraphQL API 的编码规则和查询优化最佳实践。",
+    description: "Coding rules and query optimization best practices for GraphQL API development with Cursor.",
     icon: "◈",
     tags: ["cursor", "graphql", "api"],
     updatedAt: "2026-05-11",
     appliesTo: "Cursor 0.40+",
-    content: `# Cursor GraphQL API 开发规则
+    content: `# Cursor GraphQL API Development Rules
 
 ## Schema Design
-- 使用 SDL 优先方式
-- 类型命名使用 PascalCase
-- 字段命名使用 camelCase
-- Query 和 Mutation 分开定义
+- Use SDL-first approach
+- Type names use PascalCase
+- Field names use camelCase
+- Define Queries and Mutations separately
 
-## 解析器
-- 使用 DataLoader 解决 N+1
-- 批量查询优化
-- 错误处理返回标准格式
+## Resolvers
+- Use DataLoader to eliminate N+1 queries
+- Batch and optimize queries
+- Return errors in a standard format
 
 ## Security
-- 深度限制防止恶意查询
-- 复杂度分析
-- 认证中间件
-- 字段级别权限
+- Enforce depth limits to prevent malicious queries
+- Analyze query complexity
+- Authenticate via middleware
+- Apply field-level authorization
 
 ## Usage Scenarios
 
@@ -2830,32 +2830,32 @@ Save as .cursor/rules/*.mdc or AGENTS.md. The AI coding tool loads these convent
   },
   {
     slug: "cursor-redis-rules",
-    title: "Cursor Redis 缓存开发规则",
+    title: "Cursor Redis Caching Development Rules",
     category: "cursor",
-    description: "在 Cursor 项目中集成和使用 Redis 缓存的编码规则。",
+    description: "Coding rules for integrating and using Redis caching in Cursor projects.",
     icon: "⚡",
-    tags: ["cursor", "redis", "缓存"],
+    tags: ["cursor", "redis", "caching"],
     updatedAt: "2026-05-11",
     appliesTo: "Cursor 0.40+",
     content: `# Redis Caching Standards
 
-## 缓存策略
-- 缓存穿透、击穿、雪崩防护
-- 合理设置 TTL
-- 使用分布式锁防并发
-- 缓存预热机制
+## Caching Strategy
+- Guard against cache penetration, breakdown, and avalanche
+- Set appropriate TTL values
+- Use distributed locks to prevent concurrent writes
+- Implement cache warming on startup
 
-## 数据结构
-- 字符串用于简单缓存
-- Hash 存储对象字段
-- List 做消息队列
-- Sorted Set 做排行榜
+## Data Structures
+- Strings for simple key-value caching
+- Hashes for storing object fields
+- Lists for message queues
+- Sorted Sets for leaderboards
 
-## 规范
-- Key 命名使用业务前缀
-- 过期时间统一设置
-- 大 Key 拆分
-- 监控缓存命中率
+## Conventions
+- Prefix keys with business domain identifiers
+- Set expiration times uniformly
+- Split large keys to avoid hot-key bottlenecks
+- Monitor cache hit rate
 
 ## Usage Scenarios
 
@@ -2870,32 +2870,32 @@ Save as .cursor/rules/*.mdc or AGENTS.md. The AI coding tool loads these convent
   },
   {
     slug: "cursor-fullstack-app-rules",
-    title: "Cursor 全栈应用开发规则",
+    title: "Cursor Full-Stack Application Development Rules",
     category: "cursor",
-    description: "使用 Cursor 进行全栈应用开发的端到端编码规则。",
+    description: "End-to-end coding rules for full-stack application development with Cursor.",
     icon: "⚡",
     tags: ["cursor", "fullstack", "web"],
     updatedAt: "2026-05-11",
     appliesTo: "Cursor 0.40+",
-    content: `# Cursor 全栈应用开发规则
+    content: `# Cursor Full-Stack Application Development Rules
 
-## Tech Stack推荐
-- Next.js / Nuxt 做前端
-- Prisma / Drizzle 做 ORM
-- PostgreSQL 做数据库
-- Tailwind CSS 做样式
+## Recommended Tech Stack
+- Next.js / Nuxt for the frontend
+- Prisma / Drizzle for ORM
+- PostgreSQL as the database
+- Tailwind CSS for styling
 
 ## Development Workflow
-- 先设计数据库 Schema
-- 生成类型定义
-- 实现 API 接口
-- 开发前端页面
+- Design the database schema first
+- Generate type definitions
+- Implement API endpoints
+- Develop frontend pages
 
-## 质量保证
-- E2E 测试关键路径
-- 单元测试核心逻辑
-- 性能预算监控
-- 可访问性检查
+## Quality Assurance
+- E2E test critical user paths
+- Unit test core business logic
+- Monitor performance budgets
+- Run accessibility checks
 
 ## Usage Scenarios
 
@@ -2910,31 +2910,31 @@ Save as .cursor/rules/*.mdc or AGENTS.md. The AI coding tool loads these convent
   },
   {
     slug: "general-rule-generator-workflow",
-    title: "AI Rule Generator 开发工作流",
+    title: "AI Rule Generator Development Workflow",
     category: "general",
-    description: "通过结构化表单自动生成个性化 .cursorrules 的工作流和方法。",
+    description: "Workflow and methodology for auto-generating personalized .cursorrules via structured forms.",
     icon: "🔧",
     tags: ["AI", "generator", "workflow"],
     updatedAt: "2026-05-11",
-    content: `# AI Rule Generator 开发工作流
+    content: `# AI Rule Generator Development Workflow
 
-## 规则模板结构
+## Rule Template Structure
 
-一个好的 Rule 包含：
-1. 技术栈声明（项目使用什么框架和语言）
-2. 编码规范（命名、缩进、注释）
-3. 架构约束（组件大小、分层规则）
-4. 安全规则（输入校验、敏感信息）
+A good Rule contains:
+1. Tech stack declaration (which frameworks and languages the project uses)
+2. Coding conventions (naming, indentation, comments)
+3. Architecture constraints (component size, layering rules)
+4. Security rules (input validation, sensitive data handling)
 
-## 生成方法
+## Generation Method
 
-使用结构化提示词让 AI 生成 Rule：
+Use structured prompts to have AI generate a Rule:
 
-"生成一个 [技术栈] 的 .cursorrules，包含代码风格、组件规范和错误处理规则。"
+"Generate a .cursorrules for [tech stack], including code style, component standards, and error handling rules."
 
-## 示例 Prompt
+## Example Prompt
 
-"生成一个 TypeScript + React + Tailwind CSS 的 .cursorrules，组件使用函数组件和 Hooks，样式使用 Tailwind 类。"
+"Generate a .cursorrules for TypeScript + React + Tailwind CSS. Components use functional components and Hooks, styling uses Tailwind utility classes."
 
 ## Applicable Scenarios
 
@@ -2962,32 +2962,32 @@ Save this content directly to your project. Adjust tech stack names and versions
 
   {
     slug: "cursor-ruby-rails",
-    title: "Cursor Ruby on Rails 开发规则",
+    title: "Cursor Ruby on Rails Development Rules",
     category: "cursor",
-    description: "Ruby on Rails 7+ 项目中使用 Cursor 的编码规则和最佳实践。",
+    description: "Coding rules and best practices for Ruby on Rails 7+ projects in Cursor.",
     icon: "💎",
     tags: ["cursor", "ruby", "rails"],
     updatedAt: "2026-05-11",
     appliesTo: "Cursor 0.40+",
-    content: `# Cursor Ruby on Rails 开发规则
+    content: `# Cursor Ruby on Rails Development Rules
 
-## Rails 规范
-- 遵循 Rails 约定优于配置
-- 使用 RESTful 资源路由
-- Model/View/Controller 分离
-- 业务逻辑放在 Service 层
+## Rails Conventions
+- Follow Rails convention over configuration
+- Use RESTful resource routing
+- Separate Model/View/Controller concerns
+- Business logic goes in Service layer
 
 ## Code Style
-- 使用 2 空格缩进
-- 方法使用 snake_case
-- 类名使用 CamelCase
-- 常量使用 SCREAMING_SNAKE_CASE
+- 2-space indentation
+- Methods use snake_case
+- Class names use CamelCase
+- Constants use SCREAMING_SNAKE_CASE
 
-## 数据库
-- 迁移使用 change 方法
-- 模型中定义关联和验证
-- 使用索引优化查询
-- 批量操作使用 find_each
+## Database
+- Migrations use the change method
+- Define associations and validations in models
+- Add indexes to optimize queries
+- Use find_each for batch operations
 
 ## Usage Scenarios
 
@@ -3002,32 +3002,32 @@ Save as .cursor/rules/*.mdc or AGENTS.md. The AI coding tool loads these convent
   },
   {
     slug: "cursor-swift-ios",
-    title: "Cursor iOS Swift 开发规则",
+    title: "Cursor iOS Swift Development Rules",
     category: "cursor",
-    description: "Swift + SwiftUI 项目中 Cursor 的编码规范和最佳实践。",
+    description: "Coding standards and best practices for Swift + SwiftUI projects in Cursor.",
     icon: "🍎",
     tags: ["cursor", "swift", "ios"],
     updatedAt: "2026-05-11",
     appliesTo: "Cursor 0.40+",
-    content: `# Cursor iOS Swift 开发规则
+    content: `# Cursor iOS Swift Development Rules
 
-## Swift 规范
-- 使用 Swift 最新版本
-- 遵循 Swift API 设计指南
-- 使用 SwiftUI 优先
-- UIKit 用于兼容性场景
+## Swift Conventions
+- Use the latest Swift version
+- Follow the Swift API Design Guidelines
+- Prefer SwiftUI by default
+- Use UIKit only for compatibility scenarios
 
 ## Architecture
-- 使用 MVVM 架构
-- Service 层处理网络请求
-- Repository 模式管理数据
-- 依赖注入管理服务
+- Use MVVM architecture
+- Service layer handles network requests
+- Repository pattern manages data access
+- Dependency injection manages services
 
 ## SwiftUI
-- 使用 @State/@Binding 管理局部状态
-- @ObservableObject 管理可观察对象
-- 视图拆分保持小型化
-- 预览提供 mock 数据
+- Use @State/@Binding for local state
+- @ObservableObject for observable objects
+- Keep views small and focused
+- Provide mock data in previews
 
 ## Usage Scenarios
 
@@ -3042,32 +3042,32 @@ Save as .cursor/rules/*.mdc or AGENTS.md. The AI coding tool loads these convent
   },
   {
     slug: "cursor-kotlin-android",
-    title: "Cursor Kotlin Android 开发规则",
+    title: "Cursor Kotlin Android Development Rules",
     category: "cursor",
-    description: "Android Kotlin + Jetpack Compose 项目中 Cursor 的编码规则。",
+    description: "Coding rules for Android Kotlin + Jetpack Compose projects in Cursor.",
     icon: "🤖",
     tags: ["cursor", "kotlin", "android"],
     updatedAt: "2026-05-11",
     appliesTo: "Cursor 0.40+",
-    content: `# Cursor Kotlin Android 开发规则
+    content: `# Cursor Kotlin Android Development Rules
 
-## Kotlin 规范
-- 使用 Kotlin 1.9+
-- 遵循 Kotlin 编码规范
-- 使用 coroutines 处理异步
-- Flow 用于数据流
+## Kotlin Conventions
+- Use Kotlin 1.9+
+- Follow the Kotlin coding conventions
+- Use coroutines for async operations
+- Use Flow for data streams
 
 ## Jetpack Compose
-- 使用 @Composable 函数构建 UI
-- 状态提升至 ViewModel
-- SideEffect 管理副作用
-- 预览函数提供示例数据
+- Use @Composable functions to build UI
+- Lift state up to ViewModel
+- Manage side effects with SideEffect
+- Provide sample data in preview functions
 
 ## Architecture
 - MVVM + Clean Architecture
-- Repository 管理数据源
-- Hilt 依赖注入
-- Navigation Compose 路由
+- Repository manages data sources
+- Hilt for dependency injection
+- Navigation Compose for routing
 
 ## Usage Scenarios
 
@@ -3082,32 +3082,32 @@ Save as .cursor/rules/*.mdc or AGENTS.md. The AI coding tool loads these convent
   },
   {
     slug: "cursor-csharp-dotnet",
-    title: "Cursor C# .NET 开发规则",
+    title: "Cursor C# .NET Development Rules",
     category: "cursor",
-    description: ".NET 8+ 项目中使用 Cursor 的编码规则和架构规范。",
+    description: "Coding rules and architecture standards for .NET 8+ projects in Cursor.",
     icon: "🔷",
     tags: ["cursor", "csharp", "dotnet"],
     updatedAt: "2026-05-11",
     appliesTo: "Cursor 0.40+",
-    content: `# Cursor C# .NET 开发规则
+    content: `# Cursor C# .NET Development Rules
 
 ## Code Style
-- 遵循 .NET 编码规范
+- Follow .NET coding conventions
 - Use 4-space indentation
-- 类和方法使用 PascalCase
-- 参数和字段使用 camelCase
+- Classes and methods use PascalCase
+- Parameters and fields use camelCase
 
 ## ASP.NET Core
-- 使用最小 API 或控制器
-- 依赖注入注册服务
-- Entity Framework Core 管理数据
-- Serilog 结构化日志
+- Use Minimal APIs or Controllers
+- Register services via dependency injection
+- Entity Framework Core for data management
+- Serilog for structured logging
 
 ## Architecture
-- Clean Architecture 分层
-- MediatR 处理命令查询
-- FluentValidation 输入校验
-- AutoMapper 对象映射
+- Clean Architecture layering
+- MediatR for command/query separation
+- FluentValidation for input validation
+- AutoMapper for object mapping
 
 ## Usage Scenarios
 
@@ -3122,30 +3122,30 @@ Save as .cursor/rules/*.mdc or AGENTS.md. The AI coding tool loads these convent
   },
   {
     slug: "cursor-astro-rules",
-    title: "Cursor Astro 静态站点开发规则",
+    title: "Cursor Astro Static Site Development Rules",
     category: "cursor",
-    description: "Astro 框架项目中 Cursor 的编码规则和岛屿架构最佳实践。",
+    description: "Coding rules and island architecture best practices for Astro framework projects in Cursor.",
     icon: "🚀",
     tags: ["cursor", "astro", "frontend"],
     updatedAt: "2026-05-11",
     appliesTo: "Cursor 0.40+",
     content: `# Astro Static Site Standards
 
-## Astro 规范
-- 使用 .astro 组件语法
-- 内容集合管理 Markdown 文章
-- 岛屿架构交互组件
-- 使用 View Transitions 路由
+## Astro Conventions
+- Use .astro component syntax
+- Manage Markdown articles via content collections
+- Island architecture for interactive components
+- Use View Transitions for routing
 
-## 内容管理
-- Markdown/MDX 管理博客内容
-- 集合 schema 验证 frontmatter
-- 自动生成目录和导航
+## Content Management
+- Manage blog content with Markdown/MDX
+- Validate frontmatter with collection schemas
+- Auto-generate table of contents and navigation
 
 ## Performance
-- 静态生成所有页面
-- 图片使用 Astro:image
-- 按需加载岛屿组件
+- Statically generate all pages
+- Use Astro:image for images
+- Load island components on demand
 
 ## Usage Scenarios
 
@@ -3160,30 +3160,30 @@ Save as .cursor/rules/*.mdc or AGENTS.md. The AI coding tool loads these convent
   },
   {
     slug: "cursor-remix-rules",
-    title: "Cursor Remix 全栈开发规则",
+    title: "Cursor Remix Full-Stack Development Rules",
     category: "cursor",
-    description: "Remix 全栈框架项目中使用 Cursor 的编码规则和最佳实践。",
+    description: "Coding rules and best practices for Remix full-stack framework projects in Cursor.",
     icon: "🎸",
     tags: ["cursor", "remix", "react"],
     updatedAt: "2026-05-11",
     appliesTo: "Cursor 0.40+",
-    content: `# Cursor Remix 全栈开发规则
+    content: `# Cursor Remix Full-Stack Development Rules
 
 ## Routing Standards
-- 使用嵌套路由和布局
-- loader 加载服务端数据
-- action 处理表单提交
-- useFetcher 实现渐进增强
+- Use nested routes and layouts
+- loader loads server-side data
+- action handles form submissions
+- useFetcher enables progressive enhancement
 
-## 数据管理
-- loader/action 直接访问数据库
-- 使用 Session 管理用户状态
-- Cookie 管理客户端偏好
+## Data Management
+- loader/action access the database directly
+- Use Session to manage user state
+- Cookie for client preference management
 
 ## Deployment
-- 适配 Cloudflare Pages
-- 或部署到 Fly.io / Vercel
-- Environment variable management配置
+- Target Cloudflare Pages
+- Or deploy to Fly.io / Vercel
+- Manage environment variables per deployment target
 
 ## Usage Scenarios
 
@@ -3198,9 +3198,9 @@ Save as .cursor/rules/*.mdc or AGENTS.md. The AI coding tool loads these convent
   },
   {
     slug: "cursor-tauri-rules",
-    title: "Cursor Tauri 桌面应用开发规则",
+    title: "Cursor Tauri Desktop App Development Rules",
     category: "cursor",
-    description: "Tauri 桌面应用项目中 Cursor 的 Rust 后端和前端编码规范。",
+    description: "Coding standards for Cursor with Tauri desktop app projects covering Rust backend and frontend.",
     icon: "🖥️",
     tags: ["cursor", "tauri", "desktop"],
     updatedAt: "2026-05-11",
@@ -3208,21 +3208,21 @@ Save as .cursor/rules/*.mdc or AGENTS.md. The AI coding tool loads these convent
     content: `# Tauri Desktop App Standards
 
 ## Project Structure
-- 前端使用 React/Vue/Svelte
-- Rust 后端在 src-tauri/
-- 命令在 Rust 中定义
-- 事件在前后端间传递
+- Frontend uses React/Vue/Svelte
+- Rust backend lives in src-tauri/
+- Commands are defined in Rust
+- Events bridge frontend and backend
 
-## Rust 后端
-- 使用 tauri::command 导出函数
-- 错误处理返回 Result
-- 文件系统操作使用安全 API
-- 数据库使用 SQLite
+## Rust Backend
+- Use tauri::command to export functions
+- Return Result for error handling
+- Use safe APIs for filesystem operations
+- SQLite for the database
 
-## 前端
-- 调用 @tauri-apps/api
-- 窗口管理使用 Webview API
-- 系统托盘和菜单配置
+## Frontend
+- Call @tauri-apps/api from the JavaScript side
+- Window management via Webview API
+- System tray and menu configuration
 
 ## Usage Scenarios
 
@@ -3237,32 +3237,32 @@ Save as .cursor/rules/*.mdc or AGENTS.md. The AI coding tool loads these convent
   },
   {
     slug: "cursor-supabase-rules",
-    title: "Cursor Supabase 后端开发规则",
+    title: "Cursor Supabase Backend Development Rules",
     category: "cursor",
-    description: "Supabase BaaS 项目中使用 Cursor 的数据库策略和行级安全规则。",
+    description: "Database strategies and row-level security rules for Supabase BaaS projects in Cursor.",
     icon: "⚡",
     tags: ["cursor", "supabase", "database"],
     updatedAt: "2026-05-11",
     appliesTo: "Cursor 0.40+",
-    content: `# Cursor Supabase 后端开发规则
+    content: `# Cursor Supabase Backend Development Rules
 
-## 数据库设计
-- 使用 PostgreSQL 原生特性
-- 行级安全 RLS 策略
-- 实时订阅启用 Realtime
-- 存储桶管理文件上传
+## Database Design
+- Leverage native PostgreSQL features
+- Row-Level Security (RLS) policies
+- Enable Realtime for live subscriptions
+- Manage file uploads with Storage buckets
 
-## 认证
-- 内置邮箱/OAuth 认证
-- 自定义 JWT 声明
-- 用户元数据管理
-- 角色权限控制
+## Authentication
+- Built-in email/OAuth authentication
+- Custom JWT claims
+- User metadata management
+- Role-based access control
 
 ## API
-- 自动生成 RESTful API
-- 使用 PostgREST 过滤查询
-- Edge Functions 自定义逻辑
-- 数据库函数调用
+- Auto-generated RESTful API
+- Use PostgREST for filtered queries
+- Edge Functions for custom logic
+- Database function calls
 
 ## Usage Scenarios
 
@@ -3277,32 +3277,32 @@ Save as .cursor/rules/*.mdc or AGENTS.md. The AI coding tool loads these convent
   },
   {
     slug: "cursor-stripe-rules",
-    title: "Cursor Stripe 支付集成规则",
+    title: "Cursor Stripe Payment Integration Rules",
     category: "cursor",
-    description: "Stripe 支付集成项目中使用 Cursor 的结算流程和 Webhook 规范。",
+    description: "Checkout flow and Webhook standards for Stripe payment integration projects in Cursor.",
     icon: "💳",
     tags: ["cursor", "stripe", "payment"],
     updatedAt: "2026-05-11",
     appliesTo: "Cursor 0.40+",
-    content: `# Cursor Stripe 支付集成规则
+    content: `# Cursor Stripe Payment Integration Rules
 
-## 结账流程
-- 使用 Stripe Checkout 或 Payment Element
-- 创建 PaymentIntent 处理支付
-- 订阅管理使用 Stripe Billing
-- Webhook 处理异步事件
+## Checkout Flow
+- Use Stripe Checkout or Payment Element
+- Create PaymentIntent to handle payments
+- Manage subscriptions with Stripe Billing
+- Handle async events via Webhooks
 
-## Webhook 安全
-- 验证 Stripe 签名
-- 幂等键防止重复处理
-- 异步处理耗时任务
-- 日志记录所有事件
+## Webhook Security
+- Verify Stripe signatures on every event
+- Use idempotency keys to prevent duplicate processing
+- Process time-consuming tasks asynchronously
+- Log every event for audit trail
 
-## 数据模型
-- Customer 对象对应用户
-- Subscription 映射会员计划
-- Product/Price 管理定价
-- Invoice 记录账单
+## Data Model
+- Customer object maps to a user
+- Subscription maps to a membership plan
+- Product/Price manages pricing tiers
+- Invoice records billing history
 
 ## Usage Scenarios
 
@@ -3317,25 +3317,25 @@ Save as .cursor/rules/*.mdc or AGENTS.md. The AI coding tool loads these convent
   },
   {
     slug: "claude-code-debugging",
-    title: "Claude Code 调试修复 Prompt",
+    title: "Claude Code Debugging & Fix Prompts",
     category: "claude",
-    description: "用 Claude Code 高效调试代码的 Prompt 模板和调试工作流。",
+    description: "Prompt templates and debugging workflow for efficient code debugging with Claude Code.",
     icon: "🐛",
-    tags: ["claude-code", "调试", "prompt"],
+    tags: ["claude-code", "debugging", "prompt"],
     updatedAt: "2026-05-11",
-    content: `# Claude Code 调试修复 Prompt
+    content: `# Claude Code Debugging & Fix Prompts
 
-## 分析错误
-"分析这个错误堆栈：粘贴错误日志。导致这个错误的原因是什么？如何修复？"
+## Error Analysis
+"Analyze this error stack trace: paste error log here. What caused this error? How do I fix it?"
 
-## 定位 Bug
-"在 src/components/UserList.tsx 中，列表在第二次渲染时显示空白。检查代码找出原因并提供修复。"
+## Locate Bug
+"In src/components/UserList.tsx, the list renders blank on the second render. Inspect the code, identify the root cause, and provide a fix."
 
-## Performance分析
-"分析这个函数（粘贴代码）的性能瓶颈，提供优化方案并解释为什么新方案更快。"
+## Performance Analysis
+"Analyze the performance bottleneck in this function (paste code). Provide an optimized version and explain why it is faster."
 
-## Security审计
-"审查这段用户输入处理代码，找出安全漏洞并提供修复方案。重点关注 XSS 和 SQL 注入。"
+## Security Audit
+"Review this user input handling code. Identify security vulnerabilities and provide fixes. Focus on XSS and SQL injection."
 
 ## Usage Scenarios
 
@@ -3350,31 +3350,31 @@ Before starting a Claude Code session, paste the prompt template and replace pla
   },
   {
     slug: "general-code-security",
-    title: "AI 编程安全规范指南",
+    title: "AI Coding Security Standards Guide",
     category: "general",
-    description: "使用 AI 编程工具时的安全编码规范，防止引入漏洞。",
+    description: "Secure coding conventions when using AI coding tools, to prevent introducing vulnerabilities.",
     icon: "🔒",
-    tags: ["AI", "安全", "最佳实践"],
+    tags: ["AI", "security", "best-practices"],
     updatedAt: "2026-05-11",
-    content: `# AI 编程安全规范指南
+    content: `# AI Coding Security Standards Guide
 
-## 输入验证
-- 永远不要信任用户输入
-- 使用白名单校验
-- SQL 参数化查询防注入
-- XSS 防护使用转义
+## Input Validation
+- Never trust user input — validate everything at the boundary
+- Use whitelist-based validation
+- Use parameterized SQL queries to prevent injection
+- Escape output to prevent XSS
 
 ## Authentication & Authorization
-- 密码使用 bcrypt 哈希
-- JWT 令牌设置合理过期时间
-- API Key 通过环境变量注入
-- 最小权限原则
+- Hash passwords with bcrypt
+- Set reasonable JWT token expiration times
+- Inject API keys via environment variables only
+- Apply the principle of least privilege
 
-## AI 生成代码审查
-- 检查 AI 生成的 SQL 查询
-- 验证认证逻辑完整性
-- 审计文件路径拼接
-- 不使用 AI 生成的密码学代码
+## AI-Generated Code Review
+- Inspect all AI-generated SQL queries for injection paths
+- Verify the integrity of authentication logic
+- Audit file path concatenation for traversal vulnerabilities
+- Never use AI-generated cryptographic code — roll it by hand or use a vetted library
 
 ## Applicable Scenarios
 
