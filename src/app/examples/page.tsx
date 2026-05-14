@@ -101,22 +101,25 @@ export default function ExamplesPage() {
 
       <div className="space-y-10">
         {examples.map((ex) => (
-          <section key={ex.label} className="rounded-2xl border border-zinc-200 bg-white dark:border-zinc-800 dark:bg-zinc-900 overflow-hidden">
-            <div className="border-b border-zinc-100 bg-zinc-50/50 px-6 py-3 dark:border-zinc-800 dark:bg-zinc-900/50">
-              <h2 className="text-sm font-semibold text-zinc-900 dark:text-zinc-100">{ex.label}</h2>
+          <section key={ex.label} className="overflow-hidden rounded-xl border border-zinc-800 bg-zinc-950">
+            <div className="flex items-center gap-1.5 border-b border-zinc-800 px-4 py-2.5">
+              <div className="h-2.5 w-2.5 rounded-full bg-zinc-700" />
+              <div className="h-2.5 w-2.5 rounded-full bg-zinc-700" />
+              <div className="h-2.5 w-2.5 rounded-full bg-zinc-700" />
+              <span className="ml-2 text-xs text-zinc-600">{ex.label}</span>
             </div>
 
             <div className="grid gap-0 lg:grid-cols-3">
               {/* Input */}
-              <div className="border-b border-zinc-100 p-5 dark:border-zinc-800 lg:border-b-0 lg:border-r">
-                <p className="mb-2 text-xs font-semibold uppercase tracking-wider text-zinc-400">Input</p>
-                <pre className="overflow-x-auto text-xs leading-relaxed text-zinc-600 dark:text-zinc-400 font-mono">{ex.packageJson}</pre>
+              <div className="border-b border-zinc-800 p-5 lg:border-b-0 lg:border-r">
+                <p className="mb-3 text-[10px] font-semibold uppercase tracking-wider text-zinc-600">Input</p>
+                <pre className="overflow-x-auto text-xs leading-relaxed text-green-400 font-mono">{ex.packageJson}</pre>
               </div>
 
               {/* Detected */}
-              <div className="border-b border-zinc-100 p-5 dark:border-zinc-800 lg:border-b-0 lg:border-r">
-                <p className="mb-2 text-xs font-semibold uppercase tracking-wider text-zinc-400">Detected Stack</p>
-                <ul className="space-y-1 text-xs text-zinc-600 dark:text-zinc-400">
+              <div className="border-b border-zinc-800 p-5 lg:border-b-0 lg:border-r">
+                <p className="mb-3 text-[10px] font-semibold uppercase tracking-wider text-zinc-600">Detected Stack</p>
+                <ul className="space-y-1 text-xs text-zinc-400">
                   {ex.detected.map((d) => (
                     <li key={d}>- {d}</li>
                   ))}
@@ -125,12 +128,12 @@ export default function ExamplesPage() {
 
               {/* Standards */}
               <div className="p-5">
-                <p className="mb-2 text-xs font-semibold uppercase tracking-wider text-green-600 dark:text-green-400">Generated Standards</p>
+                <p className="mb-3 text-[10px] font-semibold uppercase tracking-wider text-zinc-500">Generated Standards</p>
                 <ul className="space-y-2.5">
                   {ex.standards.map((s) => (
                     <li key={s.rule}>
-                      <p className="text-xs font-medium text-zinc-800 dark:text-zinc-200">{s.rule}</p>
-                      <p className="mt-0.5 text-xs text-zinc-400">{s.why}</p>
+                      <p className="text-xs font-medium text-zinc-200">{s.rule}</p>
+                      <p className="mt-0.5 text-xs text-zinc-500">{s.why}</p>
                     </li>
                   ))}
                 </ul>

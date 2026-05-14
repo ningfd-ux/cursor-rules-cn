@@ -193,18 +193,26 @@ ${packageJson}
 ${depAnalysis}
 Strictness: ${strictnessMap[strictness] || strictnessMap.moderate}
 
-Required sections (in order):
-1. Detected Architecture — summarize the stack decisions (e.g. "Next.js App Router + Prisma ORM + Zod validation")
-2. Server/Client Boundaries — which code runs where, what's forbidden in each context
-3. Data Flow — fetching patterns, mutation patterns, caching strategy
-4. File Structure — naming conventions, directory layout for the detected stack
-5. Error Handling — exact patterns per layer (server actions, API routes, client)
-6. Testing — specific testing library usage if detected, otherwise general approach
-7. Anti-Patterns — 4-6 common mistakes developers make with this specific stack
+Required sections (in order). Use ## for section headings. Each section gets 2-4 specific bullet rules.
+DO NOT write generic advice like "write clean code" or "use TypeScript." Every rule must reference a SPECIFIC library detected in the package.json.
 
-FORMAT: Each rule is a bullet (-). Be terse. Be specific. Reference libraries by name.
-DO NOT explain. DO NOT add markdown headers beyond the sections above. DO NOT preface with "Here are..." or "Below is..." or "I've generated..." or any meta-commentary.
-A real .cursorrules/AGENTS.md file starts immediately with content. Do that.`;
+## Architecture Standards
+- Framework-specific structural rules. Name the framework (e.g. "Next.js App Router").
+
+## Data Fetching
+- Server/Client boundary rules. Where and how data is fetched. Name specific patterns.
+
+## Validation Rules
+- Input validation rules. Name the specific validation library (Zod, Pydantic, etc.).
+
+## Database Conventions
+- Database interaction patterns. Name the ORM (Prisma, SQLAlchemy, etc.) and transaction rules.
+
+## AI Coding Constraints
+- 3-5 rules that prevent common AI-generated mistakes with this specific stack.
+
+FORMAT: Each rule is a bullet (-). Reference libraries by NAME. Do NOT preface with meta-commentary.
+Never write "Use clean code" or "Write maintainable code." Those are not standards — they are platitudes.`;
 }
 
 async function fetchPackageJsonFromRepo(repoUrl: string): Promise<string | null> {
