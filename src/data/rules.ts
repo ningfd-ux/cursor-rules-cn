@@ -1717,64 +1717,64 @@ Save this content directly to your project. Adjust tech stack names and versions
   },
   {
     slug: "claude-code-workflow-guide",
-    title: "Claude Code CLI 命令行实战指南",
+    title: "Claude Code CLI — Practical Guide",
     category: "tutorial",
-    description: "Claude Code 命令行工具的高效使用指南和实战场景。",
+    description: "Efficient usage guide and real-world scenarios for the Claude Code CLI tool.",
     icon: "📖",
-    tags: ["claude-code", "cli", "教程", "工作流"],
+    tags: ["claude-code", "cli", "tutorial", "workflow"],
     updatedAt: "2026-05-10",
-    content: `# Claude Code CLI 工作流实战指南
+    content: `# Claude Code CLI — Practical Workflow Guide
 
-## 快速开始
+## Quick Start
 
-Claude Code 是 Anthropic 推出的命令行 AI 编程助手。
+Claude Code is Anthropic's CLI-based AI coding assistant.
 
-### 安装
+### Installation
 
 \'\'\`bash
 npm install -g @anthropic-ai/claude-code
 \'\'\`
 
-### 基础用法
+### Basic Usage
 
 \'\'\`bash
-# 在当前目录启动
+# Start in current directory
 claude
 
-# 直接提问
-claude "分析这个项目的代码结构"
+# Ask a direct question
+claude "Analyze the code structure of this project"
 
-# 代码审查
-claude "审查 src/ 目录下的代码质量"
+# Code review
+claude "Review code quality in the src/ directory"
 \'\'\`
 
-## 实战场景
+## Real-World Scenarios
 
-### 场景 1：代码审查
+### Scenario 1: Code Review
 
-在 CI 流程中集成 Claude Code：
+Integrate Claude Code in your CI pipeline:
 
 \'\'\`bash
-claude "审查以下文件的变更，关注：1. 逻辑错误 2. 性能问题 3. 安全漏洞"
+claude "Review the changes. Focus on: 1. Logic errors 2. Performance issues 3. Security vulnerabilities"
 \'\'\`
 
-### 场景 2：批量重构
+### Scenario 2: Batch Refactoring
 
 \'\'\`bash
-claude "将所有 any 类型替换为具体的类型定义，保持功能不变"
+claude "Replace all any types with specific type definitions, keeping behavior unchanged"
 \'\'\`
 
-### 场景 3：测试生成
+### Scenario 3: Test Generation
 
 \'\'\`bash
-claude "为 src/utils/ 下的工具函数生成 pytest 测试，覆盖边界情况"
+claude "Generate pytest tests for utility functions under src/utils/ covering edge cases"
 \'\'\`
 
 ## Best Practices
 
-- 每个对话聚焦一个任务
-- 提供足够的上下文文件
-- 审查所有代码变更
+- Focus each conversation on one task
+- Provide enough file context
+- Review all code changes before committing
 
 ## Learning Path
 
@@ -1802,17 +1802,17 @@ Save this content directly to your project. Adjust tech stack names and versions
   },
   {
     slug: "cursor-vue-best-practices",
-    title: "Vue 3 + Cursor 高效开发实战教程",
+    title: "Vue 3 + Cursor — Practical Development Guide",
     category: "tutorial",
-    description: "在实际 Vue 3 项目中使用 Cursor AI 编程的高效工作流和实战技巧。",
+    description: "Efficient workflow and practical tips for Vue 3 development with Cursor AI.",
     icon: "📖",
-    tags: ["cursor", "vue", "教程", "实战"],
+    tags: ["cursor", "vue", "tutorial", "practical"],
     updatedAt: "2026-05-10",
-    content: `# Vue 3 + Cursor 高效开发实战
+    content: `# Vue 3 + Cursor — Practical Development
 
-## Configuration规则
+## Configuration Rules
 
-在 .cursorrules 中配置 Vue 3 项目上下文：
+Configure Vue 3 project context in your standards file:
 
 \'\'\`
 # Tech Stack
@@ -1823,33 +1823,33 @@ Save this content directly to your project. Adjust tech stack names and versions
 - Vue Router 4
 - UnoCSS / Tailwind CSS
 
-# 组件规范
+# Component Standards
 - Use <script setup lang="ts">
-- 组件名使用 PascalCase
-- 页面组件放在 pages/ 目录
-- 公共组件放在 components/ 目录
+- Use PascalCase for component names
+- Page components go in pages/ directory
+- Shared components go in components/ directory
 
-# 状态管理
-- 全局状态使用 Pinia
-- 本地状态使用 ref/reactive
-- 跨组件通信使用 provide/inject
+# State Management
+- Use Pinia for global state
+- Use ref/reactive for local state
+- Use provide/inject for cross-component communication
 
-# API 层
-- API 请求封装在 api/ 目录
-- 使用 axios 实例统一配置
-- 请求和响应拦截器处理错误
+# API Layer
+- Encapsulate API requests in api/ directory
+- Use a configured axios instance
+- Handle errors in request/response interceptors
 \'\'\`
 
-## 日常开发场景
+## Daily Development Scenarios
 
-### 创建新组件
-在 Cursor 中输入："在 components/ 下创建 UserCard 组件，接收 user 对象 prop，显示头像和用户名，支持 click 事件。"
+### Create a New Component
+Enter in Cursor: "Create a UserCard component under components/ that receives a user object prop, displays avatar and name, supports click events."
 
-### 添加路由
-"在 router/index.ts 中添加 /users/:id 路由，使用 UserDetail 组件，支持懒加载。"
+### Add a Route
+"Add a /users/:id route in router/index.ts using the UserDetail component with lazy loading."
 
 ### State Management
-"创建一个 useAuth composable，包含登录、登出和 token 管理，支持持久化。
+"Create a useAuth composable with login, logout, and token management. Support persistence.
 
 ## Learning Path
 
@@ -1879,19 +1879,19 @@ Save this content directly to your project. Adjust tech stack names and versions
 
   {
     slug: "cursor-rust-rules",
-    title: "Cursor Rust 开发编码规范规则",
+    title: "Rust Coding Standards for Cursor",
     category: "cursor",
-    description: "Rust 项目中使用 Cursor 的编码规范和所有权管理最佳实践。",
+    description: "Coding standards and ownership management best practices for Rust projects with Cursor.",
     icon: "🦀",
-    tags: ["cursor", "rust", "系统编程"],
+    tags: ["cursor", "rust", "systems-programming"],
     updatedAt: "2026-05-11",
     appliesTo: "Cursor 0.40+",
-    content: `# Cursor Rust 开发编码规范规则
+    content: `# Rust Coding Standards for AI-Assisted Development
 
 ## Code Style
-- 遵循 Rust 官方风格指南
-- 使用 rustfmt 格式化代码
-- 所有公共项必须写文档注释（///）
+- Follow the Rust official style guide
+- Format code with rustfmt
+- All public items must have doc comments (///)
 - 使用 clippy 保持代码质量
 
 ## 所有权与借用
