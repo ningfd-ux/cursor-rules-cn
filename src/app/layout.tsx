@@ -14,7 +14,7 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-const gaId = "G-4ZJT8YPWT8";
+const gaId = "G-9QVY2VBRN4";
 
 export const metadata: Metadata = {
   title: {
@@ -71,6 +71,8 @@ export default function RootLayout({
             />
           </>
         )}
+                {/* Cloudflare Web Analytics */}
+        <script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon="{&quot;token&quot;: &quot;1ef3bf6da9ed49fea3904edcd4aeea6c&quot;}"></script>
         <link rel="alternate" type="application/rss+xml" title="RepoRules" href="https://cursorrules.fun/rss.xml" />
         <script
           type="application/ld+json"
@@ -99,3 +101,6 @@ export default function RootLayout({
     </html>
   );
 }
+
+
+
