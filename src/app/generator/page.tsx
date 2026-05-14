@@ -3,9 +3,14 @@
 import { useState } from "react";
 
 const PACKAGE_EXAMPLE = `{
+  "name": "ai-dashboard",
   "dependencies": {
-    "next": "^14.2.0",
-    "react": "^18.3.0"
+    "next": "15.0.0",
+    "react": "19.0.0",
+    "tailwindcss": "^4.0.0",
+    "prisma": "^6.0.0",
+    "zod": "^4.0.0",
+    "@tanstack/react-query": "^5.0.0"
   }
 }`;
 
@@ -166,7 +171,7 @@ export default function GeneratorPage() {
               </div>
               <div className="flex">
                 <div className="select-none border-r border-zinc-700 px-3 py-4 text-right font-mono text-xs leading-relaxed text-zinc-600">
-                  {Array.from({ length: 8 }, (_, i) => (
+                  {Array.from({ length: 12 }, (_, i) => (
                     <div key={i}>{i + 1}</div>
                   ))}
                 </div>
@@ -175,8 +180,8 @@ export default function GeneratorPage() {
                   onChange={(e) => setPackageJson(e.target.value)}
                   placeholder={PACKAGE_EXAMPLE}
                   rows={7}
-                  className="flex-1 resize-y bg-transparent px-4 py-4 font-mono text-xs leading-relaxed text-green-400 placeholder-zinc-600 outline-none"
-                  style={{ minHeight: "200px" }}
+                  className="flex-1 resize-y bg-transparent px-4 py-4 font-mono text-sm leading-relaxed text-green-400 placeholder-zinc-600 outline-none"
+                  style={{ minHeight: "420px" }}
                   disabled={isLoading}
                 />
               </div>
