@@ -18,11 +18,11 @@ const gaId = "G-4ZJT8YPWT8";
 
 export const metadata: Metadata = {
   title: {
-    default: "AI Coding Standards Generator — Repository-Aware Rules for AI Code Quality",
-    template: "%s | AI Coding Standards Generator",
+    default: "RepoRules — Repository-Aware AI Coding Standards",
+    template: "%s | RepoRules",
   },
   description:
-    "Generate project-specific coding standards from your repo. Analyzes your dependencies and outputs repository-aware rules for Cursor, Claude Code, Copilot — not generic templates.",
+    "Generate repository-aware coding standards from your repo. Paste your package.json, get project-specific standards for Cursor, Claude Code, and Copilot.",
   keywords: [
     "AI coding standards",
     "cursor rules generator",
@@ -38,8 +38,8 @@ export const metadata: Metadata = {
     google: "googlebfdc59878de2548f.html",
   },
   openGraph: {
-    title: "AI Coding Standards Generator — Repository-Aware Rules",
-    description: "Generate project-specific coding standards from your repo. Analyzes dependencies, outputs rules for Cursor, Claude Code, Copilot.",
+    title: "RepoRules — Repository-Aware AI Coding Standards",
+    description: "Generate repository-aware coding standards from your repo. Analyzes your dependencies, outputs standards for Cursor, Claude Code, Copilot.",
     type: "website",
     locale: "en_US",
   },
@@ -71,14 +71,14 @@ export default function RootLayout({
             />
           </>
         )}
-        <link rel="alternate" type="application/rss+xml" title="AI Coding Standards Generator" href="https://cursorrules.fun/rss.xml" />
+        <link rel="alternate" type="application/rss+xml" title="RepoRules" href="https://cursorrules.fun/rss.xml" />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
             __html: JSON.stringify({
               "@context": "https://schema.org",
               "@type": "WebSite",
-              name: "AI Coding Standards Generator",
+              name: "RepoRules",
               url: "https://cursorrules.fun/",
               description:
                 "Generate repository-aware AI coding standards. Analyzes your dependencies, outputs rules for Cursor, Claude Code, Copilot and AI agents.",

@@ -9,7 +9,7 @@ export default function Header() {
         <Link href="/" className="flex shrink-0 items-center gap-2">
           <span className="text-xl">⚡</span>
           <span className="hidden text-lg font-bold text-zinc-900 dark:text-zinc-100 sm:inline">
-            AI Coding Standards
+            RepoRules
           </span>
         </Link>
         <div className="flex-1 px-4">
@@ -34,6 +34,12 @@ export default function Header() {
           >
             GitHub
           </a>
+          <Link
+            href="/generator"
+            className="rounded-md bg-blue-600 px-3 py-1.5 text-sm font-medium text-white transition-colors hover:bg-blue-700"
+          >
+            Generate
+          </Link>
         </nav>
       </div>
     </header>
