@@ -127,9 +127,6 @@ export default function GeneratorPage() {
   return (
     <div className="mx-auto max-w-4xl px-4 py-12">
       <section className="mb-10 text-center">
-        <span className="mb-3 inline-block rounded-full bg-green-100 px-3 py-1 text-xs font-medium text-green-600 dark:bg-green-900 dark:text-green-300">
-          NEW · AI-Powered
-        </span>
         <h1 className="mb-3 text-3xl font-bold tracking-tight text-zinc-900 dark:text-zinc-100 sm:text-4xl">
           Generate AI coding standards <span className="text-green-600">from your repo</span>
         </h1>
@@ -137,36 +134,6 @@ export default function GeneratorPage() {
           Paste your package.json. AI detects your stack and generates project-specific standards — not generic advice.
         </p>
 
-        {/* === Step 5: Proof Showcase === */}
-        <div className="mx-auto max-w-2xl rounded-xl border border-green-100 bg-green-50 p-5 text-left dark:border-green-900 dark:bg-green-950 sm:p-6">
-          <div className="mb-3 flex items-center gap-2">
-            <svg className="h-4 w-4 text-green-600 dark:text-green-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-              <path strokeLinecap="round" strokeLinejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-            </svg>
-            <span className="text-sm font-medium text-green-700 dark:text-green-300">What the AI detects and generates</span>
-          </div>
-          <div className="grid gap-3 text-xs sm:grid-cols-3">
-            <div>
-              <p className="font-medium text-zinc-700 dark:text-zinc-300">Input</p>
-              <p className="mt-0.5 text-zinc-500 dark:text-zinc-400">Your package.json or repo URL</p>
-              <p className="mt-1 rounded bg-white px-2 py-1 font-mono text-zinc-400 dark:bg-zinc-800 dark:text-zinc-500">next@15, react@19, prisma, zod, tailwindcss...</p>
-            </div>
-            <div>
-              <p className="font-medium text-zinc-700 dark:text-zinc-300">Detected</p>
-              <p className="mt-0.5 text-zinc-500 dark:text-zinc-400">Next.js 15 · React 19 · Tailwind v4 · Zod</p>
-              <div className="mt-1 space-y-0.5 text-zinc-500 dark:text-zinc-400">
-                <p>- Server/Client boundaries</p>
-                <p>- Data fetch: Server Actions</p>
-                <p>- Validation: Zod schemas</p>
-              </div>
-            </div>
-            <div>
-              <p className="font-medium text-zinc-700 dark:text-zinc-300">Generated</p>
-              <p className="mt-0.5 text-zinc-500 dark:text-zinc-400">12 context-specific rules</p>
-              <p className="mt-1 rounded bg-white px-2 py-1 font-mono text-zinc-400 dark:bg-zinc-800 dark:text-zinc-500">.cursorrules · AGENTS.md · CLAUDE.md</p>
-            </div>
-          </div>
-        </div>
       </section>
 
       <section className="mb-10">
@@ -174,15 +141,30 @@ export default function GeneratorPage() {
           {/* Section A: Repo Context (primary, always visible) */}
           <div className="mb-6">
             <h3 className="mb-3 text-sm font-semibold text-zinc-900 dark:text-zinc-100">Repo Context</h3>
-            <p className="mb-3 text-xs text-zinc-400">Paste your package.json — AI analyzes dependencies to generate specific standards.</p>
-            <textarea
-              value={packageJson}
-              onChange={(e) => setPackageJson(e.target.value)}
-              placeholder={PACKAGE_EXAMPLE}
-              rows={7}
-              className="w-full rounded-lg border border-zinc-300 bg-white px-4 py-3 font-mono text-xs leading-relaxed focus:border-green-500 focus:outline-none focus:ring-2 focus:ring-green-500/20 dark:border-zinc-700 dark:bg-zinc-800 dark:text-zinc-200"
-              disabled={isLoading}
-            />
+            <p className="mb-3 text-xs text-zinc-500 dark:text-zinc-400">Paste your package.json. AI analyzes your actual dependencies to generate project-specific standards.</p>
+            <div className="overflow-hidden rounded-lg border border-zinc-700 bg-zinc-900">
+              <div className="flex items-center gap-1.5 border-b border-zinc-700 px-4 py-2">
+                <div className="h-2.5 w-2.5 rounded-full bg-red-500" />
+                <div className="h-2.5 w-2.5 rounded-full bg-yellow-500" />
+                <div className="h-2.5 w-2.5 rounded-full bg-green-500" />
+              </div>
+              <div className="flex">
+                <div className="select-none border-r border-zinc-700 px-3 py-4 text-right font-mono text-xs leading-relaxed text-zinc-600">
+                  {Array.from({ length: 8 }, (_, i) => (
+                    <div key={i}>{i + 1}</div>
+                  ))}
+                </div>
+                <textarea
+                  value={packageJson}
+                  onChange={(e) => setPackageJson(e.target.value)}
+                  placeholder={PACKAGE_EXAMPLE}
+                  rows={7}
+                  className="flex-1 resize-y bg-transparent px-4 py-4 font-mono text-xs leading-relaxed text-green-400 placeholder-zinc-600 outline-none"
+                  style={{ minHeight: "200px" }}
+                  disabled={isLoading}
+                />
+              </div>
+            </div>
 
             {/* GitHub Import (expandable, below textarea) */}
             <div className="mt-3">

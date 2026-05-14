@@ -38,31 +38,28 @@ export default function Home() {
         </div>
         <div className="mt-10 hidden w-full max-w-md lg:mt-0 lg:block">
           <div className="overflow-hidden rounded-xl border border-zinc-200 bg-zinc-900 dark:border-zinc-700">
-            <div className="flex items-center gap-1.5 border-b border-zinc-700 px-4 py-3">
-              <div className="h-3 w-3 rounded-full bg-red-500" />
-              <div className="h-3 w-3 rounded-full bg-yellow-500" />
-              <div className="h-3 w-3 rounded-full bg-green-500" />
+            <div className="flex items-center gap-1.5 border-b border-zinc-700 px-4 py-2.5">
+              <div className="h-2.5 w-2.5 rounded-full bg-zinc-600" />
+              <div className="h-2.5 w-2.5 rounded-full bg-zinc-600" />
+              <div className="h-2.5 w-2.5 rounded-full bg-zinc-600" />
+              <span className="ml-2 text-[10px] text-zinc-600">package.json → standards</span>
             </div>
-            <pre className="overflow-x-auto p-5 font-mono text-xs leading-relaxed text-green-400">{`// package.json
-{
-  "next": "^15.0",
-  "react": "^19.0",
-  "tailwindcss": "^4.0",
-  "prisma": "^6.0",
-  "zod": "^3.23"
-}
+            <pre className="overflow-x-auto p-5 font-mono text-xs leading-relaxed">{`<span class="text-zinc-500">// Input</span>
+<span class="text-blue-400">{</span>
+  <span class="text-green-400">"next"</span>: <span class="text-orange-300">"^15.0"</span>,
+  <span class="text-green-400">"react"</span>: <span class="text-orange-300">"^19.0"</span>,
+  <span class="text-green-400">"prisma"</span>: <span class="text-orange-300">"^6.0"</span>,
+  <span class="text-green-400">"zod"</span>: <span class="text-orange-300">"^3.23"</span>
+<span class="text-blue-400">}</span>
 
-// Detected stack
-Next.js 15 → App Router
-React 19 → Server Components
-Prisma 6 → ORM + migrations
-Zod → validation layer
+<span class="text-zinc-500">// Detected</span>
+<span class="text-zinc-400">Next.js 15</span> → <span class="text-white">App Router</span>
+<span class="text-zinc-400">Prisma 6</span> → <span class="text-white">ORM</span>
 
-// Generated standards
-- Prefer Server Components
-- Never fetch in client components
-- Wrap mutations in transactions
-- Validate all input with Zod`}</pre>
+<span class="text-zinc-500">// Standards</span>
+<span class="text-white">Prefer Server Components</span>
+<span class="text-white">Use Prisma transactions</span>
+<span class="text-white">Validate with Zod</span>`}</pre>
           </div>
         </div>
       </section>
