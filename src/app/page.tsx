@@ -5,52 +5,67 @@ import { rules, categories } from "@/data/rules";
 export default function Home() {
   return (
     <div className="mx-auto max-w-5xl px-4 py-12">
-      {/* Hero */}
-      <section className="mb-12 text-center">
-        <span className="mb-4 inline-block rounded-full bg-green-100 px-3 py-1 text-xs font-medium text-green-600 dark:bg-green-900 dark:text-green-300">
-          Repository-aware · Not template-based · Engineering-first
-        </span>
-        <h1 className="mb-4 text-3xl font-bold tracking-tight text-zinc-900 dark:text-zinc-100 sm:text-4xl">
-          Make AI-generated code <span className="text-blue-600">maintainable</span>
-        </h1>
-        <p className="mx-auto mb-6 max-w-2xl text-lg leading-relaxed text-zinc-500 dark:text-zinc-400">
-          Paste your repo. Get project-specific coding standards based on your actual
-          dependencies — not generic advice. Works with Cursor, Claude Code, Copilot and AI agents.
-        </p>
-        <div className="mb-6 flex flex-wrap items-center justify-center gap-3">
-          <Link
-            href="/generator"
-            className="inline-flex items-center gap-2 rounded-lg bg-blue-600 px-6 py-3 text-base font-medium text-white shadow-sm transition-colors hover:bg-blue-700"
-          >
-            <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-              <path strokeLinecap="round" strokeLinejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z" />
-            </svg>
-            Generate from your repo
-          </Link>
-          <Link
-            href="/examples"
-            className="inline-flex items-center gap-2 rounded-lg border border-zinc-200 bg-white px-5 py-3 text-sm font-medium text-zinc-700 shadow-sm transition-colors hover:bg-zinc-50 dark:border-zinc-700 dark:bg-zinc-800 dark:text-zinc-300 dark:hover:bg-zinc-700"
-          >
-            View Example Output
-          </Link>
+      {/* Hero — 100vh, left copy / right code preview */}
+      <section className="mb-12 flex min-h-[90vh] flex-col items-center justify-center lg:flex-row lg:gap-16">
+        <div className="max-w-xl text-center lg:text-left">
+          <span className="mb-4 inline-block rounded-full bg-green-100 px-3 py-1 text-xs font-medium text-green-600 dark:bg-green-900 dark:text-green-300">
+            Repository-aware · Not template-based · Engineering-first
+          </span>
+          <h1 className="mb-4 text-4xl font-bold tracking-tight text-zinc-900 dark:text-zinc-100 sm:text-5xl lg:text-6xl">
+            Make AI-generated code <span className="text-blue-600">maintainable</span>
+          </h1>
+          <p className="mb-8 text-lg leading-relaxed text-zinc-500 dark:text-zinc-400">
+            Generate repository-aware AI coding standards for Cursor, Claude Code, Copilot and AI agents.
+            Not generic advice — every standard is based on your actual dependencies.
+          </p>
+          <div className="flex flex-wrap items-center gap-3 lg:justify-start justify-center">
+            <Link
+              href="/generator"
+              className="inline-flex items-center gap-2 rounded-lg bg-blue-600 px-6 py-3 text-base font-medium text-white shadow-sm transition-colors hover:bg-blue-700"
+            >
+              <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z" />
+              </svg>
+              Generate Standards
+            </Link>
+            <Link
+              href="/examples"
+              className="inline-flex items-center gap-2 rounded-lg border border-zinc-200 bg-white px-5 py-3 text-sm font-medium text-zinc-700 shadow-sm transition-colors hover:bg-zinc-50 dark:border-zinc-700 dark:bg-zinc-800 dark:text-zinc-300 dark:hover:bg-zinc-700"
+            >
+              View Example Output
+            </Link>
+          </div>
+        </div>
+        <div className="mt-10 hidden w-full max-w-md lg:mt-0 lg:block">
+          <div className="overflow-hidden rounded-xl border border-zinc-200 bg-zinc-900 dark:border-zinc-700">
+            <div className="flex items-center gap-1.5 border-b border-zinc-700 px-4 py-3">
+              <div className="h-3 w-3 rounded-full bg-red-500" />
+              <div className="h-3 w-3 rounded-full bg-yellow-500" />
+              <div className="h-3 w-3 rounded-full bg-green-500" />
+            </div>
+            <pre className="overflow-x-auto p-5 font-mono text-xs leading-relaxed text-green-400">{`// package.json
+{
+  "next": "^15.0",
+  "react": "^19.0",
+  "tailwindcss": "^4.0",
+  "prisma": "^6.0",
+  "zod": "^3.23"
+}
+
+// Detected stack
+Next.js 15 → App Router
+React 19 → Server Components
+Prisma 6 → ORM + migrations
+Zod → validation layer
+
+// Generated standards
+- Prefer Server Components
+- Never fetch in client components
+- Wrap mutations in transactions
+- Validate all input with Zod`}</pre>
+          </div>
         </div>
       </section>
-
-      {/* Stats */}
-      <div className="mb-10 grid grid-cols-2 gap-3 sm:grid-cols-4">
-        {[
-          ["🎯", "Repository-aware", "actual dependencies analyzed"],
-          ["📦", "4", "output formats"],
-          ["⚡", `${categories.length}`, "tech stacks covered"],
-          ["📄", "110+", "static pages"],
-        ].map(([icon, num, label]) => (
-          <div key={label as string} className="rounded-xl border border-zinc-200 bg-white p-4 text-center dark:border-zinc-800 dark:bg-zinc-900">
-            <div className="text-2xl">{icon}</div>
-            <div className="mt-1 text-2xl font-bold text-zinc-900 dark:text-zinc-100">{num}</div>
-            <div className="text-xs text-zinc-400">{label}</div>
-          </div>
-        ))}
-      </div>
 
       {/* How it works */}
       <section className="mb-10">

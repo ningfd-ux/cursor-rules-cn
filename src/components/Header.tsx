@@ -4,8 +4,8 @@ import SearchWrapper from "@/components/SearchWrapper";
 
 export default function Header() {
   return (
-    <header className="border-b border-zinc-200 bg-white dark:border-zinc-800 dark:bg-zinc-950">
-      <div className="mx-auto flex h-16 max-w-5xl items-center justify-between gap-4 px-4">
+    <header className="sticky top-0 z-50 border-b border-zinc-200/80 bg-white/80 backdrop-blur-md dark:border-zinc-800/80 dark:bg-zinc-950/80">
+      <div className="mx-auto flex h-[72px] max-w-6xl items-center justify-between gap-4 px-6">
         <Link href="/" className="flex shrink-0 items-center gap-2">
           <span className="text-xl">⚡</span>
           <span className="hidden text-lg font-bold text-zinc-900 dark:text-zinc-100 sm:inline">
