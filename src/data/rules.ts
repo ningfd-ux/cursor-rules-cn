@@ -95,10 +95,10 @@ appliesTo: "Cursor 0.40+",
 content: `# Cursor React 开发规则
 
 ## Component Standards
-- 使用函数组件 + Hooks
+- Use functional components + Hooks
 - 避免类组件
 - 每个组件一个文件
-- 组件文件名使用 PascalCase
+- Use PascalCase for component file names
 
 ## Hooks 规则
 - 自定义 Hook 以 use 开头
@@ -128,7 +128,7 @@ Save as .cursor/rules/*.mdc or AGENTS.md. The AI coding tool loads these convent
 
 ## Related Standards
 
-- [用 Cursor 开发 Next.js 项目的完整规则](/rules/cursor-nextjs-rules)
+- [Next.js Development Standards for AI Coding](/rules/cursor-nextjs-rules)
 - [Cursor TypeScript 严格模式配置规则](/rules/cursor-typescript-rules)
 - [让 Cursor 更懂 Vue 3 的最佳开发规则](/rules/cursor-vue-rules)
 `,
@@ -144,16 +144,16 @@ updatedAt: "2026-05-02",
 appliesTo: "Cursor 0.40+",
 content: `# Cursor Next.js 项目规则
 
-## 路由规范
+## Routing Standards
 - 使用 App Router（pages 目录已废弃）
-- 布局文件使用 layout.tsx
-- 加载状态使用 loading.tsx
-- 404 页面使用 not-found.tsx
+- Use layout.tsx for layout files
+- Use loading.tsx for loading states
+- Use not-found.tsx for 404 pages
 
-## 数据获取
-- 优先使用 Server Component
+## Data Fetching
+- Prefer Server Components
 - 只在需要交互时使用 Client Component
-- API 请求封装到 lib/ 目录
+- Encapsulate API requests in lib/
 - 使用 Server Actions 处理表单
 
 ## SEO
@@ -162,7 +162,7 @@ content: `# Cursor Next.js 项目规则
 - 图片必须包含 alt 属性
 
 ## Performance
-- 图片使用 next/image
+- Use next/image for images
 - 链接使用 next/link
 - 动态导入使用 next/dynamic
 
@@ -180,8 +180,8 @@ Save as .cursor/rules/*.mdc or AGENTS.md. The AI coding tool loads these convent
 ## Related Standards
 
 - [React Development Standards for AI Coding](/rules/cursor-react-rules)
-- [Cursor Tailwind CSS 开发规则](/rules/cursor-tailwind-rules)
-- [Cursor Prisma ORM 数据层开发规则](/rules/cursor-prisma-rules)
+- [Tailwind CSS Standards for AI Coding](/rules/cursor-tailwind-rules)
+- [Prisma ORM Data Layer Standards](/rules/cursor-prisma-rules)
 `,
   },
   {
@@ -196,7 +196,7 @@ appliesTo: "Cursor 0.40+",
 content: `# Cursor Python 开发规则
 
 ## Code Style
-- 遵循 PEP 8
+- Follow PEP 8
 - Use 4-space indentation
 - 行最大长度 88（Black 默认）
 - 使用蛇形命名法
@@ -211,7 +211,7 @@ content: `# Cursor Python 开发规则
 - 依赖分组管理（dev/prod）
 - 测试使用 pytest
 
-## 文档
+## Documentation
 - 公共函数必须写 docstring
 - 使用 Google 风格的 docstring
 - README 包含安装和使用说明
@@ -229,9 +229,9 @@ Save as .cursor/rules/*.mdc or AGENTS.md. The AI coding tool loads these convent
 
 ## Related Standards
 
-- [Cursor 数据库开发 Schema 设计规则](/rules/cursor-database-rules)
-- [用 Cursor 开发 RESTful API 的编码规范](/rules/cursor-api-rules)
-- [Cursor 自动生成测试的完整规则](/rules/cursor-testing-rules)
+- [Database Schema Design Standards](/rules/cursor-database-rules)
+- [RESTful API Coding Standards](/rules/cursor-api-rules)
+- [Testing Standards for AI-Generated Code](/rules/cursor-testing-rules)
 `,
   },
   {
@@ -322,7 +322,7 @@ Save as .cursor/rules/*.mdc or AGENTS.md. The AI coding tool loads these convent
 ## Related Standards
 
 - [React Development Standards for AI Coding](/rules/cursor-react-rules)
-- [用 Cursor 开发 Next.js 项目的完整规则](/rules/cursor-nextjs-rules)
+- [Next.js Development Standards for AI Coding](/rules/cursor-nextjs-rules)
 `,
   },
   {
@@ -495,7 +495,7 @@ content: `# GitHub Copilot 通用规则
 - 配置 .github/copilot-instructions.md
 - 使用 Copilot Chat 辅助调试
 
-## 使用技巧
+## Usage Tips
 - 写清晰的注释引导生成
 - 先写函数签名再让 Copilot 填充
 - 使用 Tab 接受建议
@@ -543,7 +543,7 @@ markdown
 - Tailwind CSS
 - Prisma ORM
 
-# 编码规范
+# Coding Standards
 - 使用 Server Component 优先
 - API 路由使用 Route Handler
 - 数据库查询使用 Prisma
@@ -572,8 +572,8 @@ Save this config to '.github/copilot-instructions.md' in your project root. GitH
 
 ## Testing框架
 - Jest + React Testing Library
-- 描述性测试名称
-- AAA 模式（Arrange-Act-Assert）
+- Use descriptive test names
+- AAA pattern (Arrange-Act-Assert)
 
 ## 生成测试
 1. 打开被测文件
@@ -612,7 +612,7 @@ content: `# Windsurf AI 编程规则
 - 配置项目上下文
 - 设置代码审查级别
 
-## 使用技巧
+## Usage Tips
 - 使用自然语言描述需求
 - 利用多文件编辑能力
 - 使用 Cascade 功能
@@ -672,7 +672,7 @@ content: `# AI 编程 Prompt 终极技巧
 2. 提供上下文：相关文件的路径和关键代码
 3. 分步指令：大任务拆解为小步骤
 
-## 高级技巧
+## Advanced Techniques
 - 使用 few-shot 示例
 - 指定输出格式
 - 要求解释修改理由
@@ -816,7 +816,7 @@ content: `# Cursor Vue.js 开发规则
 ## Project Structure
 - 使用 Composition API + <script setup>
 - 避免 Options API
-- 组件文件名使用 PascalCase
+- Use PascalCase for component file names
 - 页面文件放在 pages/ 或 views/
 
 ## Component Standards
@@ -825,7 +825,7 @@ content: `# Cursor Vue.js 开发规则
 - props 必须定义类型和默认值
 - emit 事件使用 kebab-case 命名
 
-## 状态管理
+## State Management
 - 跨组件状态使用 Pinia
 - store 按功能模块拆分
 - 避免在 store 中引用组件实例
@@ -850,7 +850,7 @@ Save as .cursor/rules/*.mdc or AGENTS.md. The AI coding tool loads these convent
 
 - [React Development Standards for AI Coding](/rules/cursor-react-rules)
 - [Cursor Nuxt 3 全栈开发规则](/rules/cursor-nuxt-rules)
-- [Cursor Tailwind CSS 开发规则](/rules/cursor-tailwind-rules)
+- [Tailwind CSS Standards for AI Coding](/rules/cursor-tailwind-rules)
 `,
   },
 
@@ -900,8 +900,8 @@ Save as .cursor/rules/*.mdc or AGENTS.md. The AI coding tool loads these convent
 
 ## Related Standards
 
-- [用 Cursor 开发 RESTful API 的编码规范](/rules/cursor-api-rules)
-- [Cursor 自动生成测试的完整规则](/rules/cursor-testing-rules)
+- [RESTful API Coding Standards](/rules/cursor-api-rules)
+- [Testing Standards for AI-Generated Code](/rules/cursor-testing-rules)
 - [Cursor 中 Docker 容器化的最佳实践](/rules/cursor-docker-rules)
 `,
   },
@@ -933,7 +933,7 @@ content: `    # Cursor 测试开发规则
 - 内部模块优先使用真实实现
 - mock 数据放在 __fixtures__/ 目录
 
-## 断言规范
+## Assertion Standards
 - 每个测试只验证一个行为
 - 使用 AAA 模式（Arrange-Act-Assert）
 - 错误场景和边界情况必须覆盖
@@ -967,7 +967,7 @@ updatedAt: "2026-05-10",
 appliesTo: "Cursor 0.40+",
 content: `    # Cursor API 开发规则
 
-## 路由设计
+## Routes设计
 - RESTful 资源命名使用复数
 - 版本号放在 URL 路径中（/api/v1/）
 - 查询参数用于过滤和排序
@@ -1005,7 +1005,7 @@ Save as .cursor/rules/*.mdc or AGENTS.md. The AI coding tool loads these convent
 ## Related Standards
 
 - [Cursor GraphQL API 开发规则](/rules/cursor-graphql-rules)
-- [Cursor 数据库开发 Schema 设计规则](/rules/cursor-database-rules)
+- [Database Schema Design Standards](/rules/cursor-database-rules)
 `,
   },
 
@@ -1073,13 +1073,13 @@ content: `    # Cursor 数据库开发规则
 - 必须包含 created_at 和 updated_at
 - 外键建立索引
 
-## 查询规范
+## Query Standards
 - 避免 N+1 查询，使用 JOIN 或预加载
 - 复杂查询使用 EXPLAIN 分析
 - 大批量操作使用批量处理
 - 分页使用游标分页（cursor-based）
 
-## 迁移管理
+## Migration Management
 - 每次变更创建新的迁移文件
 - 迁移可回滚（up/down）
 - 生产环境迁移前 Review
@@ -1104,7 +1104,7 @@ Save as .cursor/rules/*.mdc or AGENTS.md. The AI coding tool loads these convent
 
 ## Related Standards
 
-- [Cursor Prisma ORM 数据层开发规则](/rules/cursor-prisma-rules)
+- [Prisma ORM Data Layer Standards](/rules/cursor-prisma-rules)
 - [Cursor Supabase 后端开发规则](/rules/cursor-supabase-rules)
 `,
   },
@@ -1231,7 +1231,7 @@ content: `    # Copilot Vue 3 开发指令
 - Pinia State Management
 
 ## Coding Standards
-- 使用 <script setup lang="ts">
+- Use <script setup lang="ts">
 - 组件名多单词（MyComponent.vue）
 - composables 放在 composables/ 目录
 - API 请求封装到 api/ 模块
@@ -1272,7 +1272,7 @@ content: `    # Copilot Python 开发指令
 - pytest + coverage
 
 ## Coding Standards
-- 遵循 PEP 8
+- Follow PEP 8
 - 使用类型注解
 - 异步优先（async/await）
 - Google 风格 docstring
@@ -1346,7 +1346,7 @@ tags: ["windsurf", "python", "后端"],
 updatedAt: "2026-05-10",
 content: `    # Windsurf Python 开发规则
 
-## 开发流程
+## Development Workflow
 - 用自然语言描述功能需求
 - Cascade 自动创建相关文件
 - AI 生成代码后运行 pytest
@@ -1358,7 +1358,7 @@ content: `    # Windsurf Python 开发规则
 
 ## Web 开发
 - FastAPI/Django 项目快速搭建
-- AI 生成 CRUD 接口
+- AI generates CRUD endpoints
 - 数据库模型自动迁移
 
 ## Testing
@@ -1459,12 +1459,12 @@ content: `    # AI 全栈开发工作流
 - 状态管理自动生成
 
 ## 后端开发
-- AI 生成 CRUD 接口
+- AI generates CRUD endpoints
 - 自动编写中间件
 - 数据库查询优化建议
 - API 文档自动生成
 
-## 部署运维
+## Deployment运维
 - Dockerfile AI 生成
 - CI 配置自动编写
 - 监控告警规则生成
@@ -1522,15 +1522,15 @@ Save this content directly to your project. Adjust tech stack names and versions
 - NextAuth.js v5
 
 # App Router 规范
-- 布局文件使用 layout.tsx
-- 加载状态使用 loading.tsx
+- Use layout.tsx for layout files
+- Use loading.tsx for loading states
 - 错误处理使用 error.tsx
-- 404 页面使用 not-found.tsx
+- Use not-found.tsx for 404 pages
 
 # 数据获取
-- 优先使用 Server Component
+- Prefer Server Components
 - 客户端交互使用 "use client"
-- API 请求封装到 lib/ 目录
+- Encapsulate API requests in lib/
 - 表单处理使用 Server Actions
 
 # 图片优化
@@ -1600,7 +1600,7 @@ Cursor 相比 Copilot 的优势：
 - 数据库：[数据库类型]
 - 部署：[部署平台]
 
-# 编码规范
+# Coding Standards
 - 代码风格：[风格偏好]
 - 测试框架：[测试工具]
 - 命名约定：[命名规则]
@@ -1685,7 +1685,7 @@ Agent 模式是 Cursor 的核心差异化功能，它能：
    - 提出修复方案
    - 修改代码并验证
 
-## 高级技巧
+## Advanced Techniques
 
 - 使用 @ 符号引用特定文件
 - 分步指令替代大段描述
@@ -1824,7 +1824,7 @@ Save this content directly to your project. Adjust tech stack names and versions
 - UnoCSS / Tailwind CSS
 
 # 组件规范
-- 使用 <script setup lang="ts">
+- Use <script setup lang="ts">
 - 组件名使用 PascalCase
 - 页面组件放在 pages/ 目录
 - 公共组件放在 components/ 目录
@@ -1848,7 +1848,7 @@ Save this content directly to your project. Adjust tech stack names and versions
 ### 添加路由
 "在 router/index.ts 中添加 /users/:id 路由，使用 UserDetail 组件，支持懒加载。"
 
-### 状态管理
+### State Management
 "创建一个 useAuth composable，包含登录、登出和 token 管理，支持持久化。
 
 ## Learning Path
@@ -1985,13 +1985,13 @@ Save as .cursor/rules/*.mdc or AGENTS.md. The AI coding tool loads these convent
 - 组件拆分保持单一职责
 - 使用 const 构造函数优化性能
 
-## 状态管理
+## State Management
 - 小项目使用 setState
 - 中大型项目使用 Riverpod 或 Bloc
 - 避免全局状态滥用
 - Provider 按模块分层
 
-## 路由
+## Routes
 - 使用 GoRouter 声明式路由
 - 路由模块按功能拆分
 - 深度链接支持
@@ -2071,13 +2071,13 @@ Save as .cursor/rules/*.mdc or AGENTS.md. The AI coding tool loads these convent
 - 关系使用 @relation 明确注解
 - 索引在查询热点字段上添加
 
-## 查询规范
+## Query Standards
 - 使用 select 只查询需要的字段
 - 避免 N+1 使用 include 预加载
 - 批量操作使用 createMany/updateMany
 - 分页使用 cursor-based
 
-## 迁移管理
+## Migration Management
 - 每次变更生成新迁移
 - 迁移需 Review 后再部署
 - 生产环境使用 migrate deploy
@@ -2110,15 +2110,15 @@ Save as .cursor/rules/*.mdc or AGENTS.md. The AI coding tool loads these convent
 - 统一使用 Page Object 模式
 
 ## Testing设计
-- 每个测试独立可运行
+- Each test must be independently runnable
 - 测试数据使用 beforeEach 准备
 - 避免测试间依赖
 - 关键用户路径优先覆盖
 
-## 断言规范
+## Assertion Standards
 - 使用软断言不中断流程
 - 等待元素可见后再操作
-- 截图用于失败分析
+- Capture screenshots for failure analysis
 
 ## Usage Scenarios
 
@@ -2213,7 +2213,7 @@ Before starting a Claude Code session, paste the prompt template and replace pla
 - React Navigation 7
 
 ## Coding Standards
-- 使用函数组件 + Hooks
+- Use functional components + Hooks
 - 样式使用 StyleSheet.create
 - 屏幕组件放在 screens/ 目录
 - 导航配置统一管理
@@ -2345,7 +2345,7 @@ Save this content directly to your project. Adjust tech stack names and versions
 - 输入校验防注入
 - 限制请求频率
 
-## 文档
+## Documentation
 - 使用 OpenAPI/Swagger
 - 自动生成 API 文档
 - 每个端点写示例
@@ -2435,7 +2435,7 @@ Save as .cursor/rules/*.mdc or AGENTS.md. The AI coding tool loads these convent
 - 服务使用 providedIn: root
 - 避免在构造函数中写逻辑
 
-## 路由
+## Routes
 - 使用懒加载路由
 - 路由守卫保护敏感页面
 - 使用 ResolveFn 预加载数据
@@ -2603,7 +2603,7 @@ Save as .cursor/rules/*.mdc or AGENTS.md. The AI coding tool loads these convent
 - 自动编写 API 文档
 - 快速迭代 UI 原型
 
-## 部署
+## Deployment
 - Vercel / Railway 一键部署
 - 使用托管数据库减少运维
 - 监控使用 Sentry 免费版
@@ -2773,7 +2773,7 @@ Save as .cursor/rules/*.mdc or AGENTS.md. The AI coding tool loads these convent
 - 页脚含所有链接
 
 ## Performance
-- 图片使用 next/image
+- Use next/image for images
 - 字体使用 next/font
 - 关键 CSS 内联
 - 延迟加载非首屏内容
@@ -2885,7 +2885,7 @@ Save as .cursor/rules/*.mdc or AGENTS.md. The AI coding tool loads these convent
 - PostgreSQL 做数据库
 - Tailwind CSS 做样式
 
-## 开发流程
+## Development Workflow
 - 先设计数据库 Schema
 - 生成类型定义
 - 实现 API 接口
@@ -3169,7 +3169,7 @@ Save as .cursor/rules/*.mdc or AGENTS.md. The AI coding tool loads these convent
     appliesTo: "Cursor 0.40+",
     content: `# Cursor Remix 全栈开发规则
 
-## 路由规范
+## Routing Standards
 - 使用嵌套路由和布局
 - loader 加载服务端数据
 - action 处理表单提交
@@ -3180,7 +3180,7 @@ Save as .cursor/rules/*.mdc or AGENTS.md. The AI coding tool loads these convent
 - 使用 Session 管理用户状态
 - Cookie 管理客户端偏好
 
-## 部署
+## Deployment
 - 适配 Cloudflare Pages
 - 或部署到 Fly.io / Vercel
 - 环境变量管理配置
@@ -3466,7 +3466,7 @@ Save this content directly to your project. Adjust tech stack names and versions
 - server/ API 和中间件
 - middleware/ 路由守卫
 
-## 数据获取
+## Data Fetching
 - useFetch 获取服务端数据
 - useState 共享状态
 - useAsyncData 异步数据
@@ -3504,7 +3504,7 @@ Save as .cursor/rules/*.mdc or AGENTS.md. The AI coding tool loads these convent
 - 测试文件放在 e2e/ 目录
 - Page Object 模式管理页面
 - describe 组织测试套件
-- 每个测试独立可运行
+- Each test must be independently runnable
 
 ## 选择器
 - 优先使用 role 和 text
@@ -3514,7 +3514,7 @@ Save as .cursor/rules/*.mdc or AGENTS.md. The AI coding tool loads these convent
 
 ## 断言
 - 使用 soft assert 收集错误
-- 截图用于失败分析
+- Capture screenshots for failure analysis
 - 网络请求使用 route 拦截
 - 视觉回归使用 screenshot
 
@@ -3651,8 +3651,8 @@ Save this content directly to your project. Adjust tech stack names and versions
 - 自动修复失败的测试
 
 ## Testing规范
-- AAA 模式（Arrange-Act-Assert）
-- 描述性测试名称
+- AAA pattern (Arrange-Act-Assert)
+- Use descriptive test names
 - 一个测试一个行为
 - 边界情况优先覆盖
 
