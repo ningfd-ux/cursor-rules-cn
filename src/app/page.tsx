@@ -37,29 +37,29 @@ export default function Home() {
           </div>
         </div>
         <div className="mt-10 hidden w-full max-w-md lg:mt-0 lg:block">
-          <div className="overflow-hidden rounded-xl border border-zinc-200 bg-zinc-900 dark:border-zinc-700">
-            <div className="flex items-center gap-1.5 border-b border-zinc-700 px-4 py-2.5">
-              <div className="h-2.5 w-2.5 rounded-full bg-zinc-600" />
-              <div className="h-2.5 w-2.5 rounded-full bg-zinc-600" />
-              <div className="h-2.5 w-2.5 rounded-full bg-zinc-600" />
-              <span className="ml-2 text-[10px] text-zinc-600">package.json → standards</span>
+          <div className="overflow-hidden rounded-xl border border-zinc-200 dark:border-zinc-700">
+            <div className="flex items-center gap-1.5 border-b border-zinc-200 bg-zinc-50 px-4 py-2.5 dark:border-zinc-700 dark:bg-zinc-900">
+              <div className="h-2.5 w-2.5 rounded-full bg-zinc-300 dark:bg-zinc-600" />
+              <div className="h-2.5 w-2.5 rounded-full bg-zinc-300 dark:bg-zinc-600" />
+              <div className="h-2.5 w-2.5 rounded-full bg-zinc-300 dark:bg-zinc-600" />
+              <span className="ml-2 text-[10px] text-zinc-400 dark:text-zinc-600">package.json → standards</span>
             </div>
-            <pre className="overflow-x-auto p-5 font-mono text-xs leading-relaxed">{`<span class="text-zinc-500">// Input</span>
-<span class="text-blue-400">{</span>
-  <span class="text-green-400">"next"</span>: <span class="text-orange-300">"^15.0"</span>,
-  <span class="text-green-400">"react"</span>: <span class="text-orange-300">"^19.0"</span>,
-  <span class="text-green-400">"prisma"</span>: <span class="text-orange-300">"^6.0"</span>,
-  <span class="text-green-400">"zod"</span>: <span class="text-orange-300">"^3.23"</span>
-<span class="text-blue-400">}</span>
+            <pre className="overflow-x-auto bg-white p-5 font-mono text-xs leading-relaxed text-zinc-800 dark:bg-zinc-900 dark:text-zinc-300">{`// Input
+{
+  "next": "^15.0",
+  "react": "^19.0",
+  "prisma": "^6.0",
+  "zod": "^3.23"
+}
 
-<span class="text-zinc-500">// Detected</span>
-<span class="text-zinc-400">Next.js 15</span> → <span class="text-white">App Router</span>
-<span class="text-zinc-400">Prisma 6</span> → <span class="text-white">ORM</span>
+// Detected
+Next.js 15 → App Router
+Prisma 6 → ORM
 
-<span class="text-zinc-500">// Standards</span>
-<span class="text-white">Prefer Server Components</span>
-<span class="text-white">Use Prisma transactions</span>
-<span class="text-white">Validate with Zod</span>`}</pre>
+// Standards
+Prefer Server Components
+Use Prisma transactions
+Validate with Zod`}</pre>
           </div>
         </div>
       </section>
@@ -135,7 +135,7 @@ export default function Home() {
             ["Framework-specific", "Understands Next.js, React, Python, Go — generates standards that reference your actual libraries."],
             ["AI-tool optimized", "Outputs .cursor/rules, AGENTS.md, copilot-instructions.md — formatted for your tool of choice."],
             ["Maintainability-first", "Enforceable, opinionated standards — not vague advice. Written like a senior tech lead would."],
-          ].map(([icon, title, desc]) => (
+          ].map(([title, desc]) => (
             <div key={title as string} className="rounded-lg border border-zinc-200 bg-white p-5 dark:border-zinc-800 dark:bg-zinc-900">
               <h3 className="text-sm font-semibold text-zinc-900 dark:text-zinc-100">{title}</h3>
               <p className="mt-1 text-xs leading-relaxed text-zinc-500 dark:text-zinc-400">{desc}</p>
