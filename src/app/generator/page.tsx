@@ -319,38 +319,69 @@ export default function GeneratorPage() {
       </section>
 
       {generatedRules && (
-        <section className="mb-10">
-          <div className="mb-4 flex items-center justify-between">
-            <div>
-              <h2 className="text-lg font-semibold text-zinc-900 dark:text-zinc-100">Generated Standards</h2>
-              <p className="mt-1 text-xs text-zinc-400">
-                Specific rules based on detected dependencies — explains why each rule exists
-              </p>
+        <section className="mb-10 space-y-6">
+          {/* Detected Stack */}
+          {packageJson && (
+            <div className="rounded-xl border border-green-200 bg-green-50/50 p-5 dark:border-green-900 dark:bg-green-950/30">
+              <h3 className="mb-3 text-sm font-semibold text-green-800 dark:text-green-300">Detected Stack</h3>
+              <div className="flex flex-wrap gap-2">
+                <span className="rounded-full bg-green-100 px-3 py-1 text-xs font-medium text-green-700 dark:bg-green-900 dark:text-green-300">
+                  {frameworks.find(f => f.value === techStack)?.label || techStack}
+                </span>
+                <span className="rounded-full bg-green-100 px-3 py-1 text-xs font-medium text-green-700 dark:bg-green-900 dark:text-green-300">
+                  {models.find(m => m.value === model)?.label || model}
+                </span>
+                <span className="rounded-full bg-green-100 px-3 py-1 text-xs font-medium text-green-700 dark:bg-green-900 dark:text-green-300">
+                  {strictnessLevels.find(s => s.value === strictness)?.label || strictness}
+                </span>
+              </div>
             </div>
-            <div className="flex items-center gap-2">
-              <span className="rounded-full bg-green-100 px-3 py-1 text-xs font-medium text-green-700 dark:bg-green-900 dark:text-green-300">
-                Generated for {models.find(m => m.value === model)?.label || model}
-              </span>
-              <button onClick={handleCopy}
-                className="rounded-lg bg-zinc-100 px-4 py-2 text-sm font-medium text-zinc-700 transition-colors hover:bg-zinc-200 dark:bg-zinc-800 dark:text-zinc-300 dark:hover:bg-zinc-700">
-                {copied ? "✅ Copied" : "📋 Copy All"}
-              </button>
+          )}
+
+          {/* Generated Standards */}
+          <div>
+            <div className="mb-4 flex items-center justify-between">
+              <div>
+                <h2 className="text-lg font-semibold text-zinc-900 dark:text-zinc-100">Generated Standards</h2>
+                <p className="mt-1 text-xs text-zinc-400">
+                  Each standard references a specific detected dependency or architecture pattern
+                </p>
+              </div>
+              <div className="flex items-center gap-2">
+                <span className="rounded-full bg-blue-100 px-3 py-1 text-xs font-medium text-blue-700 dark:bg-blue-900 dark:text-blue-300">
+                  Generated for {models.find(m => m.value === model)?.label || model}
+                </span>
+                <button onClick={handleCopy}
+                  className="rounded-lg bg-zinc-100 px-4 py-2 text-sm font-medium text-zinc-700 transition-colors hover:bg-zinc-200 dark:bg-zinc-800 dark:text-zinc-300 dark:hover:bg-zinc-700">
+                  {copied ? "✅ Copied" : "📋 Copy All"}
+                </button>
+              </div>
+            </div>
+            <div className="overflow-auto rounded-xl border border-zinc-200 bg-white p-6 dark:border-zinc-800 dark:bg-zinc-900">
+              <pre className="text-sm leading-relaxed text-zinc-800 dark:text-zinc-200 whitespace-pre-wrap">{generatedRules}</pre>
             </div>
           </div>
-          <div className="overflow-auto rounded-xl border border-zinc-200 bg-white p-6 dark:border-zinc-800 dark:bg-zinc-900">
-            <pre className="text-sm leading-relaxed text-zinc-800 dark:text-zinc-200 whitespace-pre-wrap">{generatedRules}</pre>
+
+          {/* Export Formats */}
+          <div>
+            <h3 className="mb-3 text-sm font-semibold text-zinc-900 dark:text-zinc-100">Save as</h3>
+            <div className="flex flex-wrap gap-2">
+              <span className={`rounded-lg border px-4 py-2 text-xs font-mono text-zinc-600 dark:text-zinc-400 ${outputFormat === "mdc" ? "border-green-500 bg-green-50 dark:bg-green-900/20" : "border-zinc-200 bg-white dark:border-zinc-700 dark:bg-zinc-800"}`}>
+                .cursor/rules/*.mdc
+              </span>
+              <span className={`rounded-lg border px-4 py-2 text-xs font-mono text-zinc-600 dark:text-zinc-400 ${outputFormat === "agents" ? "border-green-500 bg-green-50 dark:bg-green-900/20" : "border-zinc-200 bg-white dark:border-zinc-700 dark:bg-zinc-800"}`}>
+                AGENTS.md
+              </span>
+              <span className={`rounded-lg border px-4 py-2 text-xs font-mono text-zinc-600 dark:text-zinc-400 ${outputFormat === "copilot" ? "border-green-500 bg-green-50 dark:bg-green-900/20" : "border-zinc-200 bg-white dark:border-zinc-700 dark:bg-zinc-800"}`}>
+                copilot-instructions.md
+              </span>
+              <span className={`rounded-lg border px-4 py-2 text-xs font-mono text-zinc-600 dark:text-zinc-400 ${outputFormat === "cursorrules" ? "border-green-500 bg-green-50 dark:bg-green-900/20" : "border-zinc-200 bg-white dark:border-zinc-700 dark:bg-zinc-800"}`}>
+                .cursorrules (legacy)
+              </span>
+            </div>
           </div>
         </section>
       )}
-
-      <section className="rounded-xl border border-zinc-200 bg-white p-6 dark:border-zinc-800 dark:bg-zinc-900">
-        <h3 className="mb-4 font-semibold text-zinc-900 dark:text-zinc-100">💡 Usage Tips</h3>
-        <ul className="space-y-2 text-sm text-zinc-500 dark:text-zinc-400">
-          <li>Paste a GitHub repo URL and AI will fetch its package.json to analyze your tech stack</li>
-          <li>Choose between .cursorrules, .mdc, AGENTS.md, or copilot-instructions.md for different tools</li>
-          <li>Tweak the generated standards to fit your project needs</li>
-        </ul>
-      </section>
     </div>
   );
 }
