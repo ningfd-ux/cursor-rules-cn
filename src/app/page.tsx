@@ -27,22 +27,22 @@ export default function Home() {
             </svg>
             Generate from your repo
           </Link>
-          <a
-            href="/compare"
+          <Link
+            href="/examples"
             className="inline-flex items-center gap-2 rounded-lg border border-zinc-200 bg-white px-5 py-3 text-sm font-medium text-zinc-700 shadow-sm transition-colors hover:bg-zinc-50 dark:border-zinc-700 dark:bg-zinc-800 dark:text-zinc-300 dark:hover:bg-zinc-700"
           >
-            Compare AI tools
-          </a>
+            View Example Output
+          </Link>
         </div>
       </section>
 
       {/* Stats */}
       <div className="mb-10 grid grid-cols-2 gap-3 sm:grid-cols-4">
         {[
-          ["🎯", rules.length, "repository-aware rules"],
-          ["📄", "111", "static pages"],
+          ["🎯", "Repository-aware", "actual dependencies analyzed"],
           ["📦", "4", "output formats"],
           ["⚡", `${categories.length}`, "tech stacks covered"],
+          ["📄", "110+", "static pages"],
         ].map(([icon, num, label]) => (
           <div key={label as string} className="rounded-xl border border-zinc-200 bg-white p-4 text-center dark:border-zinc-800 dark:bg-zinc-900">
             <div className="text-2xl">{icon}</div>
@@ -52,14 +52,9 @@ export default function Home() {
         ))}
       </div>
 
-      {/* See it in action */}
+      {/* How it works */}
       <section className="mb-10">
-        <div className="mb-5 flex items-center justify-center gap-4">
-          <h2 className="text-lg font-semibold text-zinc-900 dark:text-zinc-100">See it in action</h2>
-          <Link href="/examples" className="text-sm text-blue-600 hover:text-blue-700 dark:text-blue-400">
-            More examples →
-          </Link>
-        </div>
+        <h2 className="mb-5 text-center text-lg font-semibold text-zinc-900 dark:text-zinc-100">How it works</h2>
         <div className="overflow-hidden rounded-2xl border border-zinc-200 bg-white dark:border-zinc-800 dark:bg-zinc-900">
           <div className="grid gap-0 sm:grid-cols-3">
             <div className="border-b border-zinc-100 bg-zinc-50/50 p-6 dark:border-zinc-800 dark:bg-zinc-900/50 sm:border-b-0 sm:border-r">
@@ -126,7 +121,7 @@ export default function Home() {
           {[
             ["🎯", "Repository-aware", "Analyzes your package.json dependencies and project architecture to generate relevant rules."],
             ["🧩", "Framework-specific", "Understands Next.js, React, Python, Go — generates rules that reference your actual libraries."],
-            ["🤖", "AI-tool optimized", "Outputs .cursorrules, AGENTS.md, copilot-instructions.md — formatted for your tool of choice."],
+            ["🤖", "AI-tool optimized", "Outputs .cursor/rules, AGENTS.md, copilot-instructions.md — formatted for your tool of choice."],
             ["🛡️", "Maintainability-first", "Enforceable, opinionated rules — not vague advice. Written like a senior tech lead would."],
           ].map(([icon, title, desc]) => (
             <div key={title as string} className="rounded-xl border border-zinc-200 bg-white p-5 dark:border-zinc-800 dark:bg-zinc-900">
