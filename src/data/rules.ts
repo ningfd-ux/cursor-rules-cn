@@ -1992,9 +1992,9 @@ Save as .cursor/rules/*.mdc or AGENTS.md. The AI coding tool loads these convent
 - Layer providers by module
 
 ## Routes
-- 使用 GoRouter 声明式路由
-- 路由模块按功能拆分
-- 深度链接支持
+- Use GoRouter for declarative routing
+- Split route modules by feature
+- Support deep linking
 
 ## Usage Scenarios
 
@@ -2009,31 +2009,31 @@ Save as .cursor/rules/*.mdc or AGENTS.md. The AI coding tool loads these convent
   },
   {
     slug: "cursor-tailwind-rules",
-    title: "Cursor Tailwind CSS 开发规则",
+    title: "Tailwind CSS Standards for Cursor",
     category: "cursor",
-    description: "使用 Cursor 配合 Tailwind CSS 开发的编码规范和最佳实践。",
+    description: "Coding standards and best practices for Tailwind CSS development with Cursor.",
     icon: "🎨",
     tags: ["cursor", "tailwind", "css"],
     updatedAt: "2026-05-11",
     appliesTo: "Cursor 0.40+",
     content: `# Tailwind CSS Standards for AI-Assisted Development
 
-## 使用原则
-- 优先使用 Tailwind 工具类
-- 自定义样式使用 @apply 指令
-- 颜色使用设计系统 token
-- 响应式使用断点前缀
+## Usage Principles
+- Prefer Tailwind utility classes over custom CSS
+- Use @apply for custom style compositions
+- Use design system tokens for colors
+- Use breakpoint prefixes for responsive design
 
-## Components样式
-- 公共组件提取为可复用类
-- 使用 cn() 合并 class 名
-- 暗色模式使用 dark: 前缀
-- 动画使用 Tailwind 动画类
+## Component Styling
+- Extract shared components into reusable utility classes
+- Use cn() utility to merge class names
+- Use dark: prefix for dark mode
+- Use Tailwind animate utilities for animations
 
 ## Performance
-- 避免动态拼接 class
-- 使用 PurgeCSS 清除未使用的样式
-- 提取公共样式减少重复
+- Avoid dynamic class name construction
+- Use PurgeCSS to remove unused styles
+- Extract common styles to reduce duplication
 
 ## Usage Scenarios
 
@@ -2048,17 +2048,17 @@ Save as .cursor/rules/*.mdc or AGENTS.md. The AI coding tool loads these convent
 
 ## Related Standards
 
-- [让 Cursor 更懂 React 的最佳开发规则,](/rules/cursor-react-rules)
-- [用 Cursor 开发 Next.js 项目的完整规则,](/rules/cursor-nextjs-rules)
-- [Cursor Landing Page 开发规则,](/rules/cursor-landing-page-rules)
+- [React Development Standards](/rules/cursor-react-rules),
+- [Next.js Development Standards](/rules/cursor-nextjs-rules),
+- [Landing Page Development Standards](/rules/cursor-landing-page-rules),
 
 `,
   },
   {
     slug: "cursor-prisma-rules",
-    title: "Cursor Prisma ORM 数据层开发规则",
+    title: "Prisma ORM Data Layer Standards for Cursor",
     category: "cursor",
-    description: "Prisma ORM 项目中使用 Cursor 的数据库模型设计和查询规则。",
+    description: "Database model design and query standards for Prisma ORM projects with Cursor.",
     icon: "🗃️",
     tags: ["cursor", "prisma", "database"],
     updatedAt: "2026-05-11",
@@ -2066,21 +2066,21 @@ Save as .cursor/rules/*.mdc or AGENTS.md. The AI coding tool loads these convent
     content: `# Prisma ORM Data Layer Standards
 
 ## Schema Design
-- 模型名使用 PascalCase 单数
-- 字段名使用 camelCase
-- 关系使用 @relation 明确注解
-- 索引在查询热点字段上添加
+- Use PascalCase singular for model names
+- Use camelCase for field names
+- Explicit @relation annotations for relationships
+- Add indexes on frequently queried columns
 
 ## Query Standards
-- 使用 select 只查询需要的字段
-- 避免 N+1 使用 include 预加载
-- 批量操作使用 createMany/updateMany
-- 分页使用 cursor-based
+- Use select to fetch only needed fields
+- Avoid N+1 queries — use include for eager loading
+- Use createMany/updateMany for batch operations
+- Use cursor-based pagination
 
 ## Migration Management
-- 每次变更生成新迁移
-- 迁移需 Review 后再部署
-- 生产环境使用 migrate deploy
+- Generate a new migration for every schema change
+- Review migrations before production deployment
+- Use migrate deploy in production
 
 ## Usage Scenarios
 
@@ -2095,29 +2095,29 @@ Save as .cursor/rules/*.mdc or AGENTS.md. The AI coding tool loads these convent
   },
   {
     slug: "cursor-e2e-testing",
-    title: "Cursor E2E 自动化测试规则",
+    title: "E2E Testing Standards for AI-Assisted Development",
     category: "cursor",
-    description: "用 Cursor 编写 Playwright/Cypress 端到端测试的编码规则。",
+    description: "Coding standards for writing Playwright/Cypress end-to-end tests with Cursor.",
     icon: "🎭",
     tags: ["cursor", "e2e", "playwright"],
     updatedAt: "2026-05-11",
     appliesTo: "Cursor 0.40+",
-    content: `# Cursor E2E 自动化测试规则
+    content: `# E2E Testing Standards for AI-Assisted Development
 
-## 框架选择
-- Web 应用使用 Playwright
-- 简单场景使用 Cypress
-- 统一使用 Page Object 模式
+## Framework Selection
+- Use Playwright for web applications
+- Use Cypress for simpler scenarios
+- Consistent Page Object Model pattern
 
-## Testing设计
+## Testing Design
 - Each test must be independently runnable
-- 测试数据使用 beforeEach 准备
-- 避免测试间依赖
-- 关键用户路径优先覆盖
+- Prepare test data with beforeEach
+- Avoid inter-test dependencies
+- Prioritize critical user path coverage
 
 ## Assertion Standards
-- 使用软断言不中断流程
-- 等待元素可见后再操作
+- Use soft assertions to avoid blocking the flow
+- Wait for elements to be visible before interacting
 - Capture screenshots for failure analysis
 
 ## Usage Scenarios
@@ -2133,25 +2133,25 @@ Save as .cursor/rules/*.mdc or AGENTS.md. The AI coding tool loads these convent
   },
   {
     slug: "claude-code-nextjs",
-    title: "Claude Code Next.js 项目开发 Prompt",
+    title: "Next.js Development Prompts for Claude Code",
     category: "claude",
-    description: "用 Claude Code 开发 Next.js App Router 项目的高效 Prompt 模板。",
+    description: "Efficient prompt templates for Next.js App Router development with Claude Code.",
     icon: "▲",
     tags: ["claude-code", "nextjs", "prompt"],
     updatedAt: "2026-05-11",
-    content: `# Claude Code Next.js 项目开发 Prompt
+    content: `# Next.js Development Prompts for Claude Code
 
-## 创建页面路由
-"在 app/(main)/dashboard/ 下创建仪表盘页面，包含数据概览卡片、最近订单表格和销售趋势图表。"
+## Create Page Route
+"Create a dashboard page under app/(main)/dashboard/ with overview cards, recent orders table, and sales trend chart."
 
-## 添加 Server Action
-"在 app/actions/user.ts 中创建用户注册 Server Action，使用 Zod 验证输入，插入数据库后发送欢迎邮件。"
+## Add Server Action
+"Create a user registration Server Action in app/actions/user.ts. Validate input with Zod, insert into database, send welcome email."
 
-## 实现中间件
-"创建 middleware.ts，实现登录保护，未登录用户重定向到 /login，已登录用户才能访问 /dashboard/*。"
+## Implement Middleware
+"Create middleware.ts for login protection. Redirect unauthenticated users to /login. Only allow access to /dashboard/* for authenticated users."
 
-## 优化 SEO
-"为产品详情页生成动态 metadata 和结构化数据 JSON-LD。
+## SEO Optimization
+"Generate dynamic metadata and JSON-LD structured data for the product detail page."
 
 ## Usage Scenarios
 
@@ -2166,22 +2166,22 @@ Before starting a Claude Code session, paste the prompt template and replace pla
   },
   {
     slug: "claude-code-api-dev",
-    title: "Claude Code 后端 API 开发 Prompt",
+    title: "Backend API Development Prompts for Claude Code",
     category: "claude",
-    description: "用 Claude Code 开发 RESTful 和 GraphQL API 的 Prompt 模板。",
+    description: "Prompt templates for developing RESTful and GraphQL APIs with Claude Code.",
     icon: "🌐",
     tags: ["claude-code", "api", "backend"],
     updatedAt: "2026-05-11",
-    content: `# Claude Code 后端 API 开发 Prompt
+    content: `# Backend API Development Prompts for Claude Code
 
-## 创建 CRUD 接口
-"在 app/api/products/ 下创建商品 CRUD 接口，支持分页查询、按分类筛选、价格排序。"
+## Create CRUD Endpoints
+"Create product CRUD endpoints under app/api/products/ with pagination, category filtering, and price sorting."
 
-## 身份验证
-"实现 JWT 身份验证中间件，包含 token 签发、验证和刷新，过期时间 7 天。"
+## Authentication
+"Implement JWT authentication middleware with token signing, verification, and refresh. Token expiry: 7 days."
 
-## 文件上传
-"创建文件上传接口，支持图片压缩、格式校验（仅 jpg/png/webp），上传到 S3 并返回 URL。
+## File Upload
+"Create a file upload endpoint. Support image compression, format validation (jpg/png/webp only), upload to S3 and return URL."
 
 ## Usage Scenarios
 
@@ -2196,13 +2196,13 @@ Before starting a Claude Code session, paste the prompt template and replace pla
   },
   {
     slug: "copilot-react-native",
-    title: "Copilot React Native 移动端指令",
+    title: "Copilot React Native Mobile Development Instructions",
     category: "copilot",
-    description: "GitHub Copilot 在 React Native 项目中的最佳配置和使用规则。",
+    description: "Best configuration and usage rules for GitHub Copilot in React Native projects.",
     icon: "📱",
     tags: ["copilot", "react-native", "mobile"],
     updatedAt: "2026-05-11",
-    content: `# Copilot React Native 移动端指令
+    content: `# Copilot React Native Mobile Development Instructions
 
 ## Configuration copilot-instructions.md
 
@@ -2214,14 +2214,14 @@ Before starting a Claude Code session, paste the prompt template and replace pla
 
 ## Coding Standards
 - Use functional components + Hooks
-- 样式使用 StyleSheet.create
-- 屏幕组件放在 screens/ 目录
-- 导航配置统一管理
+- Use StyleSheet.create for styles
+- Screen components go in screens/ directory
+- Centralize navigation configuration
 
 ## Common Prompts
-- "创建登录页面，包含邮箱密码输入和表单验证"
-- "实现底部 Tab 导航和抽屉导航嵌套"
-- "添加推送通知处理逻辑"
+- "Create a login page with email/password inputs and form validation"
+- "Implement bottom tab navigation with nested drawer navigation"
+- "Add push notification handling logic"
 
 ## Usage Scenarios
 
@@ -2236,25 +2236,25 @@ Save this config to '.github/copilot-instructions.md' in your project root. GitH
   },
   {
     slug: "copilot-docker",
-    title: "Copilot Docker 容器化指令",
+    title: "Copilot Docker Containerization Instructions",
     category: "copilot",
-    description: "GitHub Copilot 辅助 Docker 开发和容器化部署的最佳实践。",
+    description: "Best practices for Docker development and containerized deployment with GitHub Copilot.",
     icon: "🐳",
     tags: ["copilot", "docker", "devops"],
     updatedAt: "2026-05-11",
-    content: `# Copilot Docker 容器化指令
+    content: `# Copilot Docker Containerization Instructions
 
 ## Configuration copilot-instructions.md
 
 ## Tech Stack
 - Docker / Docker Compose
-- 多阶段构建
-- Alpine 基础镜像
+- Multi-stage builds
+- Alpine base images
 
 ## Common Prompts
-- "为 Node.js 应用生成多阶段构建 Dockerfile"
-- "写 docker-compose.yml 包含 PostgreSQL 和 Redis"
-- "生成 .dockerignore 排除 node_modules 和 .git"
+- "Generate a multi-stage build Dockerfile for a Node.js application"
+- "Write a docker-compose.yml with PostgreSQL and Redis"
+- "Generate a .dockerignore excluding node_modules and .git"
 
 ## Usage Scenarios
 
@@ -2269,31 +2269,31 @@ Save this config to '.github/copilot-instructions.md' in your project root. GitH
   },
   {
     slug: "general-ai-workflow",
-    title: "AI 编程工作流模式与效率指南",
+    title: "AI Coding Workflow Patterns & Productivity Guide",
     category: "general",
-    description: "适用所有 AI 编程工具的高效开发工作流模式和团队协作指南。",
+    description: "High-efficiency development workflow patterns and team collaboration guide applicable to all AI coding tools.",
     icon: "🔄",
-    tags: ["AI", "工作流", "效率", "协作"],
+    tags: ["AI", "workflow", "productivity", "collaboration"],
     updatedAt: "2026-05-11",
-    content: `# AI 编程工作流模式与效率指南
+    content: `# AI Coding Workflow Patterns & Productivity Guide
 
-## 单人模式
-- 每日开始：让 AI 回顾 TODO 和进度
-- 编码前：描述需求让 AI 设计方案
-- 编码中：小步提交，每次让 AI Review
-- 编码后：AI 生成测试和文档
+## Solo Mode
+- Start of day: Have AI review your TODO list and progress
+- Before coding: Describe requirements and let AI propose a design plan
+- During coding: Commit in small steps and have AI review each increment
+- After coding: AI generates tests and documentation
 
-## 团队模式
-- 共享 .cursorrules 项目规则
-- 统一 AI 工具版本和配置
-- Code Review 结合 AI 审查
-- 知识库共享 AI Prompt 模板
+## Team Mode
+- Share .cursorrules project rules across the team
+- Standardize AI tool versions and configurations
+- Combine human code review with AI review
+- Share AI prompt templates via a team knowledge base
 
-## 常见陷阱
-- 不要一次性提太多需求
-- 不要完全信任 AI 生成的代码
-- 不要跳过测试
-- AI 不擅长做架构决策
+## Common Pitfalls
+- Do not dump too many requirements at once — AI context windows are finite
+- Never trust AI-generated code blindly — validate it like any PR
+- Never skip testing — AI-written code still needs verification
+- AI is weak at architecture decisions — own the high-level design
 
 ## Applicable Scenarios
 
@@ -2319,36 +2319,36 @@ Save this content directly to your project. Adjust tech stack names and versions
   },
   {
     slug: "general-api-design",
-    title: "AI 辅助 API 设计最佳实践指南",
+    title: "AI-Assisted API Design Best Practices Guide",
     category: "general",
-    description: "使用 AI 编程工具进行 API 设计的规范、模式和实战经验。",
+    description: "Standards, patterns, and practical experience for API design with AI coding tools.",
     icon: "📡",
-    tags: ["API", "设计", "REST"],
+    tags: ["API", "design", "REST"],
     updatedAt: "2026-05-11",
-    content: `# AI 辅助 API 设计最佳实践指南
+    content: `# AI-Assisted API Design Best Practices Guide
 
-## RESTful 规范
-- 资源使用复数名词
-- GET 不修改数据
-- POST 创建资源
-- PUT 全量更新，PATCH 部分更新
+## RESTful Conventions
+- Use plural nouns for resources
+- GET must never modify data
+- POST creates a resource
+- PUT for full replacement, PATCH for partial updates
 
-## 请求和响应
-- 统一错误响应格式
-- 列表接口必须分页
-- 敏感字段不在 URL 中传递
-- 版本号在 URL 路径中
+## Request & Response
+- Use a consistent error response format
+- All list endpoints must support pagination
+- Never pass sensitive fields in the URL
+- Version number goes in the URL path
 
 ## Security
-- 所有 API 需要认证
-- HTTPS 强制使用
-- 输入校验防注入
-- 限制请求频率
+- All APIs require authentication
+- Enforce HTTPS for all endpoints
+- Validate all input to prevent injection
+- Apply rate limiting to all endpoints
 
 ## Documentation
-- 使用 OpenAPI/Swagger
-- 自动生成 API 文档
-- 每个端点写示例
+- Use OpenAPI/Swagger
+- Auto-generate API documentation
+- Write a usage example for every endpoint
 
 ## Applicable Scenarios
 
@@ -2376,31 +2376,31 @@ Save this content directly to your project. Adjust tech stack names and versions
 
   {
     slug: "cursor-svelte-rules",
-    title: "Cursor Svelte 开发编码规范规则",
+    title: "Cursor Svelte Development Coding Standards",
     category: "cursor",
-    description: "Svelte 5 + SvelteKit 项目中 Cursor 的编码规则和最佳实践。",
+    description: "Coding rules and best practices for Svelte 5 + SvelteKit projects in Cursor.",
     icon: "🧑‍💻",
     tags: ["cursor", "svelte", "frontend"],
     updatedAt: "2026-05-11",
     appliesTo: "Cursor 0.40+",
-    content: `# Cursor Svelte 开发编码规范规则
+    content: `# Cursor Svelte Development Coding Standards
 
 ## Component Standards
-- 使用 Svelte 5 runes 语法
-- 组件文件使用 .svelte 扩展名
-- 逻辑复用使用 stores 和 actions
-- 每个组件单一职责
+- Use Svelte 5 runes syntax
+- Component files use .svelte extension
+- Use stores and actions for logic reuse
+- Single responsibility per component
 
-## SvelteKit 路由
-- 使用 filesystem-based routing
-- 页面文件放在 routes/ 目录
-- API 端点使用 +server.ts
-- 布局使用 +layout.svelte
+## SvelteKit Routing
+- Use filesystem-based routing
+- Page files go in routes/ directory
+- API endpoints use +server.ts
+- Layouts use +layout.svelte
 
 ## Styling
-- 使用 <style> 局部作用域
-- 支持 Tailwind CSS
-- 全局样式放在 app.css
+- Use <style> scoped for component-local styles
+- Supports Tailwind CSS
+- Global styles go in app.css
 
 ## Usage Scenarios
 
@@ -2419,7 +2419,7 @@ Save as .cursor/rules/*.mdc or AGENTS.md. The AI coding tool loads these convent
     category: "cursor",
     description: "Angular 17+ 独立组件模式下 Cursor 的编码规则。",
     icon: "🅰️",
-    tags: ["cursor", "angular", "前端"],
+    tags: ["cursor", "angular", "frontend"],
     updatedAt: "2026-05-11",
     appliesTo: "Cursor 0.40+",
     content: `# Cursor Angular 开发编码规范规则
@@ -2471,7 +2471,7 @@ Save as .cursor/rules/*.mdc or AGENTS.md. The AI coding tool loads these convent
 ## API 设计
 - RESTful 路由命名
 - 使用 express-validator 校验输入
-- 统一错误处理中间件
+- Unified error handling中间件
 - 使用 asyncHandler 包装异步路由
 
 ## Security
@@ -2755,7 +2755,7 @@ Save as .cursor/rules/*.mdc or AGENTS.md. The AI coding tool loads these convent
     category: "cursor",
     description: "用 Cursor 快速构建落地页的规则和最佳实践。",
     icon: "📄",
-    tags: ["cursor", "landing-page", "前端"],
+    tags: ["cursor", "landing-page", "frontend"],
     updatedAt: "2026-05-11",
     appliesTo: "Cursor 0.40+",
     content: `# Landing Page Development Standards
@@ -2914,7 +2914,7 @@ Save as .cursor/rules/*.mdc or AGENTS.md. The AI coding tool loads these convent
     category: "general",
     description: "通过结构化表单自动生成个性化 .cursorrules 的工作流和方法。",
     icon: "🔧",
-    tags: ["AI", "generator", "工作流"],
+    tags: ["AI", "generator", "workflow"],
     updatedAt: "2026-05-11",
     content: `# AI Rule Generator 开发工作流
 
@@ -3126,7 +3126,7 @@ Save as .cursor/rules/*.mdc or AGENTS.md. The AI coding tool loads these convent
     category: "cursor",
     description: "Astro 框架项目中 Cursor 的编码规则和岛屿架构最佳实践。",
     icon: "🚀",
-    tags: ["cursor", "astro", "前端"],
+    tags: ["cursor", "astro", "frontend"],
     updatedAt: "2026-05-11",
     appliesTo: "Cursor 0.40+",
     content: `# Astro Static Site Standards
@@ -3183,7 +3183,7 @@ Save as .cursor/rules/*.mdc or AGENTS.md. The AI coding tool loads these convent
 ## Deployment
 - 适配 Cloudflare Pages
 - 或部署到 Fly.io / Vercel
-- 环境变量管理配置
+- Environment variable management配置
 
 ## Usage Scenarios
 
