@@ -43,44 +43,44 @@ export const rules: Rule[] = [
     tags: ["cursor", "general", "coding-standards"],
     updatedAt: "2026-04-28",
     appliesTo: "Cursor 0.40+",
-    content: `# Cursor 通用编码规则
+    content: `# General AI Coding Standards
 
-## 代码风格
-- 使用 2 空格缩进
-- 行尾加分号
-- 使用单引号
-- 变量命名使用 camelCase
-- 常量使用 UPPER_SNAKE_CASE
+## Code Style
+- Use 2-space indentation
+- End lines with semicolons
+- Use single quotes for strings
+- camelCase for variables
+- UPPER_SNAKE_CASE for constants
 
-## 注释规范
-- 函数/方法必须写 JSDoc 注释
-- 复杂逻辑需要行内注释
-- TODO 标记必须附带责任人
+## Comments
+- Functions/methods must have JSDoc comments
+- Complex logic requires inline comments
+- TODO markers must include owner name
 
-## 架构要求
-- 遵循单一职责原则
-- 组件文件不超过 200 行
-- 工具函数抽离到独立的 utils 文件
+## Architecture
+- Follow Single Responsibility Principle
+- Component files should not exceed 200 lines
+- Extract utility functions to dedicated utils/ directory
 
-## 错误处理
-- 所有异步操作必须 try-catch
-- 错误信息必须包含上下文
-- 用户可见错误使用中文提示
+## Error Handling
+- All async operations must use try-catch
+- Error messages must include context
+- User-facing errors should be clear and actionable
 
-## 性能
-- 避免不必要的 re-render
-- 大型列表使用虚拟滚动
-- API 请求需要缓存策略
+## Performance
+- Avoid unnecessary re-renders
+- Use virtual scrolling for large lists
+- Cache API responses where appropriate
 
-## 使用场景
+## Usage Scenarios
 
-将以上内容保存为项目的 '.cursorrules' 文件，Cursor 会在每次对话和代码生成时自动遵循这些规范。适用于团队统一编码风格、新成员快速上手。
+Save as .cursor/rules/*.mdc or AGENTS.md. The AI coding tool loads these conventions automatically. Ideal for team-wide code style consistency and onboarding new team members.
 
-## 常见错误
+## Common Mistakes
 
-- 不要在规则中写过于具体的业务逻辑，规则应该描述通用规范
-- 不要频繁修改 .cursorrules 导致 AI 行为不一致，建议按版本管理
-- 规则太多会降低 AI 响应质量，控制在 50 行以内
+- Don't write business-specific logic in standards — keep conventions universal
+- Don't change standards too frequently — version-control them
+- Too many rules degrade AI output quality — target 30-50 well-chosen lines
 `,
   },
   {
@@ -94,7 +94,7 @@ updatedAt: "2026-05-01",
 appliesTo: "Cursor 0.40+",
 content: `# Cursor React 开发规则
 
-## 组件规范
+## Component Standards
 - 使用函数组件 + Hooks
 - 避免类组件
 - 每个组件一个文件
@@ -110,23 +110,23 @@ content: `# Cursor React 开发规则
 - 跨组件共享使用 Context
 - 避免 prop drilling 超过 3 层
 
-## 样式
+## Styling
 - 使用 Tailwind CSS
 - 避免内联样式
 - CSS Module 用于复杂组件
 
-## 使用场景
+## Usage Scenarios
 
-将以上内容保存为项目的 '.cursorrules' 文件，Cursor 会在每次对话和代码生成时自动遵循这些规范。适用于团队统一编码风格、新成员快速上手。
+Save as .cursor/rules/*.mdc or AGENTS.md. The AI coding tool loads these conventions automatically for every session. Ideal for team-wide consistency and onboarding.
 
-## 常见错误
+## Common Mistakes
 
-- 不要在规则中写过于具体的业务逻辑，规则应该描述通用规范
-- 不要频繁修改 .cursorrules 导致 AI 行为不一致，建议按版本管理
-- 规则太多会降低 AI 响应质量，控制在 50 行以内
+- Don't write business-specific logic in standards — keep conventions universal
+- Don't change standards too frequently — version-control them to maintain consistent AI behavior
+- Too many rules degrade AI output quality — target 30-50 well-chosen lines
 
 
-## 相关规则
+## Related Standards
 
 - [用 Cursor 开发 Next.js 项目的完整规则](/rules/cursor-nextjs-rules)
 - [Cursor TypeScript 严格模式配置规则](/rules/cursor-typescript-rules)
@@ -161,25 +161,25 @@ content: `# Cursor Next.js 项目规则
 - 使用 generateMetadata 动态生成
 - 图片必须包含 alt 属性
 
-## 性能
+## Performance
 - 图片使用 next/image
 - 链接使用 next/link
 - 动态导入使用 next/dynamic
 
-## 使用场景
+## Usage Scenarios
 
-将以上内容保存为项目的 '.cursorrules' 文件，Cursor 会在每次对话和代码生成时自动遵循这些规范。适用于团队统一编码风格、新成员快速上手。
+Save as .cursor/rules/*.mdc or AGENTS.md. The AI coding tool loads these conventions automatically for every session. Ideal for team-wide consistency and onboarding.
 
-## 常见错误
+## Common Mistakes
 
-- 不要在规则中写过于具体的业务逻辑，规则应该描述通用规范
-- 不要频繁修改 .cursorrules 导致 AI 行为不一致，建议按版本管理
-- 规则太多会降低 AI 响应质量，控制在 50 行以内
+- Don't write business-specific logic in standards — keep conventions universal
+- Don't change standards too frequently — version-control them to maintain consistent AI behavior
+- Too many rules degrade AI output quality — target 30-50 well-chosen lines
 
 
-## 相关规则
+## Related Standards
 
-- [让 Cursor 更懂 React 的最佳开发规则](/rules/cursor-react-rules)
+- [React Development Standards for AI Coding](/rules/cursor-react-rules)
 - [Cursor Tailwind CSS 开发规则](/rules/cursor-tailwind-rules)
 - [Cursor Prisma ORM 数据层开发规则](/rules/cursor-prisma-rules)
 `,
@@ -195,9 +195,9 @@ updatedAt: "2026-05-03",
 appliesTo: "Cursor 0.40+",
 content: `# Cursor Python 开发规则
 
-## 代码风格
+## Code Style
 - 遵循 PEP 8
-- 使用 4 空格缩进
+- Use 4-space indentation
 - 行最大长度 88（Black 默认）
 - 使用蛇形命名法
 
@@ -216,18 +216,18 @@ content: `# Cursor Python 开发规则
 - 使用 Google 风格的 docstring
 - README 包含安装和使用说明
 
-## 使用场景
+## Usage Scenarios
 
-将以上内容保存为项目的 '.cursorrules' 文件，Cursor 会在每次对话和代码生成时自动遵循这些规范。适用于团队统一编码风格、新成员快速上手。
+Save as .cursor/rules/*.mdc or AGENTS.md. The AI coding tool loads these conventions automatically for every session. Ideal for team-wide consistency and onboarding.
 
-## 常见错误
+## Common Mistakes
 
-- 不要在规则中写过于具体的业务逻辑，规则应该描述通用规范
-- 不要频繁修改 .cursorrules 导致 AI 行为不一致，建议按版本管理
-- 规则太多会降低 AI 响应质量，控制在 50 行以内
+- Don't write business-specific logic in standards — keep conventions universal
+- Don't change standards too frequently — version-control them to maintain consistent AI behavior
+- Too many rules degrade AI output quality — target 30-50 well-chosen lines
 
 
-## 相关规则
+## Related Standards
 
 - [Cursor 数据库开发 Schema 设计规则](/rules/cursor-database-rules)
 - [用 Cursor 开发 RESTful API 的编码规范](/rules/cursor-api-rules)
@@ -266,15 +266,15 @@ content: `# Cursor Git 工作流规则
 - PR 描述包含改动原因
 - 关联 Issue 编号
 
-## 使用场景
+## Usage Scenarios
 
-将以上内容保存为项目的 '.cursorrules' 文件，Cursor 会在每次对话和代码生成时自动遵循这些规范。适用于团队统一编码风格、新成员快速上手。
+Save as .cursor/rules/*.mdc or AGENTS.md. The AI coding tool loads these conventions automatically for every session. Ideal for team-wide consistency and onboarding.
 
-## 常见错误
+## Common Mistakes
 
-- 不要在规则中写过于具体的业务逻辑，规则应该描述通用规范
-- 不要频繁修改 .cursorrules 导致 AI 行为不一致，建议按版本管理
-- 规则太多会降低 AI 响应质量，控制在 50 行以内
+- Don't write business-specific logic in standards — keep conventions universal
+- Don't change standards too frequently — version-control them to maintain consistent AI behavior
+- Too many rules degrade AI output quality — target 30-50 well-chosen lines
 `,
   },
   {
@@ -288,7 +288,7 @@ updatedAt: "2026-05-04",
 appliesTo: "Cursor 0.40+",
 content: `# Cursor TypeScript 严格模式规则
 
-## 配置要求
+## Configuration要求
 - strict: true
 - noUncheckedIndexedAccess: true
 - exactOptionalPropertyTypes: true
@@ -303,25 +303,25 @@ content: `# Cursor TypeScript 严格模式规则
 - 约束使用 extends
 - 工具类型优先于手写
 
-## 最佳实践
+## Best Practices
 - 使用 const 断言
 - 使用 satisfies 操作符
 - 枚举使用 const enum
 
-## 使用场景
+## Usage Scenarios
 
-将以上内容保存为项目的 '.cursorrules' 文件，Cursor 会在每次对话和代码生成时自动遵循这些规范。适用于团队统一编码风格、新成员快速上手。
+Save as .cursor/rules/*.mdc or AGENTS.md. The AI coding tool loads these conventions automatically for every session. Ideal for team-wide consistency and onboarding.
 
-## 常见错误
+## Common Mistakes
 
-- 不要在规则中写过于具体的业务逻辑，规则应该描述通用规范
-- 不要频繁修改 .cursorrules 导致 AI 行为不一致，建议按版本管理
-- 规则太多会降低 AI 响应质量，控制在 50 行以内
+- Don't write business-specific logic in standards — keep conventions universal
+- Don't change standards too frequently — version-control them to maintain consistent AI behavior
+- Too many rules degrade AI output quality — target 30-50 well-chosen lines
 
 
-## 相关规则
+## Related Standards
 
-- [让 Cursor 更懂 React 的最佳开发规则](/rules/cursor-react-rules)
+- [React Development Standards for AI Coding](/rules/cursor-react-rules)
 - [用 Cursor 开发 Next.js 项目的完整规则](/rules/cursor-nextjs-rules)
 `,
   },
@@ -346,23 +346,23 @@ content: `# Claude Code 通用规则
 - 提供上下文文件路径
 - 使用分步指令
 
-## 安全
+## Security
 - 不要将 API Key 写入代码
 - 审查所有文件修改
 - 敏感操作手动确认
 
-## 使用场景
+## Usage Scenarios
 
-在 Claude Code 对话开始前，将以上 Prompt 模板粘贴到输入框，替换 '[]' 中的占位符为你的实际项目信息。Claude Code 会按照模板的精确程度生成代码。
+Before starting a Claude Code session, paste the prompt template and replace placeholders with your project details. Claude Code generates code matching the template precision.
 
-## 常见错误
+## Common Mistakes
 
-- 不要一次性提太多需求，把大任务拆成小步骤
-- 提供足够的文件路径上下文，帮助 Claude 找到正确位置
-- 必须审查 AI 生成的每一行代码，不盲信
+- Don't ask too much at once — break large tasks into small steps
+- Provide enough file path context to help Claude locate the right files
+- Review every line of AI-generated code — don't trust blindly
 
 
-## 相关规则
+## Related Standards
 
 - [用 Claude Code 写 React 的高效 Prompt](/rules/claude-code-react)
 - [用 Claude Code 写 Python 的高效 Prompt](/rules/claude-code-python)
@@ -388,15 +388,15 @@ content: `# Claude Code React 开发 Prompt
 ## 重构 Prompt
 "将 Dashboard 页面中的图表逻辑抽离为独立的 Chart 组件，包含 loading 和 empty 状态。"
 
-## 使用场景
+## Usage Scenarios
 
-在 Claude Code 对话开始前，将以上 Prompt 模板粘贴到输入框，替换 '[]' 中的占位符为你的实际项目信息。Claude Code 会按照模板的精确程度生成代码。
+Before starting a Claude Code session, paste the prompt template and replace placeholders with your project details. Claude Code generates code matching the template precision.
 
-## 常见错误
+## Common Mistakes
 
-- 不要一次性提太多需求，把大任务拆成小步骤
-- 提供足够的文件路径上下文，帮助 Claude 找到正确位置
-- 必须审查 AI 生成的每一行代码，不盲信
+- Don't ask too much at once — break large tasks into small steps
+- Provide enough file path context to help Claude locate the right files
+- Review every line of AI-generated code — don't trust blindly
 `,
   },
   {
@@ -422,21 +422,21 @@ content: `# Claude Code 工作流规则
 3. 指出怀疑的代码区域
 4. Claude 提出修复方案
 
-## 代码审查
+## Code Review
 1. 审查所有 diff
 2. 运行 lint 和测试
 3. 检查边界情况
 4. 确认没有安全漏洞
 
-## 使用场景
+## Usage Scenarios
 
-在 Claude Code 对话开始前，将以上 Prompt 模板粘贴到输入框，替换 '[]' 中的占位符为你的实际项目信息。Claude Code 会按照模板的精确程度生成代码。
+Before starting a Claude Code session, paste the prompt template and replace placeholders with your project details. Claude Code generates code matching the template precision.
 
-## 常见错误
+## Common Mistakes
 
-- 不要一次性提太多需求，把大任务拆成小步骤
-- 提供足够的文件路径上下文，帮助 Claude 找到正确位置
-- 必须审查 AI 生成的每一行代码，不盲信
+- Don't ask too much at once — break large tasks into small steps
+- Provide enough file path context to help Claude locate the right files
+- Review every line of AI-generated code — don't trust blindly
 `,
   },
   {
@@ -454,7 +454,7 @@ content: `# Claude Code 高效 Prompt 大全
 - "实现 [API 端点] 的 CRUD 操作"
 - "写一个 [算法] 的实现和测试"
 
-## 代码审查
+## Code Review
 - "审查这个 PR 的代码质量"
 - "找出潜在的性能问题"
 - "检查安全漏洞"
@@ -464,20 +464,20 @@ content: `# Claude Code 高效 Prompt 大全
 - "将 [模式] 重构为 [新模式]"
 - "优化这个函数的性能"
 
-## 测试
+## Testing
 - "为这个组件写单元测试"
 - "生成边界测试用例"
 - "写集成测试覆盖这个流程"
 
-## 使用场景
+## Usage Scenarios
 
-在 Claude Code 对话开始前，将以上 Prompt 模板粘贴到输入框，替换 '[]' 中的占位符为你的实际项目信息。Claude Code 会按照模板的精确程度生成代码。
+Before starting a Claude Code session, paste the prompt template and replace placeholders with your project details. Claude Code generates code matching the template precision.
 
-## 常见错误
+## Common Mistakes
 
-- 不要一次性提太多需求，把大任务拆成小步骤
-- 提供足够的文件路径上下文，帮助 Claude 找到正确位置
-- 必须审查 AI 生成的每一行代码，不盲信
+- Don't ask too much at once — break large tasks into small steps
+- Provide enough file path context to help Claude locate the right files
+- Review every line of AI-generated code — don't trust blindly
 `,
   },
   {
@@ -490,7 +490,7 @@ tags: ["copilot", "general", "best-practices"],
 updatedAt: "2026-04-29",
 content: `# GitHub Copilot 通用规则
 
-## 配置
+## Configuration
 - 启用建议自动触发
 - 配置 .github/copilot-instructions.md
 - 使用 Copilot Chat 辅助调试
@@ -505,15 +505,15 @@ content: `# GitHub Copilot 通用规则
 - 不要接受明显错误的代码
 - 需要时手动修正
 
-## 使用场景
+## Usage Scenarios
 
-将以上配置保存到项目根目录的 '.github/copilot-instructions.md' 文件，GitHub Copilot 会在所有 IDE 中自动加载这些指令。
+Save this config to '.github/copilot-instructions.md' in your project root. GitHub Copilot auto-loads these instructions in all IDEs.
 
-## 常见错误
+## Common Mistakes
 
-- copilot-instructions.md 不是 '.cursorrules' 的替代品，二者语法不同
-- 配置太长会超过上下文窗口限制，控制在 50 行内
-- Copilot 不支持复杂的多步骤指令，保持规则简洁直接
+- copilot-instructions.md has different syntax from .cursorrules — they're not drop-in replacements
+- Configs too long exceed context window limits — keep under 50 lines
+- Copilot doesn't support complex multi-step instructions — keep rules simple and direct
 `,
   },
   {
@@ -529,7 +529,7 @@ content: `# GitHub Copilot 项目指令配置
 ## 创建 copilot-instructions.md
 在项目根目录创建 .github/copilot-instructions.md
 
-## 配置内容
+## Configuration内容
 - 项目技术栈描述
 - 编码风格偏好
 - 使用的框架和库
@@ -537,7 +537,7 @@ content: `# GitHub Copilot 项目指令配置
 
 ## 示例
 markdown
-# 技术栈
+# Tech Stack
 - Next.js 14 (App Router)
 - TypeScript (strict)
 - Tailwind CSS
@@ -549,15 +549,15 @@ markdown
 - 数据库查询使用 Prisma
 
 
-## 使用场景
+## Usage Scenarios
 
-将以上配置保存到项目根目录的 '.github/copilot-instructions.md' 文件，GitHub Copilot 会在所有 IDE 中自动加载这些指令。
+Save this config to '.github/copilot-instructions.md' in your project root. GitHub Copilot auto-loads these instructions in all IDEs.
 
-## 常见错误
+## Common Mistakes
 
-- copilot-instructions.md 不是 '.cursorrules' 的替代品，二者语法不同
-- 配置太长会超过上下文窗口限制，控制在 50 行内
-- Copilot 不支持复杂的多步骤指令，保持规则简洁直接
+- copilot-instructions.md has different syntax from .cursorrules — they're not drop-in replacements
+- Configs too long exceed context window limits — keep under 50 lines
+- Copilot doesn't support complex multi-step instructions — keep rules simple and direct
 `,
   },
   {
@@ -570,7 +570,7 @@ markdown
     updatedAt: "2026-04-27",
     content: `# Copilot 辅助测试编写
 
-## 测试框架
+## Testing框架
 - Jest + React Testing Library
 - 描述性测试名称
 - AAA 模式（Arrange-Act-Assert）
@@ -585,15 +585,15 @@ markdown
 - 复杂依赖使用依赖注入
 - 避免过度 mock
 
-## 使用场景
+## Usage Scenarios
 
-将以上配置保存到项目根目录的 '.github/copilot-instructions.md' 文件，GitHub Copilot 会在所有 IDE 中自动加载这些指令。
+Save this config to '.github/copilot-instructions.md' in your project root. GitHub Copilot auto-loads these instructions in all IDEs.
 
-## 常见错误
+## Common Mistakes
 
-- copilot-instructions.md 不是 '.cursorrules' 的替代品，二者语法不同
-- 配置太长会超过上下文窗口限制，控制在 50 行内
-- Copilot 不支持复杂的多步骤指令，保持规则简洁直接
+- copilot-instructions.md has different syntax from .cursorrules — they're not drop-in replacements
+- Configs too long exceed context window limits — keep under 50 lines
+- Copilot doesn't support complex multi-step instructions — keep rules simple and direct
 `,
   },
   {
@@ -617,20 +617,20 @@ content: `# Windsurf AI 编程规则
 - 利用多文件编辑能力
 - 使用 Cascade 功能
 
-## 最佳实践
+## Best Practices
 - 定期保存工作
 - 审查代码差异
 - 测试生成代码
 
-## 使用场景
+## Usage Scenarios
 
-在 Windsurf IDE 中启用 AI 功能后，以上规则会自动应用到 Cascade 多文件编辑和 AI 代码建议中。
+These standards auto-apply to Cascade multi-file editing and AI suggestions in Windsurf IDE.
 
-## 常见错误
+## Common Mistakes
 
-- Cascade 每次修改后必须检查 diff，不要完全信任 AI
-- 大规模修改前先保存 git commit，方便回滚
-- Windsurf 的 AI 能力依赖网络连接，离线时不可用
+- Check the diff after every Cascade change — don't fully trust the AI
+- Commit before large-scale changes to enable easy rollback
+- Windsurf AI features require network connectivity — not available offline
 `,
   },
   {
@@ -647,12 +647,12 @@ content: `# Windsurf Cascade 功能指南
 ## Cascade 是什么
 Cascade 是 Windsurf 的多文件编辑功能
 
-## 使用场景
+## Usage Scenarios
 - 跨文件重构
 - 添加新功能
 - 全局修改
 
-## 最佳实践
+## Best Practices
 - 明确描述修改范围
 - 审查每个文件的更改
 - 小批量提交`,
@@ -682,26 +682,26 @@ content: `# AI 编程 Prompt 终极技巧
 - 不要假设 AI 知道项目结构
 - 检查生成的依赖版本
 
-## 适用场景
+## Applicable Scenarios
 
-以上方法适用于所有主流 AI 编程工具（Cursor、Claude Code、GitHub Copilot、Windsurf 等）。根据具体需求，选择对应工具实施。
+These methods apply to all major AI coding tools (Cursor, Claude Code, GitHub Copilot, Windsurf, etc.). Choose the right tool for your needs.
 
-## 常见错误
+## Common Mistakes
 
-- 不要期望 AI 替代你的思考，AI 是加速器不是自动驾驶
-- 规则和方法需要根据项目类型调整，不存在万能配置
-- 永远保持代码审查，AI 生成的代码可能有隐藏问题
-- 定期更新你的规则库，AI 工具迭代很快
+- Don't expect AI to replace thinking — it's an accelerator, not autopilot
+- Standards must adapt to project type — there is no universal config
+- Always review AI-generated code — it may have hidden issues
+- Update your standards regularly — AI tools evolve fast
 
-## 使用场景
+## Usage Scenarios
 
-以上内容可直接拷贝到你的项目中，根据需要调整技术栈名称和具体版本。搭配其他相关规则使用效果最佳。
+Save this content directly to your project. Adjust tech stack names and versions as needed. Combine with related standards for best results.
 
-## 常见错误
+## Common Mistakes
 
-- 完全复制规则而不根据项目调整，导致 AI 行为不符合预期
-- 规则与实际项目不一致，AI 生成的代码和项目结构不匹配
-- 不更新规则，随着项目演进而过时
+- Copying rules without adjusting for your project, leading to inconsistent AI behavior
+- Standards don't match actual project, AI output diverges from codebase structure
+- Not updating standards as the project evolves
 `,
   },
   {
@@ -731,26 +731,26 @@ content: `# AI 辅助代码审查规则
 - 业务逻辑需要人工确认
 - 安全性审查需要专业知识
 
-## 适用场景
+## Applicable Scenarios
 
-以上方法适用于所有主流 AI 编程工具（Cursor、Claude Code、GitHub Copilot、Windsurf 等）。根据具体需求，选择对应工具实施。
+These methods apply to all major AI coding tools (Cursor, Claude Code, GitHub Copilot, Windsurf, etc.). Choose the right tool for your needs.
 
-## 常见错误
+## Common Mistakes
 
-- 不要期望 AI 替代你的思考，AI 是加速器不是自动驾驶
-- 规则和方法需要根据项目类型调整，不存在万能配置
-- 永远保持代码审查，AI 生成的代码可能有隐藏问题
-- 定期更新你的规则库，AI 工具迭代很快
+- Don't expect AI to replace thinking — it's an accelerator, not autopilot
+- Standards must adapt to project type — there is no universal config
+- Always review AI-generated code — it may have hidden issues
+- Update your standards regularly — AI tools evolve fast
 
-## 使用场景
+## Usage Scenarios
 
-以上内容可直接拷贝到你的项目中，根据需要调整技术栈名称和具体版本。搭配其他相关规则使用效果最佳。
+Save this content directly to your project. Adjust tech stack names and versions as needed. Combine with related standards for best results.
 
-## 常见错误
+## Common Mistakes
 
-- 完全复制规则而不根据项目调整，导致 AI 行为不符合预期
-- 规则与实际项目不一致，AI 生成的代码和项目结构不匹配
-- 不更新规则，随着项目演进而过时
+- Copying rules without adjusting for your project, leading to inconsistent AI behavior
+- Standards don't match actual project, AI output diverges from codebase structure
+- Not updating standards as the project evolves
 `,
   },
   {
@@ -779,26 +779,26 @@ content: `# Cursor Rules 最佳实践合集
 - 用注释分隔章节
 - 定期更新规则
 
-## 适用场景
+## Applicable Scenarios
 
-以上方法适用于所有主流 AI 编程工具（Cursor、Claude Code、GitHub Copilot、Windsurf 等）。根据具体需求，选择对应工具实施。
+These methods apply to all major AI coding tools (Cursor, Claude Code, GitHub Copilot, Windsurf, etc.). Choose the right tool for your needs.
 
-## 常见错误
+## Common Mistakes
 
-- 不要期望 AI 替代你的思考，AI 是加速器不是自动驾驶
-- 规则和方法需要根据项目类型调整，不存在万能配置
-- 永远保持代码审查，AI 生成的代码可能有隐藏问题
-- 定期更新你的规则库，AI 工具迭代很快
+- Don't expect AI to replace thinking — it's an accelerator, not autopilot
+- Standards must adapt to project type — there is no universal config
+- Always review AI-generated code — it may have hidden issues
+- Update your standards regularly — AI tools evolve fast
 
-## 使用场景
+## Usage Scenarios
 
-以上内容可直接拷贝到你的项目中，根据需要调整技术栈名称和具体版本。搭配其他相关规则使用效果最佳。
+Save this content directly to your project. Adjust tech stack names and versions as needed. Combine with related standards for best results.
 
-## 常见错误
+## Common Mistakes
 
-- 完全复制规则而不根据项目调整，导致 AI 行为不符合预期
-- 规则与实际项目不一致，AI 生成的代码和项目结构不匹配
-- 不更新规则，随着项目演进而过时
+- Copying rules without adjusting for your project, leading to inconsistent AI behavior
+- Standards don't match actual project, AI output diverges from codebase structure
+- Not updating standards as the project evolves
 `,
   },
 
@@ -813,13 +813,13 @@ updatedAt: "2026-05-10",
 appliesTo: "Cursor 0.40+",
 content: `# Cursor Vue.js 开发规则
 
-## 项目结构
+## Project Structure
 - 使用 Composition API + <script setup>
 - 避免 Options API
 - 组件文件名使用 PascalCase
 - 页面文件放在 pages/ 或 views/
 
-## 组件规范
+## Component Standards
 - 每个 .vue 文件只导出一个组件
 - 逻辑复用优先使用 composables
 - props 必须定义类型和默认值
@@ -830,25 +830,25 @@ content: `# Cursor Vue.js 开发规则
 - store 按功能模块拆分
 - 避免在 store 中引用组件实例
 
-## 样式
+## Styling
 - 使用 <style scoped> 避免样式污染
 - 全局样式放在 assets/styles/
 - 优先使用 Tailwind CSS 或 CSS Variables
 
-## 使用场景
+## Usage Scenarios
 
-将以上内容保存为项目的 '.cursorrules' 文件，Cursor 会在每次对话和代码生成时自动遵循这些规范。适用于团队统一编码风格、新成员快速上手。
+Save as .cursor/rules/*.mdc or AGENTS.md. The AI coding tool loads these conventions automatically for every session. Ideal for team-wide consistency and onboarding.
 
-## 常见错误
+## Common Mistakes
 
-- 不要在规则中写过于具体的业务逻辑，规则应该描述通用规范
-- 不要频繁修改 .cursorrules 导致 AI 行为不一致，建议按版本管理
-- 规则太多会降低 AI 响应质量，控制在 50 行以内
+- Don't write business-specific logic in standards — keep conventions universal
+- Don't change standards too frequently — version-control them to maintain consistent AI behavior
+- Too many rules degrade AI output quality — target 30-50 well-chosen lines
 
 
-## 相关规则
+## Related Standards
 
-- [让 Cursor 更懂 React 的最佳开发规则](/rules/cursor-react-rules)
+- [React Development Standards for AI Coding](/rules/cursor-react-rules)
 - [Cursor Nuxt 3 全栈开发规则](/rules/cursor-nuxt-rules)
 - [Cursor Tailwind CSS 开发规则](/rules/cursor-tailwind-rules)
 `,
@@ -871,7 +871,7 @@ content: `    # Cursor Go 开发规则
 - 错误处理使用 if err != nil 模式
 - 接口尽量小，不超过 3 个方法
 
-## 项目结构
+## Project Structure
 - 按功能模块分包，不按层分包
 - cmd/ 目录放 main 包入口
 - internal/ 目录放不导出的包
@@ -882,23 +882,23 @@ content: `    # Cursor Go 开发规则
 - channel 用于协程间通信
 - context 传递请求范围的值和取消信号
 
-## 测试
+## Testing
 - 测试文件与被测文件同目录
 - 使用 table-driven test 模式
 - 基准测试标记为 BenchmarkXxx
 
-## 使用场景
+## Usage Scenarios
 
-将以上内容保存为项目的 '.cursorrules' 文件，Cursor 会在每次对话和代码生成时自动遵循这些规范。适用于团队统一编码风格、新成员快速上手。
+Save as .cursor/rules/*.mdc or AGENTS.md. The AI coding tool loads these conventions automatically for every session. Ideal for team-wide consistency and onboarding.
 
-## 常见错误
+## Common Mistakes
 
-- 不要在规则中写过于具体的业务逻辑，规则应该描述通用规范
-- 不要频繁修改 .cursorrules 导致 AI 行为不一致，建议按版本管理
-- 规则太多会降低 AI 响应质量，控制在 50 行以内
+- Don't write business-specific logic in standards — keep conventions universal
+- Don't change standards too frequently — version-control them to maintain consistent AI behavior
+- Too many rules degrade AI output quality — target 30-50 well-chosen lines
 
 
-## 相关规则
+## Related Standards
 
 - [用 Cursor 开发 RESTful API 的编码规范](/rules/cursor-api-rules)
 - [Cursor 自动生成测试的完整规则](/rules/cursor-testing-rules)
@@ -917,13 +917,13 @@ updatedAt: "2026-05-10",
 appliesTo: "Cursor 0.40+",
 content: `    # Cursor 测试开发规则
 
-## 测试策略
+## Testing策略
 - 单元测试覆盖核心业务逻辑
 - 集成测试覆盖 API 和数据库
 - 每个 bug 修复先写回归测试
 - 测试覆盖率目标：核心模块 > 90%
 
-## 测试命名
+## Testing命名
 - describe 描述被测单元
 - it 描述期望行为
 - 测试名称使用中文描述
@@ -938,18 +938,18 @@ content: `    # Cursor 测试开发规则
 - 使用 AAA 模式（Arrange-Act-Assert）
 - 错误场景和边界情况必须覆盖
 
-## 使用场景
+## Usage Scenarios
 
-将以上内容保存为项目的 '.cursorrules' 文件，Cursor 会在每次对话和代码生成时自动遵循这些规范。适用于团队统一编码风格、新成员快速上手。
+Save as .cursor/rules/*.mdc or AGENTS.md. The AI coding tool loads these conventions automatically for every session. Ideal for team-wide consistency and onboarding.
 
-## 常见错误
+## Common Mistakes
 
-- 不要在规则中写过于具体的业务逻辑，规则应该描述通用规范
-- 不要频繁修改 .cursorrules 导致 AI 行为不一致，建议按版本管理
-- 规则太多会降低 AI 响应质量，控制在 50 行以内
+- Don't write business-specific logic in standards — keep conventions universal
+- Don't change standards too frequently — version-control them to maintain consistent AI behavior
+- Too many rules degrade AI output quality — target 30-50 well-chosen lines
 
 
-## 相关规则
+## Related Standards
 
 - [Cursor E2E 自动化测试规则](/rules/cursor-e2e-testing)
 - [AI 辅助测试策略完整指南](/rules/general-testing-strategy)
@@ -985,24 +985,24 @@ content: `    # Cursor API 开发规则
 - 错误使用 HTTP 状态码 + 业务码
 - 耗时接口返回 202 Accepted
 
-## 安全
+## Security
 - API Key 通过 Header 传递
 - 限制请求频率（Rate Limit）
 - CORS 配置白名单
 - 敏感操作记录审计日志
 
-## 使用场景
+## Usage Scenarios
 
-将以上内容保存为项目的 '.cursorrules' 文件，Cursor 会在每次对话和代码生成时自动遵循这些规范。适用于团队统一编码风格、新成员快速上手。
+Save as .cursor/rules/*.mdc or AGENTS.md. The AI coding tool loads these conventions automatically for every session. Ideal for team-wide consistency and onboarding.
 
-## 常见错误
+## Common Mistakes
 
-- 不要在规则中写过于具体的业务逻辑，规则应该描述通用规范
-- 不要频繁修改 .cursorrules 导致 AI 行为不一致，建议按版本管理
-- 规则太多会降低 AI 响应质量，控制在 50 行以内
+- Don't write business-specific logic in standards — keep conventions universal
+- Don't change standards too frequently — version-control them to maintain consistent AI behavior
+- Too many rules degrade AI output quality — target 30-50 well-chosen lines
 
 
-## 相关规则
+## Related Standards
 
 - [Cursor GraphQL API 开发规则](/rules/cursor-graphql-rules)
 - [Cursor 数据库开发 Schema 设计规则](/rules/cursor-database-rules)
@@ -1026,7 +1026,7 @@ content: `    # Cursor Docker 容器化规则
 - 合并 RUN 命令减少层数
 - .dockerignore 排除不必要的文件
 
-## 安全
+## Security
 - 不以 root 用户运行容器
 - 最小化安装包
 - 定期扫描镜像漏洞
@@ -1038,18 +1038,18 @@ content: `    # Cursor Docker 容器化规则
 - 每个服务独立容器
 - 日志输出到 stdout/stderr
 
-## 使用场景
+## Usage Scenarios
 
-将以上内容保存为项目的 '.cursorrules' 文件，Cursor 会在每次对话和代码生成时自动遵循这些规范。适用于团队统一编码风格、新成员快速上手。
+Save as .cursor/rules/*.mdc or AGENTS.md. The AI coding tool loads these conventions automatically for every session. Ideal for team-wide consistency and onboarding.
 
-## 常见错误
+## Common Mistakes
 
-- 不要在规则中写过于具体的业务逻辑，规则应该描述通用规范
-- 不要频繁修改 .cursorrules 导致 AI 行为不一致，建议按版本管理
-- 规则太多会降低 AI 响应质量，控制在 50 行以内
+- Don't write business-specific logic in standards — keep conventions universal
+- Don't change standards too frequently — version-control them to maintain consistent AI behavior
+- Too many rules degrade AI output quality — target 30-50 well-chosen lines
 
 
-## 相关规则
+## Related Standards
 
 - [Cursor Node.js Express 后端开发规则](/rules/cursor-nodejs-rules)
 - [AI 部署运维 CI/CD 指南](/rules/general-deployment-rules)
@@ -1067,7 +1067,7 @@ updatedAt: "2026-05-10",
 appliesTo: "Cursor 0.40+",
 content: `    # Cursor 数据库开发规则
 
-## Schema 设计
+## Schema Design
 - 表名使用复数 snake_case
 - 主键使用 BIGINT 自增或 UUID
 - 必须包含 created_at 和 updated_at
@@ -1085,24 +1085,24 @@ content: `    # Cursor 数据库开发规则
 - 生产环境迁移前 Review
 - 禁止直接修改已合并的迁移
 
-## 安全
+## Security
 - 使用参数化查询防 SQL 注入
 - 敏感字段加密存储
 - 连接字符串通过环境变量配置
 - 生产数据库连接池限制
 
-## 使用场景
+## Usage Scenarios
 
-将以上内容保存为项目的 '.cursorrules' 文件，Cursor 会在每次对话和代码生成时自动遵循这些规范。适用于团队统一编码风格、新成员快速上手。
+Save as .cursor/rules/*.mdc or AGENTS.md. The AI coding tool loads these conventions automatically for every session. Ideal for team-wide consistency and onboarding.
 
-## 常见错误
+## Common Mistakes
 
-- 不要在规则中写过于具体的业务逻辑，规则应该描述通用规范
-- 不要频繁修改 .cursorrules 导致 AI 行为不一致，建议按版本管理
-- 规则太多会降低 AI 响应质量，控制在 50 行以内
+- Don't write business-specific logic in standards — keep conventions universal
+- Don't change standards too frequently — version-control them to maintain consistent AI behavior
+- Too many rules degrade AI output quality — target 30-50 well-chosen lines
 
 
-## 相关规则
+## Related Standards
 
 - [Cursor Prisma ORM 数据层开发规则](/rules/cursor-prisma-rules)
 - [Cursor Supabase 后端开发规则](/rules/cursor-supabase-rules)
@@ -1129,18 +1129,18 @@ content: `    # Claude Code Python 开发 Prompt
 ## 异步任务
 "使用 Celery + Redis 实现后台任务队列，包含进度跟踪和结果回调。任务函数在 tasks/ 目录下。"
 
-## 测试生成
+## Testing生成
 "为 services/user_service.py 写 pytest 单元测试，mock 外部 API 调用，覆盖正常和异常场景。" 
 
-## 使用场景
+## Usage Scenarios
 
-在 Claude Code 对话开始前，将以上 Prompt 模板粘贴到输入框，替换 '[]' 中的占位符为你的实际项目信息。Claude Code 会按照模板的精确程度生成代码。
+Before starting a Claude Code session, paste the prompt template and replace placeholders with your project details. Claude Code generates code matching the template precision.
 
-## 常见错误
+## Common Mistakes
 
-- 不要一次性提太多需求，把大任务拆成小步骤
-- 提供足够的文件路径上下文，帮助 Claude 找到正确位置
-- 必须审查 AI 生成的每一行代码，不盲信
+- Don't ask too much at once — break large tasks into small steps
+- Provide enough file path context to help Claude locate the right files
+- Review every line of AI-generated code — don't trust blindly
 `,
   },
 
@@ -1163,18 +1163,18 @@ content: `    # Claude Code 测试编写指南
 ## Mock 外部依赖
 "使用 jest.mock 模拟 Stripe API 调用，模拟成功支付和支付失败的响应。"
 
-## 测试覆盖率
+## Testing覆盖率
 "分析当前项目的测试覆盖率，找出未覆盖的代码路径，生成补充测试。" 
 
-## 使用场景
+## Usage Scenarios
 
-在 Claude Code 对话开始前，将以上 Prompt 模板粘贴到输入框，替换 '[]' 中的占位符为你的实际项目信息。Claude Code 会按照模板的精确程度生成代码。
+Before starting a Claude Code session, paste the prompt template and replace placeholders with your project details. Claude Code generates code matching the template precision.
 
-## 常见错误
+## Common Mistakes
 
-- 不要一次性提太多需求，把大任务拆成小步骤
-- 提供足够的文件路径上下文，帮助 Claude 找到正确位置
-- 必须审查 AI 生成的每一行代码，不盲信
+- Don't ask too much at once — break large tasks into small steps
+- Provide enough file path context to help Claude locate the right files
+- Review every line of AI-generated code — don't trust blindly
 `,
   },
 
@@ -1200,15 +1200,15 @@ content: `    # Claude Code 代码重构 Prompt
 ## 优化性能
 "分析列表页面的重渲染问题，添加 React.memo、useMemo、useCallback 优化。提供重构前后的性能对比。" 
 
-## 使用场景
+## Usage Scenarios
 
-在 Claude Code 对话开始前，将以上 Prompt 模板粘贴到输入框，替换 '[]' 中的占位符为你的实际项目信息。Claude Code 会按照模板的精确程度生成代码。
+Before starting a Claude Code session, paste the prompt template and replace placeholders with your project details. Claude Code generates code matching the template precision.
 
-## 常见错误
+## Common Mistakes
 
-- 不要一次性提太多需求，把大任务拆成小步骤
-- 提供足够的文件路径上下文，帮助 Claude 找到正确位置
-- 必须审查 AI 生成的每一行代码，不盲信
+- Don't ask too much at once — break large tasks into small steps
+- Provide enough file path context to help Claude locate the right files
+- Review every line of AI-generated code — don't trust blindly
 `,
   },
 
@@ -1222,34 +1222,34 @@ tags: ["copilot", "vue", "前端"],
 updatedAt: "2026-05-10",
 content: `    # Copilot Vue 3 开发指令
 
-## 配置 copilot-instructions.md
+## Configuration copilot-instructions.md
 
-## 技术栈
+## Tech Stack
 - Vue 3 (Composition API)
 - TypeScript (strict)
 - Vite 构建工具
-- Pinia 状态管理
+- Pinia State Management
 
-## 编码规范
+## Coding Standards
 - 使用 <script setup lang="ts">
 - 组件名多单词（MyComponent.vue）
 - composables 放在 composables/ 目录
 - API 请求封装到 api/ 模块
 
-## 常用 Prompt
+## Common Prompts
 - "生成一个带搜索和分页的用户列表组件"
 - "写一个 Pinia store 管理购物车状态"
 - "实现路由懒加载和导航守卫" 
 
-## 使用场景
+## Usage Scenarios
 
-将以上配置保存到项目根目录的 '.github/copilot-instructions.md' 文件，GitHub Copilot 会在所有 IDE 中自动加载这些指令。
+Save this config to '.github/copilot-instructions.md' in your project root. GitHub Copilot auto-loads these instructions in all IDEs.
 
-## 常见错误
+## Common Mistakes
 
-- copilot-instructions.md 不是 '.cursorrules' 的替代品，二者语法不同
-- 配置太长会超过上下文窗口限制，控制在 50 行内
-- Copilot 不支持复杂的多步骤指令，保持规则简洁直接
+- copilot-instructions.md has different syntax from .cursorrules — they're not drop-in replacements
+- Configs too long exceed context window limits — keep under 50 lines
+- Copilot doesn't support complex multi-step instructions — keep rules simple and direct
 `,
   },
 
@@ -1263,34 +1263,34 @@ tags: ["copilot", "python", "后端"],
 updatedAt: "2026-05-10",
 content: `    # Copilot Python 开发指令
 
-## 配置 copilot-instructions.md
+## Configuration copilot-instructions.md
 
-## 技术栈
+## Tech Stack
 - Python 3.11+
 - FastAPI / Django
 - SQLAlchemy / Django ORM
 - pytest + coverage
 
-## 编码规范
+## Coding Standards
 - 遵循 PEP 8
 - 使用类型注解
 - 异步优先（async/await）
 - Google 风格 docstring
 
-## 常用 Prompt
+## Common Prompts
 - "实现 FastAPI 用户注册接口，包含密码加密和邮箱验证"
 - "写一个 SQLAlchemy 模型，包含软删除和时间戳"
 - "生成 pytest fixture 和测试数据工厂" 
 
-## 使用场景
+## Usage Scenarios
 
-将以上配置保存到项目根目录的 '.github/copilot-instructions.md' 文件，GitHub Copilot 会在所有 IDE 中自动加载这些指令。
+Save this config to '.github/copilot-instructions.md' in your project root. GitHub Copilot auto-loads these instructions in all IDEs.
 
-## 常见错误
+## Common Mistakes
 
-- copilot-instructions.md 不是 '.cursorrules' 的替代品，二者语法不同
-- 配置太长会超过上下文窗口限制，控制在 50 行内
-- Copilot 不支持复杂的多步骤指令，保持规则简洁直接
+- copilot-instructions.md has different syntax from .cursorrules — they're not drop-in replacements
+- Configs too long exceed context window limits — keep under 50 lines
+- Copilot doesn't support complex multi-step instructions — keep rules simple and direct
 `,
   },
 
@@ -1309,7 +1309,7 @@ content: `    # Windsurf React 开发规则
 - 配置 React 项目上下文
 - 使用 Cascade 进行跨文件编辑
 
-## 组件开发
+## Components开发
 - 使用 Cascade 创建组件模板
 - 利用多文件编辑同步修改组件和样式
 - AI 生成代码后立即审查 diff
@@ -1319,20 +1319,20 @@ content: `    # Windsurf React 开发规则
 - 重构时 Cascade 自动更新引用
 - 性能问题让 AI 分析 profiler 数据
 
-## 最佳实践
+## Best Practices
 - 每次 Cascade 修改后运行测试
 - 批量修改前创建 git commit 检查点
 - 复杂逻辑分步让 AI 完成
 
-## 使用场景
+## Usage Scenarios
 
-在 Windsurf IDE 中启用 AI 功能后，以上规则会自动应用到 Cascade 多文件编辑和 AI 代码建议中。
+These standards auto-apply to Cascade multi-file editing and AI suggestions in Windsurf IDE.
 
-## 常见错误
+## Common Mistakes
 
-- Cascade 每次修改后必须检查 diff，不要完全信任 AI
-- 大规模修改前先保存 git commit，方便回滚
-- Windsurf 的 AI 能力依赖网络连接，离线时不可用
+- Check the diff after every Cascade change — don't fully trust the AI
+- Commit before large-scale changes to enable easy rollback
+- Windsurf AI features require network connectivity — not available offline
 `,
   },
 
@@ -1361,20 +1361,20 @@ content: `    # Windsurf Python 开发规则
 - AI 生成 CRUD 接口
 - 数据库模型自动迁移
 
-## 测试
+## Testing
 - AI 生成单元测试和集成测试
 - 覆盖率分析自动补充测试
 - Mock 数据自动生成
 
-## 使用场景
+## Usage Scenarios
 
-在 Windsurf IDE 中启用 AI 功能后，以上规则会自动应用到 Cascade 多文件编辑和 AI 代码建议中。
+These standards auto-apply to Cascade multi-file editing and AI suggestions in Windsurf IDE.
 
-## 常见错误
+## Common Mistakes
 
-- Cascade 每次修改后必须检查 diff，不要完全信任 AI
-- 大规模修改前先保存 git commit，方便回滚
-- Windsurf 的 AI 能力依赖网络连接，离线时不可用
+- Check the diff after every Cascade change — don't fully trust the AI
+- Commit before large-scale changes to enable easy rollback
+- Windsurf AI features require network connectivity — not available offline
 `,
   },
 
@@ -1413,26 +1413,26 @@ content: `    # AI 编程 Prompt 工程指南
 - 第三轮：要求 AI 优化具体部分
 - 第四轮：添加错误处理和边界情况
 
-## 适用场景
+## Applicable Scenarios
 
-以上方法适用于所有主流 AI 编程工具（Cursor、Claude Code、GitHub Copilot、Windsurf 等）。根据具体需求，选择对应工具实施。
+These methods apply to all major AI coding tools (Cursor, Claude Code, GitHub Copilot, Windsurf, etc.). Choose the right tool for your needs.
 
-## 常见错误
+## Common Mistakes
 
-- 不要期望 AI 替代你的思考，AI 是加速器不是自动驾驶
-- 规则和方法需要根据项目类型调整，不存在万能配置
-- 永远保持代码审查，AI 生成的代码可能有隐藏问题
-- 定期更新你的规则库，AI 工具迭代很快
+- Don't expect AI to replace thinking — it's an accelerator, not autopilot
+- Standards must adapt to project type — there is no universal config
+- Always review AI-generated code — it may have hidden issues
+- Update your standards regularly — AI tools evolve fast
 
-## 使用场景
+## Usage Scenarios
 
-以上内容可直接拷贝到你的项目中，根据需要调整技术栈名称和具体版本。搭配其他相关规则使用效果最佳。
+Save this content directly to your project. Adjust tech stack names and versions as needed. Combine with related standards for best results.
 
-## 常见错误
+## Common Mistakes
 
-- 完全复制规则而不根据项目调整，导致 AI 行为不符合预期
-- 规则与实际项目不一致，AI 生成的代码和项目结构不匹配
-- 不更新规则，随着项目演进而过时
+- Copying rules without adjusting for your project, leading to inconsistent AI behavior
+- Standards don't match actual project, AI output diverges from codebase structure
+- Not updating standards as the project evolves
 `,
   },
 
@@ -1470,26 +1470,26 @@ content: `    # AI 全栈开发工作流
 - 监控告警规则生成
 - 性能优化建议
 
-## 适用场景
+## Applicable Scenarios
 
-以上方法适用于所有主流 AI 编程工具（Cursor、Claude Code、GitHub Copilot、Windsurf 等）。根据具体需求，选择对应工具实施。
+These methods apply to all major AI coding tools (Cursor, Claude Code, GitHub Copilot, Windsurf, etc.). Choose the right tool for your needs.
 
-## 常见错误
+## Common Mistakes
 
-- 不要期望 AI 替代你的思考，AI 是加速器不是自动驾驶
-- 规则和方法需要根据项目类型调整，不存在万能配置
-- 永远保持代码审查，AI 生成的代码可能有隐藏问题
-- 定期更新你的规则库，AI 工具迭代很快
+- Don't expect AI to replace thinking — it's an accelerator, not autopilot
+- Standards must adapt to project type — there is no universal config
+- Always review AI-generated code — it may have hidden issues
+- Update your standards regularly — AI tools evolve fast
 
-## 使用场景
+## Usage Scenarios
 
-以上内容可直接拷贝到你的项目中，根据需要调整技术栈名称和具体版本。搭配其他相关规则使用效果最佳。
+Save this content directly to your project. Adjust tech stack names and versions as needed. Combine with related standards for best results.
 
-## 常见错误
+## Common Mistakes
 
-- 完全复制规则而不根据项目调整，导致 AI 行为不符合预期
-- 规则与实际项目不一致，AI 生成的代码和项目结构不匹配
-- 不更新规则，随着项目演进而过时
+- Copying rules without adjusting for your project, leading to inconsistent AI behavior
+- Standards don't match actual project, AI output diverges from codebase structure
+- Not updating standards as the project evolves
 `,
   },
 
@@ -1514,7 +1514,7 @@ content: `    # AI 全栈开发工作流
 在项目根目录创建 .cursorrules，粘贴以下内容：
 
 \'\'\`
-# 技术栈
+# Tech Stack
 - Next.js 15 (App Router)
 - TypeScript strict mode
 - Tailwind CSS v4
@@ -1546,28 +1546,28 @@ content: `    # AI 全栈开发工作流
 - 数据获取使用 Server Component
 - TypeScript 类型完整，无 any
 
-## 学习路径
+## Learning Path
 
-建议按以下顺序学习：
-1. 先完整阅读一遍教程
-2. 在真实项目中实践核心要点
-3. 遇到问题时回到本文搜索解决方案
-4. 结合其他规则页构建你的完整 AI 编程工作流
+Recommended learning path:
+1. Read the tutorial thoroughly
+2. Apply core concepts in real projects
+3. Return here when encountering issues
+4. Combine with other standards for a complete AI coding workflow
 
-## 下一步
+## Next Steps
 
-- 访问 '/frameworks' 查看特定框架的详细规则
-- 访问 '/compare' 了解 AI 工具的差异和选择
+- Visit '/frameworks' for framework-specific standards
+- Visit '/compare' to understand differences between AI tools
 
-## 使用场景
+## Usage Scenarios
 
-以上内容可直接拷贝到你的项目中，根据需要调整技术栈名称和具体版本。搭配其他相关规则使用效果最佳。
+Save this content directly to your project. Adjust tech stack names and versions as needed. Combine with related standards for best results.
 
-## 常见错误
+## Common Mistakes
 
-- 完全复制规则而不根据项目调整，导致 AI 行为不符合预期
-- 规则与实际项目不一致，AI 生成的代码和项目结构不匹配
-- 不更新规则，随着项目演进而过时
+- Copying rules without adjusting for your project, leading to inconsistent AI behavior
+- Standards don't match actual project, AI output diverges from codebase structure
+- Not updating standards as the project evolves
 `,
   },
   {
@@ -1621,28 +1621,28 @@ Cursor 相比 Copilot 的优势：
 
 在项目仓库中维护 .cursorrules，团队共享配置，确保 AI 行为一致。
 
-## 学习路径
+## Learning Path
 
-建议按以下顺序学习：
-1. 先完整阅读一遍教程
-2. 在真实项目中实践核心要点
-3. 遇到问题时回到本文搜索解决方案
-4. 结合其他规则页构建你的完整 AI 编程工作流
+Recommended learning path:
+1. Read the tutorial thoroughly
+2. Apply core concepts in real projects
+3. Return here when encountering issues
+4. Combine with other standards for a complete AI coding workflow
 
-## 下一步
+## Next Steps
 
-- 访问 '/frameworks' 查看特定框架的详细规则
-- 访问 '/compare' 了解 AI 工具的差异和选择
+- Visit '/frameworks' for framework-specific standards
+- Visit '/compare' to understand differences between AI tools
 
-## 使用场景
+## Usage Scenarios
 
-以上内容可直接拷贝到你的项目中，根据需要调整技术栈名称和具体版本。搭配其他相关规则使用效果最佳。
+Save this content directly to your project. Adjust tech stack names and versions as needed. Combine with related standards for best results.
 
-## 常见错误
+## Common Mistakes
 
-- 完全复制规则而不根据项目调整，导致 AI 行为不符合预期
-- 规则与实际项目不一致，AI 生成的代码和项目结构不匹配
-- 不更新规则，随着项目演进而过时
+- Copying rules without adjusting for your project, leading to inconsistent AI behavior
+- Standards don't match actual project, AI output diverges from codebase structure
+- Not updating standards as the project evolves
 `,
   },
   {
@@ -1691,28 +1691,28 @@ Agent 模式是 Cursor 的核心差异化功能，它能：
 - 分步指令替代大段描述
 - 每次 Agent 操作后 review diff
 
-## 学习路径
+## Learning Path
 
-建议按以下顺序学习：
-1. 先完整阅读一遍教程
-2. 在真实项目中实践核心要点
-3. 遇到问题时回到本文搜索解决方案
-4. 结合其他规则页构建你的完整 AI 编程工作流
+Recommended learning path:
+1. Read the tutorial thoroughly
+2. Apply core concepts in real projects
+3. Return here when encountering issues
+4. Combine with other standards for a complete AI coding workflow
 
-## 下一步
+## Next Steps
 
-- 访问 '/frameworks' 查看特定框架的详细规则
-- 访问 '/compare' 了解 AI 工具的差异和选择
+- Visit '/frameworks' for framework-specific standards
+- Visit '/compare' to understand differences between AI tools
 
-## 使用场景
+## Usage Scenarios
 
-以上内容可直接拷贝到你的项目中，根据需要调整技术栈名称和具体版本。搭配其他相关规则使用效果最佳。
+Save this content directly to your project. Adjust tech stack names and versions as needed. Combine with related standards for best results.
 
-## 常见错误
+## Common Mistakes
 
-- 完全复制规则而不根据项目调整，导致 AI 行为不符合预期
-- 规则与实际项目不一致，AI 生成的代码和项目结构不匹配
-- 不更新规则，随着项目演进而过时
+- Copying rules without adjusting for your project, leading to inconsistent AI behavior
+- Standards don't match actual project, AI output diverges from codebase structure
+- Not updating standards as the project evolves
 `,
   },
   {
@@ -1770,34 +1770,34 @@ claude "将所有 any 类型替换为具体的类型定义，保持功能不变"
 claude "为 src/utils/ 下的工具函数生成 pytest 测试，覆盖边界情况"
 \'\'\`
 
-## 最佳实践
+## Best Practices
 
 - 每个对话聚焦一个任务
 - 提供足够的上下文文件
 - 审查所有代码变更
 
-## 学习路径
+## Learning Path
 
-建议按以下顺序学习：
-1. 先完整阅读一遍教程
-2. 在真实项目中实践核心要点
-3. 遇到问题时回到本文搜索解决方案
-4. 结合其他规则页构建你的完整 AI 编程工作流
+Recommended learning path:
+1. Read the tutorial thoroughly
+2. Apply core concepts in real projects
+3. Return here when encountering issues
+4. Combine with other standards for a complete AI coding workflow
 
-## 下一步
+## Next Steps
 
-- 访问 '/frameworks' 查看特定框架的详细规则
-- 访问 '/compare' 了解 AI 工具的差异和选择
+- Visit '/frameworks' for framework-specific standards
+- Visit '/compare' to understand differences between AI tools
 
-## 使用场景
+## Usage Scenarios
 
-以上内容可直接拷贝到你的项目中，根据需要调整技术栈名称和具体版本。搭配其他相关规则使用效果最佳。
+Save this content directly to your project. Adjust tech stack names and versions as needed. Combine with related standards for best results.
 
-## 常见错误
+## Common Mistakes
 
-- 完全复制规则而不根据项目调整，导致 AI 行为不符合预期
-- 规则与实际项目不一致，AI 生成的代码和项目结构不匹配
-- 不更新规则，随着项目演进而过时
+- Copying rules without adjusting for your project, leading to inconsistent AI behavior
+- Standards don't match actual project, AI output diverges from codebase structure
+- Not updating standards as the project evolves
 `,
   },
   {
@@ -1810,16 +1810,16 @@ claude "为 src/utils/ 下的工具函数生成 pytest 测试，覆盖边界情�
     updatedAt: "2026-05-10",
     content: `# Vue 3 + Cursor 高效开发实战
 
-## 配置规则
+## Configuration规则
 
 在 .cursorrules 中配置 Vue 3 项目上下文：
 
 \'\'\`
-# 技术栈
+# Tech Stack
 - Vue 3 with Composition API
 - TypeScript strict
 - Vite 5
-- Pinia 状态管理
+- Pinia State Management
 - Vue Router 4
 - UnoCSS / Tailwind CSS
 
@@ -1851,28 +1851,28 @@ claude "为 src/utils/ 下的工具函数生成 pytest 测试，覆盖边界情�
 ### 状态管理
 "创建一个 useAuth composable，包含登录、登出和 token 管理，支持持久化。
 
-## 学习路径
+## Learning Path
 
-建议按以下顺序学习：
-1. 先完整阅读一遍教程
-2. 在真实项目中实践核心要点
-3. 遇到问题时回到本文搜索解决方案
-4. 结合其他规则页构建你的完整 AI 编程工作流
+Recommended learning path:
+1. Read the tutorial thoroughly
+2. Apply core concepts in real projects
+3. Return here when encountering issues
+4. Combine with other standards for a complete AI coding workflow
 
-## 下一步
+## Next Steps
 
-- 访问 '/frameworks' 查看特定框架的详细规则
-- 访问 '/compare' 了解 AI 工具的差异和选择
+- Visit '/frameworks' for framework-specific standards
+- Visit '/compare' to understand differences between AI tools
 
-## 使用场景
+## Usage Scenarios
 
-以上内容可直接拷贝到你的项目中，根据需要调整技术栈名称和具体版本。搭配其他相关规则使用效果最佳。
+Save this content directly to your project. Adjust tech stack names and versions as needed. Combine with related standards for best results.
 
-## 常见错误
+## Common Mistakes
 
-- 完全复制规则而不根据项目调整，导致 AI 行为不符合预期
-- 规则与实际项目不一致，AI 生成的代码和项目结构不匹配
-- 不更新规则，随着项目演进而过时
+- Copying rules without adjusting for your project, leading to inconsistent AI behavior
+- Standards don't match actual project, AI output diverges from codebase structure
+- Not updating standards as the project evolves
 `,
   },
 
@@ -1888,7 +1888,7 @@ claude "为 src/utils/ 下的工具函数生成 pytest 测试，覆盖边界情�
     appliesTo: "Cursor 0.40+",
     content: `# Cursor Rust 开发编码规范规则
 
-## 代码风格
+## Code Style
 - 遵循 Rust 官方风格指南
 - 使用 rustfmt 格式化代码
 - 所有公共项必须写文档注释（///）
@@ -1911,15 +1911,15 @@ claude "为 src/utils/ 下的工具函数生成 pytest 测试，覆盖边界情�
 - async fn 作为默认异步接口
 - 避免阻塞线程池中的异步任务
 
-## 使用场景
+## Usage Scenarios
 
-将以上内容保存为项目的 '.cursorrules' 文件，Cursor 会在每次对话和代码生成时自动遵循这些规范。适用于团队统一编码风格、新成员快速上手。
+Save as .cursor/rules/*.mdc or AGENTS.md. The AI coding tool loads these conventions automatically for every session. Ideal for team-wide consistency and onboarding.
 
-## 常见错误
+## Common Mistakes
 
-- 不要在规则中写过于具体的业务逻辑，规则应该描述通用规范
-- 不要频繁修改 .cursorrules 导致 AI 行为不一致，建议按版本管理
-- 规则太多会降低 AI 响应质量，控制在 50 行以内
+- Don't write business-specific logic in standards — keep conventions universal
+- Don't change standards too frequently — version-control them to maintain consistent AI behavior
+- Too many rules degrade AI output quality — target 30-50 well-chosen lines
 `,
   },
   {
@@ -1933,13 +1933,13 @@ claude "为 src/utils/ 下的工具函数生成 pytest 测试，覆盖边界情�
     appliesTo: "Cursor 0.40+",
     content: `# Cursor Java 开发编码规范规则
 
-## 代码风格
+## Code Style
 - 遵循 Java 官方编码规范
-- 使用 4 空格缩进
+- Use 4-space indentation
 - 类名使用 PascalCase
 - 方法名和变量使用 camelCase
 
-## 项目结构
+## Project Structure
 - 按功能模块分包
 - Controller/Service/Repository 分层
 - DTO 用于 API 数据传输
@@ -1951,15 +1951,15 @@ claude "为 src/utils/ 下的工具函数生成 pytest 测试，覆盖边界情�
 - 配置使用 application.yml
 - 统一异常处理使用 @ControllerAdvice
 
-## 使用场景
+## Usage Scenarios
 
-将以上内容保存为项目的 '.cursorrules' 文件，Cursor 会在每次对话和代码生成时自动遵循这些规范。适用于团队统一编码风格、新成员快速上手。
+Save as .cursor/rules/*.mdc or AGENTS.md. The AI coding tool loads these conventions automatically for every session. Ideal for team-wide consistency and onboarding.
 
-## 常见错误
+## Common Mistakes
 
-- 不要在规则中写过于具体的业务逻辑，规则应该描述通用规范
-- 不要频繁修改 .cursorrules 导致 AI 行为不一致，建议按版本管理
-- 规则太多会降低 AI 响应质量，控制在 50 行以内
+- Don't write business-specific logic in standards — keep conventions universal
+- Don't change standards too frequently — version-control them to maintain consistent AI behavior
+- Too many rules degrade AI output quality — target 30-50 well-chosen lines
 `,
   },
   {
@@ -1996,15 +1996,15 @@ claude "为 src/utils/ 下的工具函数生成 pytest 测试，覆盖边界情�
 - 路由模块按功能拆分
 - 深度链接支持
 
-## 使用场景
+## Usage Scenarios
 
-将以上内容保存为项目的 '.cursorrules' 文件，Cursor 会在每次对话和代码生成时自动遵循这些规范。适用于团队统一编码风格、新成员快速上手。
+Save as .cursor/rules/*.mdc or AGENTS.md. The AI coding tool loads these conventions automatically for every session. Ideal for team-wide consistency and onboarding.
 
-## 常见错误
+## Common Mistakes
 
-- 不要在规则中写过于具体的业务逻辑，规则应该描述通用规范
-- 不要频繁修改 .cursorrules 导致 AI 行为不一致，建议按版本管理
-- 规则太多会降低 AI 响应质量，控制在 50 行以内
+- Don't write business-specific logic in standards — keep conventions universal
+- Don't change standards too frequently — version-control them to maintain consistent AI behavior
+- Too many rules degrade AI output quality — target 30-50 well-chosen lines
 `,
   },
   {
@@ -2024,29 +2024,29 @@ claude "为 src/utils/ 下的工具函数生成 pytest 测试，覆盖边界情�
 - 颜色使用设计系统 token
 - 响应式使用断点前缀
 
-## 组件样式
+## Components样式
 - 公共组件提取为可复用类
 - 使用 cn() 合并 class 名
 - 暗色模式使用 dark: 前缀
 - 动画使用 Tailwind 动画类
 
-## 性能
+## Performance
 - 避免动态拼接 class
 - 使用 PurgeCSS 清除未使用的样式
 - 提取公共样式减少重复
 
-## 使用场景
+## Usage Scenarios
 
-将以上内容保存为项目的 '.cursorrules' 文件，Cursor 会在每次对话和代码生成时自动遵循这些规范。适用于团队统一编码风格、新成员快速上手。
+Save as .cursor/rules/*.mdc or AGENTS.md. The AI coding tool loads these conventions automatically for every session. Ideal for team-wide consistency and onboarding.
 
-## 常见错误
+## Common Mistakes
 
-- 不要在规则中写过于具体的业务逻辑，规则应该描述通用规范
-- 不要频繁修改 .cursorrules 导致 AI 行为不一致，建议按版本管理
-- 规则太多会降低 AI 响应质量，控制在 50 行以内
+- Don't write business-specific logic in standards — keep conventions universal
+- Don't change standards too frequently — version-control them to maintain consistent AI behavior
+- Too many rules degrade AI output quality — target 30-50 well-chosen lines
 
 
-## 相关规则
+## Related Standards
 
 - [让 Cursor 更懂 React 的最佳开发规则,](/rules/cursor-react-rules)
 - [用 Cursor 开发 Next.js 项目的完整规则,](/rules/cursor-nextjs-rules)
@@ -2065,7 +2065,7 @@ claude "为 src/utils/ 下的工具函数生成 pytest 测试，覆盖边界情�
     appliesTo: "Cursor 0.40+",
     content: `# Cursor Prisma ORM 数据层开发规则
 
-## Schema 设计
+## Schema Design
 - 模型名使用 PascalCase 单数
 - 字段名使用 camelCase
 - 关系使用 @relation 明确注解
@@ -2082,15 +2082,15 @@ claude "为 src/utils/ 下的工具函数生成 pytest 测试，覆盖边界情�
 - 迁移需 Review 后再部署
 - 生产环境使用 migrate deploy
 
-## 使用场景
+## Usage Scenarios
 
-将以上内容保存为项目的 '.cursorrules' 文件，Cursor 会在每次对话和代码生成时自动遵循这些规范。适用于团队统一编码风格、新成员快速上手。
+Save as .cursor/rules/*.mdc or AGENTS.md. The AI coding tool loads these conventions automatically for every session. Ideal for team-wide consistency and onboarding.
 
-## 常见错误
+## Common Mistakes
 
-- 不要在规则中写过于具体的业务逻辑，规则应该描述通用规范
-- 不要频繁修改 .cursorrules 导致 AI 行为不一致，建议按版本管理
-- 规则太多会降低 AI 响应质量，控制在 50 行以内
+- Don't write business-specific logic in standards — keep conventions universal
+- Don't change standards too frequently — version-control them to maintain consistent AI behavior
+- Too many rules degrade AI output quality — target 30-50 well-chosen lines
 `,
   },
   {
@@ -2109,7 +2109,7 @@ claude "为 src/utils/ 下的工具函数生成 pytest 测试，覆盖边界情�
 - 简单场景使用 Cypress
 - 统一使用 Page Object 模式
 
-## 测试设计
+## Testing设计
 - 每个测试独立可运行
 - 测试数据使用 beforeEach 准备
 - 避免测试间依赖
@@ -2120,15 +2120,15 @@ claude "为 src/utils/ 下的工具函数生成 pytest 测试，覆盖边界情�
 - 等待元素可见后再操作
 - 截图用于失败分析
 
-## 使用场景
+## Usage Scenarios
 
-将以上内容保存为项目的 '.cursorrules' 文件，Cursor 会在每次对话和代码生成时自动遵循这些规范。适用于团队统一编码风格、新成员快速上手。
+Save as .cursor/rules/*.mdc or AGENTS.md. The AI coding tool loads these conventions automatically for every session. Ideal for team-wide consistency and onboarding.
 
-## 常见错误
+## Common Mistakes
 
-- 不要在规则中写过于具体的业务逻辑，规则应该描述通用规范
-- 不要频繁修改 .cursorrules 导致 AI 行为不一致，建议按版本管理
-- 规则太多会降低 AI 响应质量，控制在 50 行以内
+- Don't write business-specific logic in standards — keep conventions universal
+- Don't change standards too frequently — version-control them to maintain consistent AI behavior
+- Too many rules degrade AI output quality — target 30-50 well-chosen lines
 `,
   },
   {
@@ -2153,15 +2153,15 @@ claude "为 src/utils/ 下的工具函数生成 pytest 测试，覆盖边界情�
 ## 优化 SEO
 "为产品详情页生成动态 metadata 和结构化数据 JSON-LD。
 
-## 使用场景
+## Usage Scenarios
 
-在 Claude Code 对话开始前，将以上 Prompt 模板粘贴到输入框，替换 '[]' 中的占位符为你的实际项目信息。Claude Code 会按照模板的精确程度生成代码。
+Before starting a Claude Code session, paste the prompt template and replace placeholders with your project details. Claude Code generates code matching the template precision.
 
-## 常见错误
+## Common Mistakes
 
-- 不要一次性提太多需求，把大任务拆成小步骤
-- 提供足够的文件路径上下文，帮助 Claude 找到正确位置
-- 必须审查 AI 生成的每一行代码，不盲信
+- Don't ask too much at once — break large tasks into small steps
+- Provide enough file path context to help Claude locate the right files
+- Review every line of AI-generated code — don't trust blindly
 `,
   },
   {
@@ -2183,15 +2183,15 @@ claude "为 src/utils/ 下的工具函数生成 pytest 测试，覆盖边界情�
 ## 文件上传
 "创建文件上传接口，支持图片压缩、格式校验（仅 jpg/png/webp），上传到 S3 并返回 URL。
 
-## 使用场景
+## Usage Scenarios
 
-在 Claude Code 对话开始前，将以上 Prompt 模板粘贴到输入框，替换 '[]' 中的占位符为你的实际项目信息。Claude Code 会按照模板的精确程度生成代码。
+Before starting a Claude Code session, paste the prompt template and replace placeholders with your project details. Claude Code generates code matching the template precision.
 
-## 常见错误
+## Common Mistakes
 
-- 不要一次性提太多需求，把大任务拆成小步骤
-- 提供足够的文件路径上下文，帮助 Claude 找到正确位置
-- 必须审查 AI 生成的每一行代码，不盲信
+- Don't ask too much at once — break large tasks into small steps
+- Provide enough file path context to help Claude locate the right files
+- Review every line of AI-generated code — don't trust blindly
 `,
   },
   {
@@ -2204,34 +2204,34 @@ claude "为 src/utils/ 下的工具函数生成 pytest 测试，覆盖边界情�
     updatedAt: "2026-05-11",
     content: `# Copilot React Native 移动端指令
 
-## 配置 copilot-instructions.md
+## Configuration copilot-instructions.md
 
-## 技术栈
+## Tech Stack
 - React Native 0.76+
 - TypeScript strict
 - Expo SDK 52+
 - React Navigation 7
 
-## 编码规范
+## Coding Standards
 - 使用函数组件 + Hooks
 - 样式使用 StyleSheet.create
 - 屏幕组件放在 screens/ 目录
 - 导航配置统一管理
 
-## 常用 Prompt
+## Common Prompts
 - "创建登录页面，包含邮箱密码输入和表单验证"
 - "实现底部 Tab 导航和抽屉导航嵌套"
 - "添加推送通知处理逻辑"
 
-## 使用场景
+## Usage Scenarios
 
-将以上配置保存到项目根目录的 '.github/copilot-instructions.md' 文件，GitHub Copilot 会在所有 IDE 中自动加载这些指令。
+Save this config to '.github/copilot-instructions.md' in your project root. GitHub Copilot auto-loads these instructions in all IDEs.
 
-## 常见错误
+## Common Mistakes
 
-- copilot-instructions.md 不是 '.cursorrules' 的替代品，二者语法不同
-- 配置太长会超过上下文窗口限制，控制在 50 行内
-- Copilot 不支持复杂的多步骤指令，保持规则简洁直接
+- copilot-instructions.md has different syntax from .cursorrules — they're not drop-in replacements
+- Configs too long exceed context window limits — keep under 50 lines
+- Copilot doesn't support complex multi-step instructions — keep rules simple and direct
 `,
   },
   {
@@ -2244,27 +2244,27 @@ claude "为 src/utils/ 下的工具函数生成 pytest 测试，覆盖边界情�
     updatedAt: "2026-05-11",
     content: `# Copilot Docker 容器化指令
 
-## 配置 copilot-instructions.md
+## Configuration copilot-instructions.md
 
-## 技术栈
+## Tech Stack
 - Docker / Docker Compose
 - 多阶段构建
 - Alpine 基础镜像
 
-## 常用 Prompt
+## Common Prompts
 - "为 Node.js 应用生成多阶段构建 Dockerfile"
 - "写 docker-compose.yml 包含 PostgreSQL 和 Redis"
 - "生成 .dockerignore 排除 node_modules 和 .git"
 
-## 使用场景
+## Usage Scenarios
 
-将以上配置保存到项目根目录的 '.github/copilot-instructions.md' 文件，GitHub Copilot 会在所有 IDE 中自动加载这些指令。
+Save this config to '.github/copilot-instructions.md' in your project root. GitHub Copilot auto-loads these instructions in all IDEs.
 
-## 常见错误
+## Common Mistakes
 
-- copilot-instructions.md 不是 '.cursorrules' 的替代品，二者语法不同
-- 配置太长会超过上下文窗口限制，控制在 50 行内
-- Copilot 不支持复杂的多步骤指令，保持规则简洁直接
+- copilot-instructions.md has different syntax from .cursorrules — they're not drop-in replacements
+- Configs too long exceed context window limits — keep under 50 lines
+- Copilot doesn't support complex multi-step instructions — keep rules simple and direct
 `,
   },
   {
@@ -2295,26 +2295,26 @@ claude "为 src/utils/ 下的工具函数生成 pytest 测试，覆盖边界情�
 - 不要跳过测试
 - AI 不擅长做架构决策
 
-## 适用场景
+## Applicable Scenarios
 
-以上方法适用于所有主流 AI 编程工具（Cursor、Claude Code、GitHub Copilot、Windsurf 等）。根据具体需求，选择对应工具实施。
+These methods apply to all major AI coding tools (Cursor, Claude Code, GitHub Copilot, Windsurf, etc.). Choose the right tool for your needs.
 
-## 常见错误
+## Common Mistakes
 
-- 不要期望 AI 替代你的思考，AI 是加速器不是自动驾驶
-- 规则和方法需要根据项目类型调整，不存在万能配置
-- 永远保持代码审查，AI 生成的代码可能有隐藏问题
-- 定期更新你的规则库，AI 工具迭代很快
+- Don't expect AI to replace thinking — it's an accelerator, not autopilot
+- Standards must adapt to project type — there is no universal config
+- Always review AI-generated code — it may have hidden issues
+- Update your standards regularly — AI tools evolve fast
 
-## 使用场景
+## Usage Scenarios
 
-以上内容可直接拷贝到你的项目中，根据需要调整技术栈名称和具体版本。搭配其他相关规则使用效果最佳。
+Save this content directly to your project. Adjust tech stack names and versions as needed. Combine with related standards for best results.
 
-## 常见错误
+## Common Mistakes
 
-- 完全复制规则而不根据项目调整，导致 AI 行为不符合预期
-- 规则与实际项目不一致，AI 生成的代码和项目结构不匹配
-- 不更新规则，随着项目演进而过时
+- Copying rules without adjusting for your project, leading to inconsistent AI behavior
+- Standards don't match actual project, AI output diverges from codebase structure
+- Not updating standards as the project evolves
 `,
   },
   {
@@ -2339,7 +2339,7 @@ claude "为 src/utils/ 下的工具函数生成 pytest 测试，覆盖边界情�
 - 敏感字段不在 URL 中传递
 - 版本号在 URL 路径中
 
-## 安全
+## Security
 - 所有 API 需要认证
 - HTTPS 强制使用
 - 输入校验防注入
@@ -2350,26 +2350,26 @@ claude "为 src/utils/ 下的工具函数生成 pytest 测试，覆盖边界情�
 - 自动生成 API 文档
 - 每个端点写示例
 
-## 适用场景
+## Applicable Scenarios
 
-以上方法适用于所有主流 AI 编程工具（Cursor、Claude Code、GitHub Copilot、Windsurf 等）。根据具体需求，选择对应工具实施。
+These methods apply to all major AI coding tools (Cursor, Claude Code, GitHub Copilot, Windsurf, etc.). Choose the right tool for your needs.
 
-## 常见错误
+## Common Mistakes
 
-- 不要期望 AI 替代你的思考，AI 是加速器不是自动驾驶
-- 规则和方法需要根据项目类型调整，不存在万能配置
-- 永远保持代码审查，AI 生成的代码可能有隐藏问题
-- 定期更新你的规则库，AI 工具迭代很快
+- Don't expect AI to replace thinking — it's an accelerator, not autopilot
+- Standards must adapt to project type — there is no universal config
+- Always review AI-generated code — it may have hidden issues
+- Update your standards regularly — AI tools evolve fast
 
-## 使用场景
+## Usage Scenarios
 
-以上内容可直接拷贝到你的项目中，根据需要调整技术栈名称和具体版本。搭配其他相关规则使用效果最佳。
+Save this content directly to your project. Adjust tech stack names and versions as needed. Combine with related standards for best results.
 
-## 常见错误
+## Common Mistakes
 
-- 完全复制规则而不根据项目调整，导致 AI 行为不符合预期
-- 规则与实际项目不一致，AI 生成的代码和项目结构不匹配
-- 不更新规则，随着项目演进而过时
+- Copying rules without adjusting for your project, leading to inconsistent AI behavior
+- Standards don't match actual project, AI output diverges from codebase structure
+- Not updating standards as the project evolves
 `,
   },
 
@@ -2385,7 +2385,7 @@ claude "为 src/utils/ 下的工具函数生成 pytest 测试，覆盖边界情�
     appliesTo: "Cursor 0.40+",
     content: `# Cursor Svelte 开发编码规范规则
 
-## 组件规范
+## Component Standards
 - 使用 Svelte 5 runes 语法
 - 组件文件使用 .svelte 扩展名
 - 逻辑复用使用 stores 和 actions
@@ -2397,20 +2397,20 @@ claude "为 src/utils/ 下的工具函数生成 pytest 测试，覆盖边界情�
 - API 端点使用 +server.ts
 - 布局使用 +layout.svelte
 
-## 样式
+## Styling
 - 使用 <style> 局部作用域
 - 支持 Tailwind CSS
 - 全局样式放在 app.css
 
-## 使用场景
+## Usage Scenarios
 
-将以上内容保存为项目的 '.cursorrules' 文件，Cursor 会在每次对话和代码生成时自动遵循这些规范。适用于团队统一编码风格、新成员快速上手。
+Save as .cursor/rules/*.mdc or AGENTS.md. The AI coding tool loads these conventions automatically for every session. Ideal for team-wide consistency and onboarding.
 
-## 常见错误
+## Common Mistakes
 
-- 不要在规则中写过于具体的业务逻辑，规则应该描述通用规范
-- 不要频繁修改 .cursorrules 导致 AI 行为不一致，建议按版本管理
-- 规则太多会降低 AI 响应质量，控制在 50 行以内
+- Don't write business-specific logic in standards — keep conventions universal
+- Don't change standards too frequently — version-control them to maintain consistent AI behavior
+- Too many rules degrade AI output quality — target 30-50 well-chosen lines
 `,
   },
   {
@@ -2424,7 +2424,7 @@ claude "为 src/utils/ 下的工具函数生成 pytest 测试，覆盖边界情�
     appliesTo: "Cursor 0.40+",
     content: `# Cursor Angular 开发编码规范规则
 
-## 组件规范
+## Component Standards
 - 使用 standalone 组件
 - 组件文件名使用 .component.ts
 - 模板和样式文件分离
@@ -2440,15 +2440,15 @@ claude "为 src/utils/ 下的工具函数生成 pytest 测试，覆盖边界情�
 - 路由守卫保护敏感页面
 - 使用 ResolveFn 预加载数据
 
-## 使用场景
+## Usage Scenarios
 
-将以上内容保存为项目的 '.cursorrules' 文件，Cursor 会在每次对话和代码生成时自动遵循这些规范。适用于团队统一编码风格、新成员快速上手。
+Save as .cursor/rules/*.mdc or AGENTS.md. The AI coding tool loads these conventions automatically for every session. Ideal for team-wide consistency and onboarding.
 
-## 常见错误
+## Common Mistakes
 
-- 不要在规则中写过于具体的业务逻辑，规则应该描述通用规范
-- 不要频繁修改 .cursorrules 导致 AI 行为不一致，建议按版本管理
-- 规则太多会降低 AI 响应质量，控制在 50 行以内
+- Don't write business-specific logic in standards — keep conventions universal
+- Don't change standards too frequently — version-control them to maintain consistent AI behavior
+- Too many rules degrade AI output quality — target 30-50 well-chosen lines
 `,
   },
   {
@@ -2462,7 +2462,7 @@ claude "为 src/utils/ 下的工具函数生成 pytest 测试，覆盖边界情�
     appliesTo: "Cursor 0.40+",
     content: `# Cursor Node.js Express 后端开发规则
 
-## 项目结构
+## Project Structure
 - 按功能模块组织文件
 - routes/ controllers/ services/ 分层
 - 中间件放在 middleware/ 目录
@@ -2474,21 +2474,21 @@ claude "为 src/utils/ 下的工具函数生成 pytest 测试，覆盖边界情�
 - 统一错误处理中间件
 - 使用 asyncHandler 包装异步路由
 
-## 安全
+## Security
 - 使用 helmet 增强安全头
 - 使用 cors 配置跨域
 - 请求频率限制
 - 敏感信息不在日志中输出
 
-## 使用场景
+## Usage Scenarios
 
-将以上内容保存为项目的 '.cursorrules' 文件，Cursor 会在每次对话和代码生成时自动遵循这些规范。适用于团队统一编码风格、新成员快速上手。
+Save as .cursor/rules/*.mdc or AGENTS.md. The AI coding tool loads these conventions automatically for every session. Ideal for team-wide consistency and onboarding.
 
-## 常见错误
+## Common Mistakes
 
-- 不要在规则中写过于具体的业务逻辑，规则应该描述通用规范
-- 不要频繁修改 .cursorrules 导致 AI 行为不一致，建议按版本管理
-- 规则太多会降低 AI 响应质量，控制在 50 行以内
+- Don't write business-specific logic in standards — keep conventions universal
+- Don't change standards too frequently — version-control them to maintain consistent AI behavior
+- Too many rules degrade AI output quality — target 30-50 well-chosen lines
 `,
   },
   {
@@ -2519,15 +2519,15 @@ claude "为 src/utils/ 下的工具函数生成 pytest 测试，覆盖边界情�
 - 使用 Sanctum 或 Passport 认证
 - 版本化 API 路由
 
-## 使用场景
+## Usage Scenarios
 
-将以上内容保存为项目的 '.cursorrules' 文件，Cursor 会在每次对话和代码生成时自动遵循这些规范。适用于团队统一编码风格、新成员快速上手。
+Save as .cursor/rules/*.mdc or AGENTS.md. The AI coding tool loads these conventions automatically for every session. Ideal for team-wide consistency and onboarding.
 
-## 常见错误
+## Common Mistakes
 
-- 不要在规则中写过于具体的业务逻辑，规则应该描述通用规范
-- 不要频繁修改 .cursorrules 导致 AI 行为不一致，建议按版本管理
-- 规则太多会降低 AI 响应质量，控制在 50 行以内
+- Don't write business-specific logic in standards — keep conventions universal
+- Don't change standards too frequently — version-control them to maintain consistent AI behavior
+- Too many rules degrade AI output quality — target 30-50 well-chosen lines
 `,
   },
   {
@@ -2561,18 +2561,18 @@ claude "为 src/utils/ 下的工具函数生成 pytest 测试，覆盖边界情�
 - CI/CD 自动部署
 - 日志和监控告警
 
-## 使用场景
+## Usage Scenarios
 
-将以上内容保存为项目的 '.cursorrules' 文件，Cursor 会在每次对话和代码生成时自动遵循这些规范。适用于团队统一编码风格、新成员快速上手。
+Save as .cursor/rules/*.mdc or AGENTS.md. The AI coding tool loads these conventions automatically for every session. Ideal for team-wide consistency and onboarding.
 
-## 常见错误
+## Common Mistakes
 
-- 不要在规则中写过于具体的业务逻辑，规则应该描述通用规范
-- 不要频繁修改 .cursorrules 导致 AI 行为不一致，建议按版本管理
-- 规则太多会降低 AI 响应质量，控制在 50 行以内
+- Don't write business-specific logic in standards — keep conventions universal
+- Don't change standards too frequently — version-control them to maintain consistent AI behavior
+- Too many rules degrade AI output quality — target 30-50 well-chosen lines
 
 
-## 相关规则
+## Related Standards
 
 - [Cursor Stripe 支付集成规则,](/rules/cursor-stripe-rules)
 - [Cursor 全栈应用开发规则,](/rules/cursor-fullstack-app-rules)
@@ -2608,15 +2608,15 @@ claude "为 src/utils/ 下的工具函数生成 pytest 测试，覆盖边界情�
 - 使用托管数据库减少运维
 - 监控使用 Sentry 免费版
 
-## 使用场景
+## Usage Scenarios
 
-将以上内容保存为项目的 '.cursorrules' 文件，Cursor 会在每次对话和代码生成时自动遵循这些规范。适用于团队统一编码风格、新成员快速上手。
+Save as .cursor/rules/*.mdc or AGENTS.md. The AI coding tool loads these conventions automatically for every session. Ideal for team-wide consistency and onboarding.
 
-## 常见错误
+## Common Mistakes
 
-- 不要在规则中写过于具体的业务逻辑，规则应该描述通用规范
-- 不要频繁修改 .cursorrules 导致 AI 行为不一致，建议按版本管理
-- 规则太多会降低 AI 响应质量，控制在 50 行以内
+- Don't write business-specific logic in standards — keep conventions universal
+- Don't change standards too frequently — version-control them to maintain consistent AI behavior
+- Too many rules degrade AI output quality — target 30-50 well-chosen lines
 `,
   },
   {
@@ -2649,15 +2649,15 @@ claude "为 src/utils/ 下的工具函数生成 pytest 测试，覆盖边界情�
 - Stripe 做支付
 - Resend 做邮件
 
-## 使用场景
+## Usage Scenarios
 
-将以上内容保存为项目的 '.cursorrules' 文件，Cursor 会在每次对话和代码生成时自动遵循这些规范。适用于团队统一编码风格、新成员快速上手。
+Save as .cursor/rules/*.mdc or AGENTS.md. The AI coding tool loads these conventions automatically for every session. Ideal for team-wide consistency and onboarding.
 
-## 常见错误
+## Common Mistakes
 
-- 不要在规则中写过于具体的业务逻辑，规则应该描述通用规范
-- 不要频繁修改 .cursorrules 导致 AI 行为不一致，建议按版本管理
-- 规则太多会降低 AI 响应质量，控制在 50 行以内
+- Don't write business-specific logic in standards — keep conventions universal
+- Don't change standards too frequently — version-control them to maintain consistent AI behavior
+- Too many rules degrade AI output quality — target 30-50 well-chosen lines
 `,
   },
   {
@@ -2671,7 +2671,7 @@ claude "为 src/utils/ 下的工具函数生成 pytest 测试，覆盖边界情�
     appliesTo: "Cursor 0.40+",
     content: `# Cursor AI Agent 开发规则
 
-## 架构设计
+## Architecture设计
 - 使用 LangChain / Vercel AI SDK
 - Agent 工具调用模式
 - 记忆管理（短期 + 长期）
@@ -2683,29 +2683,29 @@ claude "为 src/utils/ 下的工具函数生成 pytest 测试，覆盖边界情�
 - 版本控制提示词变更
 - 效果评估机制
 
-## 安全
+## Security
 - 输入验证和清理
 - 限制工具执行权限
 - 速率限制
 - 敏感信息过滤
 
-## 测试
+## Testing
 - 模拟用户对话测试
 - 工具调用正确性测试
 - 边缘情况覆盖
 
-## 使用场景
+## Usage Scenarios
 
-将以上内容保存为项目的 '.cursorrules' 文件，Cursor 会在每次对话和代码生成时自动遵循这些规范。适用于团队统一编码风格、新成员快速上手。
+Save as .cursor/rules/*.mdc or AGENTS.md. The AI coding tool loads these conventions automatically for every session. Ideal for team-wide consistency and onboarding.
 
-## 常见错误
+## Common Mistakes
 
-- 不要在规则中写过于具体的业务逻辑，规则应该描述通用规范
-- 不要频繁修改 .cursorrules 导致 AI 行为不一致，建议按版本管理
-- 规则太多会降低 AI 响应质量，控制在 50 行以内
+- Don't write business-specific logic in standards — keep conventions universal
+- Don't change standards too frequently — version-control them to maintain consistent AI behavior
+- Too many rules degrade AI output quality — target 30-50 well-chosen lines
 
 
-## 相关规则
+## Related Standards
 
 - [AI 编程工作流模式与效率指南,](/rules/general-ai-workflow)
 - [Claude Code 入门必读的通用规则,](/rules/claude-code-general)
@@ -2728,7 +2728,7 @@ claude "为 src/utils/ 下的工具函数生成 pytest 测试，覆盖边界情�
 - 一致的代码风格配置
 - 统一的 AI 行为规范
 
-## 代码审查
+## Code Review
 - AI 自动审查 PR
 - 人工确认 AI 建议
 - 代码质量门禁
@@ -2738,15 +2738,15 @@ claude "为 src/utils/ 下的工具函数生成 pytest 测试，覆盖边界情�
 - Cursor 技巧文档化
 - 定期分享最佳实践
 
-## 使用场景
+## Usage Scenarios
 
-将以上内容保存为项目的 '.cursorrules' 文件，Cursor 会在每次对话和代码生成时自动遵循这些规范。适用于团队统一编码风格、新成员快速上手。
+Save as .cursor/rules/*.mdc or AGENTS.md. The AI coding tool loads these conventions automatically for every session. Ideal for team-wide consistency and onboarding.
 
-## 常见错误
+## Common Mistakes
 
-- 不要在规则中写过于具体的业务逻辑，规则应该描述通用规范
-- 不要频繁修改 .cursorrules 导致 AI 行为不一致，建议按版本管理
-- 规则太多会降低 AI 响应质量，控制在 50 行以内
+- Don't write business-specific logic in standards — keep conventions universal
+- Don't change standards too frequently — version-control them to maintain consistent AI behavior
+- Too many rules degrade AI output quality — target 30-50 well-chosen lines
 `,
   },
   {
@@ -2772,21 +2772,21 @@ claude "为 src/utils/ 下的工具函数生成 pytest 测试，覆盖边界情�
 - FAQ 解答疑虑
 - 页脚含所有链接
 
-## 性能
+## Performance
 - 图片使用 next/image
 - 字体使用 next/font
 - 关键 CSS 内联
 - 延迟加载非首屏内容
 
-## 使用场景
+## Usage Scenarios
 
-将以上内容保存为项目的 '.cursorrules' 文件，Cursor 会在每次对话和代码生成时自动遵循这些规范。适用于团队统一编码风格、新成员快速上手。
+Save as .cursor/rules/*.mdc or AGENTS.md. The AI coding tool loads these conventions automatically for every session. Ideal for team-wide consistency and onboarding.
 
-## 常见错误
+## Common Mistakes
 
-- 不要在规则中写过于具体的业务逻辑，规则应该描述通用规范
-- 不要频繁修改 .cursorrules 导致 AI 行为不一致，建议按版本管理
-- 规则太多会降低 AI 响应质量，控制在 50 行以内
+- Don't write business-specific logic in standards — keep conventions universal
+- Don't change standards too frequently — version-control them to maintain consistent AI behavior
+- Too many rules degrade AI output quality — target 30-50 well-chosen lines
 `,
   },
   {
@@ -2800,7 +2800,7 @@ claude "为 src/utils/ 下的工具函数生成 pytest 测试，覆盖边界情�
     appliesTo: "Cursor 0.40+",
     content: `# Cursor GraphQL API 开发规则
 
-## Schema 设计
+## Schema Design
 - 使用 SDL 优先方式
 - 类型命名使用 PascalCase
 - 字段命名使用 camelCase
@@ -2811,21 +2811,21 @@ claude "为 src/utils/ 下的工具函数生成 pytest 测试，覆盖边界情�
 - 批量查询优化
 - 错误处理返回标准格式
 
-## 安全
+## Security
 - 深度限制防止恶意查询
 - 复杂度分析
 - 认证中间件
 - 字段级别权限
 
-## 使用场景
+## Usage Scenarios
 
-将以上内容保存为项目的 '.cursorrules' 文件，Cursor 会在每次对话和代码生成时自动遵循这些规范。适用于团队统一编码风格、新成员快速上手。
+Save as .cursor/rules/*.mdc or AGENTS.md. The AI coding tool loads these conventions automatically for every session. Ideal for team-wide consistency and onboarding.
 
-## 常见错误
+## Common Mistakes
 
-- 不要在规则中写过于具体的业务逻辑，规则应该描述通用规范
-- 不要频繁修改 .cursorrules 导致 AI 行为不一致，建议按版本管理
-- 规则太多会降低 AI 响应质量，控制在 50 行以内
+- Don't write business-specific logic in standards — keep conventions universal
+- Don't change standards too frequently — version-control them to maintain consistent AI behavior
+- Too many rules degrade AI output quality — target 30-50 well-chosen lines
 `,
   },
   {
@@ -2857,15 +2857,15 @@ claude "为 src/utils/ 下的工具函数生成 pytest 测试，覆盖边界情�
 - 大 Key 拆分
 - 监控缓存命中率
 
-## 使用场景
+## Usage Scenarios
 
-将以上内容保存为项目的 '.cursorrules' 文件，Cursor 会在每次对话和代码生成时自动遵循这些规范。适用于团队统一编码风格、新成员快速上手。
+Save as .cursor/rules/*.mdc or AGENTS.md. The AI coding tool loads these conventions automatically for every session. Ideal for team-wide consistency and onboarding.
 
-## 常见错误
+## Common Mistakes
 
-- 不要在规则中写过于具体的业务逻辑，规则应该描述通用规范
-- 不要频繁修改 .cursorrules 导致 AI 行为不一致，建议按版本管理
-- 规则太多会降低 AI 响应质量，控制在 50 行以内
+- Don't write business-specific logic in standards — keep conventions universal
+- Don't change standards too frequently — version-control them to maintain consistent AI behavior
+- Too many rules degrade AI output quality — target 30-50 well-chosen lines
 `,
   },
   {
@@ -2879,7 +2879,7 @@ claude "为 src/utils/ 下的工具函数生成 pytest 测试，覆盖边界情�
     appliesTo: "Cursor 0.40+",
     content: `# Cursor 全栈应用开发规则
 
-## 技术栈推荐
+## Tech Stack推荐
 - Next.js / Nuxt 做前端
 - Prisma / Drizzle 做 ORM
 - PostgreSQL 做数据库
@@ -2897,15 +2897,15 @@ claude "为 src/utils/ 下的工具函数生成 pytest 测试，覆盖边界情�
 - 性能预算监控
 - 可访问性检查
 
-## 使用场景
+## Usage Scenarios
 
-将以上内容保存为项目的 '.cursorrules' 文件，Cursor 会在每次对话和代码生成时自动遵循这些规范。适用于团队统一编码风格、新成员快速上手。
+Save as .cursor/rules/*.mdc or AGENTS.md. The AI coding tool loads these conventions automatically for every session. Ideal for team-wide consistency and onboarding.
 
-## 常见错误
+## Common Mistakes
 
-- 不要在规则中写过于具体的业务逻辑，规则应该描述通用规范
-- 不要频繁修改 .cursorrules 导致 AI 行为不一致，建议按版本管理
-- 规则太多会降低 AI 响应质量，控制在 50 行以内
+- Don't write business-specific logic in standards — keep conventions universal
+- Don't change standards too frequently — version-control them to maintain consistent AI behavior
+- Too many rules degrade AI output quality — target 30-50 well-chosen lines
 `,
   },
   {
@@ -2936,26 +2936,26 @@ claude "为 src/utils/ 下的工具函数生成 pytest 测试，覆盖边界情�
 
 "生成一个 TypeScript + React + Tailwind CSS 的 .cursorrules，组件使用函数组件和 Hooks，样式使用 Tailwind 类。"
 
-## 适用场景
+## Applicable Scenarios
 
-以上方法适用于所有主流 AI 编程工具（Cursor、Claude Code、GitHub Copilot、Windsurf 等）。根据具体需求，选择对应工具实施。
+These methods apply to all major AI coding tools (Cursor, Claude Code, GitHub Copilot, Windsurf, etc.). Choose the right tool for your needs.
 
-## 常见错误
+## Common Mistakes
 
-- 不要期望 AI 替代你的思考，AI 是加速器不是自动驾驶
-- 规则和方法需要根据项目类型调整，不存在万能配置
-- 永远保持代码审查，AI 生成的代码可能有隐藏问题
-- 定期更新你的规则库，AI 工具迭代很快
+- Don't expect AI to replace thinking — it's an accelerator, not autopilot
+- Standards must adapt to project type — there is no universal config
+- Always review AI-generated code — it may have hidden issues
+- Update your standards regularly — AI tools evolve fast
 
-## 使用场景
+## Usage Scenarios
 
-以上内容可直接拷贝到你的项目中，根据需要调整技术栈名称和具体版本。搭配其他相关规则使用效果最佳。
+Save this content directly to your project. Adjust tech stack names and versions as needed. Combine with related standards for best results.
 
-## 常见错误
+## Common Mistakes
 
-- 完全复制规则而不根据项目调整，导致 AI 行为不符合预期
-- 规则与实际项目不一致，AI 生成的代码和项目结构不匹配
-- 不更新规则，随着项目演进而过时
+- Copying rules without adjusting for your project, leading to inconsistent AI behavior
+- Standards don't match actual project, AI output diverges from codebase structure
+- Not updating standards as the project evolves
 `,
   },
 
@@ -2977,7 +2977,7 @@ claude "为 src/utils/ 下的工具函数生成 pytest 测试，覆盖边界情�
 - Model/View/Controller 分离
 - 业务逻辑放在 Service 层
 
-## 代码风格
+## Code Style
 - 使用 2 空格缩进
 - 方法使用 snake_case
 - 类名使用 CamelCase
@@ -2989,15 +2989,15 @@ claude "为 src/utils/ 下的工具函数生成 pytest 测试，覆盖边界情�
 - 使用索引优化查询
 - 批量操作使用 find_each
 
-## 使用场景
+## Usage Scenarios
 
-将以上内容保存为项目的 '.cursorrules' 文件，Cursor 会在每次对话和代码生成时自动遵循这些规范。适用于团队统一编码风格、新成员快速上手。
+Save as .cursor/rules/*.mdc or AGENTS.md. The AI coding tool loads these conventions automatically for every session. Ideal for team-wide consistency and onboarding.
 
-## 常见错误
+## Common Mistakes
 
-- 不要在规则中写过于具体的业务逻辑，规则应该描述通用规范
-- 不要频繁修改 .cursorrules 导致 AI 行为不一致，建议按版本管理
-- 规则太多会降低 AI 响应质量，控制在 50 行以内
+- Don't write business-specific logic in standards — keep conventions universal
+- Don't change standards too frequently — version-control them to maintain consistent AI behavior
+- Too many rules degrade AI output quality — target 30-50 well-chosen lines
 `,
   },
   {
@@ -3017,7 +3017,7 @@ claude "为 src/utils/ 下的工具函数生成 pytest 测试，覆盖边界情�
 - 使用 SwiftUI 优先
 - UIKit 用于兼容性场景
 
-## 架构
+## Architecture
 - 使用 MVVM 架构
 - Service 层处理网络请求
 - Repository 模式管理数据
@@ -3029,15 +3029,15 @@ claude "为 src/utils/ 下的工具函数生成 pytest 测试，覆盖边界情�
 - 视图拆分保持小型化
 - 预览提供 mock 数据
 
-## 使用场景
+## Usage Scenarios
 
-将以上内容保存为项目的 '.cursorrules' 文件，Cursor 会在每次对话和代码生成时自动遵循这些规范。适用于团队统一编码风格、新成员快速上手。
+Save as .cursor/rules/*.mdc or AGENTS.md. The AI coding tool loads these conventions automatically for every session. Ideal for team-wide consistency and onboarding.
 
-## 常见错误
+## Common Mistakes
 
-- 不要在规则中写过于具体的业务逻辑，规则应该描述通用规范
-- 不要频繁修改 .cursorrules 导致 AI 行为不一致，建议按版本管理
-- 规则太多会降低 AI 响应质量，控制在 50 行以内
+- Don't write business-specific logic in standards — keep conventions universal
+- Don't change standards too frequently — version-control them to maintain consistent AI behavior
+- Too many rules degrade AI output quality — target 30-50 well-chosen lines
 `,
   },
   {
@@ -3063,21 +3063,21 @@ claude "为 src/utils/ 下的工具函数生成 pytest 测试，覆盖边界情�
 - SideEffect 管理副作用
 - 预览函数提供示例数据
 
-## 架构
+## Architecture
 - MVVM + Clean Architecture
 - Repository 管理数据源
 - Hilt 依赖注入
 - Navigation Compose 路由
 
-## 使用场景
+## Usage Scenarios
 
-将以上内容保存为项目的 '.cursorrules' 文件，Cursor 会在每次对话和代码生成时自动遵循这些规范。适用于团队统一编码风格、新成员快速上手。
+Save as .cursor/rules/*.mdc or AGENTS.md. The AI coding tool loads these conventions automatically for every session. Ideal for team-wide consistency and onboarding.
 
-## 常见错误
+## Common Mistakes
 
-- 不要在规则中写过于具体的业务逻辑，规则应该描述通用规范
-- 不要频繁修改 .cursorrules 导致 AI 行为不一致，建议按版本管理
-- 规则太多会降低 AI 响应质量，控制在 50 行以内
+- Don't write business-specific logic in standards — keep conventions universal
+- Don't change standards too frequently — version-control them to maintain consistent AI behavior
+- Too many rules degrade AI output quality — target 30-50 well-chosen lines
 `,
   },
   {
@@ -3091,9 +3091,9 @@ claude "为 src/utils/ 下的工具函数生成 pytest 测试，覆盖边界情�
     appliesTo: "Cursor 0.40+",
     content: `# Cursor C# .NET 开发规则
 
-## 代码风格
+## Code Style
 - 遵循 .NET 编码规范
-- 使用 4 空格缩进
+- Use 4-space indentation
 - 类和方法使用 PascalCase
 - 参数和字段使用 camelCase
 
@@ -3103,21 +3103,21 @@ claude "为 src/utils/ 下的工具函数生成 pytest 测试，覆盖边界情�
 - Entity Framework Core 管理数据
 - Serilog 结构化日志
 
-## 架构
+## Architecture
 - Clean Architecture 分层
 - MediatR 处理命令查询
 - FluentValidation 输入校验
 - AutoMapper 对象映射
 
-## 使用场景
+## Usage Scenarios
 
-将以上内容保存为项目的 '.cursorrules' 文件，Cursor 会在每次对话和代码生成时自动遵循这些规范。适用于团队统一编码风格、新成员快速上手。
+Save as .cursor/rules/*.mdc or AGENTS.md. The AI coding tool loads these conventions automatically for every session. Ideal for team-wide consistency and onboarding.
 
-## 常见错误
+## Common Mistakes
 
-- 不要在规则中写过于具体的业务逻辑，规则应该描述通用规范
-- 不要频繁修改 .cursorrules 导致 AI 行为不一致，建议按版本管理
-- 规则太多会降低 AI 响应质量，控制在 50 行以内
+- Don't write business-specific logic in standards — keep conventions universal
+- Don't change standards too frequently — version-control them to maintain consistent AI behavior
+- Too many rules degrade AI output quality — target 30-50 well-chosen lines
 `,
   },
   {
@@ -3142,20 +3142,20 @@ claude "为 src/utils/ 下的工具函数生成 pytest 测试，覆盖边界情�
 - 集合 schema 验证 frontmatter
 - 自动生成目录和导航
 
-## 性能
+## Performance
 - 静态生成所有页面
 - 图片使用 Astro:image
 - 按需加载岛屿组件
 
-## 使用场景
+## Usage Scenarios
 
-将以上内容保存为项目的 '.cursorrules' 文件，Cursor 会在每次对话和代码生成时自动遵循这些规范。适用于团队统一编码风格、新成员快速上手。
+Save as .cursor/rules/*.mdc or AGENTS.md. The AI coding tool loads these conventions automatically for every session. Ideal for team-wide consistency and onboarding.
 
-## 常见错误
+## Common Mistakes
 
-- 不要在规则中写过于具体的业务逻辑，规则应该描述通用规范
-- 不要频繁修改 .cursorrules 导致 AI 行为不一致，建议按版本管理
-- 规则太多会降低 AI 响应质量，控制在 50 行以内
+- Don't write business-specific logic in standards — keep conventions universal
+- Don't change standards too frequently — version-control them to maintain consistent AI behavior
+- Too many rules degrade AI output quality — target 30-50 well-chosen lines
 `,
   },
   {
@@ -3185,15 +3185,15 @@ claude "为 src/utils/ 下的工具函数生成 pytest 测试，覆盖边界情�
 - 或部署到 Fly.io / Vercel
 - 环境变量管理配置
 
-## 使用场景
+## Usage Scenarios
 
-将以上内容保存为项目的 '.cursorrules' 文件，Cursor 会在每次对话和代码生成时自动遵循这些规范。适用于团队统一编码风格、新成员快速上手。
+Save as .cursor/rules/*.mdc or AGENTS.md. The AI coding tool loads these conventions automatically for every session. Ideal for team-wide consistency and onboarding.
 
-## 常见错误
+## Common Mistakes
 
-- 不要在规则中写过于具体的业务逻辑，规则应该描述通用规范
-- 不要频繁修改 .cursorrules 导致 AI 行为不一致，建议按版本管理
-- 规则太多会降低 AI 响应质量，控制在 50 行以内
+- Don't write business-specific logic in standards — keep conventions universal
+- Don't change standards too frequently — version-control them to maintain consistent AI behavior
+- Too many rules degrade AI output quality — target 30-50 well-chosen lines
 `,
   },
   {
@@ -3207,7 +3207,7 @@ claude "为 src/utils/ 下的工具函数生成 pytest 测试，覆盖边界情�
     appliesTo: "Cursor 0.40+",
     content: `# Cursor Tauri 桌面应用开发规则
 
-## 项目结构
+## Project Structure
 - 前端使用 React/Vue/Svelte
 - Rust 后端在 src-tauri/
 - 命令在 Rust 中定义
@@ -3224,15 +3224,15 @@ claude "为 src/utils/ 下的工具函数生成 pytest 测试，覆盖边界情�
 - 窗口管理使用 Webview API
 - 系统托盘和菜单配置
 
-## 使用场景
+## Usage Scenarios
 
-将以上内容保存为项目的 '.cursorrules' 文件，Cursor 会在每次对话和代码生成时自动遵循这些规范。适用于团队统一编码风格、新成员快速上手。
+Save as .cursor/rules/*.mdc or AGENTS.md. The AI coding tool loads these conventions automatically for every session. Ideal for team-wide consistency and onboarding.
 
-## 常见错误
+## Common Mistakes
 
-- 不要在规则中写过于具体的业务逻辑，规则应该描述通用规范
-- 不要频繁修改 .cursorrules 导致 AI 行为不一致，建议按版本管理
-- 规则太多会降低 AI 响应质量，控制在 50 行以内
+- Don't write business-specific logic in standards — keep conventions universal
+- Don't change standards too frequently — version-control them to maintain consistent AI behavior
+- Too many rules degrade AI output quality — target 30-50 well-chosen lines
 `,
   },
   {
@@ -3264,15 +3264,15 @@ claude "为 src/utils/ 下的工具函数生成 pytest 测试，覆盖边界情�
 - Edge Functions 自定义逻辑
 - 数据库函数调用
 
-## 使用场景
+## Usage Scenarios
 
-将以上内容保存为项目的 '.cursorrules' 文件，Cursor 会在每次对话和代码生成时自动遵循这些规范。适用于团队统一编码风格、新成员快速上手。
+Save as .cursor/rules/*.mdc or AGENTS.md. The AI coding tool loads these conventions automatically for every session. Ideal for team-wide consistency and onboarding.
 
-## 常见错误
+## Common Mistakes
 
-- 不要在规则中写过于具体的业务逻辑，规则应该描述通用规范
-- 不要频繁修改 .cursorrules 导致 AI 行为不一致，建议按版本管理
-- 规则太多会降低 AI 响应质量，控制在 50 行以内
+- Don't write business-specific logic in standards — keep conventions universal
+- Don't change standards too frequently — version-control them to maintain consistent AI behavior
+- Too many rules degrade AI output quality — target 30-50 well-chosen lines
 `,
   },
   {
@@ -3304,15 +3304,15 @@ claude "为 src/utils/ 下的工具函数生成 pytest 测试，覆盖边界情�
 - Product/Price 管理定价
 - Invoice 记录账单
 
-## 使用场景
+## Usage Scenarios
 
-将以上内容保存为项目的 '.cursorrules' 文件，Cursor 会在每次对话和代码生成时自动遵循这些规范。适用于团队统一编码风格、新成员快速上手。
+Save as .cursor/rules/*.mdc or AGENTS.md. The AI coding tool loads these conventions automatically for every session. Ideal for team-wide consistency and onboarding.
 
-## 常见错误
+## Common Mistakes
 
-- 不要在规则中写过于具体的业务逻辑，规则应该描述通用规范
-- 不要频繁修改 .cursorrules 导致 AI 行为不一致，建议按版本管理
-- 规则太多会降低 AI 响应质量，控制在 50 行以内
+- Don't write business-specific logic in standards — keep conventions universal
+- Don't change standards too frequently — version-control them to maintain consistent AI behavior
+- Too many rules degrade AI output quality — target 30-50 well-chosen lines
 `,
   },
   {
@@ -3331,21 +3331,21 @@ claude "为 src/utils/ 下的工具函数生成 pytest 测试，覆盖边界情�
 ## 定位 Bug
 "在 src/components/UserList.tsx 中，列表在第二次渲染时显示空白。检查代码找出原因并提供修复。"
 
-## 性能分析
+## Performance分析
 "分析这个函数（粘贴代码）的性能瓶颈，提供优化方案并解释为什么新方案更快。"
 
-## 安全审计
+## Security审计
 "审查这段用户输入处理代码，找出安全漏洞并提供修复方案。重点关注 XSS 和 SQL 注入。"
 
-## 使用场景
+## Usage Scenarios
 
-在 Claude Code 对话开始前，将以上 Prompt 模板粘贴到输入框，替换 '[]' 中的占位符为你的实际项目信息。Claude Code 会按照模板的精确程度生成代码。
+Before starting a Claude Code session, paste the prompt template and replace placeholders with your project details. Claude Code generates code matching the template precision.
 
-## 常见错误
+## Common Mistakes
 
-- 不要一次性提太多需求，把大任务拆成小步骤
-- 提供足够的文件路径上下文，帮助 Claude 找到正确位置
-- 必须审查 AI 生成的每一行代码，不盲信
+- Don't ask too much at once — break large tasks into small steps
+- Provide enough file path context to help Claude locate the right files
+- Review every line of AI-generated code — don't trust blindly
 `,
   },
   {
@@ -3376,26 +3376,26 @@ claude "为 src/utils/ 下的工具函数生成 pytest 测试，覆盖边界情�
 - 审计文件路径拼接
 - 不使用 AI 生成的密码学代码
 
-## 适用场景
+## Applicable Scenarios
 
-以上方法适用于所有主流 AI 编程工具（Cursor、Claude Code、GitHub Copilot、Windsurf 等）。根据具体需求，选择对应工具实施。
+These methods apply to all major AI coding tools (Cursor, Claude Code, GitHub Copilot, Windsurf, etc.). Choose the right tool for your needs.
 
-## 常见错误
+## Common Mistakes
 
-- 不要期望 AI 替代你的思考，AI 是加速器不是自动驾驶
-- 规则和方法需要根据项目类型调整，不存在万能配置
-- 永远保持代码审查，AI 生成的代码可能有隐藏问题
-- 定期更新你的规则库，AI 工具迭代很快
+- Don't expect AI to replace thinking — it's an accelerator, not autopilot
+- Standards must adapt to project type — there is no universal config
+- Always review AI-generated code — it may have hidden issues
+- Update your standards regularly — AI tools evolve fast
 
-## 使用场景
+## Usage Scenarios
 
-以上内容可直接拷贝到你的项目中，根据需要调整技术栈名称和具体版本。搭配其他相关规则使用效果最佳。
+Save this content directly to your project. Adjust tech stack names and versions as needed. Combine with related standards for best results.
 
-## 常见错误
+## Common Mistakes
 
-- 完全复制规则而不根据项目调整，导致 AI 行为不符合预期
-- 规则与实际项目不一致，AI 生成的代码和项目结构不匹配
-- 不更新规则，随着项目演进而过时
+- Copying rules without adjusting for your project, leading to inconsistent AI behavior
+- Standards don't match actual project, AI output diverges from codebase structure
+- Not updating standards as the project evolves
 `,
   },
   {
@@ -3425,26 +3425,26 @@ claude "为 src/utils/ 下的工具函数生成 pytest 测试，覆盖边界情�
 
 "设计卡片网格布局，自动适应 1/2/3/4 列，图片保持比例。"
 
-## 适用场景
+## Applicable Scenarios
 
-以上方法适用于所有主流 AI 编程工具（Cursor、Claude Code、GitHub Copilot、Windsurf 等）。根据具体需求，选择对应工具实施。
+These methods apply to all major AI coding tools (Cursor, Claude Code, GitHub Copilot, Windsurf, etc.). Choose the right tool for your needs.
 
-## 常见错误
+## Common Mistakes
 
-- 不要期望 AI 替代你的思考，AI 是加速器不是自动驾驶
-- 规则和方法需要根据项目类型调整，不存在万能配置
-- 永远保持代码审查，AI 生成的代码可能有隐藏问题
-- 定期更新你的规则库，AI 工具迭代很快
+- Don't expect AI to replace thinking — it's an accelerator, not autopilot
+- Standards must adapt to project type — there is no universal config
+- Always review AI-generated code — it may have hidden issues
+- Update your standards regularly — AI tools evolve fast
 
-## 使用场景
+## Usage Scenarios
 
-以上内容可直接拷贝到你的项目中，根据需要调整技术栈名称和具体版本。搭配其他相关规则使用效果最佳。
+Save this content directly to your project. Adjust tech stack names and versions as needed. Combine with related standards for best results.
 
-## 常见错误
+## Common Mistakes
 
-- 完全复制规则而不根据项目调整，导致 AI 行为不符合预期
-- 规则与实际项目不一致，AI 生成的代码和项目结构不匹配
-- 不更新规则，随着项目演进而过时
+- Copying rules without adjusting for your project, leading to inconsistent AI behavior
+- Standards don't match actual project, AI output diverges from codebase structure
+- Not updating standards as the project evolves
 `,
   },
 
@@ -3473,20 +3473,20 @@ claude "为 src/utils/ 下的工具函数生成 pytest 测试，覆盖边界情�
 - Server Routes API 端点
 
 ## 模块
-- Pinia 状态管理
+- Pinia State Management
 - Tailwind CSS 样式
 - Nuxt Image 图片优化
 - Nuxt SEO 元数据
 
-## 使用场景
+## Usage Scenarios
 
-将以上内容保存为项目的 '.cursorrules' 文件，Cursor 会在每次对话和代码生成时自动遵循这些规范。适用于团队统一编码风格、新成员快速上手。
+Save as .cursor/rules/*.mdc or AGENTS.md. The AI coding tool loads these conventions automatically for every session. Ideal for team-wide consistency and onboarding.
 
-## 常见错误
+## Common Mistakes
 
-- 不要在规则中写过于具体的业务逻辑，规则应该描述通用规范
-- 不要频繁修改 .cursorrules 导致 AI 行为不一致，建议按版本管理
-- 规则太多会降低 AI 响应质量，控制在 50 行以内
+- Don't write business-specific logic in standards — keep conventions universal
+- Don't change standards too frequently — version-control them to maintain consistent AI behavior
+- Too many rules degrade AI output quality — target 30-50 well-chosen lines
 `,
   },
   {
@@ -3500,7 +3500,7 @@ claude "为 src/utils/ 下的工具函数生成 pytest 测试，覆盖边界情�
     appliesTo: "Cursor 0.40+",
     content: `# Cursor Playwright E2E 测试规则
 
-## 测试结构
+## Testing结构
 - 测试文件放在 e2e/ 目录
 - Page Object 模式管理页面
 - describe 组织测试套件
@@ -3518,15 +3518,15 @@ claude "为 src/utils/ 下的工具函数生成 pytest 测试，覆盖边界情�
 - 网络请求使用 route 拦截
 - 视觉回归使用 screenshot
 
-## 使用场景
+## Usage Scenarios
 
-将以上内容保存为项目的 '.cursorrules' 文件，Cursor 会在每次对话和代码生成时自动遵循这些规范。适用于团队统一编码风格、新成员快速上手。
+Save as .cursor/rules/*.mdc or AGENTS.md. The AI coding tool loads these conventions automatically for every session. Ideal for team-wide consistency and onboarding.
 
-## 常见错误
+## Common Mistakes
 
-- 不要在规则中写过于具体的业务逻辑，规则应该描述通用规范
-- 不要频繁修改 .cursorrules 导致 AI 行为不一致，建议按版本管理
-- 规则太多会降低 AI 响应质量，控制在 50 行以内
+- Don't write business-specific logic in standards — keep conventions universal
+- Don't change standards too frequently — version-control them to maintain consistent AI behavior
+- Too many rules degrade AI output quality — target 30-50 well-chosen lines
 `,
   },
   {
@@ -3545,7 +3545,7 @@ claude "为 src/utils/ 下的工具函数生成 pytest 测试，覆盖边界情�
 - Changesets 版本和发版
 - ESLint + Prettier 统一配置
 
-## 项目结构
+## Project Structure
 - packages/ 公共包
 - apps/ 应用入口
 - tools/ 构建工具
@@ -3557,26 +3557,26 @@ claude "为 src/utils/ 下的工具函数生成 pytest 测试，覆盖边界情�
 - 统一代码风格配置
 - 自动生成 Changelog
 
-## 适用场景
+## Applicable Scenarios
 
-以上方法适用于所有主流 AI 编程工具（Cursor、Claude Code、GitHub Copilot、Windsurf 等）。根据具体需求，选择对应工具实施。
+These methods apply to all major AI coding tools (Cursor, Claude Code, GitHub Copilot, Windsurf, etc.). Choose the right tool for your needs.
 
-## 常见错误
+## Common Mistakes
 
-- 不要期望 AI 替代你的思考，AI 是加速器不是自动驾驶
-- 规则和方法需要根据项目类型调整，不存在万能配置
-- 永远保持代码审查，AI 生成的代码可能有隐藏问题
-- 定期更新你的规则库，AI 工具迭代很快
+- Don't expect AI to replace thinking — it's an accelerator, not autopilot
+- Standards must adapt to project type — there is no universal config
+- Always review AI-generated code — it may have hidden issues
+- Update your standards regularly — AI tools evolve fast
 
-## 使用场景
+## Usage Scenarios
 
-以上内容可直接拷贝到你的项目中，根据需要调整技术栈名称和具体版本。搭配其他相关规则使用效果最佳。
+Save this content directly to your project. Adjust tech stack names and versions as needed. Combine with related standards for best results.
 
-## 常见错误
+## Common Mistakes
 
-- 完全复制规则而不根据项目调整，导致 AI 行为不符合预期
-- 规则与实际项目不一致，AI 生成的代码和项目结构不匹配
-- 不更新规则，随着项目演进而过时
+- Copying rules without adjusting for your project, leading to inconsistent AI behavior
+- Standards don't match actual project, AI output diverges from codebase structure
+- Not updating standards as the project evolves
 `,
   },
   {
@@ -3607,26 +3607,26 @@ claude "为 src/utils/ 下的工具函数生成 pytest 测试，覆盖边界情�
 - 性能监控
 - 日志聚合和告警
 
-## 适用场景
+## Applicable Scenarios
 
-以上方法适用于所有主流 AI 编程工具（Cursor、Claude Code、GitHub Copilot、Windsurf 等）。根据具体需求，选择对应工具实施。
+These methods apply to all major AI coding tools (Cursor, Claude Code, GitHub Copilot, Windsurf, etc.). Choose the right tool for your needs.
 
-## 常见错误
+## Common Mistakes
 
-- 不要期望 AI 替代你的思考，AI 是加速器不是自动驾驶
-- 规则和方法需要根据项目类型调整，不存在万能配置
-- 永远保持代码审查，AI 生成的代码可能有隐藏问题
-- 定期更新你的规则库，AI 工具迭代很快
+- Don't expect AI to replace thinking — it's an accelerator, not autopilot
+- Standards must adapt to project type — there is no universal config
+- Always review AI-generated code — it may have hidden issues
+- Update your standards regularly — AI tools evolve fast
 
-## 使用场景
+## Usage Scenarios
 
-以上内容可直接拷贝到你的项目中，根据需要调整技术栈名称和具体版本。搭配其他相关规则使用效果最佳。
+Save this content directly to your project. Adjust tech stack names and versions as needed. Combine with related standards for best results.
 
-## 常见错误
+## Common Mistakes
 
-- 完全复制规则而不根据项目调整，导致 AI 行为不符合预期
-- 规则与实际项目不一致，AI 生成的代码和项目结构不匹配
-- 不更新规则，随着项目演进而过时
+- Copying rules without adjusting for your project, leading to inconsistent AI behavior
+- Standards don't match actual project, AI output diverges from codebase structure
+- Not updating standards as the project evolves
 `,
   },
   {
@@ -3639,7 +3639,7 @@ claude "为 src/utils/ 下的工具函数生成 pytest 测试，覆盖边界情�
     updatedAt: "2026-05-11",
     content: `# AI 辅助测试策略完整指南
 
-## 测试金字塔
+## Testing金字塔
 - 单元测试占 70%（快速、隔离）
 - 集成测试占 20%（API、数据库）
 - E2E 测试占 10%（关键路径）
@@ -3650,32 +3650,32 @@ claude "为 src/utils/ 下的工具函数生成 pytest 测试，覆盖边界情�
 - 分析覆盖率补充测试
 - 自动修复失败的测试
 
-## 测试规范
+## Testing规范
 - AAA 模式（Arrange-Act-Assert）
 - 描述性测试名称
 - 一个测试一个行为
 - 边界情况优先覆盖
 
-## 适用场景
+## Applicable Scenarios
 
-以上方法适用于所有主流 AI 编程工具（Cursor、Claude Code、GitHub Copilot、Windsurf 等）。根据具体需求，选择对应工具实施。
+These methods apply to all major AI coding tools (Cursor, Claude Code, GitHub Copilot, Windsurf, etc.). Choose the right tool for your needs.
 
-## 常见错误
+## Common Mistakes
 
-- 不要期望 AI 替代你的思考，AI 是加速器不是自动驾驶
-- 规则和方法需要根据项目类型调整，不存在万能配置
-- 永远保持代码审查，AI 生成的代码可能有隐藏问题
-- 定期更新你的规则库，AI 工具迭代很快
+- Don't expect AI to replace thinking — it's an accelerator, not autopilot
+- Standards must adapt to project type — there is no universal config
+- Always review AI-generated code — it may have hidden issues
+- Update your standards regularly — AI tools evolve fast
 
-## 使用场景
+## Usage Scenarios
 
-以上内容可直接拷贝到你的项目中，根据需要调整技术栈名称和具体版本。搭配其他相关规则使用效果最佳。
+Save this content directly to your project. Adjust tech stack names and versions as needed. Combine with related standards for best results.
 
-## 常见错误
+## Common Mistakes
 
-- 完全复制规则而不根据项目调整，导致 AI 行为不符合预期
-- 规则与实际项目不一致，AI 生成的代码和项目结构不匹配
-- 不更新规则，随着项目演进而过时
+- Copying rules without adjusting for your project, leading to inconsistent AI behavior
+- Standards don't match actual project, AI output diverges from codebase structure
+- Not updating standards as the project evolves
 `,
   },
 ];

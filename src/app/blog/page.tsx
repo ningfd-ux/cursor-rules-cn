@@ -61,7 +61,7 @@ const posts = [
   {
     slug: "v2ex-post",
     title: "How I Built an AI Coding Rules Site in 7 Days with Cursor — Total Cost $7",
-    excerpt: "A share for the Chinese dev community: the full journey from buying a domain to launching 108 pages.",
+    excerpt: "Full build story: from buying a domain to launching 108 static pages on Cloudflare for $7.",
     date: "2026-05-12",
     tags: ["Story", "Build Log", "Experience"],
   },
