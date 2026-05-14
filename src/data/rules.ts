@@ -1020,17 +1020,17 @@ updatedAt: "2026-05-10",
 appliesTo: "Cursor 0.40+",
 content: `    # Docker Containerization Standards for AI-Assisted Development
 
-## Dockerfile 规范
-- 使用多阶段构建减小镜像体积
-- 基础镜像指定精确版本标签
-- 合并 RUN 命令减少层数
-- .dockerignore 排除不必要的文件
+## Dockerfile Conventions
+- Use multi-stage builds to minimize image size
+- Pin base images with explicit version tags
+- Combine RUN commands to reduce layer count
+- Use .dockerignore to exclude unnecessary files
 
 ## Security
-- 不以 root 用户运行容器
-- 最小化安装包
-- 定期扫描镜像漏洞
-- 敏感信息通过环境变量注入
+- Never run containers as root user
+- Minimize installed packages
+- Scan images regularly for vulnerabilities
+- Inject sensitive config via environment variables
 
 ## Orchestration
 - Use docker-compose for development environments
@@ -1574,52 +1574,52 @@ Save this content directly to your project. Adjust tech stack names and versions
     slug: "cursor-rules-migration",
     title: "Complete Guide to Migrating from Copilot to Cursor",
     category: "tutorial",
-    description: "从 GitHub Copilot 切换到 Cursor 的完整指南，包括规则迁移和习惯适配。",
+    description: "Complete guide to switching from GitHub Copilot to Cursor — rules migration, workflow adaptation, and team collaboration.",
     icon: "📖",
-    tags: ["cursor", "copilot", "迁移", "教程"],
+    tags: ["cursor", "copilot", "migration", "tutorial"],
     updatedAt: "2026-05-10",
-    content: `# 从 Copilot 迁移到 Cursor 完整指南
+    content: `# Complete Guide to Migrating from Copilot to Cursor
 
 ## Why Migrate?
 
-Cursor 相比 Copilot 的优势：
-- 深度理解整个代码库，不仅是当前文件
-- 支持多文件编辑和重构
-- 更智能的代码补全和上下文理解
+Cursor advantages over Copilot:
+- Deep understanding of the entire codebase, not just the current file
+- Multi-file editing and refactoring
+- Smarter code completion with project-wide context awareness
 
 ## Migration Steps
 
-### 1. 配置 Cursor Rules
+### 1. Configure Your Standards
 
-在项目根目录创建 .cursorrules：
+Create .cursor/rules/standards.mdc in your project root:
 
 \'\'\`
-# 项目概览
-- 这是一个 [项目类型] 项目
-- 使用 [技术栈]
-- 数据库：[数据库类型]
-- 部署：[部署平台]
+# Project Overview
+- This is a [project type] project
+- Built with [tech stack]
+- Database: [database type]
+- Deployed on: [deployment platform]
 
 # Coding Standards
-- 代码风格：[风格偏好]
-- 测试框架：[测试工具]
-- 命名约定：[命名规则]
+- Code style: [style preference]
+- Testing framework: [testing tool]
+- Naming conventions: [naming rules]
 
-# 重要约定
-- 不要修改 generated 目录下的文件
-- API 路由遵循 RESTful 规范
+# Important Conventions
+- Never modify files in the generated/ directory
+- API routes follow RESTful conventions
 - Component files should not exceed 200 lines
 \'\'\`
 
-### 2. 适配工作流
+### 2. Adapt Your Workflow
 
-- Copilot 的 Tab 补全 → Cursor 的 Tab 补全类似
-- Copilot Chat → Cursor Chat（Ctrl+K / Cmd+K）
-- Copilot 内联建议 → Cursor 的 inline diff
+- Copilot Tab completion -> Cursor Tab works the same way
+- Copilot Chat -> Cursor Chat (Ctrl+K / Cmd+K)
+- Copilot inline suggestions -> Cursor inline diff review
 
-### 3. 团队协作
+### 3. Team Collaboration
 
-在项目仓库中维护 .cursorrules，团队共享配置，确保 AI 行为一致。
+Maintain standards files in your repo. The entire team shares the same config for consistent AI behavior.
 
 ## Learning Path
 
@@ -1647,49 +1647,49 @@ Save this content directly to your project. Adjust tech stack names and versions
   },
   {
     slug: "cursor-agent-workflow",
-    title: "Cursor Agent 模式从入门到精通教程",
+    title: "Cursor Agent Mode — From Beginner to Expert",
     category: "tutorial",
-    description: "Cursor Agent 模式实战教程，从基础到高级的完整工作流。",
+    description: "Practical tutorial for Cursor Agent mode — complete workflow from basics to advanced techniques.",
     icon: "📖",
-    tags: ["cursor", "agent", "教程", "工作流"],
+    tags: ["cursor", "agent", "tutorial", "workflow"],
     updatedAt: "2026-05-10",
-    content: `# Cursor Agent 模式深度使用教程
+    content: `# Cursor Agent Mode Deep Dive
 
-## 什么是 Agent 模式？
+## What Is Agent Mode?
 
-Agent 模式是 Cursor 的核心差异化功能，它能：
-- 自动读取相关文件
-- 执行终端命令
-- 进行多步骤任务
-- 自动修复错误
+Agent mode is the core differentiator of Cursor. It can:
+- Auto-read relevant files
+- Execute terminal commands
+- Complete multi-step tasks
+- Auto-fix errors
 
-## 基础工作流
+## Basic Workflow
 
-### 场景：添加新 API 端点
+### Scenario: Adding a New API Endpoint
 
-1. Cmd+K 打开 Agent 模式
-2. 输入："在 app/api/users 下创建用户列表 API，包含分页和搜索"
-3. Agent 会自动：
-   - 读取现有路由文件
-   - 创建新的路由文件
-   - 生成数据库查询
-   - 添加参数验证
-   - 创建对应的类型定义
+1. Cmd+K to open Agent mode
+2. Enter: "Create a user list API under app/api/users with pagination and search"
+3. The Agent will:
+   - Read existing route files
+   - Create new route files
+   - Generate database queries
+   - Add parameter validation
+   - Create corresponding type definitions
 
-### 场景：修复 Bug
+### Scenario: Fixing a Bug
 
-1. 描述问题："用户登录后 session 有时会丢失"
-2. Agent 会：
-   - 搜索与 session 相关的代码
-   - 分析可能的原因
-   - 提出修复方案
-   - 修改代码并验证
+1. Describe: "User sessions sometimes get lost after login"
+2. The Agent will:
+   - Search code related to sessions
+   - Analyze possible causes
+   - Propose fixes
+   - Apply and verify the fix
 
 ## Advanced Techniques
 
-- 使用 @ 符号引用特定文件
-- 分步指令替代大段描述
-- 每次 Agent 操作后 review diff
+- Use @ to reference specific files
+- Give step-by-step instructions instead of long paragraphs
+- Review the diff after every Agent operation
 
 ## Learning Path
 
