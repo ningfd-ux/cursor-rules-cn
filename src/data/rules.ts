@@ -92,28 +92,28 @@ icon: "⚛️",
 tags: ["cursor", "react", "frontend"],
 updatedAt: "2026-05-01",
 appliesTo: "Cursor 0.40+",
-content: `# Cursor React 开发规则
+content: `# Cursor React Development Rules
 
 ## Component Standards
 - Use functional components + Hooks
-- 避免类组件
-- 每个组件一个文件
+- Avoid class components — prefer functional components
+- One component per file
 - Use PascalCase for component file names
 
-## Hooks 规则
-- 自定义 Hook 以 use 开头
-- Hook 中不要包含 JSX
-- useEffect 必须清理副作用
+## Hooks Rules
+- Custom hooks must start with "use"
+- Hooks should not contain JSX
+- useEffect must clean up side effects with a return function
 
-## State 管理
-- 优先使用 useState / useReducer
-- 跨组件共享使用 Context
-- 避免 prop drilling 超过 3 层
+## State Management
+- Prefer useState for local state, useReducer for complex state logic
+- Share cross-component state via Context
+- Limit prop drilling to 3 levels max
 
 ## Styling
-- 使用 Tailwind CSS
-- 避免内联样式
-- CSS Module 用于复杂组件
+- Use Tailwind CSS for styling
+- Avoid inline styles on JSX elements
+- Reserve CSS Modules for complex component-specific styles
 
 ## Usage Scenarios
 
@@ -129,8 +129,8 @@ Save as .cursor/rules/*.mdc or AGENTS.md. The AI coding tool loads these convent
 ## Related Standards
 
 - [Next.js Development Standards for AI Coding](/rules/cursor-nextjs-rules)
-- [Cursor TypeScript 严格模式配置规则](/rules/cursor-typescript-rules)
-- [让 Cursor 更懂 Vue 3 的最佳开发规则](/rules/cursor-vue-rules)
+- [TypeScript Strict Mode Standards](/rules/cursor-typescript-rules)
+- [Vue 3 Development Standards](/rules/cursor-vue-rules)
 `,
   },
   {
@@ -142,29 +142,29 @@ icon: "▲",
 tags: ["cursor", "nextjs", "app-router"],
 updatedAt: "2026-05-02",
 appliesTo: "Cursor 0.40+",
-content: `# Cursor Next.js 项目规则
+content: `# Cursor Next.js Project Rules
 
 ## Routing Standards
-- 使用 App Router（pages 目录已废弃）
+- Use App Router (pages directory is deprecated)
 - Use layout.tsx for layout files
 - Use loading.tsx for loading states
 - Use not-found.tsx for 404 pages
 
 ## Data Fetching
-- Prefer Server Components
-- 只在需要交互时使用 Client Component
-- Encapsulate API requests in lib/
-- 使用 Server Actions 处理表单
+- Prefer Server Components — they run on the server, ship zero JS to the client, and can be async
+- Only add "use client" when you need interactivity (event handlers, hooks, browser APIs)
+- Encapsulate API requests in lib/ so data fetching logic is testable and reusable
+- Use Server Actions for form submissions — no need for a separate API route for mutations
 
 ## SEO
-- 每个页面必须有 metadata
-- 使用 generateMetadata 动态生成
-- 图片必须包含 alt 属性
+- Every page must export metadata — it's non-negotiable for SEO
+- Use generateMetadata for dynamic routes (product pages, blog posts) based on fetched data
+- Every image must include an alt attribute — empty alt="" for decorative images, descriptive text otherwise
 
 ## Performance
-- Use next/image for images
-- 链接使用 next/link
-- 动态导入使用 next/dynamic
+- Use next/image for all images — it handles lazy loading, size optimization, and prevents layout shift
+- Always use next/link for internal navigation — it prefetches routes on hover for instant page transitions
+- Use next/dynamic for heavy components (charts, rich text editors, modals) with loading fallbacks
 
 ## Usage Scenarios
 
@@ -193,28 +193,28 @@ icon: "🐍",
 tags: ["cursor", "python", "backend"],
 updatedAt: "2026-05-03",
 appliesTo: "Cursor 0.40+",
-content: `# Cursor Python 开发规则
+content: `# Cursor Python Development Rules
 
 ## Code Style
 - Follow PEP 8
 - Use 4-space indentation
-- 行最大长度 88（Black 默认）
-- 使用蛇形命名法
+- Max line length 88 chars (Black defaults); longer lines signal excessive nesting
+- Use snake_case for variables, functions, and methods
 
-## 类型提示
-- 所有函数参数和返回值必须标注类型
-- 使用 typing 模块
-- 复杂类型使用 TypeAlias
+## Type Hints
+- Every function parameter and return value must carry type annotations — no untyped public signatures
+- Use typing module for generics, unions, and optionals
+- Use TypeAlias for complex types (nested dicts, union type combinations) that repeat across modules
 
-## 项目管理
-- 使用 pyproject.toml
-- 依赖分组管理（dev/prod）
-- 测试使用 pytest
+## Project Management
+- Use pyproject.toml as the single source of truth for build config, dependencies, and tool settings
+- Split dependencies into dev/prod groups so CI installs only what it needs
+- Use pytest for all testing — it scales from unit tests to integration suites with fixtures
 
 ## Documentation
-- 公共函数必须写 docstring
-- 使用 Google 风格的 docstring
-- README 包含安装和使用说明
+- Every public function gets a docstring — docstring omitted means the function is private
+- Use Google-style docstrings (Args/Returns/Raises sections) for consistency across the codebase
+- README must include install steps and a minimal usage example that works out of the box
 
 ## Usage Scenarios
 
@@ -242,29 +242,29 @@ description: "Standardized Git workflow and commit conventions for Cursor.",
 icon: "🔀",
 tags: ["cursor", "git", "workflow"],
 updatedAt: "2026-04-25",
-content: `# Cursor Git 工作流规则
+content: `# Cursor Git Workflow Rules
 
-## 分支策略
-- main：生产分支，只接受 merge
-- dev：开发分支
-- feature/*：功能分支
-- fix/*：修复分支
+## Branch Strategy
+- main: production branch, merge-only — never commit directly, never force push
+- dev: integration branch where feature branches land before main
+- feature/*: new feature branches branch off dev, merge back to dev via PR
+- fix/*: hotfix branches branch off main, merge to both main and dev
 
-## 提交规范
-- 使用 Conventional Commits
-- 格式：type(scope): description
-- type: feat / fix / docs / refactor / test / chore
+## Commit Conventions
+- Follow Conventional Commits — automated changelogs and semantic versioning depend on structured messages
+- Format: type(scope): description — keep the description under 72 characters
+- Valid types: feat / fix / docs / refactor / test / chore
 
-## 提交前检查
-- 运行 lint
-- 运行测试
-- 检查未使用的导入
-- 检查控制台输出
+## Pre-Commit Checks
+- Run lint — formatting and type errors should never reach the repo
+- Run tests — a broken test in main is a P0 incident
+- Check for unused imports — they bloat bundles and confuse readers
+- Check for console.log — logging should use a proper logger, never raw console output
 
-## PR 规范
-- PR 标题使用中文描述
-- PR 描述包含改动原因
-- 关联 Issue 编号
+## PR Guidelines
+- PR title must summarize the change — future you searches git log to find why something broke
+- PR description must explain the motivation, not restate the diff
+- Link every PR to an issue — untracked changes are unreviewable changes
 
 ## Usage Scenarios
 
@@ -286,27 +286,27 @@ icon: "📘",
 tags: ["cursor", "typescript", "strict-mode"],
 updatedAt: "2026-05-04",
 appliesTo: "Cursor 0.40+",
-content: `# Cursor TypeScript 严格模式规则
+content: `# Cursor TypeScript Strict Mode Rules
 
-## Configuration要求
-- strict: true
-- noUncheckedIndexedAccess: true
-- exactOptionalPropertyTypes: true
+## Configuration Requirements
+- strict: true — non-negotiable; without it you're not writing TypeScript, you're writing annotated JavaScript
+- noUncheckedIndexedAccess: true — array[index] and object[key] return T | undefined by default, forcing you to handle missing values
+- exactOptionalPropertyTypes: true — prevents passing { color: undefined } when color is optional; use ? instead
 
-## 类型定义
-- 优先使用 interface 而不是 type
-- 联合类型使用 type
-- 避免 any，使用 unknown
+## Type Definitions
+- Prefer interface for object shapes — they're extendable and produce better error messages
+- Use type for unions, intersections, and mapped types — type is a type algebra
+- Never use any; use unknown when the type is genuinely unknown, and narrow with type guards before use
 
-## 泛型
-- 泛型参数使用 T 或完整单词
-- 约束使用 extends
-- 工具类型优先于手写
+## Generics
+- Single-letter generic params (T, K, V) are fine for simple cases; use full names (TData, TInput) when readability demands it
+- Constrain generics with extends — unconstrained generics are just unknown in disguise
+- Prefer built-in utility types (Partial, Pick, Omit, Record) over hand-rolling equivalent types
 
 ## Best Practices
-- 使用 const 断言
-- 使用 satisfies 操作符
-- 枚举使用 const enum
+- Use const assertions (it as const) for literal types — they narrow string arrays to readonly tuples
+- Use the satisfies operator for config objects — it validates the shape without widening the type
+- Prefer const enum or plain string unions over enum — enums generate runtime code and break tree-shaking
 
 ## Usage Scenarios
 
@@ -334,22 +334,22 @@ icon: "🤖",
 tags: ["claude-code", "general", "prompt"],
 updatedAt: "2026-04-30",
 appliesTo: "Claude Code 0.1+",
-content: `# Claude Code 通用规则
+content: `# Claude Code General Rules
 
-## 核心原则
-- Claude Code 是编程助手，不是替代品
-- 始终审查 AI 生成的代码
-- 保持代码库的一致性
+## Core Principles
+- Claude Code is a pair programmer, not a replacement — you own every line it writes
+- Always review AI-generated code before it lands in your branch
+- Maintain codebase consistency — one file matching your patterns beats ten files matching generic patterns
 
-## Prompt 技巧
-- 明确指定技术栈和版本
-- 提供上下文文件路径
-- 使用分步指令
+## Prompt Techniques
+- Explicitly specify your tech stack and versions — "React 18" vs "React 19" matters, and Claude can't guess
+- Provide file paths as context — the first prompt should list 3-5 key files Claude should read first
+- Use step-by-step instructions — a chain of 5 small prompts produces better code than one paragraph-long prompt
 
 ## Security
-- 不要将 API Key 写入代码
-- 审查所有文件修改
-- 敏感操作手动确认
+- Never let Claude write API keys or secrets into code — use environment variables exclusively
+- Review every file modification in the diff before accepting
+- Manually confirm sensitive operations (database migrations, deployment commands, permission changes)
 
 ## Usage Scenarios
 
@@ -364,8 +364,8 @@ Before starting a Claude Code session, paste the prompt template and replace pla
 
 ## Related Standards
 
-- [用 Claude Code 写 React 的高效 Prompt](/rules/claude-code-react)
-- [用 Claude Code 写 Python 的高效 Prompt](/rules/claude-code-python)
+- [Effective React Prompts for Claude Code](/rules/claude-code-react)
+- [Effective Python Prompts for Claude Code](/rules/claude-code-python)
 `,
   },
   {
@@ -377,16 +377,16 @@ icon: "⚛️",
 tags: ["claude-code", "react", "prompt"],
 updatedAt: "2026-05-05",
 appliesTo: "Claude Code 0.1+",
-content: `# Claude Code React 开发 Prompt
+content: `# Claude Code React Development Prompts
 
-## 创建组件 Prompt
-"在 src/components/ 下创建一个 Button 组件，使用 TypeScript + Tailwind CSS，包含 variant（primary/secondary/outline）和 size（sm/md/lg）属性。"
+## Creating a Component
+"Create a Button component in src/components/ using TypeScript + Tailwind CSS, with variant (primary/secondary/outline) and size (sm/md/lg) props."
 
-## 修复 Bug Prompt
-"Users.tsx 中的列表加载不显示数据，检查数据获取逻辑，使用 React DevTools 检查状态。"
+## Fixing a Bug
+"The list in Users.tsx renders blank — no data appears. Check the data fetching logic and use React DevTools to inspect state."
 
-## 重构 Prompt
-"将 Dashboard 页面中的图表逻辑抽离为独立的 Chart 组件，包含 loading 和 empty 状态。"
+## Refactoring
+"Extract chart logic from the Dashboard page into a standalone Chart component, with loading and empty states."
 
 ## Usage Scenarios
 
@@ -408,25 +408,25 @@ icon: "🔄",
 tags: ["claude-code", "workflow", "best-practices"],
 updatedAt: "2026-05-06",
 appliesTo: "Claude Code 0.1+",
-content: `# Claude Code 工作流规则
+content: `# Claude Code Workflow Rules
 
-## 日常开发流程
-1. 启动任务前阅读相关文件
-2. 让 Claude 理解项目结构
-3. 小步提交，频繁审查
-4. 每次提交后运行测试
+## Daily Development Flow
+1. Read relevant files before starting a task — Claude needs context, not guesses
+2. Let Claude map the project structure by pointing it to key directories and config files
+3. Commit small, review frequently — a 10-line diff is easy to audit; a 500-line diff is impossible
+4. Run tests after every commit — CI catches nothing if you never push broken code
 
-## 调试流程
-1. 描述问题现象
-2. 提供错误日志
-3. 指出怀疑的代码区域
-4. Claude 提出修复方案
+## Debugging Flow
+1. Describe the observed behavior vs. expected behavior — be specific
+2. Provide the full error log — partial logs hide root causes
+3. Point to the suspected code area — narrowing scope saves rounds of Q&A
+4. Claude proposes a fix; you validate it against edge cases before applying
 
 ## Code Review
-1. 审查所有 diff
-2. 运行 lint 和测试
-3. 检查边界情况
-4. 确认没有安全漏洞
+1. Review every diff — 95% accuracy means 5 out of 100 lines are wrong
+2. Run lint and tests locally before filing the PR
+3. Check edge cases: null, empty arrays, large inputs, network failures
+4. Confirm no security vulnerabilities — AI can introduce injection sinks and hardcoded secrets
 
 ## Usage Scenarios
 
@@ -447,27 +447,27 @@ description: "A curated collection of the most practical Claude Code prompt temp
 icon: "💡",
 tags: ["claude-code", "prompt", "templates"],
 updatedAt: "2026-05-01",
-content: `# Claude Code 高效 Prompt 大全
+content: `# Claude Code Effective Prompt Collection
 
-## 代码生成
-- "用 [技术栈] 生成 [功能] 组件"
-- "实现 [API 端点] 的 CRUD 操作"
-- "写一个 [算法] 的实现和测试"
+## Code Generation
+- "Generate a [feature] component using [tech stack]"
+- "Implement CRUD operations for [API endpoint]"
+- "Write an implementation and tests for [algorithm]"
 
 ## Code Review
-- "审查这个 PR 的代码质量"
-- "找出潜在的性能问题"
-- "检查安全漏洞"
+- "Review this PR for code quality and consistency"
+- "Identify potential performance bottlenecks"
+- "Check for security vulnerabilities"
 
-## 重构
-- "将这个组件拆分为更小的组件"
-- "将 [模式] 重构为 [新模式]"
-- "优化这个函数的性能"
+## Refactoring
+- "Split this component into smaller, focused components"
+- "Refactor from [pattern] to [new pattern]"
+- "Optimize this function's performance"
 
 ## Testing
-- "为这个组件写单元测试"
-- "生成边界测试用例"
-- "写集成测试覆盖这个流程"
+- "Write unit tests for this component"
+- "Generate edge case test scenarios"
+- "Write integration tests covering this flow"
 
 ## Usage Scenarios
 
@@ -488,22 +488,22 @@ description: "Usage rules and best practices for GitHub Copilot.",
 icon: "🪁",
 tags: ["copilot", "general", "best-practices"],
 updatedAt: "2026-04-29",
-content: `# GitHub Copilot 通用规则
+content: `# GitHub Copilot General Rules
 
 ## Configuration
-- 启用建议自动触发
-- 配置 .github/copilot-instructions.md
-- 使用 Copilot Chat 辅助调试
+- Enable auto-trigger for inline suggestions — the gap between typing and Tab is where Copilot reads your intent
+- Configure .github/copilot-instructions.md with project-specific conventions
+- Use Copilot Chat for debugging — it reads your open file context automatically
 
 ## Usage Tips
-- 写清晰的注释引导生成
-- 先写函数签名再让 Copilot 填充
-- 使用 Tab 接受建议
+- Write clear comments to guide generation — Copilot reads your intent from the comment above the cursor
+- Write the function signature first, then let Copilot fill the body — the signature constrains the output
+- Use Tab to accept suggestions; Alt/Option+[ or Alt/Option+] cycles through alternatives
 
-## 代码质量
-- 验证所有建议
-- 不要接受明显错误的代码
-- 需要时手动修正
+## Code Quality
+- Validate every suggestion — Copilot generates plausible-looking code that may not compile
+- Never accept code that's obviously wrong — fix the comment or signature and try again
+- Manual corrections are expected — Copilot is autocomplete, not a code review
 
 ## Usage Scenarios
 
@@ -524,18 +524,18 @@ description: "Configure project-level Copilot behavior via copilot-instructions.
 icon: "📋",
 tags: ["copilot", "configuration", "instructions"],
 updatedAt: "2026-05-03",
-content: `# GitHub Copilot 项目指令配置
+content: `# GitHub Copilot Project Instructions Configuration
 
-## 创建 copilot-instructions.md
-在项目根目录创建 .github/copilot-instructions.md
+## Creating copilot-instructions.md
+Create .github/copilot-instructions.md at your project root
 
-## Configuration内容
-- 项目技术栈描述
-- 编码风格偏好
-- 使用的框架和库
-- 命名规范
+## Configuration Content
+- Project tech stack description
+- Coding style preferences
+- Frameworks and libraries in use
+- Naming conventions
 
-## 示例
+## Example
 markdown
 # Tech Stack
 - Next.js 14 (App Router)
@@ -544,9 +544,9 @@ markdown
 - Prisma ORM
 
 # Coding Standards
-- 使用 Server Component 优先
-- API 路由使用 Route Handler
-- 数据库查询使用 Prisma
+- Prefer Server Components over Client Components
+- Use Route Handlers for API routes
+- Use Prisma for database queries
 
 
 ## Usage Scenarios
@@ -568,22 +568,22 @@ Save this config to '.github/copilot-instructions.md' in your project root. GitH
     icon: "🧪",
     tags: ["copilot", "testing", "jest"],
     updatedAt: "2026-04-27",
-    content: `# Copilot 辅助测试编写
+    content: `# Copilot-Assisted Test Writing
 
-## Testing框架
+## Testing Framework
 - Jest + React Testing Library
-- Use descriptive test names
-- AAA pattern (Arrange-Act-Assert)
+- Use descriptive test names that document expected behavior
+- AAA pattern (Arrange-Act-Assert) — structure every test the same way for readability
 
-## 生成测试
-1. 打开被测文件
-2. 创建 .test.ts 文件
-3. Copilot 会根据实现生成测试
+## Generating Tests
+1. Open the file under test in your editor
+2. Create a .test.ts file alongside it
+3. Copilot generates tests based on the implementation context it can see
 
-## Mock 策略
-- 外部 API 调用使用 jest.mock
-- 复杂依赖使用依赖注入
-- 避免过度 mock
+## Mock Strategy
+- Mock external API calls with jest.mock — network-dependent tests are flaky and slow
+- Use dependency injection for complex dependencies so mocks are explicit
+- Avoid over-mocking — if you mock everything, you're testing mocks, not code
 
 ## Usage Scenarios
 
@@ -605,22 +605,22 @@ icon: "🏄",
 tags: ["windsurf", "general", "rules"],
 updatedAt: "2026-05-02",
 appliesTo: "Windsurf 1.0+",
-content: `# Windsurf AI 编程规则
+content: `# Windsurf AI Coding Rules
 
-## 基础配置
-- 启用 AI 建议
-- 配置项目上下文
-- 设置代码审查级别
+## Basic Configuration
+- Enable AI suggestions
+- Configure project context so Cascade knows your stack and conventions
+- Set code review level based on your team's tolerance for AI-generated code
 
 ## Usage Tips
-- 使用自然语言描述需求
-- 利用多文件编辑能力
-- 使用 Cascade 功能
+- Describe requirements in natural language — Cascade translates intent to diffs
+- Leverage multi-file editing to keep related changes atomic
+- Use Cascade for cross-cutting changes that span multiple files
 
 ## Best Practices
-- 定期保存工作
-- 审查代码差异
-- 测试生成代码
+- Save work regularly — a single bad Cascade run can undo hours of manual edits
+- Review every diff before accepting — AI changes must pass the same bar as human PRs
+- Test generated code — it passes the type checker more often than it passes your test suite
 
 ## Usage Scenarios
 
@@ -642,20 +642,20 @@ icon: "🌊",
 tags: ["windsurf", "cascade", "multi-file"],
 updatedAt: "2026-04-26",
 appliesTo: "Windsurf 1.0+",
-content: `# Windsurf Cascade 功能指南
+content: `# Windsurf Cascade Feature Guide
 
-## Cascade 是什么
-Cascade 是 Windsurf 的多文件编辑功能
+## What Is Cascade
+Cascade is Windsurf's multi-file editing engine — it reads your codebase and applies changes across files in one diff
 
 ## Usage Scenarios
-- 跨文件重构
-- 添加新功能
-- 全局修改
+- Cross-file refactors (rename a type, cascade the import updates everywhere)
+- Adding new features that touch multiple layers (route + service + model + test)
+- Global changes (lint fix across the repo, API version bumps)
 
 ## Best Practices
-- 明确描述修改范围
-- 审查每个文件的更改
-- 小批量提交`,
+- Clearly define the scope of changes — "refactor auth" is ambiguous; "extract JWT validation from 3 route files into a middleware" is actionable
+- Review every file's diff individually — don't accept a 10-file diff as one chunk
+- Commit in small batches — each Cascade run should produce one atomic commit`,
   },
   {
 slug: "ai-coding-prompt-tips",
@@ -665,22 +665,22 @@ description: "Prompt writing techniques for all AI coding tools.",
 icon: "🎯",
 tags: ["prompt", "tips", "general"],
 updatedAt: "2026-05-05",
-content: `# AI 编程 Prompt 终极技巧
+content: `# AI Coding Prompt Mastery
 
-## 黄金法则
-1. 明确具体：不要说"优化代码"，说"将这个 O(n²) 算法优化为 O(n log n)"
-2. 提供上下文：相关文件的路径和关键代码
-3. 分步指令：大任务拆解为小步骤
+## Golden Rules
+1. Be specific: never say "optimize the code" — say "replace this O(n^2) nested loop with a hash map lookup for O(n)"
+2. Provide context: file paths and key code snippets so the AI knows what it's changing
+3. Step-by-step instructions: break large tasks into small, verifiable steps that can be tested independently
 
 ## Advanced Techniques
-- 使用 few-shot 示例
-- 指定输出格式
-- 要求解释修改理由
+- Use few-shot examples: show 2-3 examples of desired output before the actual request
+- Specify the output format (JSON shape, TypeScript interface, file structure)
+- Ask the AI to explain the rationale behind each change — it surfaces hidden assumptions
 
-## 陷阱
-- 避免过于模糊的描述
-- 不要假设 AI 知道项目结构
-- 检查生成的依赖版本
+## Pitfalls
+- Avoid vague descriptions — "make it better" produces unpredictable changes
+- Never assume the AI knows your project structure — name specific files and directories
+- Check generated dependency versions — AI training data may suggest deprecated or vulnerable packages
 
 ## Applicable Scenarios
 
@@ -712,24 +712,24 @@ description: "Rules and workflow for AI-assisted code review.",
 icon: "👁️",
 tags: ["code-review", "AI", "quality"],
 updatedAt: "2026-04-30",
-content: `# AI 辅助代码审查规则
+content: `# AI-Assisted Code Review Rules
 
-## 审查重点
-1. 代码逻辑错误
-2. 性能瓶颈
-3. 安全漏洞
-4. 一致性检查
+## Review Focus
+1. Logic errors — off-by-one, inverted conditions, missing null checks
+2. Performance bottlenecks — N+1 queries, unnecessary re-renders, missing memoization
+3. Security vulnerabilities — injection sinks, missing auth checks, exposed secrets
+4. Consistency — does this code match patterns used elsewhere in the codebase?
 
-## AI 审查流程
-1. 提交代码到 PR
-2. AI 自动审查
-3. 人类复审 AI 的结果
-4. 解决发现的问题
+## AI Review Pipeline
+1. Submit code as a PR — the AI review step fires automatically
+2. AI runs a first-pass review flagging obvious issues (style violations, missing tests, potential bugs)
+3. A human reviews the AI's findings — dismiss false positives, prioritize real issues
+4. Resolve identified issues before merge; the AI re-scans on each push
 
-## 注意事项
-- AI 不能完全替代人类审查
-- 业务逻辑需要人工确认
-- 安全性审查需要专业知识
+## Caveats
+- AI cannot fully replace human review — it catches patterns, not intentions
+- Business logic must be verified by a human — the AI doesn't know your domain rules
+- Security review requires specialized expertise — AI misses context-dependent vulnerabilities
 
 ## Applicable Scenarios
 
@@ -761,23 +761,23 @@ description: "Advanced usage patterns and real-world experience with Cursor Rule
 icon: "⭐",
 tags: ["cursor", "best-practices", "advanced"],
 updatedAt: "2026-05-06",
-content: `# Cursor Rules 最佳实践合集
+content: `# Cursor Rules Best Practices Collection
 
-## 分层规则设计
-- 通用规则（所有项目）
-- 语言规则（Python/JS/TS）
-- 框架规则（React/Next.js）
-- 项目特定规则
+## Layered Rule Design
+- Global rules (apply to all projects — indentation, git conventions, security)
+- Language rules (Python/JS/TS — type discipline, linting, idiom)
+- Framework rules (React/Next.js — component patterns, data fetching, routing)
+- Project-specific rules (business domain conventions, team preferences)
 
-## 规则优先级
-- 具体规则覆盖通用规则
-- 项目级规则 > 全局规则
-- 按文件名排序加载
+## Rule Priority
+- Specific rules override general ones — a React rule beats a generic TypeScript rule
+- Project-level rules outrank global rules — the .cursor/rules in your repo is the final word
+- Rules load in filename order — use numeric prefixes (01-global, 02-react) to control precedence
 
-## 实战经验
-- rules 文件不超过 50 行
-- 用注释分隔章节
-- 定期更新规则
+## Production Tips
+- Keep rules files under 50 lines — beyond that, the AI starts ignoring rules at random
+- Use comment headers to separate sections so the AI can scan structure quickly
+- Update rules regularly — the AI tools themselves change, and stale rules produce stale code
 
 ## Applicable Scenarios
 
@@ -811,29 +811,29 @@ icon: "🟢",
 tags: ["cursor", "vue", "frontend"],
 updatedAt: "2026-05-10",
 appliesTo: "Cursor 0.40+",
-content: `# Cursor Vue.js 开发规则
+content: `# Cursor Vue.js Development Rules
 
 ## Project Structure
-- 使用 Composition API + <script setup>
-- 避免 Options API
+- Use Composition API + script setup — it is the default for Vue 3, shorter syntax, better TypeScript inference
+- Avoid Options API — it is not deprecated but Composition API composes better
 - Use PascalCase for component file names
-- 页面文件放在 pages/ 或 views/
+- Page components go in pages/ or views/; shared components in components/
 
 ## Component Standards
-- 每个 .vue 文件只导出一个组件
-- 逻辑复用优先使用 composables
-- props 必须定义类型和默认值
-- emit 事件使用 kebab-case 命名
+- One component per .vue file — single-file components are already component-scoped
+- Prefer composables for logic reuse — they compose better than mixins and renderless components
+- Every prop must declare its type and default value — no guessing at runtime
+- Emit events use kebab-case names for consistency with HTML event naming
 
 ## State Management
-- 跨组件状态使用 Pinia
-- store 按功能模块拆分
-- 避免在 store 中引用组件实例
+- Use Pinia for cross-component state — it's the official Vue 3 state management library
+- Split stores by feature domain, not by data type
+- Never reference component instances inside stores — stores are framework-agnostic state containers
 
 ## Styling
-- 使用 <style scoped> 避免样式污染
-- 全局样式放在 assets/styles/
-- 优先使用 Tailwind CSS 或 CSS Variables
+- Use style scoped to prevent style leakage between components
+- Place global styles in assets/styles/ — reset, typography, design tokens
+- Prefer Tailwind CSS or CSS custom properties (variables) for theming
 
 ## Usage Scenarios
 
@@ -849,7 +849,7 @@ Save as .cursor/rules/*.mdc or AGENTS.md. The AI coding tool loads these convent
 ## Related Standards
 
 - [React Development Standards for AI Coding](/rules/cursor-react-rules)
-- [Cursor Nuxt 3 全栈开发规则](/rules/cursor-nuxt-rules)
+- [Cursor Nuxt 3 Full-Stack Development Rules](/rules/cursor-nuxt-rules)
 - [Tailwind CSS Standards for AI Coding](/rules/cursor-tailwind-rules)
 `,
   },
@@ -863,29 +863,29 @@ icon: "🔷",
 tags: ["cursor", "go", "golang"],
 updatedAt: "2026-05-10",
 appliesTo: "Cursor 0.40+",
-content: `    # Cursor Go 开发规则
+content: `    # Cursor Go Development Rules
 
-## 代码规范
-- 使用 gofmt/gofumpt 格式化
-- 遵循 Effective Go 标准
-- 错误处理使用 if err != nil 模式
-- 接口尽量小，不超过 3 个方法
+## Code Standards
+- Format with gofmt or gofumpt — unformatted Go is not Go
+- Follow Effective Go — this is the canonical style guide, not optional
+- Use the if err != nil pattern religiously — Go does not have exceptions, and ignoring errors is a bug
+- Keep interfaces small, ideally 1-3 methods — large interfaces violate the Interface Segregation Principle
 
 ## Project Structure
-- 按功能模块分包，不按层分包
-- cmd/ 目录放 main 包入口
-- internal/ 目录放不导出的包
-- pkg/ 目录放可复用的公共包
+- Package by feature, not by layer — a user package contains handler, service, and repository, not a handlers directory
+- cmd/ holds main package entry points — one subdirectory per binary
+- internal/ holds packages that must not be imported externally — the Go toolchain enforces this
+- pkg/ holds reusable public packages that other projects can import
 
-## 并发
-- 使用 sync 包保护共享资源
-- channel 用于协程间通信
-- context 传递请求范围的值和取消信号
+## Concurrency
+- Use the sync package (Mutex, RWMutex, WaitGroup) to protect shared mutable state
+- Use channels for goroutine communication — share memory by communicating, not vice versa
+- context.Context carries request-scoped values, deadlines, and cancellation signals through call chains
 
 ## Testing
-- 测试文件与被测文件同目录
-- 使用 table-driven test 模式
-- 基准测试标记为 BenchmarkXxx
+- Test files live in the same directory as the code under test — foo.go gets foo_test.go
+- Use table-driven tests — iterate over a slice of test cases, each with name, input, and expected output
+- Benchmark functions follow the BenchmarkXxx(b *testing.B) signature and must loop b.N times
 
 ## Usage Scenarios
 
@@ -902,7 +902,7 @@ Save as .cursor/rules/*.mdc or AGENTS.md. The AI coding tool loads these convent
 
 - [RESTful API Coding Standards](/rules/cursor-api-rules)
 - [Testing Standards for AI-Generated Code](/rules/cursor-testing-rules)
-- [Cursor 中 Docker 容器化的最佳实践](/rules/cursor-docker-rules)
+- [Docker Containerization Best Practices for Cursor](/rules/cursor-docker-rules)
 `,
   },
 
@@ -915,28 +915,28 @@ icon: "🧪",
 tags: ["cursor", "testing", "jest"],
 updatedAt: "2026-05-10",
 appliesTo: "Cursor 0.40+",
-content: `    # Cursor 测试开发规则
+content: `    # Cursor Test Development Rules
 
-## Testing策略
-- 单元测试覆盖核心业务逻辑
-- 集成测试覆盖 API 和数据库
-- 每个 bug 修复先写回归测试
-- 测试覆盖率目标：核心模块 > 90%
+## Testing Strategy
+- Unit tests cover core business logic — pure functions, validation, state transitions
+- Integration tests cover API endpoints and database interactions with real or testcontainers-backed databases
+- Every bug fix starts with a regression test — reproduce the bug, prove it's fixed, prevent it from recurring
+- Coverage target: >90% on core modules; coverage percentage is a floor, not a ceiling
 
-## Testing命名
-- describe 描述被测单元
-- it 描述期望行为
-- 测试名称使用中文描述
+## Test Naming
+- describe names the unit under test (component, function, module)
+- it describes the expected behavior in the present tense ("returns null when input is empty")
+- Test names should read like documentation — someone reading the test output should understand what failed
 
-## Mock 规范
-- 外部服务使用 mock
-- 内部模块优先使用真实实现
-- mock 数据放在 __fixtures__/ 目录
+## Mock Guidelines
+- Mock external services (APIs, databases in unit tests) — they make tests slow and flaky
+- Prefer real implementations for internal modules — mocking your own code hides integration bugs
+- Store mock data in __fixtures__/ directory — keep test files focused on assertions, not data setup
 
 ## Assertion Standards
-- 每个测试只验证一个行为
-- 使用 AAA 模式（Arrange-Act-Assert）
-- 错误场景和边界情况必须覆盖
+- Each test verifies exactly one behavior — if a test has three assertions about different things, split it
+- Follow the AAA pattern (Arrange-Act-Assert) — a blank line between each phase
+- Error scenarios and edge cases must be covered — happy-path tests alone don't prove correctness
 
 ## Usage Scenarios
 
@@ -951,8 +951,8 @@ Save as .cursor/rules/*.mdc or AGENTS.md. The AI coding tool loads these convent
 
 ## Related Standards
 
-- [Cursor E2E 自动化测试规则](/rules/cursor-e2e-testing)
-- [AI 辅助测试策略完整指南](/rules/general-testing-strategy)
+- [Cursor E2E Automated Testing Rules](/rules/cursor-e2e-testing)
+- [AI-Assisted Testing Strategy Guide](/rules/general-testing-strategy)
 `,
   },
 
@@ -965,31 +965,31 @@ icon: "🌐",
 tags: ["cursor", "api", "rest"],
 updatedAt: "2026-05-10",
 appliesTo: "Cursor 0.40+",
-content: `    # Cursor API 开发规则
+content: `    # Cursor API Development Rules
 
-## Routes设计
-- RESTful 资源命名使用复数
-- 版本号放在 URL 路径中（/api/v1/）
-- 查询参数用于过滤和排序
-- 请求体用于创建和更新
+## Route Design
+- RESTful resources use plural nouns — GET /api/users, not GET /api/user
+- Version number goes in the URL path (/api/v1/) — it's explicit and cache-friendly
+- Query parameters are for filtering and sorting — GET /api/users?status=active&sort=created_at
+- Request body is for create and update operations — POST/PUT/PATCH carry JSON payloads
 
-## 请求验证
-- 所有输入必须校验类型和格式
-- 使用 Zod / Joi 等校验库
-- 错误信息返回统一格式
-- 敏感字段不在错误中泄露
+## Request Validation
+- Every input must be validated for type and format — trust no client
+- Use Zod, Joi, or similar schema validation libraries — they produce typed objects after validation
+- Error messages must use a uniform response format so clients can parse them programmatically
+- Never leak sensitive fields (passwords, internal IDs, stack traces) in error responses
 
-## 响应格式
-- 统一返回 { code, data, message } 结构
-- 列表接口支持分页（page, pageSize, total）
-- 错误使用 HTTP 状态码 + 业务码
-- 耗时接口返回 202 Accepted
+## Response Format
+- Return consistent { code, data, message } envelope
+- List endpoints must support pagination (page, pageSize, total)
+- Use HTTP status codes with business error codes
+- Long-running endpoints return 202 Accepted with a status URL
 
 ## Security
-- API Key 通过 Header 传递
-- 限制请求频率（Rate Limit）
-- CORS 配置白名单
-- 敏感操作记录审计日志
+- API keys via Authorization header
+- Enforce rate limiting on all endpoints
+- Restrict CORS to known origins only
+- Log all sensitive operations to an audit trail
 
 ## Usage Scenarios
 
@@ -1004,7 +1004,7 @@ Save as .cursor/rules/*.mdc or AGENTS.md. The AI coding tool loads these convent
 
 ## Related Standards
 
-- [Cursor GraphQL API 开发规则](/rules/cursor-graphql-rules)
+- [GraphQL API Standards](/rules/cursor-graphql-rules)
 - [Database Schema Design Standards](/rules/cursor-database-rules)
 `,
   },
@@ -1018,7 +1018,7 @@ icon: "🐳",
 tags: ["cursor", "docker", "devops"],
 updatedAt: "2026-05-10",
 appliesTo: "Cursor 0.40+",
-content: `    # Cursor Docker 容器化规则
+content: `    # Docker Containerization Standards for AI-Assisted Development
 
 ## Dockerfile 规范
 - 使用多阶段构建减小镜像体积
@@ -1032,11 +1032,11 @@ content: `    # Cursor Docker 容器化规则
 - 定期扫描镜像漏洞
 - 敏感信息通过环境变量注入
 
-## 编排
-- 开发环境使用 docker-compose
-- 生产环境使用 Kubernetes
-- 每个服务独立容器
-- 日志输出到 stdout/stderr
+## Orchestration
+- Use docker-compose for development environments
+- Use Kubernetes for production
+- One container per service
+- Output logs to stdout/stderr
 
 ## Usage Scenarios
 
@@ -1051,8 +1051,8 @@ Save as .cursor/rules/*.mdc or AGENTS.md. The AI coding tool loads these convent
 
 ## Related Standards
 
-- [Cursor Node.js Express 后端开发规则](/rules/cursor-nodejs-rules)
-- [AI 部署运维 CI/CD 指南](/rules/general-deployment-rules)
+- [Node.js Express Backend Standards](/rules/cursor-nodejs-rules)
+- [CI/CD & Deployment Guide](/rules/general-deployment-rules)
 `,
   },
 
@@ -1065,31 +1065,31 @@ icon: "🗄️",
 tags: ["cursor", "database", "sql"],
 updatedAt: "2026-05-10",
 appliesTo: "Cursor 0.40+",
-content: `    # Cursor 数据库开发规则
+content: `    # Database Standards for AI-Assisted Development
 
 ## Schema Design
-- 表名使用复数 snake_case
-- 主键使用 BIGINT 自增或 UUID
-- 必须包含 created_at 和 updated_at
-- 外键建立索引
+- Use plural snake_case for table names
+- Primary keys: BIGINT auto-increment or UUID
+- All tables must have created_at and updated_at timestamps
+- Create indexes on all foreign key columns
 
 ## Query Standards
-- 避免 N+1 查询，使用 JOIN 或预加载
-- 复杂查询使用 EXPLAIN 分析
-- 大批量操作使用批量处理
-- 分页使用游标分页（cursor-based）
+- Avoid N+1 queries — use JOINs or eager loading
+- Analyze complex queries with EXPLAIN
+- Use batch processing for large data operations
+- Use cursor-based pagination for large datasets
 
 ## Migration Management
-- 每次变更创建新的迁移文件
-- 迁移可回滚（up/down）
-- 生产环境迁移前 Review
-- 禁止直接修改已合并的迁移
+- Create a new migration file for each schema change
+- Migrations must be reversible (up/down)
+- Review all migrations before production deployment
+- Never modify already-merged migration files
 
 ## Security
-- 使用参数化查询防 SQL 注入
-- 敏感字段加密存储
-- 连接字符串通过环境变量配置
-- 生产数据库连接池限制
+- Use parameterized queries to prevent SQL injection
+- Encrypt sensitive fields at rest
+- Configure connection strings via environment variables
+- Limit connection pool size in production
 
 ## Usage Scenarios
 
@@ -1105,7 +1105,7 @@ Save as .cursor/rules/*.mdc or AGENTS.md. The AI coding tool loads these convent
 ## Related Standards
 
 - [Prisma ORM Data Layer Standards](/rules/cursor-prisma-rules)
-- [Cursor Supabase 后端开发规则](/rules/cursor-supabase-rules)
+- [Supabase Backend Standards](/rules/cursor-supabase-rules)
 `,
   },
 
@@ -1118,19 +1118,19 @@ icon: "🐍",
 tags: ["claude-code", "python", "prompt"],
 updatedAt: "2026-05-10",
 appliesTo: "Claude Code 0.1+",
-content: `    # Claude Code Python 开发 Prompt
+content: `    # Claude Code Python Prompts
 
-## 创建 FastAPI 接口
-"在 app/routers/ 下创建一个用户 CRUD 路由，使用 FastAPI + SQLAlchemy async，包含分页查询、创建、更新、删除接口。"
+## Generate FastAPI Endpoints
+"Create a user CRUD router under app/routers/ using FastAPI + SQLAlchemy async. Support paginated listing, create, update, and delete."
 
-## 数据处理
-"写一个 pandas 数据处理函数，从 CSV 读取销售数据，按月份聚合统计，输出为 Excel 文件。"
+## Data Processing
+"Write a pandas data processing function: read sales CSV data, aggregate by month, output as Excel."
 
-## 异步任务
-"使用 Celery + Redis 实现后台任务队列，包含进度跟踪和结果回调。任务函数在 tasks/ 目录下。"
+## Async Tasks
+"Implement a background task queue using Celery + Redis with progress tracking and result callbacks. Organize task functions under tasks/."
 
-## Testing生成
-"为 services/user_service.py 写 pytest 单元测试，mock 外部 API 调用，覆盖正常和异常场景。" 
+## Generate Tests
+"Write pytest unit tests for services/user_service.py. Mock external API calls. Cover success and failure paths." 
 
 ## Usage Scenarios
 
@@ -1152,19 +1152,19 @@ description: "Best prompts for auto-generating and maintaining tests with Claude
 icon: "🧪",
 tags: ["claude-code", "testing", "automation"],
 updatedAt: "2026-05-10",
-content: `    # Claude Code 测试编写指南
+content: `    # Claude Code Testing Guide
 
-## 生成单元测试
-"为 src/utils/format.ts 生成 Jest 单元测试，覆盖边缘情况（空值、边界值、特殊字符）。"
+## Generate Unit Tests
+"Generate Jest unit tests for src/utils/format.ts covering edge cases (null, boundary values, special characters)."
 
-## 生成集成测试
-"为 API 端点 /api/users 生成集成测试，包含创建、查询、更新、删除用户的完整流程。"
+## Generate Integration Tests
+"Generate integration tests for the /api/users endpoint covering the full user CRUD lifecycle."
 
-## Mock 外部依赖
-"使用 jest.mock 模拟 Stripe API 调用，模拟成功支付和支付失败的响应。"
+## Mock External Dependencies
+"Use jest.mock to mock Stripe API calls. Simulate successful and failed payment responses."
 
-## Testing覆盖率
-"分析当前项目的测试覆盖率，找出未覆盖的代码路径，生成补充测试。" 
+## Test Coverage
+"Analyze current project test coverage. Identify uncovered code paths. Generate supplementary tests." 
 
 ## Usage Scenarios
 
@@ -1182,23 +1182,23 @@ Before starting a Claude Code session, paste the prompt template and replace pla
 slug: "claude-code-refactoring",
 title: "Code Refactoring Prompt Templates for Claude Code",
 category: "claude",
-description: "使用 Claude Code 安全重构代码的 Prompt 模板和流程。",
+description: "Prompt templates and workflow for safe code refactoring with Claude Code.",
 icon: "🔨",
-tags: ["claude-code", "重构", "最佳实践"],
+tags: ["claude-code", "refactoring", "best-practices"],
 updatedAt: "2026-05-10",
-content: `    # Claude Code 代码重构 Prompt
+content: `    # Claude Code Code Refactoring Prompts
 
-## 提取组件
-"将 Dashboard 页面中 300 行的图表逻辑提取为独立组件，包含 loading、empty、error 三种状态。"
+## Extract Component
+"Extract the 300-line chart logic from the Dashboard page into a standalone component. Include loading, empty, and error states."
 
-## 拆分大函数
-"将 utils/helpers.ts 中的 processOrder 函数（200 行）拆分为多个小函数，每个函数只负责一个职责。"
+## Split Large Functions
+"Split the 200-line processOrder function in utils/helpers.ts into smaller functions, each with a single responsibility."
 
-## 迁移模式
-"将项目中所有 class 组件迁移为函数组件 + Hooks，保持功能完全一致。"
+## Migration Pattern
+"Migrate all class components to functional components + hooks. Preserve all functionality."
 
-## 优化性能
-"分析列表页面的重渲染问题，添加 React.memo、useMemo、useCallback 优化。提供重构前后的性能对比。" 
+## Optimize Performance
+"Analyze re-rendering issues on the list page. Apply React.memo, useMemo, useCallback. Provide before/after performance comparison." 
 
 ## Usage Scenarios
 
@@ -1214,32 +1214,32 @@ Before starting a Claude Code session, paste the prompt template and replace pla
 
   {
 slug: "copilot-vue",
-title: "Copilot 在 Vue 3 项目的最佳配置",
+title: "Copilot Best Configuration for Vue 3 Projects",
 category: "copilot",
-description: "GitHub Copilot 在 Vue 3 项目中的最佳配置和使用规则。",
+description: "Best configuration and usage rules for GitHub Copilot in Vue 3 projects.",
 icon: "🟢",
-tags: ["copilot", "vue", "前端"],
+tags: ["copilot", "vue", "frontend"],
 updatedAt: "2026-05-10",
-content: `    # Copilot Vue 3 开发指令
+content: `    # Copilot Vue 3 Development Instructions
 
 ## Configuration copilot-instructions.md
 
 ## Tech Stack
 - Vue 3 (Composition API)
 - TypeScript (strict)
-- Vite 构建工具
+- Use Vite as the build tool
 - Pinia State Management
 
 ## Coding Standards
 - Use <script setup lang="ts">
-- 组件名多单词（MyComponent.vue）
-- composables 放在 composables/ 目录
-- API 请求封装到 api/ 模块
+- Multi-word component names (MyComponent.vue)
+- Place composables in composables/ directory
+- Encapsulate API requests in api/ module
 
 ## Common Prompts
-- "生成一个带搜索和分页的用户列表组件"
-- "写一个 Pinia store 管理购物车状态"
-- "实现路由懒加载和导航守卫" 
+- "Generate a user list component with search and pagination"
+- "Write a Pinia store to manage shopping cart state"
+- "Implement route lazy loading and navigation guards" 
 
 ## Usage Scenarios
 
@@ -1255,13 +1255,13 @@ Save this config to '.github/copilot-instructions.md' in your project root. GitH
 
   {
 slug: "copilot-python",
-title: "Copilot Python 开发的最佳配置指令",
+title: "Copilot Best Configuration for Python Development",
 category: "copilot",
-description: "GitHub Copilot 在 Python 项目中的最佳配置和使用技巧。",
+description: "Best configuration and usage tips for GitHub Copilot in Python projects.",
 icon: "🐍",
-tags: ["copilot", "python", "后端"],
+tags: ["copilot", "python", "backend"],
 updatedAt: "2026-05-10",
-content: `    # Copilot Python 开发指令
+content: `    # Copilot Python Development Instructions
 
 ## Configuration copilot-instructions.md
 
@@ -1273,14 +1273,14 @@ content: `    # Copilot Python 开发指令
 
 ## Coding Standards
 - Follow PEP 8
-- 使用类型注解
-- 异步优先（async/await）
-- Google 风格 docstring
+- Use type annotations throughout
+- Prefer async/await patterns
+- Use Google-style docstrings
 
 ## Common Prompts
-- "实现 FastAPI 用户注册接口，包含密码加密和邮箱验证"
-- "写一个 SQLAlchemy 模型，包含软删除和时间戳"
-- "生成 pytest fixture 和测试数据工厂" 
+- "Implement a FastAPI user registration endpoint with password hashing and email verification"
+- "Write a SQLAlchemy model with soft delete and timestamps"
+- "Generate pytest fixtures and test data factories" 
 
 ## Usage Scenarios
 
@@ -1296,33 +1296,33 @@ Save this config to '.github/copilot-instructions.md' in your project root. GitH
 
   {
 slug: "windsurf-react",
-title: "Windsurf 中用 Cascade 开发 React 的规则",
+title: "Windsurf Cascade Rules for React Development",
 category: "windsurf",
-description: "在 Windsurf 中使用 Cascade 进行 React 开发的规则和技巧。",
+description: "Rules and tips for React development with Cascade in Windsurf.",
 icon: "⚛️",
-tags: ["windsurf", "react", "前端"],
+tags: ["windsurf", "react", "frontend"],
 updatedAt: "2026-05-10",
-content: `    # Windsurf React 开发规则
+content: `    # Windsurf React Development Standards
 
-## 项目配置
-- 启用 AI 代码建议
-- 配置 React 项目上下文
-- 使用 Cascade 进行跨文件编辑
+## Project Configuration
+- Enable AI code suggestions
+- Configure React project context
+- Use Cascade for cross-file editing
 
-## Components开发
-- 使用 Cascade 创建组件模板
-- 利用多文件编辑同步修改组件和样式
-- AI 生成代码后立即审查 diff
+## Component Development
+- Use Cascade to create component templates
+- Leverage multi-file editing to sync component and style changes
+- Review diffs immediately after AI code generation
 
-## 调试优化
-- 使用 Cascade 分析组件依赖
-- 重构时 Cascade 自动更新引用
-- 性能问题让 AI 分析 profiler 数据
+## Debugging & Optimization
+- Use Cascade to analyze component dependencies
+- Cascade auto-updates references during refactoring
+- Let AI analyze profiler data for performance issues
 
 ## Best Practices
-- 每次 Cascade 修改后运行测试
-- 批量修改前创建 git commit 检查点
-- 复杂逻辑分步让 AI 完成
+- Run tests after every Cascade modification
+- Create a git commit checkpoint before batch changes
+- Break complex logic into steps for the AI
 
 ## Usage Scenarios
 
@@ -1338,33 +1338,33 @@ These standards auto-apply to Cascade multi-file editing and AI suggestions in W
 
   {
 slug: "windsurf-python",
-title: "Windsurf 中 Python 开发的 AI 编程规则",
+title: "AI Coding Rules for Python Development in Windsurf",
 category: "windsurf",
-description: "在 Windsurf 中进行 Python 开发的 AI 编程规则和最佳实践。",
+description: "AI coding rules and best practices for Python development in Windsurf.",
 icon: "🐍",
-tags: ["windsurf", "python", "后端"],
+tags: ["windsurf", "python", "backend"],
 updatedAt: "2026-05-10",
-content: `    # Windsurf Python 开发规则
+content: `    # Windsurf Python Development Standards
 
 ## Development Workflow
-- 用自然语言描述功能需求
-- Cascade 自动创建相关文件
-- AI 生成代码后运行 pytest
+- Describe requirements in natural language
+- Cascade auto-creates related files
+- Run pytest after AI code generation
 
-## 数据科学
-- Jupyter Notebook + Windsurf 联动
-- AI 辅助数据清洗和可视化
-- 模型训练代码自动生成
+## Data Science
+- Jupyter Notebook + Windsurf integration
+- AI-assisted data cleaning and visualization
+- Auto-generated model training code
 
-## Web 开发
-- FastAPI/Django 项目快速搭建
+## Web Development
+- Rapid FastAPI/Django project scaffolding
 - AI generates CRUD endpoints
-- 数据库模型自动迁移
+- Auto-generated database model migrations
 
 ## Testing
-- AI 生成单元测试和集成测试
-- 覆盖率分析自动补充测试
-- Mock 数据自动生成
+- AI generates unit and integration tests
+- Auto-supplement tests based on coverage gaps
+- Auto-generated mock data
 
 ## Usage Scenarios
 
@@ -1380,38 +1380,38 @@ These standards auto-apply to Cascade multi-file editing and AI suggestions in W
 
   {
 slug: "ai-prompt-engineering",
-title: "AI 编程 Prompt 工程系统方法论",
+title: "Prompt Engineering System Methodology for AI Coding",
 category: "general",
-description: "面向 AI 编程工具的 Prompt Engineering 系统方法论和模板。",
+description: "Systematic Prompt Engineering methodology and templates for AI coding tools.",
 icon: "📐",
-tags: ["prompt", "工程", "方法论"],
+tags: ["prompt", "engineering", "methodology"],
 updatedAt: "2026-05-10",
-content: `    # AI 编程 Prompt 工程指南
+content: `    # AI Coding Prompt Engineering Guide
 
-## 结构化 Prompt 模板
+## Structured Prompt Template
 
 ~~~
-技术栈：[Next.js 14 + TypeScript + Tailwind]
-任务：[创建一个用户资料编辑表单]
-要求：
-- 包含头像上传、昵称、简介字段
-- 表单验证使用 Zod
-- 提交后显示 Toast 提示
-- 移动端适配
+Tech Stack: [Next.js 14 + TypeScript + Tailwind]
+Task: [Create a user profile edit form]
+Requirements:
+- Include avatar upload, nickname, and bio fields
+- Form validation with Zod
+- Show Toast notification on submit
+- Responsive for mobile
 ~~~
 
-## COAST 框架
-- **C**ontext：提供项目背景
-- **O**bjective：明确任务目标
-- **A**ctions：列出具体步骤
-- **S**pecifications：指定技术约束
-- **T**one：指定输出风格
+## COAST Framework
+- **C**ontext: Provide project background
+- **O**bjective: Define the task goal clearly
+- **A**ctions: List specific steps
+- **S**pecifications: Specify technical constraints
+- **T**one: Specify output style
 
-## 迭代优化
-- 第一轮：生成基础代码
-- 第二轮：Review 并指出问题
-- 第三轮：要求 AI 优化具体部分
-- 第四轮：添加错误处理和边界情况
+## Iterative Refinement
+- Round 1: Generate baseline code
+- Round 2: Review and flag issues
+- Round 3: Ask AI to refine specific areas
+- Round 4: Add error handling and edge cases
 
 ## Applicable Scenarios
 
@@ -1438,37 +1438,37 @@ Save this content directly to your project. Adjust tech stack names and versions
 
   {
 slug: "ai-fullstack-development",
-title: "用 AI 工具做全栈开发的完整工作流",
+title: "Complete Full-Stack Development Workflow with AI Tools",
 category: "general",
-description: "使用 AI 编程工具进行全栈开发的完整工作流和最佳实践。",
+description: "Complete workflow and best practices for full-stack development with AI coding tools.",
 icon: "🚀",
-tags: ["全栈", "工作流", "效率"],
+tags: ["full-stack", "workflow", "productivity"],
 updatedAt: "2026-05-10",
-content: `    # AI 全栈开发工作流
+content: `    # AI Full-Stack Development Workflow
 
-## 项目启动
-- 用 AI 生成项目脚手架
-- 初始化数据库 Schema
-- 配置 CI/CD 流水线
-- 设置开发环境（Docker）
+## Project Kickoff
+- Generate project scaffolding with AI
+- Initialize database schema
+- Configure CI/CD pipeline
+- Set up development environment (Docker)
 
-## 前端开发
-- AI 生成组件代码和样式
-- 自动生成 API 类型定义
-- 响应式布局 AI 辅助
-- 状态管理自动生成
+## Frontend Development
+- AI generates component code and styles
+- Auto-generate API type definitions
+- AI-assisted responsive layouts
+- Auto-generated state management
 
-## 后端开发
+## Backend Development
 - AI generates CRUD endpoints
-- 自动编写中间件
-- 数据库查询优化建议
-- API 文档自动生成
+- Auto-generate middleware
+- Database query optimization suggestions
+- Auto-generated API documentation
 
-## Deployment运维
-- Dockerfile AI 生成
-- CI 配置自动编写
-- 监控告警规则生成
-- 性能优化建议
+## Deployment & Operations
+- AI-generated Dockerfiles
+- Auto-generated CI config
+- Monitoring and alerting rule generation
+- Performance optimization recommendations
 
 ## Applicable Scenarios
 
@@ -1495,23 +1495,23 @@ Save this content directly to your project. Adjust tech stack names and versions
 
   {
     slug: "nextjs-cursor-setup",
-    title: "Next.js + Cursor 最佳实践配置教程",
+    title: "Next.js + Cursor Best Practices Configuration Guide",
     category: "tutorial",
-    description: "手把手教你配置 Cursor 规则，让 AI 完美理解 Next.js App Router 项目。",
+    description: "Step-by-step guide to configuring Cursor rules so AI perfectly understands Next.js App Router projects.",
     icon: "📖",
-    tags: ["nextjs", "cursor", "教程"],
+    tags: ["nextjs", "cursor", "tutorial"],
     updatedAt: "2026-05-10",
-    content: `# Next.js + Cursor 最佳实践配置教程
+    content: `# Next.js + Cursor Configuration Guide
 
-## 为什么要配置 Cursor Rules？
+## Why Configure AI Coding Standards?
 
-默认情况下，Cursor 对 Next.js 项目的理解不够精确。通过配置 .cursorrules，可以让 AI 了解你的技术栈选择、路由规范和数据获取模式。
+By default, AI coding tools lack precise understanding of Next.js projects. Standards files tell the AI about your tech stack, routing conventions, and data fetching patterns.
 
-## 完整配置
+## Complete Configuration
 
-### 步骤 1：创建 .cursorrules 文件
+### Step 1: Create a standards file
 
-在项目根目录创建 .cursorrules，粘贴以下内容：
+Create .cursor/rules/nextjs.mdc in your project root with the following content:
 
 \'\'\`
 # Tech Stack
@@ -1521,30 +1521,30 @@ Save this content directly to your project. Adjust tech stack names and versions
 - Prisma ORM
 - NextAuth.js v5
 
-# App Router 规范
+# App Router Conventions
 - Use layout.tsx for layout files
 - Use loading.tsx for loading states
-- 错误处理使用 error.tsx
+- Use error.tsx for error boundaries
 - Use not-found.tsx for 404 pages
 
-# 数据获取
+# Data Fetching
 - Prefer Server Components
-- 客户端交互使用 "use client"
+- Use "use client" only for interactive components
 - Encapsulate API requests in lib/
-- 表单处理使用 Server Actions
+- Use Server Actions for form mutations
 
-# 图片优化
-- 使用 next/image
-- 必须包含 alt 属性
-- 外部图片配置 remotePatterns
+# Image Optimization
+- Use next/image for all images
+- All images must include alt attributes
+- External images require remotePatterns config
 \'\'\`
 
-### 步骤 2：验证效果
+### Step 2: Verify the result
 
-配置好后，尝试让 Cursor 生成一个新页面。你会发现：
-- 组件结构自动遵循 App Router 规范
-- 数据获取使用 Server Component
-- TypeScript 类型完整，无 any
+After setup, try generating a new page. You should see:
+- Component structure follows App Router conventions
+- Data fetching uses Server Components by default
+- Complete TypeScript types, no any usage
 
 ## Learning Path
 
@@ -1572,7 +1572,7 @@ Save this content directly to your project. Adjust tech stack names and versions
   },
   {
     slug: "cursor-rules-migration",
-    title: "从 Copilot 迁移到 Cursor 的完整指南",
+    title: "Complete Guide to Migrating from Copilot to Cursor",
     category: "tutorial",
     description: "从 GitHub Copilot 切换到 Cursor 的完整指南，包括规则迁移和习惯适配。",
     icon: "📖",
@@ -1580,14 +1580,14 @@ Save this content directly to your project. Adjust tech stack names and versions
     updatedAt: "2026-05-10",
     content: `# 从 Copilot 迁移到 Cursor 完整指南
 
-## 为什么迁移？
+## Why Migrate?
 
 Cursor 相比 Copilot 的优势：
 - 深度理解整个代码库，不仅是当前文件
 - 支持多文件编辑和重构
 - 更智能的代码补全和上下文理解
 
-## 迁移步骤
+## Migration Steps
 
 ### 1. 配置 Cursor Rules
 
@@ -1608,7 +1608,7 @@ Cursor 相比 Copilot 的优势：
 # 重要约定
 - 不要修改 generated 目录下的文件
 - API 路由遵循 RESTful 规范
-- 组件文件不超过 200 行
+- Component files should not exceed 200 lines
 \'\'\`
 
 ### 2. 适配工作流
@@ -1900,7 +1900,7 @@ Save this content directly to your project. Adjust tech stack names and versions
 - 使用 Rc/Arc 管理共享所有权
 - RefCell 只用于内部可变性
 
-## 错误处理
+## Error Handling
 - 使用 thiserror 定义错误类型
 - 使用 anyhow 处理可恢复错误
 - 避免 unwrap/expect，使用 ? 运算符
@@ -2016,7 +2016,7 @@ Save as .cursor/rules/*.mdc or AGENTS.md. The AI coding tool loads these convent
     tags: ["cursor", "tailwind", "css"],
     updatedAt: "2026-05-11",
     appliesTo: "Cursor 0.40+",
-    content: `# Cursor Tailwind CSS 开发规则
+    content: `# Tailwind CSS Standards for AI-Assisted Development
 
 ## 使用原则
 - 优先使用 Tailwind 工具类
@@ -2063,7 +2063,7 @@ Save as .cursor/rules/*.mdc or AGENTS.md. The AI coding tool loads these convent
     tags: ["cursor", "prisma", "database"],
     updatedAt: "2026-05-11",
     appliesTo: "Cursor 0.40+",
-    content: `# Cursor Prisma ORM 数据层开发规则
+    content: `# Prisma ORM Data Layer Standards
 
 ## Schema Design
 - 模型名使用 PascalCase 单数
@@ -2589,7 +2589,7 @@ Save as .cursor/rules/*.mdc or AGENTS.md. The AI coding tool loads these convent
     tags: ["cursor", "mvp", "快速开发"],
     updatedAt: "2026-05-11",
     appliesTo: "Cursor 0.40+",
-    content: `# Cursor MVP 快速开发规则
+    content: `# MVP Rapid Development Standards
 
 ## 开发策略
 - 先用单体架构快速验证
@@ -2758,7 +2758,7 @@ Save as .cursor/rules/*.mdc or AGENTS.md. The AI coding tool loads these convent
     tags: ["cursor", "landing-page", "前端"],
     updatedAt: "2026-05-11",
     appliesTo: "Cursor 0.40+",
-    content: `# Cursor Landing Page 开发规则
+    content: `# Landing Page Development Standards
 
 ## 技术选型
 - Next.js + Tailwind CSS
@@ -2837,7 +2837,7 @@ Save as .cursor/rules/*.mdc or AGENTS.md. The AI coding tool loads these convent
     tags: ["cursor", "redis", "缓存"],
     updatedAt: "2026-05-11",
     appliesTo: "Cursor 0.40+",
-    content: `# Cursor Redis 缓存开发规则
+    content: `# Redis Caching Standards
 
 ## 缓存策略
 - 缓存穿透、击穿、雪崩防护
@@ -3129,7 +3129,7 @@ Save as .cursor/rules/*.mdc or AGENTS.md. The AI coding tool loads these convent
     tags: ["cursor", "astro", "前端"],
     updatedAt: "2026-05-11",
     appliesTo: "Cursor 0.40+",
-    content: `# Cursor Astro 静态站点开发规则
+    content: `# Astro Static Site Standards
 
 ## Astro 规范
 - 使用 .astro 组件语法
@@ -3205,7 +3205,7 @@ Save as .cursor/rules/*.mdc or AGENTS.md. The AI coding tool loads these convent
     tags: ["cursor", "tauri", "desktop"],
     updatedAt: "2026-05-11",
     appliesTo: "Cursor 0.40+",
-    content: `# Cursor Tauri 桌面应用开发规则
+    content: `# Tauri Desktop App Standards
 
 ## Project Structure
 - 前端使用 React/Vue/Svelte
@@ -3364,7 +3364,7 @@ Before starting a Claude Code session, paste the prompt template and replace pla
 - SQL 参数化查询防注入
 - XSS 防护使用转义
 
-## 认证授权
+## Authentication & Authorization
 - 密码使用 bcrypt 哈希
 - JWT 令牌设置合理过期时间
 - API Key 通过环境变量注入
