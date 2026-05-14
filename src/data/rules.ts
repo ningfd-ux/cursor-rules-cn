@@ -1892,24 +1892,24 @@ Save this content directly to your project. Adjust tech stack names and versions
 - Follow the Rust official style guide
 - Format code with rustfmt
 - All public items must have doc comments (///)
-- 使用 clippy 保持代码质量
+- Use clippy to maintain code quality
 
-## 所有权与借用
-- 优先使用引用而不是所有权转移
-- 生命周期标注尽可能让编译器推断
-- 使用 Rc/Arc 管理共享所有权
-- RefCell 只用于内部可变性
+## Ownership & Borrowing
+- Prefer references over ownership transfers
+- Let the compiler infer lifetimes where possible
+- Use Rc/Arc for shared ownership
+- RefCell only for interior mutability
 
 ## Error Handling
-- 使用 thiserror 定义错误类型
-- 使用 anyhow 处理可恢复错误
-- 避免 unwrap/expect，使用 ? 运算符
-- 为库代码提供有意义的错误信息
+- Use thiserror for library error types
+- Use anyhow for recoverable application errors
+- Avoid unwrap/expect — use the ? operator instead
+- Provide meaningful error messages in library code
 
-## 异步
-- 使用 tokio 作为异步运行时
-- async fn 作为默认异步接口
-- 避免阻塞线程池中的异步任务
+## Async
+- Use tokio as the async runtime
+- async fn as the default async interface
+- Avoid blocking the async runtime with synchronous code
 
 ## Usage Scenarios
 
@@ -1924,32 +1924,32 @@ Save as .cursor/rules/*.mdc or AGENTS.md. The AI coding tool loads these convent
   },
   {
     slug: "cursor-java-rules",
-    title: "Cursor Java 开发编码规范规则",
+    title: "Java & Spring Boot Coding Standards for Cursor",
     category: "cursor",
-    description: "Java 项目中使用 Cursor 进行开发的编码规范和 Spring Boot 最佳实践。",
+    description: "Java coding standards and Spring Boot best practices for AI-assisted development with Cursor.",
     icon: "☕",
     tags: ["cursor", "java", "spring"],
     updatedAt: "2026-05-11",
     appliesTo: "Cursor 0.40+",
-    content: `# Cursor Java 开发编码规范规则
+    content: `# Java & Spring Boot Standards for AI-Assisted Development
 
 ## Code Style
-- 遵循 Java 官方编码规范
+- Follow Oracle Java conventions
 - Use 4-space indentation
-- 类名使用 PascalCase
-- 方法名和变量使用 camelCase
+- PascalCase for class names
+- camelCase for methods and variables
 
 ## Project Structure
-- 按功能模块分包
-- Controller/Service/Repository 分层
-- DTO 用于 API 数据传输
-- 常量使用枚举或常量类
+- Package by feature module
+- Controller/Service/Repository layering
+- Use DTOs for API data transfer
+- Use enums or constants classes for constants
 
 ## Spring Boot
-- 使用构造函数注入
-- 事务注解放在 Service 层
-- 配置使用 application.yml
-- 统一异常处理使用 @ControllerAdvice
+- Use constructor injection over field injection
+- Transaction annotations belong on the Service layer
+- Use application.yml for configuration
+- Unified exception handling with @ControllerAdvice
 
 ## Usage Scenarios
 
@@ -1964,32 +1964,32 @@ Save as .cursor/rules/*.mdc or AGENTS.md. The AI coding tool loads these convent
   },
   {
     slug: "cursor-flutter-rules",
-    title: "Cursor Flutter 移动端开发规则",
+    title: "Flutter & Dart Mobile Development Standards for Cursor",
     category: "cursor",
-    description: "Flutter/Dart 项目中使用 Cursor 的编码规则和最佳实践。",
+    description: "Coding standards and best practices for Flutter/Dart projects with Cursor.",
     icon: "📱",
     tags: ["cursor", "flutter", "dart"],
     updatedAt: "2026-05-11",
     appliesTo: "Cursor 0.40+",
-    content: `# Cursor Flutter 移动端开发规则
+    content: `# Flutter & Dart Standards for AI-Assisted Development
 
-## Dart 规范
-- 遵循 effective-dart 指南
-- 使用 dart format 格式化
-- 类型标注优先于 var
-- 避免动态类型
+## Dart Conventions
+- Follow Effective Dart guidelines
+- Format with dart format
+- Prefer explicit types over var
+- Avoid dynamic types
 
-## Flutter 组件
-- 使用 StatelessWidget 优先
-- StatefulWidget 只在必要时使用
-- 组件拆分保持单一职责
-- 使用 const 构造函数优化性能
+## Flutter Components
+- Prefer StatelessWidget by default
+- Use StatefulWidget only when necessary
+- Split components with single responsibility
+- Use const constructors for performance
 
 ## State Management
-- 小项目使用 setState
-- 中大型项目使用 Riverpod 或 Bloc
-- 避免全局状态滥用
-- Provider 按模块分层
+- setState for small projects
+- Riverpod or Bloc for medium/large projects
+- Avoid excessive global state
+- Layer providers by module
 
 ## Routes
 - 使用 GoRouter 声明式路由
@@ -2380,7 +2380,7 @@ Save this content directly to your project. Adjust tech stack names and versions
     category: "cursor",
     description: "Svelte 5 + SvelteKit 项目中 Cursor 的编码规则和最佳实践。",
     icon: "🧑‍💻",
-    tags: ["cursor", "svelte", "前端"],
+    tags: ["cursor", "svelte", "frontend"],
     updatedAt: "2026-05-11",
     appliesTo: "Cursor 0.40+",
     content: `# Cursor Svelte 开发编码规范规则
@@ -3641,19 +3641,19 @@ Save this content directly to your project. Adjust tech stack names and versions
 
 ## Testing金字塔
 - 单元测试占 70%（快速、隔离）
-- 集成测试占 20%（API、数据库）
-- E2E 测试占 10%（关键路径）
+- Integration tests 20% (API, database)
+- E2E tests 10% (critical paths)
 
-## AI 在测试中的应用
+## AI in Testing
 - 根据代码自动生成单元测试
 - 生成 mock 数据和 fixture
 - 分析覆盖率补充测试
-- 自动修复失败的测试
+- Auto-fix failing tests
 
-## Testing规范
+## Testing Conventions
 - AAA pattern (Arrange-Act-Assert)
 - Use descriptive test names
-- 一个测试一个行为
+- One behavior per test case
 - 边界情况优先覆盖
 
 ## Applicable Scenarios
