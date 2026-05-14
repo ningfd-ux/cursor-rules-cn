@@ -5,7 +5,7 @@ import BlogFooter from "@/components/BlogFooter";
 
 export const metadata: Metadata = {
   title: "How I Built an AI Coding Standards Site in 7 Days for $7",
-  description: "面向 Share/掘金/知乎的技术Chinese Community文章：从买域名到上线 108 页的完整经历。",
+  description: "Complete build story: from buying a domain to launching 108 pages. Total cost: $7.",
 };
 
 export default function PostPage() {
@@ -40,11 +40,11 @@ export default function PostPage() {
             <li><strong>Cross-linked + Schema markup</strong> — 14 core rules form a Topic Cluster with Article, Website, and SearchAction schemas.</li>
           </ul>
 
-          <h2 className="text-xl font-bold text-zinc-900 dark:text-zinc-100 mt-8">技术栈</h2>
+          <h2 className="text-xl font-bold text-zinc-900 dark:text-zinc-100 mt-8">Tech Stack</h2>
           <ul>
-            <li>Next.js 16（Static Export，纯静态零服务器）</li>
+            <li>Next.js 16 (Static Export, zero server)</li>
             <li>Tailwind CSS 4 + Cloudflare Pages + Cloudflare Functions</li>
-            <li>Generator 走了 DeepSeek API</li>
+            <li>Generator uses DeepSeek API</li>
           </ul>
 
           <h2 className="text-xl font-bold text-zinc-900 dark:text-zinc-100 mt-8">Lessons learned</h2>
@@ -57,14 +57,14 @@ export default function PostPage() {
           <h2 className="text-xl font-bold text-zinc-900 dark:text-zinc-100 mt-8">Open source & links</h2>
           <p>🏠 <Link href="/" className="text-blue-600 dark:text-blue-400">cursorrules.fun</Link></p>
           <p>🎛️ <Link href="/generator" className="text-blue-600 dark:text-blue-400">AI Rule Generator</Link></p>
-          <p>💻 <a href="https://github.com/ningfd-ux/cursor-rules-cn" target="_blank" rel="noopener noreferrer" className="text-blue-600 dark:text-blue-400">GitHub 仓库</a>（欢迎 Star）</p>
+          <p>💻 <a href="https://github.com/ningfd-ux/cursor-rules-cn" target="_blank" rel="noopener noreferrer" className="text-blue-600 dark:text-blue-400">GitHub Repository</a> (⭐ welcome)</p>
           <p>Feedback welcome 🚀</p>
         </section>
       </article>
       <BlogFooter
         related={[
-          { slug: "build-saas-with-cursor-7-days", title: "7天从0到上线", excerpt: "完整搭建记录含全部 Prompt" },
-          { slug: "cursor-rules-vs-agents-md", title: "格式对比", excerpt: ".cursorrules vs AGENTS.md 到底用哪个" },
+          { slug: "build-saas-with-cursor-7-days", title: "7 Days from 0 to Launch", excerpt: "Complete build log with all prompts" },
+          { slug: "cursor-rules-vs-agents-md", title: "Format Comparison", excerpt: ".cursorrules vs AGENTS.md — which to use" },
         ]}
       />
       <BackToTop />

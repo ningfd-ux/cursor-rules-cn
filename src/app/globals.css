@@ -84,7 +84,7 @@ body {
   border-color: #e4e4e7;
 }
 
-/* 暗色模式下的 prose 样式 */
+/* Dark mode prose styles */
 .dark .prose h1 {
   border-bottom-color: #3f3f46;
   color: #f4f4f5;

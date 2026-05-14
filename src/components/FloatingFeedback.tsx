@@ -70,7 +70,7 @@ export default function FloatingFeedback() {
                 Thanks for visiting!
               </h3>
               <p className="text-xs text-zinc-400 dark:text-zinc-500">
-                感谢你的预览 · 有任何问题可以留言
+                Thanks for visiting · Questions or feedback welcome
               </p>
             </div>
             <button
@@ -87,7 +87,7 @@ export default function FloatingFeedback() {
             <div className="py-4 text-center">
               <div className="mb-1 text-lg">✅</div>
               <p className="text-sm text-green-600 dark:text-green-400">Thanks for your feedback!</p>
-              <p className="text-xs text-zinc-400">感谢留言，我们会认真对待</p>
+              <p className="text-xs text-zinc-400">We read every message and take feedback seriously</p>
             </div>
           ) : (
             <form onSubmit={handleSubmit} className="space-y-3">
@@ -95,14 +95,14 @@ export default function FloatingFeedback() {
                 type="text"
                 value={name}
                 onChange={(e) => setName(e.target.value)}
-                placeholder="Your name / 你的昵称"
+                placeholder="Your name"
                 maxLength={30}
                 className="w-full rounded-lg border border-zinc-200 bg-white px-3 py-2 text-sm text-zinc-900 placeholder-zinc-400 outline-none focus:border-blue-400 dark:border-zinc-700 dark:bg-zinc-800 dark:text-zinc-100"
               />
               <textarea
                 value={message}
                 onChange={(e) => setMessage(e.target.value)}
-                placeholder="Any feedback or questions? / 有什么建议或问题？"
+                placeholder="Any feedback or questions?"
                 maxLength={500}
                 rows={3}
                 className="w-full rounded-lg border border-zinc-200 bg-white px-3 py-2 text-sm text-zinc-900 placeholder-zinc-400 outline-none focus:border-blue-400 dark:border-zinc-700 dark:bg-zinc-800 dark:text-zinc-100"
@@ -113,7 +113,7 @@ export default function FloatingFeedback() {
                 disabled={submitting}
                 className="w-full rounded-lg bg-blue-600 py-2 text-sm font-medium text-white transition-colors hover:bg-blue-700 disabled:opacity-50"
               >
-                {submitting ? "Sending..." : "Submit / 提交留言"}
+                {submitting ? "Sending..." : "Submit"}
               </button>
             </form>
           )}

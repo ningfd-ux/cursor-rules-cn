@@ -36,11 +36,11 @@ export function getCategoryName(slug: string): string {
 export const rules: Rule[] = [
   {
     slug: "cursor-general-rules",
-    title: "让 Cursor 写出高质量代码的通用规则",
+    title: "General Coding Standards for AI-Assisted Development",
     category: "cursor",
-    description: "适用于所有 Cursor 项目的通用规则，规范代码风格、注释和架构。",
+    description: "Universal coding conventions for style, comments, and architecture — applicable to any Cursor project.",
     icon: "⚙️",
-    tags: ["cursor", "通用", "编码规范"],
+    tags: ["cursor", "general", "coding-standards"],
     updatedAt: "2026-04-28",
     appliesTo: "Cursor 0.40+",
     content: `# Cursor 通用编码规则
@@ -85,11 +85,11 @@ export const rules: Rule[] = [
   },
   {
 slug: "cursor-react-rules",
-title: "让 Cursor 更懂 React 的最佳开发规则",
+title: "React Best Practices for Cursor",
 category: "cursor",
-description: "React 项目中使用 Cursor 的最佳实践与规则配置。",
+description: "Best practices and rules for React projects in Cursor.",
 icon: "⚛️",
-tags: ["cursor", "react", "前端"],
+tags: ["cursor", "react", "frontend"],
 updatedAt: "2026-05-01",
 appliesTo: "Cursor 0.40+",
 content: `# Cursor React 开发规则
@@ -135,9 +135,9 @@ content: `# Cursor React 开发规则
   },
   {
 slug: "cursor-nextjs-rules",
-title: "用 Cursor 开发 Next.js 项目的完整规则",
+title: "Complete Next.js Development Rules for Cursor",
 category: "cursor",
-description: "Next.js App Router 项目中使用 Cursor 的规则和最佳实践。",
+description: "Rules and best practices for Next.js App Router projects in Cursor.",
 icon: "▲",
 tags: ["cursor", "nextjs", "app-router"],
 updatedAt: "2026-05-02",

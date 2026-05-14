@@ -58,8 +58,8 @@ export default function PostPage() {
       </article>
       <BlogFooter
         related={[
-          { slug: "build-saas-with-cursor-7-days", title: "7天从0到上线", excerpt: "本站完整搭建记录" },
-          { slug: "how-to-write-cursor-rules", title: "如何编写Cursor Rules", excerpt: "完整指南含模板" },
+          { slug: "build-saas-with-cursor-7-days", title: "7 Days from 0 to Launch", excerpt: "Complete build log of this site" },
+          { slug: "how-to-write-cursor-rules", title: "How to Write AI Coding Standards", excerpt: "Complete guide with templates" },
         ]}
       />
       <BackToTop />

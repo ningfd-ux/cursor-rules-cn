@@ -9,10 +9,10 @@ interface BlogFooterProps {
 export default function BlogFooter({ prev, related }: BlogFooterProps) {
   return (
     <div className="mt-12 space-y-8 not-prose">
-      {/* 相关文章推荐 */}
+      {/* Related articles */}
       {related && related.length > 0 && (
         <div>
-          <h3 className="text-lg font-semibold text-zinc-900 dark:text-zinc-100 mb-4">📖 相关文章</h3>
+          <h3 className="text-lg font-semibold text-zinc-900 dark:text-zinc-100 mb-4">📖 Related Articles</h3>
           <div className="grid gap-3 sm:grid-cols-2">
             {related.map((r) => (
               <Link
@@ -28,7 +28,7 @@ export default function BlogFooter({ prev, related }: BlogFooterProps) {
         </div>
       )}
 
-      {/* 上下篇导航 */}
+      {/* Previous / Next navigation */}
       <div className="flex items-center justify-between border-t border-zinc-200 pt-6 dark:border-zinc-800">
         <div>
           {prev && (
@@ -38,7 +38,7 @@ export default function BlogFooter({ prev, related }: BlogFooterProps) {
           )}
         </div>
         <Link href="/blog" className="text-sm font-medium text-blue-600 hover:text-blue-700 dark:text-blue-400">
-          全部文章 →
+          All articles →
         </Link>
         <div />
       </div>
@@ -48,10 +48,10 @@ export default function BlogFooter({ prev, related }: BlogFooterProps) {
 
       {/* CTA */}
       <div className="rounded-xl border border-blue-200 bg-blue-50 p-6 dark:border-blue-800 dark:bg-blue-950">
-        <h3 className="font-semibold text-blue-900 dark:text-blue-200">🚀 为你的项目生成专属编码规范</h3>
-        <p className="mt-1 text-sm text-blue-700 dark:text-blue-300">选择技术栈，AI 自动生成 .cursorrules / AGENTS.md / CLAUDE.md</p>
+        <h3 className="font-semibold text-blue-900 dark:text-blue-200">🚀 Generate custom standards for your project</h3>
+        <p className="mt-1 text-sm text-blue-700 dark:text-blue-300">Paste your package.json. AI generates .cursor/rules, AGENTS.md, or copilot-instructions.md.</p>
         <Link href="/generator" className="mt-3 inline-block rounded-lg bg-blue-600 px-5 py-2 text-sm font-medium text-white hover:bg-blue-700">
-          开始生成 →
+          Generate →
         </Link>
       </div>
     </div>

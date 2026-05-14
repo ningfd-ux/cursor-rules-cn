@@ -4,8 +4,8 @@ import BackToTop from "@/components/BackToTop";
 import BlogFooter from "@/components/BlogFooter";
 
 export const metadata: Metadata = {
-  title: "AI 编码工作流入门指南 2026：从零开始用 Cursor 写代码",
-  description: "面向编程新手和想提高效率的开发者，从装好 Cursor 到写出第一个生产级代码的完整工作流。",
+  title: "AI Coding Workflow Guide 2026: Get Started with Cursor From Scratch",
+  description: "For coding beginners and developers looking to boost productivity — a complete workflow from installing Cursor to shipping production-ready code.",
 };
 
 export default function PostPage() {

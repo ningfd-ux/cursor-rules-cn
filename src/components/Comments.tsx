@@ -30,7 +30,7 @@ export default function Comments({ page = "/" }: CommentsProps) {
         setComments(data.comments);
       }
     } catch {
-      // 静默失败
+      // fail silently
     } finally {
       setLoading(false);
     }
@@ -43,11 +43,11 @@ export default function Comments({ page = "/" }: CommentsProps) {
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
     if (!name.trim() || !message.trim()) {
-      setError("请填写昵称和留言内容");
+      setError("Please fill in your name and message");
       return;
     }
     if (message.trim().length < 3) {
-      setError("留言至少 3 个字");
+      setError("Message must be at least 3 characters");
       return;
     }
     setSubmitting(true);
@@ -64,13 +64,13 @@ export default function Comments({ page = "/" }: CommentsProps) {
       if (data.error) {
         setError(data.error);
       } else {
-        setSuccess("留言成功！");
+        setSuccess("Message posted!");
         setMessage("");
         fetchComments();
         setTimeout(() => setSuccess(""), 3000);
       }
     } catch {
-      setError("网络错误，请稍后重试");
+      setError("Network error, please try again");
     } finally {
       setSubmitting(false);
     }
@@ -80,16 +80,16 @@ export default function Comments({ page = "/" }: CommentsProps) {
     const d = new Date(iso);
     const now = new Date();
     const diff = now.getTime() - d.getTime();
-    if (diff < 60 * 1000) return "刚刚";
-    if (diff < 60 * 60 * 1000) return `${Math.floor(diff / 60000)} 分钟前`;
-    if (diff < 24 * 60 * 60 * 1000) return `${Math.floor(diff / 3600000)} 小时前`;
-    return d.toLocaleDateString("zh-CN");
+    if (diff < 60 * 1000) return "just now";
+    if (diff < 60 * 60 * 1000) return `${Math.floor(diff / 60000)}m ago`;
+    if (diff < 24 * 60 * 60 * 1000) return `${Math.floor(diff / 3600000)}h ago`;
+    return d.toLocaleDateString("en-US");
   }
 
   return (
     <div className="mt-12 rounded-xl border border-zinc-200 bg-white p-6 dark:border-zinc-800 dark:bg-zinc-900">
       <h2 className="text-lg font-semibold text-zinc-900 dark:text-zinc-100 mb-4">
-        💬 访客留言 {comments.length > 0 && <span className="text-sm text-zinc-400">({comments.length})</span>}
+        💬 Messages {comments.length > 0 && <span className="text-sm text-zinc-400">({comments.length})</span>}
       </h2>
 
       {/* Comment Form */}
@@ -99,14 +99,14 @@ export default function Comments({ page = "/" }: CommentsProps) {
             type="text"
             value={name}
             onChange={(e) => setName(e.target.value)}
-            placeholder="你的昵称"
+            placeholder="Your name"
             maxLength={30}
             className="w-32 rounded-lg border border-zinc-200 bg-white px-3 py-2 text-sm text-zinc-900 placeholder-zinc-400 outline-none focus:border-blue-400 dark:border-zinc-700 dark:bg-zinc-800 dark:text-zinc-100 sm:w-40"
           />
           <textarea
             value={message}
             onChange={(e) => setMessage(e.target.value)}
-            placeholder="说点什么..."
+            placeholder="Write a message..."
             maxLength={1000}
             rows={2}
             className="flex-1 rounded-lg border border-zinc-200 bg-white px-3 py-2 text-sm text-zinc-900 placeholder-zinc-400 outline-none focus:border-blue-400 dark:border-zinc-700 dark:bg-zinc-800 dark:text-zinc-100"
@@ -118,7 +118,7 @@ export default function Comments({ page = "/" }: CommentsProps) {
             disabled={submitting}
             className="rounded-lg bg-blue-600 px-4 py-1.5 text-xs font-medium text-white transition-colors hover:bg-blue-700 disabled:opacity-50"
           >
-            {submitting ? "发送中..." : "提交留言"}
+            {submitting ? "Sending..." : "Post Message"}
           </button>
           {error && <span className="text-xs text-red-500">{error}</span>}
           {success && <span className="text-xs text-green-500">{success}</span>}
@@ -127,9 +127,9 @@ export default function Comments({ page = "/" }: CommentsProps) {
 
       {/* Comments List */}
       {loading ? (
-        <p className="text-xs text-zinc-400">加载中...</p>
+        <p className="text-xs text-zinc-400">Loading messages...</p>
       ) : comments.length === 0 ? (
-        <p className="text-xs text-zinc-400">还没有留言，来坐沙发 🛋️</p>
+        <p className="text-xs text-zinc-400">No messages yet. Be the first! 🛋️</p>
       ) : (
         <div className="space-y-3">
           {comments.map((c) => (
