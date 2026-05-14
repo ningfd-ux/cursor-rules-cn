@@ -5,8 +5,8 @@ import BlogFooter from "@/components/BlogFooter";
 import SidebarComments from "@/components/SidebarComments";
 
 export const metadata: Metadata = {
-  title: "7 天从 0 到上线：我用 Cursor + Claude Code 搭了一个规则站",
-  description: "从头搭建 cursorrules.fun 的真实记录。使用的完整 Prompt、Cursor Rules、AI 工作流全部公开。",
+  title: "7 Days from 0 to Launch: Building a Standards Site with Cursor + Claude Code",
+  description: "Complete build log of cursorrules.fun. All prompts, standards, and AI workflows shared openly.",
 };
 
 export default function PostPage() {
@@ -22,119 +22,84 @@ export default function PostPage() {
             <span>2026-05-12</span>
             <span>·</span>
             <span className="rounded bg-zinc-100 px-2 py-0.5 text-xs dark:bg-zinc-800">Cursor</span>
-            <span className="rounded bg-zinc-100 px-2 py-0.5 text-xs dark:bg-zinc-800">实战</span>
+            <span className="rounded bg-zinc-100 px-2 py-0.5 text-xs dark:bg-zinc-800">Build Log</span>
           </div>
           <h1 className="text-3xl font-bold text-zinc-900 dark:text-zinc-100">
-            7 天从 0 到上线：我用 Cursor + Claude Code 搭了一个规则站
+            7 Days from 0 to Launch: Building a Standards Site with Cursor + Claude Code
           </h1>
         </header>
 
         <section className="text-base leading-relaxed text-zinc-600 dark:text-zinc-400 space-y-6">
           <p className="lead text-lg text-zinc-700 dark:text-zinc-300">
-            7 天。从买域名到上线 100 页、81 条规则、AI Rule Generator。本文记录完整工作流，包括所有 Prompt 和配置。
+            7 days. From buying a domain to launching 108 pages, 81 standards, and an AI Generator. Complete build log with all prompts and configs.
           </p>
 
-          <h2 className="text-xl font-bold text-zinc-900 dark:text-zinc-100 mt-8">为什么要做这个站</h2>
-          <p>
-            我在 Cursor 里写代码半年了。最大的感受是：Cursor 很强，但默认配置下 AI 经常写出不符合自己项目规范的代码。解决办法是 .cursorrules 文件——但每次新项目都要重新写，网上的中文资料少，英文资源散。
-          </p>
-          <p>
-            于是决定：不如建一个站，把规则集中起来，再做一个生成器，让开发者选技术栈就能拿到可直接用的规则文件。域名花了 53 块人民币，托管零成本。
-          </p>
+          <h2 className="text-xl font-bold text-zinc-900 dark:text-zinc-100 mt-8">Why build this</h2>
+          <p>I've been coding in Cursor for half a year. Cursor is powerful, but by default the AI generates code that doesn't match project conventions. The fix is a standards file — but every new project needs one from scratch.</p>
+          <p>So I decided: build a site that collects standards and adds a generator. Developers pick their stack and get a ready-to-use file. Domain: $7. Hosting: $0.</p>
 
-          <h2 className="text-xl font-bold text-zinc-900 dark:text-zinc-100 mt-8">技术栈</h2>
+          <h2 className="text-xl font-bold text-zinc-900 dark:text-zinc-100 mt-8">Tech Stack</h2>
           <div className="rounded-lg border border-zinc-200 bg-zinc-50 p-4 dark:border-zinc-700 dark:bg-zinc-800/50">
             <ul className="space-y-1 text-sm">
-              <li>前端框架：Next.js 16 (Static Export)</li>
-              <li>样式：Tailwind CSS 4</li>
-              <li>部署：Cloudflare Pages (免费)</li>
-              <li>API：Cloudflare Pages Functions</li>
-              <li>AI 模型：DeepSeek (Generator)</li>
-              <li>域名：cursorrules.fun (Spaceship, 53 元)</li>
-              <li>版本控制：GitHub</li>
+              <li>Framework: Next.js 16 (Static Export)</li>
+              <li>Styling: Tailwind CSS 4</li>
+              <li>Hosting: Cloudflare Pages (free)</li>
+              <li>API: Cloudflare Pages Functions</li>
+              <li>AI Model: DeepSeek (Generator)</li>
+              <li>Domain: cursorrules.fun ($7, Spaceship)</li>
+              <li>Version Control: GitHub</li>
             </ul>
           </div>
-          <p>
-            全部静态导出，零服务器成本。AI Generator 走 Cloudflare Functions，按调用计费，目前月费为 0。
-          </p>
+          <p>Fully static export, zero server cost. Generator runs on Cloudflare Functions, pay-per-invocation, currently $0/month.</p>
 
-          <h2 className="text-xl font-bold text-zinc-900 dark:text-zinc-100 mt-8">Day 1-2：基础设施</h2>
-          <p>
-            第一天做的事：
-          </p>
+          <h2 className="text-xl font-bold text-zinc-900 dark:text-zinc-100 mt-8">Day 1-2: Infrastructure</h2>
           <ul>
-            <li>买域名，配 DNS 指向 Cloudflare</li>
-            <li>新建 Next.js 项目，配 Tailwind</li>
-            <li>搭基础布局（Header + Footer + 首页骨架）</li>
-            <li>写第一批 18 条 Cursor Rules 的数据文件</li>
+            <li>Buy domain, configure DNS to Cloudflare</li>
+            <li>Scaffold Next.js project with Tailwind</li>
+            <li>Build base layout (Header + Footer + homepage skeleton)</li>
+            <li>Write first 18 coding standards as data files</li>
           </ul>
-          <p>
-            关键决策：用 <code>output: "export"</code> 静态导出。这样 Cloudflare Pages 可以纯静态托管，速度快，免费额度用不完。但代价是后来加 API 时需要改用 Pages Functions。
-          </p>
+          <p>Key decision: use <code>output: "export"</code> for static export. Cloudflare Pages serves pure static — fast, free tier is generous. Trade-off: later needed Pages Functions for the API.</p>
 
-          <h2 className="text-xl font-bold text-zinc-900 dark:text-zinc-100 mt-8">Day 3-4：内容生产流程</h2>
-          <p>
-            这是最关键的环节。我的内容生产 Prompt：
-          </p>
-
+          <h2 className="text-xl font-bold text-zinc-900 dark:text-zinc-100 mt-8">Day 3-4: Content pipeline</h2>
+          <p>The critical phase. My content generation prompt:</p>
           <div className="rounded-lg border border-zinc-200 bg-zinc-50 p-4 font-mono text-sm dark:border-zinc-700 dark:bg-zinc-800/50">
-            <p className="text-zinc-600 dark:text-zinc-400 mb-2">// 每条规则的生成 Prompt</p>
-            <pre className="text-zinc-800 dark:text-zinc-200 whitespace-pre-wrap">Generate a cursor rule for a [framework] project.
-Include:
-- Code style (naming, formatting)
-- Architecture constraints
-- Error handling patterns
-- Common anti-patterns to avoid
-
-Format: section headers with ##, bullet points for rules.
-Line count: about 30-40 lines.
-Target developers who actually ship production code.</pre>
+            <p className="text-zinc-600 dark:text-zinc-400 mb-2">// Prompt for each standard</p>
+            <pre className="text-zinc-800 dark:text-zinc-200 whitespace-pre-wrap">Generate a coding standard for a [framework] project.
+Include: code style, architecture constraints,
+error handling patterns, common anti-patterns.
+Format: ## sections, bullet rules. ~30-40 lines.</pre>
           </div>
+          <p>Each standard got manually-added "Use Cases" and "Common Mistakes" sections. Users don't just see instructions — they understand when and how to apply them. From 18 to 81 standards, powered by this pipeline. A Python script handled batch insertion.</p>
 
-          <p>
-            每条规则不是干巴巴的列表——我手动追加了"使用场景"和"常见错误"两个板块。这样用户看到的不只是指令，还能理解什么时候用、怎么避免踩坑。
-          </p>
-          <p>
-            从 18 条到 81 条，核心就靠这个流程。配合 Python 脚本批量插入数据文件，一次加 15-20 条。
-          </p>
-
-          <h2 className="text-xl font-bold text-zinc-900 dark:text-zinc-100 mt-8">Day 5-6：AI Rule Generator</h2>
-          <p>
-            规则库做到一半，我发现一个问题：用户不可能每次都来站里翻规则。他们真正想要的是：输入技术栈，一键生成专属规则文件。
-          </p>
-          <p>
-            于是做了 Generator：
-          </p>
+          <h2 className="text-xl font-bold text-zinc-900 dark:text-zinc-100 mt-8">Day 5-6: AI Standards Generator</h2>
+          <p>Halfway through the library, I realized: users won't browse each time. What they want: input their stack, get custom standards in one click.</p>
           <ul>
-            <li>前端选技术栈 + 严格程度 + 输出格式</li>
-            <li>Cloudflare Function 调 DeepSeek API 生成</li>
-            <li>支持 4 种输出格式：.cursorrules / .mdc / AGENTS.md / copilot-instructions.md</li>
-            <li>支持 GitHub 仓库导入，自动分析 package.json</li>
+            <li>Frontend: select tech stack + strictness + output format</li>
+            <li>Cloudflare Function calls DeepSeek API</li>
+            <li>4 output formats: .cursor/rules, AGENTS.md, copilot-instructions.md, .cursorrules</li>
+            <li>GitHub repo import with auto package.json analysis</li>
           </ul>
-          <p>
-            这是整个站最有产品感的功能。用户可以粘贴自己的 GitHub 仓库地址，AI 分析后生成专属规则，下载保存。
-          </p>
+          <p>This is the most product-like feature. Users paste their GitHub repo URL, AI analyzes dependencies, and generates custom standards.</p>
 
-          <h2 className="text-xl font-bold text-zinc-900 dark:text-zinc-100 mt-8">Day 7：SEO 基础设施</h2>
+          <h2 className="text-xl font-bold text-zinc-900 dark:text-zinc-100 mt-8">Day 7: SEO infrastructure</h2>
           <ul>
             <li>sitemap.xml + robots.txt + RSS Feed</li>
             <li>GA4 + Google Search Console</li>
-            <li>Article + Website Schema（JSON-LD）</li>
-            <li>交叉内链（Topic Cluster 结构）</li>
-            <li>Framework 聚合页（React / Next.js / Vue / Python / Go）</li>
-            <li>对比页（Cursor vs Copilot vs Windsurf vs Claude Code）</li>
+            <li>Article + Website Schema (JSON-LD)</li>
+            <li>Cross-linked internal links (Topic Cluster structure)</li>
+            <li>Framework hub pages (React / Next.js / Vue / Python / Go)</li>
+            <li>Comparison pages (Cursor vs Copilot vs Windsurf vs Claude Code)</li>
           </ul>
-          <p>
-            全部静态生成，搜索引擎可以直接索引，不需要 JS 执行。
-          </p>
+          <p>All statically generated, indexable by search engines with no JS required.</p>
 
-          <h2 className="text-xl font-bold text-zinc-900 dark:text-zinc-100 mt-8">一些数字</h2>
+          <h2 className="text-xl font-bold text-zinc-900 dark:text-zinc-100 mt-8">By the numbers</h2>
           <div className="grid grid-cols-2 gap-4 not-prose sm:grid-cols-4">
             {[
-              ["81", "条规则"],
-              ["100", "静态页面"],
-              ["7", "天开发"],
-              ["53", "元总成本"],
+              ["81", "standards"],
+              ["108", "static pages"],
+              ["7", "days to build"],
+              ["$7", "total cost"],
             ].map(([num, label]) => (
               <div key={num} className="rounded-lg border border-zinc-200 bg-white p-4 text-center dark:border-zinc-700 dark:bg-zinc-800">
                 <div className="text-2xl font-bold text-blue-600 dark:text-blue-400">{num}</div>
@@ -143,30 +108,25 @@ Target developers who actually ship production code.</pre>
             ))}
           </div>
 
-          <h2 className="text-xl font-bold text-zinc-900 dark:text-zinc-100 mt-8">踩过的坑</h2>
+          <h2 className="text-xl font-bold text-zinc-900 dark:text-zinc-100 mt-8">Pitfalls</h2>
           <ul>
-            <li><strong>模板字面量冲突：</strong>TypeScript 模板字面量（` ）和 Markdown 的后引号（```）冲突，Python 脚本生成数据文件时反复踩坑。最终用 `~~~` 代替代码块标记。</li>
-            <li><strong>Windows EBUSY 文件锁：</strong>本地编译卡在 out 目录删除，不影响 Cloudflare 部署。</li>
-            <li><strong>GSC 收录延迟：</strong>新站不要急，Google 爬虫要排队，2-4 周才开始看到数据。</li>
-            <li><strong>域名权重低：</strong>.fun 域名对开发者不够专业，后续考虑换 .dev。</li>
+            <li><strong>Template literal conflict:</strong> TypeScript template literals clash with Markdown backticks. Solved with <code>~~~</code> for code blocks.</li>
+            <li><strong>Windows EBUSY:</strong> Local build hangs on <code>out/</code> cleanup. Doesn't affect Cloudflare deployment.</li>
+            <li><strong>GSC indexing delay:</strong> New sites need 2-4 weeks before search data appears. Be patient.</li>
+            <li><strong>Domain TLD:</strong> .fun isn't ideal for dev tools. Considering .dev for the future.</li>
           </ul>
 
-          <h2 className="text-xl font-bold text-zinc-900 dark:text-zinc-100 mt-8">学到的最重要一件事</h2>
-          <p>
-            做这个站之前，我以为重点是"规则内容"。做完之后发现，真正有价值的是<strong>工作流</strong>——怎么用 AI 工具高效地生产内容、怎么搭 SEO 资产、怎么让产品随着时间的推移积累权重。
-          </p>
-          <p>
-            规则本身没有护城河，三个月后谁都能抄。但域名权重、Google 收录、交叉内链、用户信任——这些是时间和持续运营积累的，抄不走。
-          </p>
-
+          <h2 className="text-xl font-bold text-zinc-900 dark:text-zinc-100 mt-8">The biggest lesson</h2>
+          <p>I thought the value was in "the content". After finishing, the real value is the <strong>workflow</strong> — using AI tools to produce content efficiently, building SEO assets, and creating a product that accumulates authority.</p>
+          <p>Standards themselves have no moat — anyone can copy them. But domain authority, Google indexing, cross-linking, user trust — these accumulate through time and can't be copied.</p>
         </section>
       </article>
       <BlogFooter
         related={[
-          { slug: "cursor-rules-vs-agents-md", title: ".cursorrules vs AGENTS.md", excerpt: "三种配置文件格式对比" },
-          { slug: "ai-coding-workflow-beginners", title: "AI 编码工作流入门指南", excerpt: "从零开始用 Cursor" },
+          { slug: "cursor-rules-vs-agents-md", title: ".cursorrules vs AGENTS.md", excerpt: "Which format to use for your project" },
+          { slug: "ai-coding-workflow-beginners", title: "AI Coding Workflow Guide", excerpt: "Getting started with AI-assisted development" },
         ]}
-        prev={{ slug: "build-saas-with-cursor-7-days", title: "7天从0到上线" }}
+        prev={{ slug: "build-saas-with-cursor-7-days", title: "7 Days from 0 to Launch" }}
       />
       <BackToTop />
       <SidebarComments page="build-saas-with-cursor-7-days" />

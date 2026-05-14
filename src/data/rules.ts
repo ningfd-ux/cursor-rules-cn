@@ -598,11 +598,11 @@ markdown
   },
   {
 slug: "windsurf-rules",
-title: "Windsurf AI 编程入门配置规则",
+title: "Windsurf AI Coding Setup Guide",
 category: "windsurf",
-description: "Windsurf IDE 的 AI 编程规则和最佳实践。",
+description: "AI coding rules and best practices for the Windsurf IDE.",
 icon: "🏄",
-tags: ["windsurf", "通用", "规则"],
+tags: ["windsurf", "general", "rules"],
 updatedAt: "2026-05-02",
 appliesTo: "Windsurf 1.0+",
 content: `# Windsurf AI 编程规则
@@ -635,11 +635,11 @@ content: `# Windsurf AI 编程规则
   },
   {
 slug: "windsurf-cascade",
-title: "Windsurf Cascade 多文件编辑完全指南",
+title: "Windsurf Cascade Multi-File Editing Guide",
 category: "windsurf",
-description: "Windsurf Cascade 多文件编辑功能的使用指南。",
+description: "Guide to Windsurf Cascade's multi-file editing features.",
 icon: "🌊",
-tags: ["windsurf", "cascade", "多文件"],
+tags: ["windsurf", "cascade", "multi-file"],
 updatedAt: "2026-04-26",
 appliesTo: "Windsurf 1.0+",
 content: `# Windsurf Cascade 功能指南
@@ -659,11 +659,11 @@ Cascade 是 Windsurf 的多文件编辑功能
   },
   {
 slug: "ai-coding-prompt-tips",
-title: "AI 编程 Prompt 终极技巧提升 10 倍效率",
+title: "AI Coding Prompt Mastery: 10x Your Efficiency",
 category: "general",
-description: "适用于所有 AI 编程工具的 Prompt 编写技巧。",
+description: "Prompt writing techniques for all AI coding tools.",
 icon: "🎯",
-tags: ["prompt", "技巧", "通用"],
+tags: ["prompt", "tips", "general"],
 updatedAt: "2026-05-05",
 content: `# AI 编程 Prompt 终极技巧
 
@@ -706,11 +706,11 @@ content: `# AI 编程 Prompt 终极技巧
   },
   {
 slug: "ai-code-review",
-title: "用 AI 做代码审查的完整规则和流程",
+title: "AI-Powered Code Review: Complete Rules and Workflow",
 category: "general",
-description: "使用 AI 工具进行代码审查的规则和流程。",
+description: "Rules and workflow for AI-assisted code review.",
 icon: "👁️",
-tags: ["code-review", "AI", "质量"],
+tags: ["code-review", "AI", "quality"],
 updatedAt: "2026-04-30",
 content: `# AI 辅助代码审查规则
 
@@ -755,11 +755,11 @@ content: `# AI 辅助代码审查规则
   },
   {
 slug: "cursor-rules-best-practices",
-title: "Cursor Rules 高级用法和实战经验",
+title: "Cursor Rules: Advanced Techniques and Production Tips",
 category: "general",
-description: "Cursor Rules 的高级用法和实战经验总结。",
+description: "Advanced usage patterns and real-world experience with Cursor Rules.",
 icon: "⭐",
-tags: ["cursor", "最佳实践", "进阶"],
+tags: ["cursor", "best-practices", "advanced"],
 updatedAt: "2026-05-06",
 content: `# Cursor Rules 最佳实践合集
 
@@ -804,11 +804,11 @@ content: `# Cursor Rules 最佳实践合集
 
   {
 slug: "cursor-vue-rules",
-title: "让 Cursor 更懂 Vue 3 的最佳开发规则",
+title: "Vue 3 Best Practices for Cursor",
 category: "cursor",
-description: "Vue 3 + Composition API 项目中使用 Cursor 的编码规则。",
+description: "Coding rules for Vue 3 + Composition API projects in Cursor.",
 icon: "🟢",
-tags: ["cursor", "vue", "前端"],
+tags: ["cursor", "vue", "frontend"],
 updatedAt: "2026-05-10",
 appliesTo: "Cursor 0.40+",
 content: `# Cursor Vue.js 开发规则
@@ -856,9 +856,9 @@ content: `# Cursor Vue.js 开发规则
 
   {
 slug: "cursor-go-rules",
-title: "用 Cursor 写出优雅 Go 代码的规则",
+title: "Writing Elegant Go Code with Cursor",
 category: "cursor",
-description: "Go 语言项目中使用 Cursor 的编码规范和最佳实践。",
+description: "Coding standards and best practices for Go projects in Cursor.",
 icon: "🔷",
 tags: ["cursor", "go", "golang"],
 updatedAt: "2026-05-10",
@@ -908,11 +908,11 @@ content: `    # Cursor Go 开发规则
 
   {
 slug: "cursor-testing-rules",
-title: "Cursor 自动生成测试的完整规则",
+title: "Automated Test Generation Rules for Cursor",
 category: "cursor",
-description: "在 Cursor 中编写单元测试、集成测试的规则和最佳实践。",
+description: "Rules and best practices for writing unit and integration tests in Cursor.",
 icon: "🧪",
-tags: ["cursor", "测试", "jest"],
+tags: ["cursor", "testing", "jest"],
 updatedAt: "2026-05-10",
 appliesTo: "Cursor 0.40+",
 content: `    # Cursor 测试开发规则
@@ -958,9 +958,9 @@ content: `    # Cursor 测试开发规则
 
   {
 slug: "cursor-api-rules",
-title: "用 Cursor 开发 RESTful API 的编码规范",
+title: "RESTful API Development Standards for Cursor",
 category: "cursor",
-description: "RESTful API 和 GraphQL 开发中 Cursor 的编码规范。",
+description: "Coding standards for RESTful API and GraphQL development in Cursor.",
 icon: "🌐",
 tags: ["cursor", "api", "rest"],
 updatedAt: "2026-05-10",
@@ -1011,9 +1011,9 @@ content: `    # Cursor API 开发规则
 
   {
 slug: "cursor-docker-rules",
-title: "Cursor 中 Docker 容器化的最佳实践",
+title: "Docker Containerization Best Practices for Cursor",
 category: "cursor",
-description: "使用 Cursor 开发 Docker 容器化应用的最佳实践和规则。",
+description: "Best practices and rules for developing Docker containerized apps with Cursor.",
 icon: "🐳",
 tags: ["cursor", "docker", "devops"],
 updatedAt: "2026-05-10",
@@ -1058,11 +1058,11 @@ content: `    # Cursor Docker 容器化规则
 
   {
 slug: "cursor-database-rules",
-title: "Cursor 数据库开发 Schema 设计规则",
+title: "Database Schema Design Rules for Cursor",
 category: "cursor",
-description: "数据库 Schema 设计、查询优化和数据迁移的 Cursor 编码规则。",
+description: "Cursor coding rules for schema design, query optimization, and migrations.",
 icon: "🗄️",
-tags: ["cursor", "数据库", "sql"],
+tags: ["cursor", "database", "sql"],
 updatedAt: "2026-05-10",
 appliesTo: "Cursor 0.40+",
 content: `    # Cursor 数据库开发规则
@@ -1111,9 +1111,9 @@ content: `    # Cursor 数据库开发规则
 
   {
 slug: "claude-code-python",
-title: "用 Claude Code 写 Python 的高效 Prompt",
+title: "Effective Python Prompts for Claude Code",
 category: "claude",
-description: "用 Claude Code 进行 Python 开发的高效 Prompt 模板。",
+description: "High-impact prompt templates for Python development with Claude Code.",
 icon: "🐍",
 tags: ["claude-code", "python", "prompt"],
 updatedAt: "2026-05-10",
@@ -1146,11 +1146,11 @@ content: `    # Claude Code Python 开发 Prompt
 
   {
 slug: "claude-code-testing",
-title: "Claude Code 自动生成测试的 Prompt 指南",
+title: "Test Generation Prompts for Claude Code",
 category: "claude",
-description: "使用 Claude Code 自动生成和维护测试代码的最佳 Prompt。",
+description: "Best prompts for auto-generating and maintaining tests with Claude Code.",
 icon: "🧪",
-tags: ["claude-code", "测试", "自动化"],
+tags: ["claude-code", "testing", "automation"],
 updatedAt: "2026-05-10",
 content: `    # Claude Code 测试编写指南
 
@@ -1180,7 +1180,7 @@ content: `    # Claude Code 测试编写指南
 
   {
 slug: "claude-code-refactoring",
-title: "Claude Code 代码重构 Prompt 模板",
+title: "Code Refactoring Prompt Templates for Claude Code",
 category: "claude",
 description: "使用 Claude Code 安全重构代码的 Prompt 模板和流程。",
 icon: "🔨",

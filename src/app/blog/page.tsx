@@ -63,7 +63,7 @@ const posts = [
     title: "How I Built an AI Coding Rules Site in 7 Days with Cursor — Total Cost $7",
     excerpt: "A share for the Chinese dev community: the full journey from buying a domain to launching 108 pages.",
     date: "2026-05-12",
-    tags: ["Story", "Chinese", "Experience"],
+    tags: ["Story", "Build Log", "Experience"],
   },
   {
     slug: "show-hn-launch",
