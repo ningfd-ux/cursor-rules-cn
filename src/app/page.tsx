@@ -120,7 +120,7 @@ Zod → validation layer
             <Link
               key={s.href}
               href={s.href}
-              className="inline-flex items-center gap-1.5 rounded-full border border-zinc-200 bg-white px-4 py-2 text-sm text-zinc-600 transition-colors hover:border-zinc-300 hover:text-zinc-900 dark:border-zinc-700 dark:bg-zinc-900 dark:text-zinc-400 dark:hover:border-zinc-600 dark:hover:text-zinc-200"
+              className="inline-flex items-center gap-1.5 rounded-md border border-zinc-200 bg-white px-3 py-1.5 text-xs text-zinc-500 transition-colors hover:border-zinc-300 hover:text-zinc-900 dark:border-zinc-700 dark:bg-zinc-900 dark:text-zinc-400 dark:hover:border-zinc-600 dark:hover:text-zinc-200"
             >
               <span>{s.icon}</span>
               <span>{s.name}</span>
@@ -134,15 +134,14 @@ Zod → validation layer
         <h2 className="mb-5 text-lg font-semibold text-zinc-900 dark:text-zinc-100">Why our generator is different</h2>
         <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
           {[
-            ["🎯", "Repository-aware", "Analyzes your package.json dependencies and project architecture to generate relevant rules."],
-            ["🧩", "Framework-specific", "Understands Next.js, React, Python, Go — generates rules that reference your actual libraries."],
-            ["🤖", "AI-tool optimized", "Outputs .cursor/rules, AGENTS.md, copilot-instructions.md — formatted for your tool of choice."],
-            ["🛡️", "Maintainability-first", "Enforceable, opinionated rules — not vague advice. Written like a senior tech lead would."],
+            ["Repository-aware", "Analyzes your package.json dependencies and project architecture to generate relevant standards."],
+            ["Framework-specific", "Understands Next.js, React, Python, Go — generates standards that reference your actual libraries."],
+            ["AI-tool optimized", "Outputs .cursor/rules, AGENTS.md, copilot-instructions.md — formatted for your tool of choice."],
+            ["Maintainability-first", "Enforceable, opinionated standards — not vague advice. Written like a senior tech lead would."],
           ].map(([icon, title, desc]) => (
-            <div key={title as string} className="rounded-xl border border-zinc-200 bg-white p-5 dark:border-zinc-800 dark:bg-zinc-900">
-              <div className="mb-2 text-xl">{icon}</div>
+            <div key={title as string} className="rounded-lg border border-zinc-200 bg-white p-5 dark:border-zinc-800 dark:bg-zinc-900">
               <h3 className="text-sm font-semibold text-zinc-900 dark:text-zinc-100">{title}</h3>
-              <p className="mt-1 text-xs leading-relaxed text-zinc-400">{desc}</p>
+              <p className="mt-1 text-xs leading-relaxed text-zinc-500 dark:text-zinc-400">{desc}</p>
             </div>
           ))}
         </div>
@@ -153,15 +152,14 @@ Zod → validation layer
         <h2 className="mb-5 text-lg font-semibold text-zinc-900 dark:text-zinc-100">Problems generator-written standards prevent</h2>
         <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
           {[
-            ["🚫", "Fetching in wrong component", "Next.js: data fetching in client components causing waterfall requests and broken SSR."],
-            ["🚫", "Missing validation", "External input hitting your database unvalidated — no Zod schemas, no type safety."],
-            ["🚫", "Inconsistent architecture", "Each AI session invents its own file structure, creating an unmaintainable codebase."],
-            ["🚫", "Transaction bugs", "Prisma writes without transactions — partial saves, race conditions, corrupted data."],
-          ].map(([icon, title, desc]) => (
-            <div key={title as string} className="rounded-xl border border-red-100 bg-red-50/50 p-5 dark:border-red-900 dark:bg-red-950/30">
-              <div className="mb-2 text-lg">{icon}</div>
-              <h3 className="text-sm font-semibold text-red-800 dark:text-red-300">{title}</h3>
-              <p className="mt-1 text-xs leading-relaxed text-red-600 dark:text-red-400">{desc}</p>
+            ["Fetching in wrong component", "Data fetching in client components causes waterfall requests and broken SSR — standards enforce server-first data flow."],
+            ["Missing validation", "External input hitting your database unvalidated — standards mandate Zod schemas at every API boundary."],
+            ["Inconsistent architecture", "Each AI session invents its own file structure — standards lock in a single architectural pattern."],
+            ["Transaction bugs", "Prisma writes without transactions cause partial saves and race conditions — standards require atomicity."],
+          ].map(([title, desc]) => (
+            <div key={title as string} className="rounded-lg border border-zinc-200 bg-white p-5 dark:border-zinc-800 dark:bg-zinc-900">
+              <h3 className="text-sm font-semibold text-zinc-900 dark:text-zinc-100">{title}</h3>
+              <p className="mt-1 text-xs leading-relaxed text-zinc-500 dark:text-zinc-400">{desc}</p>
             </div>
           ))}
         </div>
