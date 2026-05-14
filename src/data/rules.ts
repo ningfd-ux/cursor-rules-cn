@@ -3400,30 +3400,30 @@ Save this content directly to your project. Adjust tech stack names and versions
   },
   {
     slug: "general-responsive-design",
-    title: "AI 辅助响应式设计规则",
+    title: "AI-Assisted Responsive Design Rules",
     category: "general",
-    description: "使用 AI 编程工具实现响应式设计的编码规范和最佳实践。",
+    description: "Coding standards and best practices for responsive design with AI coding tools.",
     icon: "📱",
-    tags: ["AI", "响应式", "CSS"],
+    tags: ["AI", "responsive", "CSS"],
     updatedAt: "2026-05-11",
-    content: `# AI 辅助响应式设计规则
+    content: `# AI-Assisted Responsive Design Rules
 
-## 设计原则
-- Mobile First 优先开发
-- 使用相对单位 rem/em/%
-- 断点使用 Tailwind 默认值
-- 图片设置 max-width: 100%
+## Design Principles
+- Mobile-first development approach
+- Use relative units: rem / em / %
+- Use Tailwind default breakpoints
+- Set max-width: 100% on all images
 
-## 布局
-- CSS Grid 用于整体布局
-- Flexbox 用于组件内排列
-- Container Queries 组件级响应
-- 间距使用间距系统
+## Layout
+- CSS Grid for page-level layout
+- Flexbox for component-level arrangement
+- Container Queries for component-level responsiveness
+- Use a consistent spacing scale
 
-## AI Prompt
-"创建响应式导航栏：移动端汉堡菜单，平板展开图标+文字，桌面完整菜单。"
+## AI Prompts
+"Create a responsive navbar: hamburger menu on mobile, icon + text on tablet, full menu on desktop."
 
-"设计卡片网格布局，自动适应 1/2/3/4 列，图片保持比例。"
+"Design a card grid layout that auto-adapts between 1/2/3/4 columns, with images preserving aspect ratio."
 
 ## Applicable Scenarios
 
@@ -3451,32 +3451,32 @@ Save this content directly to your project. Adjust tech stack names and versions
 
   {
     slug: "cursor-nuxt-rules",
-    title: "Cursor Nuxt 3 全栈开发规则",
+    title: "Cursor Nuxt 3 Full-Stack Development Rules",
     category: "cursor",
-    description: "Nuxt 3 + Vue 项目中使用 Cursor 的全栈开发编码规则。",
+    description: "Full-stack coding rules for Nuxt 3 + Vue projects in Cursor.",
     icon: "🍃",
     tags: ["cursor", "nuxt", "vue"],
     updatedAt: "2026-05-11",
     appliesTo: "Cursor 0.40+",
-    content: `# Cursor Nuxt 3 全栈开发规则
+    content: `# Cursor Nuxt 3 Full-Stack Development Rules
 
-## 目录结构
-- pages/ 文件路由
-- composables/ 共享逻辑
-- server/ API 和中间件
-- middleware/ 路由守卫
+## Directory Structure
+- pages/ for file-based routing
+- composables/ for shared logic
+- server/ for API and middleware
+- middleware/ for route guards
 
 ## Data Fetching
-- useFetch 获取服务端数据
-- useState 共享状态
-- useAsyncData 异步数据
-- Server Routes API 端点
+- useFetch for server-side data
+- useState for shared state
+- useAsyncData for async data
+- Server Routes for API endpoints
 
-## 模块
-- Pinia State Management
-- Tailwind CSS 样式
-- Nuxt Image 图片优化
-- Nuxt SEO 元数据
+## Modules
+- Pinia for state management
+- Tailwind CSS for styling
+- Nuxt Image for image optimization
+- Nuxt SEO for metadata
 
 ## Usage Scenarios
 
@@ -3491,32 +3491,32 @@ Save as .cursor/rules/*.mdc or AGENTS.md. The AI coding tool loads these convent
   },
   {
     slug: "cursor-playwright-rules",
-    title: "Cursor Playwright E2E 测试规则",
+    title: "Cursor Playwright E2E Testing Rules",
     category: "cursor",
-    description: "使用 Cursor 编写 Playwright 端到端测试的编码规则和最佳实践。",
+    description: "Coding rules and best practices for writing Playwright end-to-end tests with Cursor.",
     icon: "🎭",
     tags: ["cursor", "playwright", "e2e"],
     updatedAt: "2026-05-11",
     appliesTo: "Cursor 0.40+",
-    content: `# Cursor Playwright E2E 测试规则
+    content: `# Cursor Playwright E2E Testing Rules
 
-## Testing结构
-- 测试文件放在 e2e/ 目录
-- Page Object 模式管理页面
-- describe 组织测试套件
+## Test Structure
+- Test files go in e2e/ directory
+- Use Page Object pattern to manage pages
+- Use describe to organize test suites
 - Each test must be independently runnable
 
-## 选择器
-- 优先使用 role 和 text
-- 避免 CSS 类名选择器
-- data-testid 用于复杂组件
-- 等待元素可见后操作
+## Selectors
+- Prefer role and text-based selectors
+- Avoid CSS class selectors
+- Use data-testid for complex components
+- Wait for elements to be visible before interacting
 
-## 断言
-- 使用 soft assert 收集错误
+## Assertions
+- Use soft asserts to collect all failures
 - Capture screenshots for failure analysis
-- 网络请求使用 route 拦截
-- 视觉回归使用 screenshot
+- Use route interception for network requests
+- Use screenshots for visual regression testing
 
 ## Usage Scenarios
 
@@ -3531,31 +3531,31 @@ Save as .cursor/rules/*.mdc or AGENTS.md. The AI coding tool loads these convent
   },
   {
     slug: "general-monorepo-rules",
-    title: "AI Monorepo 多包管理开发规则",
+    title: "AI Monorepo Multi-Package Development Rules",
     category: "general",
-    description: "使用 AI 编程工具管理 Monorepo 项目的编码规则和包管理最佳实践。",
+    description: "Coding rules and package management best practices for managing Monorepo projects with AI coding tools.",
     icon: "📦",
     tags: ["AI", "monorepo", "turborepo"],
     updatedAt: "2026-05-11",
-    content: `# AI Monorepo 多包管理开发规则
+    content: `# AI Monorepo Multi-Package Development Rules
 
-## 工具选择
-- Turborepo 构建编排
-- pnpm workspace 包管理
-- Changesets 版本和发版
-- ESLint + Prettier 统一配置
+## Tool Selection
+- Turborepo for build orchestration
+- pnpm workspaces for package management
+- Changesets for versioning and releases
+- ESLint + Prettier with shared configs
 
 ## Project Structure
-- packages/ 公共包
-- apps/ 应用入口
-- tools/ 构建工具
-- 共享 tsconfig 配置
+- packages/ for shared packages
+- apps/ for application entry points
+- tools/ for build tooling
+- Shared tsconfig across workspaces
 
-## AI 协作
-- AI 理解包依赖关系
-- 跨包重构自动更新引用
-- 统一代码风格配置
-- 自动生成 Changelog
+## AI Collaboration
+- AI understands package dependency graph
+- Cross-package refactors auto-update imports
+- Unified code style configuration across packages
+- Auto-generate Changelogs
 
 ## Applicable Scenarios
 
@@ -3581,31 +3581,31 @@ Save this content directly to your project. Adjust tech stack names and versions
   },
   {
     slug: "general-deployment-rules",
-    title: "AI 部署运维 CI/CD 指南",
+    title: "AI Deployment & CI/CD Operations Guide",
     category: "general",
-    description: "使用 AI 编程工具配置 CI/CD 流水线和自动化部署的规则。",
+    description: "Rules for configuring CI/CD pipelines and automated deployment with AI coding tools.",
     icon: "🚢",
     tags: ["AI", "deploy", "cicd"],
     updatedAt: "2026-05-11",
-    content: `# AI 部署运维 CI/CD 指南
+    content: `# AI Deployment & CI/CD Operations Guide
 
-## CI 配置
-- GitHub Actions 自动化
-- lint + test + build 流水线
-- 预览部署每个 PR
-- 自动生成 Release Notes
+## CI Configuration
+- GitHub Actions for automation
+- Pipeline: lint -> test -> build
+- Preview deploy every PR
+- Auto-generate Release Notes
 
 ## Docker
-- 多阶段构建优化
-- 使用 .dockerignore
-- 安全扫描镜像
-- 标签管理版本
+- Multi-stage builds for optimization
+- Use .dockerignore to exclude unnecessary files
+- Security-scan images before deployment
+- Tag images with versioned labels
 
-## 监控
-- 健康检查端点
-- 错误追踪 Sentry
-- 性能监控
-- 日志聚合和告警
+## Monitoring
+- Health check endpoints
+- Error tracking via Sentry
+- Performance monitoring
+- Log aggregation and alerting
 
 ## Applicable Scenarios
 
@@ -3631,30 +3631,30 @@ Save this content directly to your project. Adjust tech stack names and versions
   },
   {
     slug: "general-testing-strategy",
-    title: "AI 辅助测试策略完整指南",
+    title: "AI-Assisted Testing Strategy Complete Guide",
     category: "general",
-    description: "测试金字塔策略和 AI 辅助生成测试的最佳实践。",
+    description: "Testing pyramid strategy and best practices for AI-assisted test generation.",
     icon: "🧪",
     tags: ["AI", "test", "strategy"],
     updatedAt: "2026-05-11",
-    content: `# AI 辅助测试策略完整指南
+    content: `# AI-Assisted Testing Strategy Complete Guide
 
-## Testing金字塔
-- 单元测试占 70%（快速、隔离）
-- Integration tests 20% (API, database)
-- E2E tests 10% (critical paths)
+## Testing Pyramid
+- Unit tests: 70% (fast, isolated)
+- Integration tests: 20% (API, database)
+- E2E tests: 10% (critical paths)
 
 ## AI in Testing
-- 根据代码自动生成单元测试
-- 生成 mock 数据和 fixture
-- 分析覆盖率补充测试
+- Auto-generate unit tests from implementation code
+- Generate mock data and fixtures
+- Analyze coverage gaps and generate supplementary tests
 - Auto-fix failing tests
 
 ## Testing Conventions
 - AAA pattern (Arrange-Act-Assert)
 - Use descriptive test names
 - One behavior per test case
-- 边界情况优先覆盖
+- Prioritize coverage of boundary conditions
 
 ## Applicable Scenarios
 

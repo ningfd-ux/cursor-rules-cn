@@ -96,7 +96,7 @@ export default function BlogPage() {
           className="group mb-8 block rounded-2xl border border-blue-200 bg-gradient-to-r from-blue-50 to-white p-8 transition-all hover:shadow-lg dark:border-blue-800 dark:from-blue-950 dark:to-zinc-900"
         >
           <div className="mb-3 flex items-center gap-2">
-            <span className="rounded-full bg-blue-600 px-2.5 py-0.5 text-xs font-medium text-white">🔥 精选</span>
+            <span className="rounded-full bg-blue-600 px-2.5 py-0.5 text-xs font-medium text-white">🔥 Featured</span>
             <span className="text-xs text-zinc-400">{featured.date}</span>
           </div>
           <h2 className="mb-3 text-2xl font-bold text-zinc-900 group-hover:text-blue-600 dark:text-zinc-100 dark:group-hover:text-blue-400">
@@ -108,7 +108,7 @@ export default function BlogPage() {
               <span key={t} className="rounded-full bg-zinc-100 px-3 py-1 text-xs text-zinc-500 dark:bg-zinc-800 dark:text-zinc-400">#{t}</span>
             ))}
           </div>
-          <div className="mt-4 text-sm font-medium text-blue-600 dark:text-blue-400">阅读全文 →</div>
+          <div className="mt-4 text-sm font-medium text-blue-600 dark:text-blue-400">Read article →</div>
         </Link>
       )}
 
