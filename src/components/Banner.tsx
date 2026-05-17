@@ -10,7 +10,7 @@ export default function Banner() {
           rel="noopener noreferrer"
           className="text-center text-sm font-medium text-zinc-600 transition-colors hover:text-zinc-900 dark:text-[#d2d7e0] dark:hover:text-white"
         >
-          Need repository-wide AI governance? Explore RepoRules.dev &rarr;
+          Generate modern Cursor Project Rules (.mdc) automatically on RepoRules.dev &rarr;
         </a>
       </div>
     </div>

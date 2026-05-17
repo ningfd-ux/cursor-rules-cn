@@ -241,23 +241,23 @@ How to use?
         </div>
       </section>
 
-      {/* CTA: Generate for your repo */}
-      <section className="mt-10 rounded-xl border border-green-200 bg-gradient-to-br from-green-50 to-white p-6 text-center dark:border-green-900 dark:from-green-950 dark:to-zinc-900">
+      {/* Legacy notice + CTA */}
+      <section className="mt-10 rounded-xl border border-blue-200 bg-blue-50 p-6 text-center dark:border-blue-800 dark:bg-blue-950">
         <h2 className="mb-2 text-lg font-semibold text-zinc-900 dark:text-zinc-100">
-          Generate customized standards for your repo
+          .cursorrules is deprecated — use Project Rules (.mdc)
         </h2>
         <p className="mb-4 text-sm text-zinc-500 dark:text-zinc-400">
-          Paste your package.json. AI detects your actual stack and generates project-specific standards — not generic templates.
+          Cursor has moved to .cursor/rules/*.mdc format. Generate modern repository governance files for Cursor, Claude Code, and Copilot.
         </p>
-        <Link
-          href="/generator"
-          className="inline-flex items-center gap-2 rounded-lg bg-green-600 px-5 py-2.5 text-sm font-medium text-white transition-colors hover:bg-green-700"
+        <a
+          href="https://reporules.dev"
+          className="inline-flex items-center gap-2 rounded-lg bg-blue-600 px-5 py-2.5 text-sm font-medium text-white transition-colors hover:bg-blue-700"
         >
           <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
             <path strokeLinecap="round" strokeLinejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z" />
           </svg>
-          Go to Generator
-        </Link>
+          Generate on RepoRules.dev
+        </a>
       </section>
       <BackToTop />
     </div>

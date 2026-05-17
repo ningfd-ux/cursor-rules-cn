@@ -1,37 +1,36 @@
 import Link from "next/link";
 import BackToTop from "@/components/BackToTop";
-import { rules, categories } from "@/data/rules";
 
 export default function Home() {
   return (
     <div className="mx-auto max-w-5xl px-4 py-12">
-      {/* Hero — 100vh, left copy / right code preview */}
+      {/* Hero */}
       <section className="mb-12 flex min-h-[80vh] flex-col items-center justify-center lg:flex-row lg:gap-16 pt-20 lg:pt-16">
         <div className="max-w-xl text-center lg:text-left">
           <span className="mb-4 inline-block rounded-full border border-zinc-200 bg-white px-3 py-1 text-xs font-medium text-zinc-500 dark:border-zinc-700 dark:bg-transparent dark:text-zinc-400">
             Repository-aware · Not template-based · Engineering-first
           </span>
           <h1 className="mb-4 text-4xl font-bold tracking-tight text-zinc-900 dark:text-zinc-100 sm:text-5xl lg:text-6xl">
-            Generate repository governance <span className="text-blue-600">files</span>
+            Generate AI-Native Repository Rules
           </h1>
           <p className="mb-8 text-lg leading-relaxed text-zinc-500 dark:text-zinc-400">
-            Generate repository governance files from your package.json. Rules, standards, architecture, memory, and CI workflow — all from one input.
+            Generate Cursor Project Rules (.mdc), AGENTS.md, CLAUDE.md and repository standards automatically.
           </p>
           <div className="flex flex-wrap items-center gap-3 lg:justify-start justify-center">
-            <Link
-              href="/generator"
+            <a
+              href="https://reporules.dev"
               className="inline-flex items-center gap-2 rounded-lg bg-blue-600 px-6 py-3 text-base font-medium text-white shadow-sm transition-colors hover:bg-blue-700"
             >
               <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                 <path strokeLinecap="round" strokeLinejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z" />
               </svg>
-              Open Generator
-            </Link>
+              Generate Rules on RepoRules.dev
+            </a>
             <Link
               href="/examples"
               className="inline-flex items-center gap-2 rounded-lg border border-zinc-200 bg-white px-5 py-3 text-sm font-medium text-zinc-700 shadow-sm transition-colors hover:bg-zinc-50 dark:border-zinc-700 dark:bg-zinc-800 dark:text-zinc-300 dark:hover:bg-zinc-700"
             >
-              View Example Repository
+              See Real Examples
             </Link>
           </div>
         </div>
@@ -63,8 +62,51 @@ Validate with Zod`}</pre>
         </div>
       </section>
 
+      {/* Cursor Now Uses Project Rules (.mdc) */}
+      <section className="py-16">
+        <div className="rounded-xl border border-blue-200 bg-blue-50 p-8 text-center dark:border-blue-800 dark:bg-blue-950">
+          <h2 className="mb-3 text-xl font-bold text-blue-900 dark:text-blue-100">Cursor Now Uses Project Rules (.mdc)</h2>
+          <p className="mb-4 text-sm text-blue-700 dark:text-blue-300">
+            Cursor has deprecated .cursorrules in favor of .cursor/rules/*.mdc files. Project Rules are now split by file type and stored in a rules directory.
+          </p>
+          <Link
+            href="/migrate-to-mdc"
+            className="inline-flex items-center gap-1.5 text-sm font-medium text-blue-600 hover:text-blue-700 dark:text-blue-400 dark:hover:text-blue-300"
+          >
+            Learn How to Migrate →
+          </Link>
+        </div>
+      </section>
+
+      {/* Without Rules vs With Rules */}
+      <section className="py-16">
+        <h2 className="mb-8 text-center text-2xl font-bold text-zinc-900 dark:text-zinc-100">What Happens Without Repository Rules</h2>
+        <div className="grid gap-6 md:grid-cols-2">
+          <div className="rounded-xl border border-red-200 bg-red-50/50 p-6 dark:border-red-900 dark:bg-red-950/30">
+            <h3 className="mb-4 text-lg font-semibold text-red-800 dark:text-red-300">Without Rules</h3>
+            <ul className="space-y-2 text-sm text-red-700 dark:text-red-400">
+              <li>AI generates inconsistent code across sessions</li>
+              <li>No shared architecture conventions</li>
+              <li>Validation and error handling vary per prompt</li>
+              <li>File structure drifts over time</li>
+              <li>Each developer invents their own patterns</li>
+            </ul>
+          </div>
+          <div className="rounded-xl border border-green-200 bg-green-50/50 p-6 dark:border-green-900 dark:bg-green-950/30">
+            <h3 className="mb-4 text-lg font-semibold text-green-800 dark:text-green-300">With Rules</h3>
+            <ul className="space-y-2 text-sm text-green-700 dark:text-green-400">
+              <li>AI follows project-specific architecture standards</li>
+              <li>Shared conventions enforced across all sessions</li>
+              <li>Consistent validation and error handling patterns</li>
+              <li>Predictable file structure and naming</li>
+              <li>Team-wide coding standards, auto-enforced</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
       {/* How it works */}
-      <section className="py-24">
+      <section className="py-16">
         <h2 className="mb-5 text-center text-lg font-semibold text-zinc-900 dark:text-zinc-100">How it works</h2>
         <div className="overflow-hidden rounded-2xl border border-zinc-200 bg-white dark:border-zinc-800 dark:bg-zinc-900">
           <div className="grid gap-0 sm:grid-cols-3">
@@ -102,95 +144,17 @@ Validate with Zod`}</pre>
         </div>
       </section>
 
-      {/* Supported Stacks */}
-      <section className="py-24">
-        <h2 className="mb-4 text-center text-sm font-semibold uppercase tracking-wider text-zinc-400">Supported Stacks</h2>
-        <div className="flex flex-wrap items-center justify-center gap-3">
-          {[
-            { href: "/frameworks/react", icon: "⚛️", name: "React" },
-            { href: "/frameworks/nextjs", icon: "▲", name: "Next.js" },
-            { href: "/frameworks/vue", icon: "🟢", name: "Vue" },
-            { href: "/frameworks/python", icon: "🐍", name: "Python" },
-            { href: "/frameworks/go", icon: "🔷", name: "Go" },
-          ].map((s) => (
-            <Link
-              key={s.href}
-              href={s.href}
-              className="inline-flex items-center gap-1.5 rounded-md border border-zinc-200 bg-white px-3 py-1.5 text-xs text-zinc-500 transition-colors hover:border-zinc-300 hover:text-zinc-900 dark:border-zinc-700 dark:bg-zinc-900 dark:text-zinc-400 dark:hover:border-zinc-600 dark:hover:text-zinc-200"
-            >
-              <span>{s.icon}</span>
-              <span>{s.name}</span>
-            </Link>
-          ))}
-        </div>
-      </section>
-
-      {/* Why Our Generator Is Different */}
-      <section className="py-24">
-        <h2 className="mb-5 text-lg font-semibold text-zinc-900 dark:text-zinc-100">Why our generator is different</h2>
-        <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
-          {[
-            ["Repository-aware", "Analyzes your package.json dependencies and project architecture to generate relevant standards."],
-            ["Framework-specific", "Understands Next.js, React, Python, Go — generates standards that reference your actual libraries."],
-            ["AI-tool optimized", "Outputs .cursor/rules, AGENTS.md, copilot-instructions.md — formatted for your tool of choice."],
-            ["Maintainability-first", "Enforceable, opinionated standards — not vague advice. Written like a senior tech lead would."],
-          ].map(([title, desc]) => (
-            <div key={title as string} className="rounded-lg border border-zinc-200 bg-white p-5 dark:border-zinc-800 dark:bg-zinc-900">
-              <h3 className="text-sm font-semibold text-zinc-900 dark:text-zinc-100">{title}</h3>
-              <p className="mt-1 text-xs leading-relaxed text-zinc-500 dark:text-zinc-400">{desc}</p>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      {/* Problems We Prevent */}
-      <section className="py-24">
-        <h2 className="mb-5 text-lg font-semibold text-zinc-900 dark:text-zinc-100">Problems generator-written standards prevent</h2>
-        <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
-          {[
-            ["Fetching in wrong component", "Data fetching in client components causes waterfall requests and broken SSR — standards enforce server-first data flow."],
-            ["Missing validation", "External input hitting your database unvalidated — standards mandate Zod schemas at every API boundary."],
-            ["Inconsistent architecture", "Each AI session invents its own file structure — standards lock in a single architectural pattern."],
-            ["Transaction bugs", "Prisma writes without transactions cause partial saves and race conditions — standards require atomicity."],
-          ].map(([title, desc]) => (
-            <div key={title as string} className="rounded-lg border border-zinc-200 bg-white p-5 dark:border-zinc-800 dark:bg-zinc-900">
-              <h3 className="text-sm font-semibold text-zinc-900 dark:text-zinc-100">{title}</h3>
-              <p className="mt-1 text-xs leading-relaxed text-zinc-500 dark:text-zinc-400">{desc}</p>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      {/* Top Compare */}
-      <section className="py-24">
-        <h2 className="mb-4 text-lg font-semibold text-zinc-900 dark:text-zinc-100">Compare AI coding tools</h2>
-        <div className="grid gap-3 sm:grid-cols-3">
-          <Link href="/compare/cursor-vs-windsurf" className="rounded-xl border border-zinc-200 bg-white p-4 transition-all hover:border-blue-200 hover:shadow-sm dark:border-zinc-800 dark:bg-zinc-900 dark:hover:border-blue-800">
-            <span className="text-xs text-zinc-400">Cursor vs Windsurf</span>
-            <p className="mt-1 text-xs leading-relaxed text-zinc-500 dark:text-zinc-400">Compare repo awareness, context memory, and multi-file editing.</p>
-          </Link>
-          <Link href="/compare/cursor-vs-copilot" className="rounded-xl border border-zinc-200 bg-white p-4 transition-all hover:border-blue-200 hover:shadow-sm dark:border-zinc-800 dark:bg-zinc-900 dark:hover:border-blue-800">
-            <span className="text-xs text-zinc-400">Cursor vs Copilot</span>
-            <p className="mt-1 text-xs leading-relaxed text-zinc-500 dark:text-zinc-400">Repo understanding, context limits, and agent workflows compared.</p>
-          </Link>
-          <Link href="/compare/cursor-vs-claude-code" className="rounded-xl border border-zinc-200 bg-white p-4 transition-all hover:border-blue-200 hover:shadow-sm dark:border-zinc-800 dark:bg-zinc-900 dark:hover:border-blue-800">
-            <span className="text-xs text-zinc-400">Cursor vs Claude Code</span>
-            <p className="mt-1 text-xs leading-relaxed text-zinc-500 dark:text-zinc-400">IDE vs CLI. Compare automation, autonomy, and CI/CD integration.</p>
-          </Link>
-        </div>
-      </section>
-
       {/* Bottom CTA */}
       <section className="text-center">
-        <Link
-          href="/generator"
+        <a
+          href="https://reporules.dev"
           className="inline-flex items-center gap-2 rounded-lg bg-blue-600 px-6 py-3 text-base font-medium text-white shadow-sm transition-colors hover:bg-blue-700"
         >
           <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
             <path strokeLinecap="round" strokeLinejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z" />
           </svg>
-          Open Generator
-        </Link>
+          Generate Repository Rules
+        </a>
       </section>
 
       <BackToTop />

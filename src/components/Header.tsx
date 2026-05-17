@@ -23,12 +23,6 @@ export default function Header() {
           <Link href="/generator" className="font-medium text-blue-600 hover:text-blue-700 dark:text-blue-400">
             Generator
           </Link>
-          <Link href="/compare" className="hover:text-zinc-900 dark:hover:text-zinc-300">
-            Compare
-          </Link>
-          <Link href="/frameworks" className="hover:text-zinc-900 dark:hover:text-zinc-300">
-            Frameworks
-          </Link>
           <a
             href="https://github.com/ningfd-ux/cursor-rules-cn"
             target="_blank"
@@ -37,12 +31,12 @@ export default function Header() {
           >
             GitHub
           </a>
-          <Link
-            href="/generator"
+          <a
+            href="https://reporules.dev"
             className="rounded-md bg-blue-600 px-3 py-1.5 text-sm font-medium text-white transition-colors hover:bg-blue-700"
           >
-            Generate
-          </Link>
+            RepoRules.dev
+          </a>
         </nav>
       </div>
     </header>
