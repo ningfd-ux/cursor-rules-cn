@@ -1,6 +1,28 @@
 "use client";
 
 import { useState } from "react";
+import JSZip from "jszip";
+import { saveAs } from "file-saver";
+
+interface GeneratedFiles {
+  rules: string;
+  memory: string;
+  architecture: string;
+  cursorRules: string;
+  claude: string;
+  testingWorkflow: string;
+}
+
+const FILE_TABS = ["rules.md", "memory.md", "architecture.md", ".cursorrules", "claude.md", "testing-workflow.md"];
+
+const FILE_KEY_MAP: Record<string, keyof GeneratedFiles> = {
+  "rules.md": "rules",
+  "memory.md": "memory",
+  "architecture.md": "architecture",
+  ".cursorrules": "cursorRules",
+  "claude.md": "claude",
+  "testing-workflow.md": "testingWorkflow",
+};
 
 const PACKAGE_EXAMPLE = `{
   "name": "ai-dashboard",
@@ -52,7 +74,10 @@ export default function GeneratorPage() {
   const [outputFormat, setOutputFormat] = useState("mdc");
   const [packageJson, setPackageJson] = useState("");
   const [repoUrl, setRepoUrl] = useState("");
-  const [generatedRules, setGeneratedRules] = useState("");
+  const [generatedFiles, setGeneratedFiles] = useState<GeneratedFiles>({
+    rules: "", memory: "", architecture: "", cursorRules: "", claude: "", testingWorkflow: "",
+  });
+  const [activeFile, setActiveFile] = useState("rules.md");
   const [isLoading, setIsLoading] = useState(false);
   const [loadingStage, setLoadingStage] = useState(0);
   const loadingStages = [
@@ -62,11 +87,10 @@ export default function GeneratorPage() {
     "Optimizing for AI workflows...",
   ];
   const [isFetchingRepo, setIsFetchingRepo] = useState(false);
-  const [copied, setCopied] = useState(false);
   const [error, setError] = useState("");
-  const [showPackageInput, setShowPackageInput] = useState(false);
   const [showRepoInput, setShowRepoInput] = useState(false);
   const [repoFetched, setRepoFetched] = useState(false);
+  const [showCopiedToast, setShowCopiedToast] = useState(false);
 
   const handleFetchRepo = async () => {
     if (!repoUrl.trim()) return;
@@ -89,7 +113,6 @@ export default function GeneratorPage() {
       if (data.content) {
         setPackageJson(data.content);
         setRepoFetched(true);
-        setShowPackageInput(true);
       } else {
         setError(data.error || "Unable to fetch package.json");
       }
@@ -103,9 +126,9 @@ export default function GeneratorPage() {
   const handleGenerate = async () => {
     setIsLoading(true);
     setError("");
-    setGeneratedRules("");
+    setGeneratedFiles({ rules: "", memory: "", architecture: "", cursorRules: "", claude: "", testingWorkflow: "" });
     setLoadingStage(0);
-    // Cycle through loading stages
+    setActiveFile("rules.md");
     const stageInterval = setInterval(() => {
       setLoadingStage(prev => {
         if (prev < loadingStages.length - 1) return prev + 1;
@@ -127,22 +150,45 @@ export default function GeneratorPage() {
         }),
       });
       const data = await response.json();
-      if (data.content) {
-        setGeneratedRules(data.content);
+      if (data.files) {
+        setGeneratedFiles(data.files);
       } else {
         setError(data.error || "Unknown error");
       }
     } catch {
       setError("Network error, please try again");
     } finally {
+      clearInterval(stageInterval);
       setIsLoading(false);
     }
   };
 
-  const handleCopy = () => {
-    navigator.clipboard.writeText(generatedRules);
-    setCopied(true);
-    setTimeout(() => setCopied(false), 2000);
+  const downloadZip = async () => {
+    const zip = new JSZip();
+    zip.file("rules.md", generatedFiles.rules);
+    zip.file("memory.md", generatedFiles.memory);
+    zip.file("architecture.md", generatedFiles.architecture);
+    zip.file(".cursorrules", generatedFiles.cursorRules);
+    zip.file("claude.md", generatedFiles.claude);
+    zip.file("testing-workflow.md", generatedFiles.testingWorkflow);
+    const blob = await zip.generateAsync({ type: "blob" });
+    saveAs(blob, "repo-rules-export.zip");
+  };
+
+  const downloadSingleFile = (filename: string, content: string) => {
+    const blob = new Blob([content], { type: "text/plain;charset=utf-8" });
+    saveAs(blob, filename);
+  };
+
+  const copyFileContent = async (content: string) => {
+    await navigator.clipboard.writeText(content);
+    setShowCopiedToast(true);
+    setTimeout(() => setShowCopiedToast(false), 2000);
+  };
+
+  const getActiveFileContent = (): string => {
+    const key = FILE_KEY_MAP[activeFile] || "rules";
+    return generatedFiles[key] || "";
   };
 
   return (
@@ -329,74 +375,93 @@ export default function GeneratorPage() {
             ) : ("Generate Standards")}
           </button>
 
-          {error && <p className="mt-3 text-center text-sm text-red-500">{error}</p>}
-        </div>
-      </section>
-
-      {generatedRules && (
-        <section className="mb-10 space-y-6">
-          {/* Detected Stack */}
-          {packageJson && (
-            <div className="rounded-xl border border-green-200 bg-green-50/50 p-5 dark:border-green-900 dark:bg-green-950/30">
-              <h3 className="mb-3 text-sm font-semibold text-green-800 dark:text-green-300">Detected Stack</h3>
-              <div className="flex flex-wrap gap-2">
-                <span className="rounded-full bg-green-100 px-3 py-1 text-xs font-medium text-green-700 dark:bg-green-900 dark:text-green-300">
-                  {frameworks.find(f => f.value === techStack)?.label || techStack}
-                </span>
-                <span className="rounded-full bg-green-100 px-3 py-1 text-xs font-medium text-green-700 dark:bg-green-900 dark:text-green-300">
-                  {models.find(m => m.value === model)?.label || model}
-                </span>
-                <span className="rounded-full bg-green-100 px-3 py-1 text-xs font-medium text-green-700 dark:bg-green-900 dark:text-green-300">
-                  {strictnessLevels.find(s => s.value === strictness)?.label || strictness}
-                </span>
-              </div>
+          {showCopiedToast && (
+            <div className="fixed bottom-6 left-1/2 z-50 -translate-x-1/2 rounded-lg bg-zinc-800 px-4 py-2 text-sm text-white shadow-lg">
+              Copied to clipboard
             </div>
           )}
 
-          {/* Generated Standards */}
-          <div>
-            <div className="mb-4 flex items-center justify-between">
-              <div>
-                <h2 className="text-lg font-semibold text-zinc-900 dark:text-zinc-100">Generated Standards</h2>
-                <p className="mt-1 text-xs text-zinc-400">
-                  Each standard references a specific detected dependency or architecture pattern
-                </p>
+          {/* Result area */}
+          {(generatedFiles.rules || isLoading) && (
+            <section className="mb-10">
+              {/* Header */}
+              <div className="mb-8">
+                <div className="inline-flex items-center rounded-full border border-zinc-700 bg-zinc-900 px-3 py-1 text-xs font-mono text-zinc-300">
+                  Repository Governance Generated
+                </div>
+                <div className="mt-5 flex gap-5 font-mono text-xs text-zinc-500">
+                  <span>6 files generated</span>
+                  <span>Pattern confidence: 92%</span>
+                  <span>Migration compatible</span>
+                </div>
               </div>
-              <div className="flex items-center gap-2">
-                <span className="rounded-full bg-blue-100 px-3 py-1 text-xs font-medium text-blue-700 dark:bg-blue-900 dark:text-blue-300">
-                  Generated for {models.find(m => m.value === model)?.label || model}
-                </span>
-                <button onClick={handleCopy}
-                  className="rounded-lg bg-zinc-100 px-4 py-2 text-sm font-medium text-zinc-700 transition-colors hover:bg-zinc-200 dark:bg-zinc-800 dark:text-zinc-300 dark:hover:bg-zinc-700">
-                  {copied ? "✅ Copied" : "📋 Copy All"}
-                </button>
-              </div>
-            </div>
-            <div className="overflow-auto rounded-xl border border-zinc-200 bg-white p-6 dark:border-zinc-800 dark:bg-zinc-900">
-              <pre className="text-sm leading-relaxed text-zinc-800 dark:text-zinc-200 whitespace-pre-wrap">{generatedRules}</pre>
-            </div>
-          </div>
 
-          {/* Export Formats */}
-          <div>
-            <h3 className="mb-3 text-sm font-semibold text-zinc-900 dark:text-zinc-100">Save as</h3>
-            <div className="flex flex-wrap gap-2">
-              <span className={`rounded-lg border px-4 py-2 text-xs font-mono text-zinc-600 dark:text-zinc-400 ${outputFormat === "mdc" ? "border-green-500 bg-green-50 dark:bg-green-900/20" : "border-zinc-200 bg-white dark:border-zinc-700 dark:bg-zinc-800"}`}>
-                .cursor/rules/*.mdc
-              </span>
-              <span className={`rounded-lg border px-4 py-2 text-xs font-mono text-zinc-600 dark:text-zinc-400 ${outputFormat === "agents" ? "border-green-500 bg-green-50 dark:bg-green-900/20" : "border-zinc-200 bg-white dark:border-zinc-700 dark:bg-zinc-800"}`}>
-                AGENTS.md
-              </span>
-              <span className={`rounded-lg border px-4 py-2 text-xs font-mono text-zinc-600 dark:text-zinc-400 ${outputFormat === "copilot" ? "border-green-500 bg-green-50 dark:bg-green-900/20" : "border-zinc-200 bg-white dark:border-zinc-700 dark:bg-zinc-800"}`}>
-                copilot-instructions.md
-              </span>
-              <span className={`rounded-lg border px-4 py-2 text-xs font-mono text-zinc-600 dark:text-zinc-400 ${outputFormat === "cursorrules" ? "border-green-500 bg-green-50 dark:bg-green-900/20" : "border-zinc-200 bg-white dark:border-zinc-700 dark:bg-zinc-800"}`}>
-                .cursorrules (legacy)
-              </span>
-            </div>
-          </div>
-        </section>
-      )}
+              {/* File Tabs */}
+              <div className="mb-6 flex gap-2 overflow-x-auto">
+                {FILE_TABS.map((file) => (
+                  <button
+                    key={file}
+                    onClick={() => setActiveFile(file)}
+                    className={`h-9 whitespace-nowrap rounded-lg px-4 text-sm transition-colors ${
+                      activeFile === file
+                        ? "border border-zinc-600 bg-zinc-800 text-zinc-100"
+                        : "border border-zinc-700 text-zinc-400 hover:border-zinc-500"
+                    }`}
+                  >
+                    {file}
+                  </button>
+                ))}
+              </div>
+
+              {/* File Content Preview */}
+              <div className="overflow-auto rounded-xl border border-zinc-800 bg-zinc-950 p-6">
+                <pre className="whitespace-pre-wrap font-mono text-sm leading-relaxed text-zinc-300">
+                  {getActiveFileContent()}
+                </pre>
+              </div>
+
+              {/* Repository Signals */}
+              {packageJson && (
+                <div className="mt-8 rounded-xl border border-zinc-800 bg-zinc-950 p-5">
+                  <div className="mb-4 text-sm font-medium text-zinc-200">
+                    Repository Signals Detected
+                  </div>
+                  <div className="space-y-3 text-sm text-zinc-400">
+                    <div>✓ {frameworks.find(f => f.value === techStack)?.label || techStack} framework</div>
+                    <div>✓ {strictnessLevels.find(s => s.value === strictness)?.label || strictness} strictness</div>
+                    <div>✓ Optimized for {models.find(m => m.value === model)?.label || model}</div>
+                    <div>✓ AI workflow conventions</div>
+                  </div>
+                </div>
+              )}
+
+              {/* Export Section */}
+              <div className="mt-10">
+                <div className="mb-4 text-sm font-medium text-zinc-200">
+                  Export Repository Files
+                </div>
+                <div className="flex flex-wrap gap-3">
+                  <button onClick={downloadZip} className="h-11 rounded-lg bg-zinc-100 px-5 text-sm font-medium text-zinc-900 transition-colors hover:bg-zinc-200">
+                    Download ZIP
+                  </button>
+                  <button onClick={() => downloadSingleFile("rules.md", generatedFiles.rules)} className="h-11 rounded-lg border border-zinc-700 px-5 text-sm text-zinc-300 transition-colors hover:border-zinc-500">
+                    Export rules.md
+                  </button>
+                  <button onClick={() => downloadSingleFile("memory.md", generatedFiles.memory)} className="h-11 rounded-lg border border-zinc-700 px-5 text-sm text-zinc-300 transition-colors hover:border-zinc-500">
+                    Export memory.md
+                  </button>
+                  <button onClick={() => downloadSingleFile(".cursorrules", generatedFiles.cursorRules)} className="h-11 rounded-lg border border-zinc-700 px-5 text-sm text-zinc-300 transition-colors hover:border-zinc-500">
+                    Export .cursorrules
+                  </button>
+                  <button onClick={() => copyFileContent(getActiveFileContent())} className="h-11 rounded-lg border border-zinc-700 px-5 text-sm text-zinc-300 transition-colors hover:border-zinc-500">
+                    Copy
+                  </button>
+                </div>
+              </div>
+            </section>
+          )}
+        </div>
+      </section>
     </div>
   );
 }

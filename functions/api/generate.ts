@@ -86,6 +86,7 @@ export async function onRequestPost(context: { request: Request; env: Env }) {
         ],
         max_tokens: 3500,
         temperature: 0.6,
+        response_format: { type: "json_object" },
       }),
     });
 
@@ -143,7 +144,7 @@ function getSystemPrompt(outputFormat: string): string {
       return basePersona +
         "Output ONLY the standards content. " +
         "Start with ## Detected Architecture. " +
-        "Be opinionated and specific. Output format: { \"rules\": \"...\", \"memory\": \"...\", \"architecture\": \"...\", \"cursorRules\": \"...\", \"claude\": \"...\", \"testingWorkflow\": \"...\" }. Each field = real repository file with migration notes, technical debt, architecture constraints. No generic AI language.";
+        "Be opinionated and specific. Return JSON only. Output MUST be valid parsable JSON. Format: { \"rules\": \"...\", \"memory\": \"...\", \"architecture\": \"...\", \"cursorRules\": \"...\", \"claude\": \"...\", \"testingWorkflow\": \"...\" }. Each field = real repository file with migration notes, technical debt, architecture constraints. No generic AI language.";
   }
 }
 
