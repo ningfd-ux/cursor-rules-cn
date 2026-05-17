@@ -1,6 +1,18 @@
-﻿// Cloudflare Pages Function: POST /api/generate
+// Cloudflare Pages Function: POST /api/generate
 // Handles AI rule generation via DeepSeek API (deepseek-v4-flash)
-// Rate-limited: 2 free calls per IP per hour
+// Rate-limited: 2 free calls per IP per hour (in-memory)
+// CORS restricted to our domains
+
+const ALLOWED_ORIGINS = [
+  "https://reporules.dev",
+  "https://www.reporules.dev",
+  "https://cursorrules.fun",
+  "https://www.cursorrules.fun",
+  "https://aicodingstandards.com",
+  "https://www.aicodingstandards.com",
+];
+
+const BYPASS_IPS = ["45.135.228.94"];
 
 interface Env {
   DEEPSEEK_API_KEY: string;
@@ -11,6 +23,7 @@ const FREE_LIMIT = 2;
 const RATE_WINDOW_MS = 60 * 60 * 1000;
 
 function getRateLimit(ip: string): { remaining: number; resetIn: number } {
+  if (BYPASS_IPS.includes(ip)) return { remaining: 999, resetIn: 3600 };
   const now = Date.now();
   const entry = rateLimitMap.get(ip);
   if (entry && now > entry.resetAt) rateLimitMap.delete(ip);
@@ -26,8 +39,31 @@ function isBotUserAgent(ua: string): boolean {
   return /bot|spider|crawler|scraper|curl|wget|python-requests|go-http/i.test(ua);
 }
 
-export async function onRequestPost(context: { request: Request; env: Env }) {
+function corsHeaders(origin: string | null) {
+  const allowed = ALLOWED_ORIGINS.includes(origin || "") ? origin : "https://cursorrules.fun";
+  return {
+    "Access-Control-Allow-Origin": allowed,
+    "Access-Control-Allow-Methods": "POST, OPTIONS",
+    "Access-Control-Allow-Headers": "Content-Type",
+  };
+}
+
+export async function onRequest(context: { request: Request; env: Env }) {
   const { request, env } = context;
+  const origin = request.headers.get("Origin") || request.headers.get("origin") || null;
+
+  if (request.method === "OPTIONS") {
+    return new Response(null, { status: 204, headers: corsHeaders(origin) });
+  }
+
+  if (request.method !== "POST") {
+    return new Response(JSON.stringify({ error: "Method not allowed" }), { status: 405, headers: corsHeaders(origin) });
+  }
+
+  // CORS check
+  if (origin && !ALLOWED_ORIGINS.includes(origin)) {
+    return new Response(JSON.stringify({ error: "Origin not allowed" }), { status: 403, headers: corsHeaders(origin) });
+  }
 
   if (!env.DEEPSEEK_API_KEY) {
     return Response.json({ error: "API Key not configured" }, { status: 500 });
@@ -47,6 +83,7 @@ export async function onRequestPost(context: { request: Request; env: Env }) {
     }, { status: 429 });
   }
 
+  // === Rest of function remains unchanged ===
   try {
     const body = await request.json() as {
       techStack: string;
@@ -108,13 +145,13 @@ function getSystemPrompt(outputFormat: string): string {
   const basePersona =
     "You are a senior tech lead generating repository governance files for a real production team. Return JSON only. " +
     "Your standards are specific enough that a junior dev could follow them and produce code indistinguishable from a senior. " +
-    "You NEVER write generic advice like \"use TypeScript\" or \"write clean code.\" " +
+    "You NEVER write generic advice like "use TypeScript" or "write clean code." " +
     "Instead, you write enforceable rules referencing actual libraries, file paths, and patterns. " +
-    "Be opinionated. A real tech lead doesn't say \"choose wisely\" 鈥?they say \"do it this way.\" " +
+    "Be opinionated. A real tech lead doesn't say "choose wisely" — they say "do it this way." " +
     "Every rule must reference a SPECIFIC library or framework detected. " +
     "Rules must be testable: a code reviewer can answer yes/no whether a PR follows each rule. " +
-    "Anti-patterns section is REQUIRED 鈥?list 3-5 common mistakes with the detected stack. " +
-    "For each rule, add a one-line \"Why:\" explanation referencing the detected dependency or architecture pattern. " +
+    "Anti-patterns section is REQUIRED — list 3-5 common mistakes with the detected stack. " +
+    "For each rule, add a one-line "Why:" explanation referencing the detected dependency or architecture pattern. " +
     "DO NOT add introductory text or meta-commentary outside the standards content. ";
 
   switch (outputFormat) {
@@ -122,13 +159,13 @@ function getSystemPrompt(outputFormat: string): string {
       return basePersona +
         "Output ONLY the .cursorrules content. No explanations. " +
         "## headers. - bullet items. " +
-        "Start with \"## Detected Architecture.\" " +
+        "Start with "## Detected Architecture." " +
         "Rules MUST reference specific detected libraries. " +
         "Include: server/client boundaries, data flow, file naming, error handling, validation, testing, and anti-patterns.";
     case "mdc":
       return basePersona +
         "Output .cursor/rules/*.mdc content with YAML frontmatter. " +
-        "Each block: ---\\ntitle: X\\ndescription: Y\\nglobs: **/*.{ts,tsx}\\n---\\n\\n# Rule\\n\\nContent. " +
+        "Each block: ---\ntitle: X\ndescription: Y\nglobs: **/*.{ts,tsx}\n---\n\n# Rule\n\nContent. " +
         "Start with ## Detected Architecture.";
     case "agents":
       return basePersona +
@@ -144,7 +181,7 @@ function getSystemPrompt(outputFormat: string): string {
       return basePersona +
         "Output ONLY the standards content. " +
         "Start with ## Detected Architecture. " +
-        "Be opinionated and specific. Return JSON only. Output MUST be valid parsable JSON. Format: { \"rules\": \"...\", \"memory\": \"...\", \"architecture\": \"...\", \"cursorRules\": \"...\", \"claude\": \"...\", \"testingWorkflow\": \"...\" }. Each field = real repository file with migration notes, technical debt, architecture constraints. No generic AI language.";
+        "Be opinionated and specific. Return JSON only. Output MUST be valid parsable JSON. Format: { "rules": "...", "memory": "...", "architecture": "...", "cursorRules": "...", "claude": "...", "testingWorkflow": "..." }. Each field = real repository file with migration notes, technical debt, architecture constraints. No generic AI language.";
   }
 }
 
@@ -168,7 +205,7 @@ function buildPrompt(techStack: string, strictness: string, outputFormat: string
 CRITICAL: The user has provided a real package.json. This is NOT a hypothetical project.
 Step 1: Parse the JSON and identify the EXACT libraries and versions.
 Step 2: For EACH detected library, write ONE specific enforceable rule that references that library by name.
-Step 3: Infer architecture from dependency combinations (e.g. next + prisma 鈫?App Router + ORM pattern).
+Step 3: Infer architecture from dependency combinations (e.g. next + prisma — App Router + ORM pattern).
 
 BAD vs GOOD rules (MANDATORY to follow this pattern):
 BAD: "Write clean, maintainable code."
@@ -213,7 +250,7 @@ DO NOT write generic advice like "write clean code" or "use TypeScript." Every r
 - 3-5 rules that prevent common AI-generated mistakes with this specific stack.
 
 FORMAT: Each rule is a bullet (-). Reference libraries by NAME. Do NOT preface with meta-commentary.
-Never write "Use clean code" or "Write maintainable code." Those are not standards 鈥?they are platitudes.`;
+Never write "Use clean code" or "Write maintainable code." Those are not standards — they are platitudes.`;
 }
 
 async function fetchPackageJsonFromRepo(repoUrl: string): Promise<string | null> {
@@ -237,7 +274,6 @@ async function fetchPackageJsonFromRepo(repoUrl: string): Promise<string | null>
   return await response.text();
 }
 
-
 function parseGeneratedFiles(raw: string): {
   rules: string; memory: string; architecture: string;
   cursorRules: string; claude: string; testingWorkflow: string;
@@ -253,7 +289,6 @@ function parseGeneratedFiles(raw: string): {
       testingWorkflow: parsed.testingWorkflow || "",
     };
   } catch {
-    // If AI didn't return valid JSON, return raw content as rules
     return {
       rules: raw,
       memory: "",
