@@ -4,10 +4,13 @@ import SearchWrapper from "@/components/SearchWrapper";
 
 export default function Header() {
   return (
-    <header className="sticky top-0 z-50 border-b border-zinc-200/80 bg-white/80 backdrop-blur-md dark:border-zinc-800/80 dark:bg-zinc-950/80">
-      <div className="mx-auto flex h-[72px] max-w-6xl items-center justify-between gap-4 px-6">
+    <header className="sticky top-0 z-50 border-b border-zinc-200/80 bg-white/80 backdrop-blur-md dark:border-zinc-800/80 dark:bg-[#0d0f14]/80">
+      <div className="mx-auto flex h-16 max-w-6xl items-center justify-between gap-4 px-6">
         <Link href="/" className="flex shrink-0 items-center gap-2">
-          <span className="text-xl">⚡</span>
+          <svg className="h-6 w-6" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="3" y="3" width="18" height="18" rx="3" stroke="currentColor" strokeWidth="1.5" />
+            <rect x="7" y="7" width="10" height="10" rx="1.5" stroke="currentColor" strokeWidth="1.2" opacity="0.5" />
+          </svg>
           <span className="hidden text-lg font-bold text-zinc-900 dark:text-zinc-100 sm:inline">
             RepoRules
           </span>
@@ -20,10 +23,10 @@ export default function Header() {
           <Link href="/generator" className="font-medium text-blue-600 hover:text-blue-700 dark:text-blue-400">
             Generator
           </Link>
-          <Link href="/compare" className="hidden hover:text-zinc-900 dark:hover:text-zinc-300 sm:inline-block">
+          <Link href="/compare" className="hover:text-zinc-900 dark:hover:text-zinc-300">
             Compare
           </Link>
-          <Link href="/frameworks" className="hidden hover:text-zinc-900 dark:hover:text-zinc-300 sm:inline-block">
+          <Link href="/frameworks" className="hover:text-zinc-900 dark:hover:text-zinc-300">
             Frameworks
           </Link>
           <a

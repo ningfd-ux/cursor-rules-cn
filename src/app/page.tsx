@@ -6,17 +6,16 @@ export default function Home() {
   return (
     <div className="mx-auto max-w-5xl px-4 py-12">
       {/* Hero — 100vh, left copy / right code preview */}
-      <section className="mb-12 flex min-h-[90vh] flex-col items-center justify-center lg:flex-row lg:gap-16">
+      <section className="mb-12 flex min-h-[80vh] flex-col items-center justify-center lg:flex-row lg:gap-16 pt-20 lg:pt-16">
         <div className="max-w-xl text-center lg:text-left">
-          <span className="mb-4 inline-block rounded-full bg-green-100 px-3 py-1 text-xs font-medium text-green-600 dark:bg-green-900 dark:text-green-300">
+          <span className="mb-4 inline-block rounded-full border border-zinc-200 bg-white px-3 py-1 text-xs font-medium text-zinc-500 dark:border-zinc-700 dark:bg-transparent dark:text-zinc-400">
             Repository-aware · Not template-based · Engineering-first
           </span>
           <h1 className="mb-4 text-4xl font-bold tracking-tight text-zinc-900 dark:text-zinc-100 sm:text-5xl lg:text-6xl">
-            Make AI-generated code <span className="text-blue-600">maintainable</span>
+            Generate repository governance <span className="text-blue-600">files</span>
           </h1>
           <p className="mb-8 text-lg leading-relaxed text-zinc-500 dark:text-zinc-400">
-            Generate repository-aware AI coding standards for Cursor, Claude Code, Copilot and AI agents.
-            Not generic advice — every standard is based on your actual dependencies.
+            Generate repository governance files from your package.json. Rules, standards, architecture, memory, and CI workflow — all from one input.
           </p>
           <div className="flex flex-wrap items-center gap-3 lg:justify-start justify-center">
             <Link
@@ -26,13 +25,13 @@ export default function Home() {
               <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                 <path strokeLinecap="round" strokeLinejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z" />
               </svg>
-              Generate Standards
+              Open Generator
             </Link>
             <Link
               href="/examples"
               className="inline-flex items-center gap-2 rounded-lg border border-zinc-200 bg-white px-5 py-3 text-sm font-medium text-zinc-700 shadow-sm transition-colors hover:bg-zinc-50 dark:border-zinc-700 dark:bg-zinc-800 dark:text-zinc-300 dark:hover:bg-zinc-700"
             >
-              View Example Output
+              View Example Repository
             </Link>
           </div>
         </div>
@@ -190,7 +189,7 @@ Validate with Zod`}</pre>
           <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
             <path strokeLinecap="round" strokeLinejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z" />
           </svg>
-          Generate standards from your repo
+          Open Generator
         </Link>
       </section>
 
