@@ -1,4 +1,4 @@
-// Cloudflare Pages Function: POST /api/generate
+﻿// Cloudflare Pages Function: POST /api/generate
 // Handles AI rule generation via DeepSeek API (deepseek-v4-flash)
 // Rate-limited: 2 free calls per IP per hour
 
@@ -84,8 +84,8 @@ export async function onRequestPost(context: { request: Request; env: Env }) {
           { role: "system", content: getSystemPrompt(body.outputFormat || "cursorrules") },
           { role: "user", content: prompt },
         ],
-        max_tokens: 2000,
-        temperature: 0.3,
+        max_tokens: 3500,
+        temperature: 0.6,
       }),
     });
 
@@ -96,7 +96,7 @@ export async function onRequestPost(context: { request: Request; env: Env }) {
 
     const data = await response.json() as { choices: Array<{ message: { content: string } }> };
     const ruleContent = data.choices[0]?.message?.content || "";
-    return Response.json({ content: ruleContent, remaining: rateLimit.remaining - 1 });
+    return Response.json({ files: parseGeneratedFiles(ruleContent), remaining: rateLimit.remaining - 1 });
   } catch (e) {
     return Response.json({ error: String(e) }, { status: 500 });
   }
@@ -105,14 +105,14 @@ export async function onRequestPost(context: { request: Request; env: Env }) {
 // === Step 2: Senior Tech Lead persona ===
 function getSystemPrompt(outputFormat: string): string {
   const basePersona =
-    "You are a senior tech lead writing a coding standards file for a real production team. " +
+    "You are a senior tech lead generating repository governance files for a real production team. Return JSON only. " +
     "Your standards are specific enough that a junior dev could follow them and produce code indistinguishable from a senior. " +
     "You NEVER write generic advice like \"use TypeScript\" or \"write clean code.\" " +
     "Instead, you write enforceable rules referencing actual libraries, file paths, and patterns. " +
-    "Be opinionated. A real tech lead doesn't say \"choose wisely\" — they say \"do it this way.\" " +
+    "Be opinionated. A real tech lead doesn't say \"choose wisely\" 鈥?they say \"do it this way.\" " +
     "Every rule must reference a SPECIFIC library or framework detected. " +
     "Rules must be testable: a code reviewer can answer yes/no whether a PR follows each rule. " +
-    "Anti-patterns section is REQUIRED — list 3-5 common mistakes with the detected stack. " +
+    "Anti-patterns section is REQUIRED 鈥?list 3-5 common mistakes with the detected stack. " +
     "For each rule, add a one-line \"Why:\" explanation referencing the detected dependency or architecture pattern. " +
     "DO NOT add introductory text or meta-commentary outside the standards content. ";
 
@@ -143,7 +143,7 @@ function getSystemPrompt(outputFormat: string): string {
       return basePersona +
         "Output ONLY the standards content. " +
         "Start with ## Detected Architecture. " +
-        "Be opinionated and specific.";
+        "Be opinionated and specific. Output format: { \"rules\": \"...\", \"memory\": \"...\", \"architecture\": \"...\", \"cursorRules\": \"...\", \"claude\": \"...\", \"testingWorkflow\": \"...\" }. Each field = real repository file with migration notes, technical debt, architecture constraints. No generic AI language.";
   }
 }
 
@@ -167,7 +167,7 @@ function buildPrompt(techStack: string, strictness: string, outputFormat: string
 CRITICAL: The user has provided a real package.json. This is NOT a hypothetical project.
 Step 1: Parse the JSON and identify the EXACT libraries and versions.
 Step 2: For EACH detected library, write ONE specific enforceable rule that references that library by name.
-Step 3: Infer architecture from dependency combinations (e.g. next + prisma → App Router + ORM pattern).
+Step 3: Infer architecture from dependency combinations (e.g. next + prisma 鈫?App Router + ORM pattern).
 
 BAD vs GOOD rules (MANDATORY to follow this pattern):
 BAD: "Write clean, maintainable code."
@@ -212,7 +212,7 @@ DO NOT write generic advice like "write clean code" or "use TypeScript." Every r
 - 3-5 rules that prevent common AI-generated mistakes with this specific stack.
 
 FORMAT: Each rule is a bullet (-). Reference libraries by NAME. Do NOT preface with meta-commentary.
-Never write "Use clean code" or "Write maintainable code." Those are not standards — they are platitudes.`;
+Never write "Use clean code" or "Write maintainable code." Those are not standards 鈥?they are platitudes.`;
 }
 
 async function fetchPackageJsonFromRepo(repoUrl: string): Promise<string | null> {
@@ -234,6 +234,34 @@ async function fetchPackageJsonFromRepo(repoUrl: string): Promise<string | null>
     return null;
   }
   return await response.text();
+}
+
+
+function parseGeneratedFiles(raw: string): {
+  rules: string; memory: string; architecture: string;
+  cursorRules: string; claude: string; testingWorkflow: string;
+} {
+  try {
+    const parsed = JSON.parse(raw);
+    return {
+      rules: parsed.rules || "",
+      memory: parsed.memory || "",
+      architecture: parsed.architecture || "",
+      cursorRules: parsed.cursorRules || "",
+      claude: parsed.claude || "",
+      testingWorkflow: parsed.testingWorkflow || "",
+    };
+  } catch {
+    // If AI didn't return valid JSON, return raw content as rules
+    return {
+      rules: raw,
+      memory: "",
+      architecture: "",
+      cursorRules: "",
+      claude: "",
+      testingWorkflow: "",
+    };
+  }
 }
 
 export {};
