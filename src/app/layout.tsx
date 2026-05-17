@@ -15,7 +15,7 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-const gaId = "G-9QVY2VBRN4";
+const gaId = "G-4ZJT8YPWT8";
 
 export const metadata: Metadata = {
   title: {
