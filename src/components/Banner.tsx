@@ -8,6 +8,11 @@ export default function Banner() {
           href="https://reporules.dev/generator"
           target="_blank"
           rel="noopener noreferrer"
+          onClick={() => {
+            if (typeof window !== 'undefined' && (window as any).gtag) {
+              (window as any).gtag('event', 'banner_click', { source: 'cursorrules' });
+            }
+          }}
           className="text-center text-sm font-medium text-zinc-600 transition-colors hover:text-zinc-900 dark:text-[#d2d7e0] dark:hover:text-white"
         >
           Generate modern Cursor Project Rules (.mdc) automatically on RepoRules.dev &rarr;
